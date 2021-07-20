@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <iso646.h>
 #include <ctype.h>
-//OK
+
 #define TAMANHO 50
 
 typedef unsigned char byte;
@@ -135,10 +135,10 @@ void find ( void ) {
 	char response  = '\0';
 	do {
 		printf(
-            "\nSelecione o tipo de busca:\
-            \n1 - Por título | 2 - Por Autor | 3 - Por Editora\
-            \nOpção? "
-        );
+		    "\nSelecione o tipo de busca:\
+		    \n1 - Por título | 2 - Por Autor | 3 - Por Editora\
+		    \nOpção? "
+		);
 		scanf( "%hhd", &opcao );
 		system( "clear" );
 		getchar();
@@ -166,20 +166,20 @@ void del ( void ) {
 	bool was_found = false;
 
 	printf(
-        "Informe o título do livro "
-        "(se mais de um livro possuir o mesmo título, "
-        "o primeiro a ser inserido será excluído): "
+		"Informe o título do livro "
+		"(se mais de um livro possuir o mesmo título, "
+		"o primeiro a ser inserido será excluído): "
 	);
 	gets ( title );
 
 	for ( byte i = 0, size = 10; i < size; i++ ){
 		if ( strcmp ( title, biblioteca[i].titulo ) == 0 ){
 			strcpy ( biblioteca[i].titulo, "" );
-	        strcpy ( biblioteca[i].autor, "" );
-	        strcpy ( biblioteca[i].editora, "" );
-	        strcpy ( biblioteca[i].assunto, "" );
-	        biblioteca[i].ano = 0;
-	        was_found = true;
+			strcpy ( biblioteca[i].autor, "" );
+			strcpy ( biblioteca[i].editora, "" );
+			strcpy ( biblioteca[i].assunto, "" );
+			biblioteca[i].ano = 0;
+			was_found = true;
 			break;
 		}
 	}
@@ -191,18 +191,18 @@ void create ( void ) {
 
 	for ( byte i = 0, size = 10; i < size; i++ ){
 		if ( biblioteca[i].ano == 0 ){
-            printf ("Nome do autor.......: ");
-            gets   (biblioteca[i].autor);
-            printf ("Título do livro.....: ");
-            gets   (biblioteca[i].titulo);
-            printf ("Assunto.............: ");
-            gets   (biblioteca[i].assunto);
-            printf ("Editora.............: ");
-            gets   (biblioteca[i].editora);
-            printf ("Ano de lançamento...: ");
-            scanf  ("%hd", &biblioteca[i].ano);
-            was_found = true;
-            break;
+		    printf ("Nome do autor.......: ");
+		    gets   (biblioteca[i].autor);
+		    printf ("Título do livro.....: ");
+		    gets   (biblioteca[i].titulo);
+		    printf ("Assunto.............: ");
+		    gets   (biblioteca[i].assunto);
+		    printf ("Editora.............: ");
+		    gets   (biblioteca[i].editora);
+		    printf ("Ano de lançamento...: ");
+		    scanf  ("%hd", &biblioteca[i].ano);
+		    was_found = true;
+		    break;
 		}
 	}
 	printf ("%s \n", ( not was_found ) ? "Lista cheia." : "Livro incluído.");
@@ -214,31 +214,31 @@ int main ( void ) {
 	init();
 	do {
 		printf(
-            "\nEscolha uma das opções:\
-            \n1 - Inserir livro | 2 - Excluir livro\
-            \n3 - Exibir acervo | 4 - Pesquisar\
-            \n0 - Sair\
-            \nOpção? "
-        );
+		    "\nEscolha uma das opções:\
+		    \n1 - Inserir livro | 2 - Excluir livro\
+		    \n3 - Exibir acervo | 4 - Pesquisar\
+		    \n0 - Sair\
+		    \nOpção? "
+		);
 		scanf( "%d", &option );
 		system("clear");
 		getchar();
 		switch ( option ){
 			case CREATE:
-                create();
-                break;
+				create();
+				break;
 			case FIND:
-                find();
-                break;
+				find();
+				break;
 			case READ:
-                read();
-                break;
+				read();
+				break;
 			case DELETE:
-                del();
-                break;
+				del();
+				break;
 			case EXIT:
-                puts ("Tchau...");
-                break;
+				puts ("Tchau...");
+				break;
 			default:
                 puts ("Opção inválida.");
 		}
