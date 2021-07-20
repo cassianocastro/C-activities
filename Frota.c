@@ -99,11 +99,11 @@ int main ( void ) {
 	inicializar();
 	do {
 		printf(
-            "\nEscolha uma das opções:"
-            "\n1 - Inserir carro  | 2 - Excluir carro"
-            "\n3 - Exibir modelos | 0 - Finalizar"
-            "\nOpção? "
-        );
+		    "\nEscolha uma das opções:"
+		    "\n1 - Inserir carro  | 2 - Excluir carro"
+		    "\n3 - Exibir modelos | 0 - Finalizar"
+		    "\nOpção? "
+		);
 		scanf ( "%d", &opcao );
 		system ( "clear" );
 		getchar();
