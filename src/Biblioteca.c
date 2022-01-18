@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/Biblioteca.c
 #include <stdio.h>
 #include <locale.h>
 #include <string.h>
