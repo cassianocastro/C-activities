@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include <locale.h>
 #include <iso646.h>
-//OK
-typedef struct No{
+
+typedef struct No
+{
     int idade;
     struct No* prox;
 } No;
 
-No* createElement(int idade){
+No* createElement(int idade)
+{
 
     No* novo = (No*) malloc( sizeof(No) );
     novo->idade = idade;
@@ -16,15 +18,19 @@ No* createElement(int idade){
     return novo;
 }
 
-No* setFirst(No* lista, No* novo){
+No* setFirst(No* lista, No* novo)
+{
     novo->prox = lista;
     return novo;
 }
 
-No* setLast(No* lista, No* novo){
+No* setLast(No* lista, No* novo)
+{
     if ( lista != NULL ) {
         No* aux = lista;
-        while (aux->prox != NULL){
+
+		while (aux->prox != NULL)
+		{
             aux = aux->prox;
         }
         aux->prox = novo;
@@ -33,8 +39,8 @@ No* setLast(No* lista, No* novo){
     return novo;
 }
 
-No* delElement(No* lista, int posicao){
-
+No* delElement(No* lista, int posicao)
+{
     No* aux    = lista;
     No* remove = NULL;
     int cont   = 1;
@@ -42,24 +48,25 @@ No* delElement(No* lista, int posicao){
     if (lista == NULL)
         return NULL;
 
-    while ( aux->prox != NULL and cont < (posicao - 1) ){
+    while ( aux->prox != NULL and cont < (posicao - 1) )
+	{
         aux = aux->prox;
         cont++;
     }
 
-    // se eh a segunda posicao entao so deve atualizar o cont
-    if (posicao == 2)
-        cont++;
-    // Testa se a remoção é o primeiro da lista.
-    // Neste caso, existem duas possibilidades: (a) ter mais de um na lista.
-    // Quando for mais de um, atualizar a lista para o novo primeiro ou
-    //(b) ser o unico na lista
-
-    if ( cont == 1 ){
+    // Se eh a segunda posicao entao so deve atualizar o cont
+    if ( posicao == 2 ) cont++;
+	/*
+		Testa se a remoção é o primeiro da lista.
+		Neste caso, existem duas possibilidades: (a) ter mais de um na lista.
+		Quando for mais de um, atualizar a lista para o novo primeiro ou
+		(b) ser o unico na lista
+	*/
+    if ( cont == 1 ) {
         if ( aux->prox != NULL )
             lista = aux->prox; // atualiza o inicio.
         else
-            lista = NULL;    // caso só exista na lista o proprio a ser removido
+            lista = NULL;      // caso só exista na lista o proprio a ser removido
         free(aux);
     } else {
         remove = aux->prox;
@@ -69,24 +76,26 @@ No* delElement(No* lista, int posicao){
     return lista;
 }
 
-void showList(No* lista){
-
-    while ( lista != NULL ){
+void showList(No* lista)
+{
+    while ( lista != NULL )
+	{
         printf("%.2d | ", lista->idade);
         lista = lista->prox;
     }
     printf("\n");
 }
 
-No* setIndex(No* lista, No* novo, int posicao){
-
+No* setIndex(No* lista, No* novo, int posicao)
+{
     No* aux  = lista;
     int cont = 1;
 
-    if (lista == NULL)
+    if ( lista == NULL )
         return novo;
 
-    while ( aux->prox != NULL and cont < (posicao - 1) ){
+    while ( aux->prox != NULL and cont < (posicao - 1) )
+	{
         aux = aux->prox;
         cont++;
     }
@@ -99,16 +108,16 @@ No* setIndex(No* lista, No* novo, int posicao){
     return lista;
 }
 
-int main( void ) {
+int main(int argc, char const *argv[])
+{
+    setlocale(LC_ALL, "");
 
-    setlocale( LC_ALL, "portuguese-brazilian" );
-    No* lista = NULL;
-
-    No* n  = createElement(35);
-    No* n2 = createElement(50);
-    No* n3 = createElement(30);
-    No* n4 = createElement(55);
-    No* n5 = createElement(3);
+	No* lista = NULL;
+    No* n     = createElement(35);
+    No* n2    = createElement(50);
+    No* n3    = createElement(30);
+    No* n4    = createElement(55);
+    No* n5    = createElement(3);
 
     puts("\nInserindo na última posição da lista os elementos 35 e 50:");
     lista = setLast(lista, n);

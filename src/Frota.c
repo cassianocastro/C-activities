@@ -4,19 +4,22 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <iso646.h>
+
 #define TAM_STRING 20
 #define TAMANHO_FROTA 10
-//OK
+
 typedef unsigned char byte;
 
-typedef enum {
+typedef enum
+{
     SAIR,
     INSERIR,
     EXCLUIR,
     EXIBIR
 } Opcoes;
 
-struct carro{
+struct carro
+{
 	char
 	modelo[TAM_STRING],
 	marca [TAM_STRING],
@@ -25,8 +28,10 @@ struct carro{
 	unsigned short ano;
 } frota[TAMANHO_FROTA];
 
-void inicializar ( void ){
-	for ( byte i = 0; i < TAMANHO_FROTA; i++ ){
+void inicializar( void )
+{
+	for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+	{
         strcpy ( frota[i].modelo, "" );
         strcpy ( frota[i].marca, "" );
         strcpy ( frota[i].placa, "" );
@@ -35,9 +40,11 @@ void inicializar ( void ){
     }
 }
 
-void exibir ( void ){
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ ){
-        if ( frota[i].ano != 0 ){
+void exibir( void )
+{
+    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+	{
+        if ( frota[i].ano != 0 ) {
             printf(
                 "\nDados do carro\n"
                 "\nModelo...............: %s"
@@ -55,14 +62,16 @@ void exibir ( void ){
     }
 }
 
-void excluir ( void ){
+void excluir( void )
+{
     char placa_informada[TAM_STRING];
 
     printf("Informe a placa do veículo: ");
     gets  ( placa_informada );
 
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ ){
-        if ( strcmp ( placa_informada, frota[i].placa ) == 0 ){
+    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+	{
+        if ( strcmp ( placa_informada, frota[i].placa ) == 0 ) {
             strcpy ( frota[i].modelo, "" );
             strcpy ( frota[i].marca, "" );
             strcpy ( frota[i].placa, "" );
@@ -74,9 +83,11 @@ void excluir ( void ){
     }
 }
 
-void inserir ( void ){
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ ){
-        if ( frota[i].ano == 0 ){
+void inserir( void )
+{
+    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+	{
+        if ( frota[i].ano == 0 ) {
             printf ("Marca..............: ");
             gets   ( frota[i].marca );
             printf ("Modelo.............: ");
@@ -93,9 +104,11 @@ void inserir ( void ){
     }
 }
 
-int main ( void ) {
-    setlocale ( LC_ALL, "portuguese-brazilian" );
-    unsigned int opcao = 0;
+int main(int argc, char const *argv[])
+{
+    setlocale(LC_ALL, "");
+
+	unsigned int opcao = 0;
 	inicializar();
 	do {
 		printf(
@@ -107,7 +120,8 @@ int main ( void ) {
 		scanf ( "%d", &opcao );
 		system ( "clear" );
 		getchar();
-		switch ( opcao ){
+		switch ( opcao )
+		{
 			case INSERIR:
                 inserir();
 				break;

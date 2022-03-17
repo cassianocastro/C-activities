@@ -8,7 +8,8 @@
 
 #define TAM_STRING 30
 
-struct Dado {
+struct Dado
+{
     char tipohd,
     modelo     [TAM_STRING],
     marca      [TAM_STRING],
@@ -16,11 +17,13 @@ struct Dado {
     int memoria, hd;
 };
 
-typedef enum {
+typedef enum
+{
 	SAIR, INSERCAO, REMOCAO, ALTERACAO, LISTAGEM, BUSCA
 } Opcoes;
 
-typedef enum {
+typedef enum
+{
 	MARCA, TIPO_HD, HD, MEMORIA, MODELO, PROCESSADOR
 } Dados;
 
@@ -30,7 +33,8 @@ typedef unsigned char byte;
 Computador* inventario;
 unsigned short numero;
 
-void dados ( byte i ){
+void dados( byte i )
+{
 	getchar();
 	printf (
         "\nComputador nº %hhu\n"
@@ -45,16 +49,15 @@ void dados ( byte i ){
     scanf  ( "%d", &inventario[i].hd );
 	printf ("Memória (em GB)..........: ");
     scanf  ( "%d", &inventario[i].memoria );
-	do {
+	do
+	{
 		printf ("\nTipo de HD...[s/c]? ");
         scanf  ( " %c", &inventario[i].tipohd );
-	} while (
-        inventario[i].tipohd != 's' and
-        inventario[i].tipohd != 'c'
-    );
+	} while ( inventario[i].tipohd != 's' and inventario[i].tipohd != 'c');
 }
 
-void insercao ( void ){
+void insercao( void )
+{
     char resposta = '\0';
     printf ("Olá, é a sua primeira vez com esta tela [s/n]? ");
     scanf  ( " %c", &resposta );
@@ -63,19 +66,19 @@ void insercao ( void ){
 		puts("\nInserindo novo computador...");
 	    numero++;
 	    inventario = realloc ( inventario, numero * sizeof ( Computador ) );
-	    dados ( numero - 1 );
+	    dados( numero - 1 );
 	} else {
 		printf ("Informe o nº de PC\'s a serem cadastrados: ");
         scanf  ( "%hu", &numero );
 	    inventario = calloc ( numero, sizeof ( Computador ) );
 
-		for ( byte i = 0; i < numero; i++ )
-            dados ( i );
+		for ( byte i = 0; i < numero; i++ ) dados( i );
 	}
 	puts ("\nInserção realizada.");
 }
 
-void remocao ( void ){
+void remocao( void )
+{
 	Computador* novo_inventario;
 	bool was_found = false;
 	byte id = 0;
@@ -85,8 +88,9 @@ void remocao ( void ){
 	id--;
 	novo_inventario = calloc ((numero - 1), sizeof (Computador));
 
-	for ( byte i = 0, j = 0; i < numero; i++ ) {
-		if ( i != id ){
+	for ( byte i = 0, j = 0; i < numero; i++ )
+	{
+		if ( i != id ) {
 			strcpy ( novo_inventario[j].marca,       inventario[i].marca );
 			strcpy ( novo_inventario[j].modelo,      inventario[i].modelo );
 			strcpy ( novo_inventario[j].processador, inventario[i].processador );
@@ -105,7 +109,8 @@ void remocao ( void ){
         puts ("\nCadastro não encontrado!");
 }
 
-void alteracao ( void ) { //Fazer a verificacao antes de alterar...
+void alteracao( void ) //Fazer a verificacao antes de alterar...
+{
 	Dados dado;
     byte index = 0;
 
@@ -120,7 +125,8 @@ void alteracao ( void ) { //Fazer a verificacao antes de alterar...
     );
 	scanf  ( "%d", &dado );
 	getchar();
-	switch ( dado ) {
+	switch ( dado )
+	{
 		case MARCA:
 			printf("Nova marca: ");
 			gets  ( inventario[index].marca );
@@ -156,8 +162,10 @@ void alteracao ( void ) { //Fazer a verificacao antes de alterar...
 	puts ("\nAlteração realizada com sucesso.");
 }
 
-void listagem ( void ){
-    for ( byte i = 0; i < numero; i++ ) {
+void listagem ( void )
+{
+    for ( byte i = 0; i < numero; i++ )
+	{
         printf(
             "\nComputador nº %hhu:"
             "\nMarca..............................: %s"
@@ -178,14 +186,18 @@ void listagem ( void ){
 	}
 }
 
-void busca ( void ){
+void busca ( void )
+{
 	char resposta = '\0', modelo[TAM_STRING];
     bool was_found = false;
-    do {
+    do
+	{
     	printf ("\nInforme o modelo do computador: ");
         gets   ( modelo );
 	    was_found = false;
-	    for ( byte i = 0; i < numero; i++ ) {
+
+		for ( byte i = 0; i < numero; i++ )
+		{
 			if ( strcmp ( modelo, inventario[i].modelo ) == 0 ) {
                 printf(
 			        "\nComputador nº %hhu:"
@@ -215,8 +227,9 @@ void busca ( void ){
 	} while ( tolower(resposta) == 's' );
 }
 
-int main ( void ) {
-	setlocale( LC_ALL, "portuguese-brazilian" );
+int main(int argc, char const *argv[])
+{
+	setlocale( LC_ALL, "" );
 	Opcoes opcao;
     do {
 	    printf (
@@ -228,7 +241,8 @@ int main ( void ) {
 		scanf( "%d", &opcao );
 		system ( "clear" );
 		getchar();
-    	switch ( opcao ){
+    	switch ( opcao )
+		{
 	    	case INSERCAO:
 	    		insercao();
 	    		break;

@@ -2,23 +2,26 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <iso646.h>
-//OK
-int recursive( int number ) {
 
+int recursive( int number )
+{
     if (( number == 1 ) or ( number == 0 ))
         return 1;
     return number * recursive( number - 1 );
 }
 
-int iterative( int number ){
+int iterative( int number )
+{
     int fatorial = 1;
-    for ( ; number > 1; number--) {
+    for ( ; number > 1; number--)
+	{
         fatorial *= number;
     }
     return fatorial;
 }
 
-int main( void ){
+int main(int argc, char const *argv[])
+{
     unsigned int number = 0, option = 0;
 
     printf("Insira um número para o qual deseja calcular seu fatorial: ");
