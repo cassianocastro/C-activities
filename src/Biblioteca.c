@@ -5,16 +5,18 @@
 #include <stdbool.h>
 #include <iso646.h>
 #include <ctype.h>
-//OK
+
 #define TAMANHO 50
 
 typedef unsigned char byte;
 
-typedef enum {
+typedef enum
+{
     EXIT, CREATE, DELETE, READ, FIND
 } Options;
 
-struct livro {
+struct livro
+{
 	char
 	titulo [TAMANHO],
 	autor  [TAMANHO],
@@ -23,8 +25,10 @@ struct livro {
 	unsigned short ano;
 } biblioteca[10];
 
-void init ( void ){
-	for ( byte i = 0, size = 10; i < size; i++ ){
+void init( void )
+{
+	for ( byte i = 0, size = 10; i < size; i++ )
+	{
         strcpy ( biblioteca[i].titulo, "" );
         strcpy ( biblioteca[i].autor, "" );
         strcpy ( biblioteca[i].assunto, "" );
@@ -33,7 +37,8 @@ void init ( void ){
     }
 }
 
-void getData( int i ){
+void getData( int i )
+{
     printf(
         "\nLivro nº %d do acervo......:"
         "\nTítulo....................: %s"
@@ -51,25 +56,28 @@ void getData( int i ){
     );
 }
 
-void read ( void ) {
+void read( void )
+{
     byte count = 0;
     byte size  = 10;
 
-    for ( byte i = 0; i < size; i++ ){
-
+    for ( byte i = 0; i < size; i++ )
+	{
         ( biblioteca[i].ano != 0 ) ? getData(i) : count++;
     }
     if ( count == size ) puts("Sem livros cadastrados.");
 }
 
-bool findByTitle( void ){
+bool findByTitle( void )
+{
     char word[TAMANHO];
     bool wasFound = false;
 
     printf("Informe o título do livro: ");
     gets  ( word );
 
-    for ( byte i = 0, size = 10; i < size; i++ ){
+    for ( byte i = 0, size = 10; i < size; i++ )
+	{
         if ( strcmp( word, biblioteca[i].titulo ) == 0 ) {
             getData(i);
             wasFound = true;
@@ -78,14 +86,16 @@ bool findByTitle( void ){
     return wasFound;
 }
 
-bool findByAuthor( void ){
+bool findByAuthor( void )
+{
     char word[TAMANHO];
     bool wasFound = false;
 
     printf("Informe o nome do autor: ");
     gets  ( word );
 
-    for ( byte i = 0, size = 10; i < size; i++ ){
+    for ( byte i = 0, size = 10; i < size; i++ )
+	{
         if ( strcmp( word, biblioteca[i].autor ) == 0 ) {
             getData(i);
             wasFound = true;
@@ -94,14 +104,16 @@ bool findByAuthor( void ){
     return wasFound;
 }
 
-bool findByPublishingCiA( void ){
+bool findByPublishingCiA( void )
+{
     char word[TAMANHO];
     bool wasFound = false;
 
     printf("Informe o nome da editora: ");
     gets  ( word );
 
-    for ( byte i = 0, size = 10; i < size; i++ ){
+    for ( byte i = 0, size = 10; i < size; i++ )
+	{
         if ( strcmp( word, biblioteca[i].editora ) == 0 ) {
             getData(i);
             wasFound = true;
@@ -110,30 +122,35 @@ bool findByPublishingCiA( void ){
     return wasFound;
 }
 
-bool responseIsValid( char response ){
+bool responseIsValid( char response )
+{
     response = tolower( response );
     if (response == 's' or response == 'n')
         return true;
     return false;
 }
 
-char askUser( void ){
+char askUser( void )
+{
     char response = '\0';
     printf("\nDeseja voltar ao menu principal [s/n]? ");
     scanf ( " %c", &response );
 
-    while ( not responseIsValid( response ) ){
+    while ( not responseIsValid( response ) )
+	{
         printf("\nResposta inválida. Digite novamente: ");
         scanf ( " %c", &response );
     }
     return response;
 }
 
-void find ( void ) {
+void find( void )
+{
 	byte opcao     = 0;
 	bool was_found = false;
 	char response  = '\0';
-	do {
+	do
+	{
 		printf(
             "\nSelecione o tipo de busca:\
             \n1 - Por título | 2 - Por Autor | 3 - Por Editora\
@@ -142,7 +159,8 @@ void find ( void ) {
 		scanf( "%hhd", &opcao );
 		system( "clear" );
 		getchar();
-		switch ( opcao ){
+		switch ( opcao )
+		{
 			case 1:
 				was_found = findByTitle();
 				break;
@@ -161,7 +179,8 @@ void find ( void ) {
 	} while ( response == 'n' );
 }
 
-void del ( void ) {
+void del( void )
+{
 	char title[TAMANHO];
 	bool was_found = false;
 
@@ -172,8 +191,9 @@ void del ( void ) {
 	);
 	gets ( title );
 
-	for ( byte i = 0, size = 10; i < size; i++ ){
-		if ( strcmp ( title, biblioteca[i].titulo ) == 0 ){
+	for ( byte i = 0, size = 10; i < size; i++ )
+	{
+		if ( strcmp ( title, biblioteca[i].titulo ) == 0 ) {
 			strcpy ( biblioteca[i].titulo, "" );
 	        strcpy ( biblioteca[i].autor, "" );
 	        strcpy ( biblioteca[i].editora, "" );
@@ -186,10 +206,12 @@ void del ( void ) {
 	printf ("%s \n", ( not was_found ) ? "Livro não encontrado." : "Livro excluído.");
 }
 
-void create ( void ) {
+void create( void )
+{
 	bool was_found = false;
 
-	for ( byte i = 0, size = 10; i < size; i++ ){
+	for ( byte i = 0, size = 10; i < size; i++ )
+	{
 		if ( biblioteca[i].ano == 0 ){
             printf ("Nome do autor.......: ");
             gets   (biblioteca[i].autor);
@@ -208,11 +230,13 @@ void create ( void ) {
 	printf ("%s \n", ( not was_found ) ? "Lista cheia." : "Livro incluído.");
 }
 
-int main ( void ) {
-	setlocale(LC_ALL, "portuguese-brazilian");
+int main( void )
+{
+	setlocale(LC_ALL, "");
 	unsigned int option = 0;
 	init();
-	do {
+	do
+	{
 		printf(
             "\nEscolha uma das opções:\
             \n1 - Inserir livro | 2 - Excluir livro\
@@ -223,7 +247,8 @@ int main ( void ) {
 		scanf( "%d", &option );
 		system("clear");
 		getchar();
-		switch ( option ){
+		switch ( option )
+		{
 			case CREATE:
                 create();
                 break;

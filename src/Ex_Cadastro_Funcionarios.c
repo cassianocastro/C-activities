@@ -5,23 +5,26 @@
 #include <stdlib.h>
 #include <iso646.h>
 #include <inttypes.h>
-#include "PIP.h"
-//OK
+#include "includes/PIP.h"
+
 #define SIZE_employees 10
 #define SIZE 50
 #define MONTHS 12
 
 typedef unsigned char byte;
 
-typedef enum {
+typedef enum
+{
     SAIR, INSERCAO, REMOCAO, EXIBIR, VALORES
 } Options;
 
-typedef struct {
+typedef struct
+{
 	int day, month, year;
 } BirthDate;
 
-struct employee {
+struct employee
+{
 	char
 	cpf     [14],
 	name    [SIZE],
@@ -33,9 +36,10 @@ struct employee {
 
 } employees[SIZE_employees];
 
-void init( void ) {
-
-    for ( byte i = 0; i < SIZE_employees; i++ ){
+void init( void )
+{
+    for ( byte i = 0; i < SIZE_employees; i++ )
+	{
         strcpy (employees[i].name, "");
         strcpy (employees[i].address, "");
         strcpy (employees[i].cpf, "");
@@ -46,18 +50,21 @@ void init( void ) {
         employees[i].code            = 0;
         employees[i].sum             = 0.0f;
 
-        for ( byte month = 0; month < MONTHS; month++ ){
+        for ( byte month = 0; month < MONTHS; month++ )
+		{
             employees[i].wage[month] = 0.0f;
         }
     }
 }
 
-void show( void ) {
-
+void show( void )
+{
     bool wasFound = false;
 
-    for ( byte i = 0; i < SIZE_employees; i++ ){
-        if ( employees[i].birthDate.day == 0) continue;
+    for ( byte i = 0; i < SIZE_employees; i++ )
+	{
+        if ( employees[i].birthDate.day == 0 ) continue;
+
         printf(
             "\n\nFuncionário nº %d:"
             "\nNome...................: %s"
@@ -74,7 +81,8 @@ void show( void ) {
             employees[i].address,
             employees[i].sum
         );
-        for ( byte month = 0; month < MONTHS; month++ ){
+        for ( byte month = 0; month < MONTHS; month++ )
+		{
             printf(
                 "\nSalário/%s......: R$ %.2f",
                 nameOfThis( month + 1 ),
@@ -86,18 +94,20 @@ void show( void ) {
     if ( not wasFound ) puts ("Sem funcionários cadastrados!");
 }
 
-void insert( void ){
-
+void insert( void )
+{
 	bool wasFound   = false;
 	bool dateIsOkay = false;
 
-	for ( byte i = 0; i < SIZE_employees; i++ ){
-		if ( employees[i].birthDate.day == 0 ){
+	for ( byte i = 0; i < SIZE_employees; i++ )
+	{
+		if ( employees[i].birthDate.day == 0 ) {
 			printf ("Nome do funcionário: ");
 			gets   (employees[i].name);
 			printf ("CPF: ");
 			gets   (employees[i].cpf);
-			do {
+			do
+			{
 				printf ("Data de nascimento...\nDia: ");
 				scanf  ("%d", &employees[i].birthDate.day);
 				printf ("Mês: ");
@@ -128,15 +138,16 @@ void insert( void ){
         puts("Funcionário incluído.");
 }
 
-void removeEmployee( void ) {
-
+void removeEmployee( void )
+{
 	int code = 0;
 	bool wasFound = false;
 
 	printf ("Código do funcionário: ");
 	scanf  ( "%d", &code );
 
-	for ( byte i = 0; i < SIZE_employees; i++ ){
+	for ( byte i = 0; i < SIZE_employees; i++ )
+	{
 		if ( code == employees[i].code ) {
 			strcpy (employees[i].name, "");
 			strcpy (employees[i].address, "");
@@ -148,7 +159,8 @@ void removeEmployee( void ) {
 			employees[i].code            = 0;
 			employees[i].sum             = 0.0f;
 
-			for ( byte month = 0; month < MONTHS; month++ ){
+			for ( byte month = 0; month < MONTHS; month++ )
+			{
 				employees[i].wage[month] = 0.0f;
 			}
 			wasFound = true;
@@ -161,10 +173,12 @@ void removeEmployee( void ) {
         puts("Funcionário excluído.");
 }
 
-void insertAllWages( int i ){
-
+void insertAllWages( int i )
+{
     employees[i].sum = 0.0f;
-    for ( byte month = 0; month < MONTHS; month++ ){
+
+    for ( byte month = 0; month < MONTHS; month++ )
+	{
         printf("Salário/%s: R$ ", nameOfThis ( month + 1 ));
         scanf ( "%f", &employees[i].wage[month] );
 
@@ -172,15 +186,18 @@ void insertAllWages( int i ){
     }
 }
 
-void insertWage( int i ){
+void insertWage( int i )
+{
     byte number   = 0;
     char response = '\0';
 
-    do {
+    do
+	{
         printf ("\nDigite o nº do mês na qual deseja inserir o salário.(Ex.: Abril = 4): ");
         scanf  ( "%i", &number );
 
-        for ( byte month = 0; month < MONTHS; month++ ){
+        for ( byte month = 0; month < MONTHS; month++ )
+		{
             if ( ( number - 1 ) == month ) {
                 employees[i].sum -= employees[i].wage[month];
                 printf ("Digite o valor: R$ ");
@@ -196,7 +213,8 @@ void insertWage( int i ){
     } while ( response == 's' );
 }
 
-void wages( void ) {
+void wages( void )
+{
 	char response = '\0';
 	bool wasFound = false;
 	byte code     = 0;
@@ -204,7 +222,8 @@ void wages( void ) {
     printf ("\nCódigo do funcionário: ");
     scanf  ( "%i", &code );
 
-	for ( byte i = 0; i < SIZE_employees; i++ ){
+	for ( byte i = 0; i < SIZE_employees; i++ )
+	{
 		if ( code == employees[i].code ) {
             printf ("\nDeseja realizar a inserção de todos os salários [s/n]? ");
             scanf  (" %c", &response);
@@ -221,11 +240,13 @@ void wages( void ) {
 	if ( not wasFound ) puts ("Código inválido.");
 }
 
-int main( void ) {
-	setlocale( LC_ALL, "portuguese-brazilian" );
+int main( void )
+{
+	setlocale(LC_ALL, "");
     unsigned int option = 0;
     init();
-	do {
+	do
+	{
 		printf(
             "\n\nEscolha uma opção:\
             \n1 - Inserção | 2 - Remoção\
@@ -236,7 +257,8 @@ int main( void ) {
 		scanf( "%i", &option );
 		getchar();
 		system ( "clear" );
-		switch ( option ){
+		switch ( option )
+		{
 			case INSERCAO:
 				insert();
 				break;
