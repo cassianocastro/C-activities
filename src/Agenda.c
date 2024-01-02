@@ -328,7 +328,10 @@ void busca(void)
 	} while ( resposta == 's' );
 }
 
-int main (int argc, char const *argv[])
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
@@ -374,5 +377,5 @@ int main (int argc, char const *argv[])
 
     free(agenda);
 
-    return ( EXIT_SUCCESS );
+    return EXIT_SUCCESS;
 }
