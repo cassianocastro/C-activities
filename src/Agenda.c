@@ -1,12 +1,12 @@
+#include <ctype.h>
+#include <iso646.h>
+#include <inttypes.h>
+#include <locale.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <iso646.h>
-#include <stdbool.h>
-#include <locale.h>
-#include <inttypes.h>
-#include <ctype.h>
-#include "Validacao.h"
+#include "./includes/Validacao.h"
 
 typedef unsigned char byte;
 
