@@ -13,7 +13,8 @@ typedef unsigned char byte;
 typedef enum
 {
     EXIT, CREATE, DELETE, READ, FIND
-} Options;
+}
+Options;
 
 struct livro
 {
@@ -23,7 +24,8 @@ struct livro
 	editora[TAMANHO],
 	assunto[TAMANHO];
 	unsigned short ano;
-} biblioteca[10];
+}
+biblioteca[10];
 
 void init( void )
 {
@@ -65,7 +67,11 @@ void read( void )
 	{
         ( biblioteca[i].ano != 0 ) ? getData(i) : count++;
     }
-    if ( count == size ) puts("Sem livros cadastrados.");
+
+    if ( count == size )
+    {
+        puts("Sem livros cadastrados.");
+    }
 }
 
 bool findByTitle( void )
@@ -78,11 +84,13 @@ bool findByTitle( void )
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp( word, biblioteca[i].titulo ) == 0 ) {
+        if ( strcmp( word, biblioteca[i].titulo ) == 0 )
+        {
             getData(i);
             wasFound = true;
         }
     }
+
     return wasFound;
 }
 
@@ -96,11 +104,13 @@ bool findByAuthor( void )
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp( word, biblioteca[i].autor ) == 0 ) {
+        if ( strcmp( word, biblioteca[i].autor ) == 0 )
+        {
             getData(i);
             wasFound = true;
         }
     }
+
     return wasFound;
 }
 
@@ -114,25 +124,32 @@ bool findByPublishingCiA( void )
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp( word, biblioteca[i].editora ) == 0 ) {
+        if ( strcmp( word, biblioteca[i].editora ) == 0 )
+        {
             getData(i);
             wasFound = true;
         }
     }
+
     return wasFound;
 }
 
 bool responseIsValid( char response )
 {
     response = tolower( response );
-    if (response == 's' or response == 'n')
+
+    if ( response == 's' or response == 'n' )
+    {
         return true;
+    }
+
     return false;
 }
 
 char askUser( void )
 {
     char response = '\0';
+
     printf("\nDeseja voltar ao menu principal [s/n]? ");
     scanf ( " %c", &response );
 
@@ -141,6 +158,7 @@ char askUser( void )
         printf("\nResposta inválida. Digite novamente: ");
         scanf ( " %c", &response );
     }
+
     return response;
 }
 
@@ -159,6 +177,7 @@ void find( void )
 		scanf( "%hhd", &opcao );
 		system( "clear" );
 		getchar();
+
 		switch ( opcao )
 		{
 			case 1:
@@ -174,7 +193,11 @@ void find( void )
 				puts ("Opção inválida!");
 		}
 
-		if ( not was_found ) puts ("Livro não encontrado.");
+		if ( not was_found )
+        {
+            puts ("Livro não encontrado.");
+        }
+
         response = askUser();
 	} while ( response == 'n' );
 }
@@ -193,7 +216,8 @@ void del( void )
 
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
-		if ( strcmp ( title, biblioteca[i].titulo ) == 0 ) {
+		if ( strcmp ( title, biblioteca[i].titulo ) == 0 )
+        {
 			strcpy ( biblioteca[i].titulo, "" );
 	        strcpy ( biblioteca[i].autor, "" );
 	        strcpy ( biblioteca[i].editora, "" );
@@ -203,6 +227,7 @@ void del( void )
 			break;
 		}
 	}
+
 	printf ("%s \n", ( not was_found ) ? "Livro não encontrado." : "Livro excluído.");
 }
 
@@ -212,7 +237,8 @@ void create( void )
 
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
-		if ( biblioteca[i].ano == 0 ){
+		if ( biblioteca[i].ano == 0 )
+        {
             printf ("Nome do autor.......: ");
             gets   (biblioteca[i].autor);
             printf ("Título do livro.....: ");
@@ -223,18 +249,24 @@ void create( void )
             gets   (biblioteca[i].editora);
             printf ("Ano de lançamento...: ");
             scanf  ("%hd", &biblioteca[i].ano);
+
             was_found = true;
+
             break;
 		}
 	}
+
 	printf ("%s \n", ( not was_found ) ? "Lista cheia." : "Livro incluído.");
 }
 
 int main( void )
 {
 	setlocale(LC_ALL, "");
-	unsigned int option = 0;
-	init();
+
+    unsigned int option = 0;
+
+    init();
+
 	do
 	{
 		printf(
@@ -247,6 +279,7 @@ int main( void )
 		scanf( "%d", &option );
 		system("clear");
 		getchar();
+
 		switch ( option )
 		{
 			case CREATE:
@@ -268,5 +301,6 @@ int main( void )
                 puts ("Opção inválida.");
 		}
 	} while ( option not_eq EXIT );
+
 	return ( EXIT_SUCCESS );
 }
