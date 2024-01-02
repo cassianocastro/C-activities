@@ -3,41 +3,57 @@
 #include <stdlib.h>
 #include <locale.h>
 #include <iso646.h>
-//OK
+
 #define TAMANHO_FRASE 100
+
 typedef unsigned char byte;
 
-typedef enum {
+typedef enum
+{
     SAIR,
     CRIPTOGRAFAR,
     DESCRIPTOGRAFAR
-} Options;
+}
+Options;
 
-void criptografar ( char *frase ){
-
-    for ( byte i = 0; i < strlen( frase ); i++ ){
-        if ( frase[i] >= 97 and frase[i] <= 122 ){
+void criptografar ( char *frase )
+{
+    for ( byte i = 0; i < strlen( frase ); i++ )
+    {
+        if ( frase[i] >= 97 and frase[i] <= 122 )
+        {
             if ( frase[i] > 116 )
+            {
                 frase[i] -= 26;
+            }
+
             frase[i] += 6;
         }
     }
 }
 
-void descriptografar( char *frase ){
-
-    for ( byte i = 0; i < strlen( frase ); i++ ){
-        if ( frase[i] >= 97 and frase[i] <= 122 ){
+void descriptografar( char *frase )
+{
+    for ( byte i = 0; i < strlen( frase ); i++ )
+    {
+        if ( frase[i] >= 97 and frase[i] <= 122 )
+        {
             frase[i] -= 6;
+
             if ( frase[i] < 97 )
+            {
                 frase[i] += 26;
+            }
         }
     }
 }
 
-int main ( void ) {
+int main ( void )
+{
     Options opcao;
+
     char frase[TAMANHO_FRASE];
+
     do {
         printf(
             "1 - Criptografar | 2 - Descriptografar | 0 - Sair\
@@ -45,7 +61,9 @@ int main ( void ) {
         );
         scanf ( "%d", &opcao );
         getchar();
-        switch ( opcao ){
+
+        switch ( opcao )
+        {
             case CRIPTOGRAFAR:
                 printf("Digite a frase: ");
                 gets  ( frase );
@@ -65,5 +83,6 @@ int main ( void ) {
                 puts ("Opção Inválida!");
         }
     } while ( opcao not_eq SAIR );
+
     return ( EXIT_SUCCESS );
 }
