@@ -16,9 +16,9 @@ typedef enum
 }
 Options;
 
-void criptografar ( char *frase )
+void criptografar(char *frase)
 {
-    for ( byte i = 0; i < strlen( frase ); i++ )
+    for ( byte i = 0; i < strlen(frase); i++ )
     {
         if ( frase[i] >= 97 and frase[i] <= 122 )
         {
@@ -32,9 +32,9 @@ void criptografar ( char *frase )
     }
 }
 
-void descriptografar( char *frase )
+void descriptografar(char *frase)
 {
-    for ( byte i = 0; i < strlen( frase ); i++ )
+    for ( byte i = 0; i < strlen(frase); i++ )
     {
         if ( frase[i] >= 97 and frase[i] <= 122 )
         {
@@ -48,39 +48,36 @@ void descriptografar( char *frase )
     }
 }
 
-int main ( void )
+int main(void)
 {
     Options opcao;
 
     char frase[TAMANHO_FRASE];
 
     do {
-        printf(
-            "1 - Criptografar | 2 - Descriptografar | 0 - Sair\
-            \nOpção? "
-        );
-        scanf ( "%d", &opcao );
+        printf("1 - Criptografar | 2 - Descriptografar | 0 - Sair\nOpção\? ");
+        scanf("%d", &opcao);
         getchar();
 
         switch ( opcao )
         {
             case CRIPTOGRAFAR:
                 printf("Digite a frase: ");
-                gets  ( frase );
-                criptografar ( frase );
+                gets(frase);
+                criptografar(frase);
                 printf("Texto criptografado: %s\n", frase);
                 break;
             case DESCRIPTOGRAFAR:
                 printf("Digite a frase: ");
-                gets  ( frase );
-                descriptografar ( frase );
+                gets(frase);
+                descriptografar(frase);
                 printf("Texto descriptografado: %s\n", frase);
                 break;
             case SAIR:
-                puts ("Saindo...");
+                puts("Saindo...");
                 break;
             default:
-                puts ("Opção Inválida!");
+                puts("Opção Inválida!");
         }
     } while ( opcao not_eq SAIR );
 
