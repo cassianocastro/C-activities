@@ -16,7 +16,8 @@ typedef struct
 	marca	   [MAX_SIZE_STR],
 	processador[MAX_SIZE_STR];
     int memoria, hd;
-} Computador;
+}
+Computador;
 
 typedef enum
 {
@@ -25,7 +26,8 @@ typedef enum
 	ALTERACAO,
 	LISTAGEM,
 	BUSCA
-} Opcoes;
+}
+Opcoes;
 
 typedef enum
 {
@@ -35,7 +37,8 @@ typedef enum
 	MEMORIA,
 	MODELO,
 	PROCESSADOR
-} Dados;
+}
+Dados;
 
 typedef unsigned char Byte;
 unsigned short int num;
@@ -81,20 +84,28 @@ void insercao(void)
 
     resposta = tolower(resposta);
 
-	if ( resposta == 'n' ) {
+	if ( resposta == 'n' )
+    {
 		puts("\nInserindo novo computador...");
 	    num++;
-	    inventario = realloc(inventario, num * sizeof (Computador));
+	    inventario = realloc(inventario, num * sizeof(Computador));
 	    preenchimento_dados(num - 1);
-	} else {
+	}
+    else
+    {
 		printf("Informe o n� de computadores a serem cadastrados: ");
     	scanf("%hu", &num);
 
 	    inventario = calloc(num, sizeof(Computador));
 
         register Byte pos = 0;
-		for ( ; pos < num; pos++ ) preenchimento_dados(pos);
+
+    	for ( ; pos < num; pos++ )
+        {
+            preenchimento_dados(pos);
+        }
 	}
+
 	puts("\nInser��o realizada.");
 }
 
@@ -112,31 +123,38 @@ void remocao(void)
 
 	for ( pos = 0; pos < num; pos++ )
     {
-		if ( pos == index ) {
+		if ( pos == index )
+        {
 			was_found = true;
+
 			continue;
 		}
+
 		strcpy(new_inventario[pos2].marca,       inventario[pos].marca);
 		strcpy(new_inventario[pos2].modelo,      inventario[pos].modelo);
 		strcpy(new_inventario[pos2].processador, inventario[pos].processador);
-		new_inventario[pos2].tipohd    		=     inventario[pos].tipohd;
-		new_inventario[pos2].hd  			=     inventario[pos].hd;
-		new_inventario[pos2].memoria  		=     inventario[pos].memoria;
-		pos2++;
+		new_inventario[pos2].tipohd    		=    inventario[pos].tipohd;
+		new_inventario[pos2].hd  			=    inventario[pos].hd;
+		new_inventario[pos2].memoria  		=    inventario[pos].memoria;
+
+        pos2++;
 	}
 
-	if ( was_found ) {
+	if ( was_found )
+    {
 		free(inventario);
 		inventario = new_inventario;
 		num --;
 		puts("\nRemo��o realizada.");
-	} else
+	}
+    else
 		puts("\nCadastro N�O encontrado!");
 }
 
 void alteracao(void)
 {
-	Dados tipo; Byte index = 0;
+	Dados tipo;
+    Byte index = 0;
 
 	printf("\nInforme o ID do computador: ");
 	scanf("%hhu", &index);
@@ -191,6 +209,7 @@ void alteracao(void)
 		default:
 			puts("\nOp��o inv�lida!");
 	}
+
 	puts("\nAltera��o realizada.");
 }
 
@@ -221,8 +240,8 @@ void listagem(void)
 
 void busca(void)
 {
-	char resposta     = '\0', modelo[MAX_SIZE_STR];
-	bool was_found    = false;
+	char resposta = '\0', modelo[MAX_SIZE_STR];
+	bool was_found = false;
     register Byte pos = 0;
 
 	getchar();
@@ -253,13 +272,18 @@ void busca(void)
                 inventario[pos].memoria,
                 inventario[pos].processador
             );
+
 			was_found = true;
 		}
+
 		if ( not was_found )
+        {
             puts("\nCadastro N�O encontrado!");
+        }
 
         printf("\nDeseja realizar novamente [s/n]? ");
 		scanf(" %c", &resposta);
+
 		resposta = tolower(resposta);
 	} while ( resposta == 's' );
 }
@@ -303,5 +327,6 @@ int main(void)
 				exit(EXIT_SUCCESS);
 		}
 	}
+
 	return EXIT_SUCCESS;
 }
