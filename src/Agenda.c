@@ -14,14 +14,16 @@ typedef struct
 {
 	byte dia, mes;
 	unsigned short int ano;
-} Data_nascimento;
+}
+Data_nascimento;
 
 typedef struct
 {
 	Data_nascimento dn;
 	byte idade;
     char nome[51], cidade[21], telefone[17], sexo;
-} Pessoa;
+}
+Pessoa;
 
 typedef enum
 {
@@ -31,7 +33,8 @@ typedef enum
 	ALTERACAO,
 	LISTAGEM,
 	BUSCA
-} Opcoes;
+}
+Opcoes;
 
 typedef enum
 {
@@ -40,7 +43,8 @@ typedef enum
 	DATA,
 	CIDADE,
 	FONE
-} Dados;
+}
+Dados;
 
 const unsigned short int ANO_ATUAL = 2021;
 Pessoa* agenda;
@@ -57,14 +61,15 @@ void dados( byte pos )
 	fgets  (agenda[pos].cidade, 20, stdin);
 	printf ("Telefone..: ");
 	fgets  (agenda[pos].telefone, 16, stdin);
-	do
+
+    do
     {
 		printf ("Sexo [M/F]? ");
 		scanf  (" %c", &agenda[pos].sexo);
 		agenda[pos].sexo = tolower( agenda[pos].sexo );
 	} while ( agenda[pos].sexo not_eq 'f' and agenda[pos].sexo not_eq 'm' );
 
-	while (true)
+	while ( true )
     {
 		printf ("Data de nascimento...\nDia: ");
     	scanf  ("%hhu", &agenda[pos].dn.dia);
@@ -78,11 +83,13 @@ void dados( byte pos )
 			agenda[pos].dn.mes,
 			agenda[pos].dn.ano
         );
+
 		if ( not is_okay )
 			puts("Data inválida!!");
 		else
 			break;
 	}
+
 	agenda[pos].idade = (uint8_t) ANO_ATUAL - agenda[pos].dn.ano;
 }
 
@@ -95,18 +102,22 @@ void insercao( void )
 
     resposta = tolower( resposta );
 
-	if ( resposta == 'n') {
+	if ( resposta == 'n')
+    {
 		puts("Inserindo novo contato...");
 	    num++;
 	    agenda = realloc( agenda, num * sizeof (Pessoa) );
 	    dados( num - 1 );
-	} else {
+	}
+    else
+    {
 		printf("Informe o nº de pessoas a serem cadastradas: ");
     	scanf ("%hu", &num);
 	    agenda = calloc ( num, sizeof (Pessoa) );
 
 		for ( pos = 0; pos < num; pos++ ) dados(pos);
 	}
+
 	puts("\nInserção realizada.");
 }
 
@@ -124,7 +135,8 @@ void remocao( void )
 
 	for ( pos = 0; pos < num; pos++ )
     {
-		if ( pos not_eq index ) {
+		if ( pos not_eq index )
+        {
 			strcpy (new_agenda[pos2].nome,     agenda[pos].nome);
 			strcpy (new_agenda[pos2].cidade,   agenda[pos].cidade);
 			strcpy (new_agenda[pos2].telefone, agenda[pos].telefone);
@@ -134,14 +146,18 @@ void remocao( void )
 			new_agenda[pos2].dn.ano  	=      agenda[pos].dn.ano;
 			new_agenda[pos2].idade   	=      agenda[pos].idade;
 			pos2++;
-		} else was_found = true;
+		}
+        else was_found = true;
 	}
-	if ( was_found ) {
+
+	if ( was_found )
+    {
 		free (agenda);
 		agenda = new_agenda;
 		num --;
 		puts("\nRemoção realizada.");
-	} else
+	}
+    else
 		puts("\aCadastro não encontrado!!");
 }
 
@@ -163,6 +179,7 @@ void alteracao( void )
 			"\nOpção? ");
 	scanf ("%d", &tipo);
 	getchar();
+
 	switch ( tipo )
     {
 		case NOME:
@@ -185,11 +202,13 @@ void alteracao( void )
 				scanf  ("%hhu",  &agenda[index].dn.mes);
 				printf ("Ano: ");
 				scanf  ("%hu",   &agenda[index].dn.ano);
+
 				is_okay = validadata(
                     agenda[index].dn.dia,
 					agenda[index].dn.mes,
 					agenda[index].dn.ano
                 );
+
 				if ( not is_okay )
                     puts("Data inválida!");
 				else
@@ -207,6 +226,7 @@ void alteracao( void )
 		default:
 			puts("\n\aOpção inválida!");
 	}
+
 	puts("\nAlteração realizada.");
 }
 
@@ -250,6 +270,7 @@ void busca( void )
 	    for ( pos = 0; pos < num; pos++ )
         {
 			if ( mes != agenda[pos].dn.mes ) continue;
+
 			printf (
                 "\n\tContato nº %hhu:"
                 "\nNome..............: %s"
@@ -268,13 +289,18 @@ void busca( void )
                 agenda[pos].dn.mes,
                 agenda[pos].dn.ano
             );
+
 			was_found = true;
 		}
+
 		if ( not was_found )
+        {
             puts("\n\aCadastro não encontrado!!");
+        }
 
         printf("\n\nDeseja realizar novamente [S/n]? ");
 		scanf (" %c", &resposta);
+
 		resposta = tolower( resposta );
 	} while ( resposta == 's' );
 }
@@ -297,6 +323,7 @@ int main (int argc, char const *argv[])
             "\nOpção? "
         );
 		scanf("%d", &opcao);
+
     	switch ( opcao )
         {
 	    	case INSERCAO:
@@ -321,6 +348,8 @@ int main (int argc, char const *argv[])
 	    		puts("\aOpção inválida!");
 		}
 	} while ( opcao not_eq SAIR );
+
     free ( agenda );
-	return ( EXIT_SUCCESS );
+
+    return ( EXIT_SUCCESS );
 }
