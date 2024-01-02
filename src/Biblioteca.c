@@ -269,7 +269,10 @@ void create(void)
 	printf("%s \n", ( not was_found ) ? "Lista cheia." : "Livro incluído.");
 }
 
-int main(void)
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
@@ -312,5 +315,5 @@ int main(void)
 		}
 	} while ( option not_eq EXIT );
 
-	return ( EXIT_SUCCESS );
+	return EXIT_SUCCESS;
 }
