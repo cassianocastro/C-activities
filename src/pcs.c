@@ -52,7 +52,7 @@ void preenchimento_dados(Byte pos)
 {
 	getchar();
 
-    printf("\nComputador n� %hhu\n\nMarca........: ", (pos + 1));
+    printf("\nComputador nº %hhu\n\nMarca........: ", (pos + 1));
 	fgets(inventario[pos].marca, MAX_SIZE_STR, stdin);
 
 	printf("Modelo.......: ");
@@ -63,7 +63,7 @@ void preenchimento_dados(Byte pos)
 
     do {
 		printf(
-            "\nTipo de Disco R�gido..."
+            "\nTipo de Disco Rígido..."
 			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
         );
 		scanf(" %c", &inventario[pos].tipohd);
@@ -75,7 +75,7 @@ void preenchimento_dados(Byte pos)
     printf("\nCapacidade de Armazenamento (em GB): ");
 	scanf("%d", &inventario[pos].hd);
 
-	printf("Tamanho da Mem�ria (em GB).........: ");
+	printf("Tamanho da Memória (em GB).........: ");
 	scanf("%d", &inventario[pos].memoria);
 }
 
@@ -83,7 +83,7 @@ void insercao(void)
 {
 	char resposta = '\0';
 
-	printf("Ol�, � a sua primeira vez com esta tela [s/n]? ");
+	printf("Olá, é a sua primeira vez com esta tela [s/n]? ");
     scanf(" %c", &resposta);
 
     resposta = tolower(resposta);
@@ -97,7 +97,7 @@ void insercao(void)
 	}
     else
     {
-		printf("Informe o n� de computadores a serem cadastrados: ");
+		printf("Informe o nº de computadores a serem cadastrados: ");
     	scanf("%hu", &num);
 
 	    inventario = calloc(num, sizeof(Computador));
@@ -110,7 +110,7 @@ void insercao(void)
         }
 	}
 
-	puts("\nInser��o realizada.");
+	puts("\nInserção realizada.");
 }
 
 void remocao(void)
@@ -149,10 +149,10 @@ void remocao(void)
 		free(inventario);
 		inventario = new_inventario;
 		num --;
-		puts("\nRemo��o realizada.");
+		puts("\nRemoção realizada.");
 	}
     else
-		puts("\nCadastro N�O encontrado!");
+		puts("\nCadastro não encontrado!");
 }
 
 void alteracao(void)
@@ -168,8 +168,8 @@ void alteracao(void)
 	printf(
         "\nSelecione o tipo de dado:\n"
 		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
-		"\n4. Mem�ria | 5. Modelo 	  | 6. Processador"
-		"\nOp��o? "
+		"\n4. Memória | 5. Modelo 	  | 6. Processador"
+		"\nOpção? "
     );
 	scanf("%d", &tipo);
 	getchar();
@@ -183,7 +183,7 @@ void alteracao(void)
 		case TIPO_HD:
 			do {
 				printf(
-                    "Tipo de Disco R�gido..."
+                    "Tipo de Disco Rígido..."
 					"\nDigite \"s\" para SSD ou \"c\" para convencional: "
                 );
 				scanf(" %c", &inventario[index].tipohd);
@@ -199,7 +199,7 @@ void alteracao(void)
 			scanf("%d", &inventario[index].hd);
 			break;
 		case MEMORIA:
-			printf("Novo tamanho de mem�ria: ");
+			printf("Novo tamanho de memória: ");
 			scanf("%d", &inventario[index].memoria);
 			break;
 		case MODELO:
@@ -211,10 +211,10 @@ void alteracao(void)
 			fgets(inventario[index].processador, MAX_SIZE_STR, stdin);
 			break;
 		default:
-			puts("\nOp��o inv�lida!");
+			puts("\nOpção inválida!");
 	}
 
-	puts("\nAltera��o realizada.");
+	puts("\nAlteração realizada.");
 }
 
 void listagem(void)
@@ -224,12 +224,12 @@ void listagem(void)
     for ( ; pos < num; pos++ )
     {
 		printf(
-            "\nComputador n� %hhu:\n"
+            "\nComputador nº %hhu:\n"
 			"Marca..............................: %s"
 			"Modelo.............................: %s"
 			"Tipo de HD.........................: %c\n"
 			"Capac. de Armazenamento............: %d GB\n"
-			"Mem�ria............................: %d GB\n"
+			"Memória............................: %d GB\n"
 			"Processador........................: %s",
 			(pos + 1),
 			inventario[pos].marca,
@@ -261,12 +261,12 @@ void busca(void)
 			if ( strcmp(modelo, inventario[pos].modelo) != 0 ) continue;
 
             printf(
-                "\nComputador n� %hhu:\n"
+                "\nComputador nº %hhu:\n"
                 "Marca..............................: %s"
                 "Modelo.............................: %s"
                 "Tipo de HD.........................: %c\n"
                 "Capac. de Armazenamento............: %d GB\n"
-                "Mem�ria............................: %d GB\n"
+                "Memória............................: %d GB\n"
                 "Processador........................: %s",
                 (pos + 1),
                 inventario[pos].marca,
@@ -282,7 +282,7 @@ void busca(void)
 
 		if ( not was_found )
         {
-            puts("\nCadastro N�O encontrado!");
+            puts("\nCadastro não encontrado!");
         }
 
         printf("\nDeseja realizar novamente [s/n]? ");
@@ -301,10 +301,10 @@ int main(void)
     while ( true )
     {
 	    printf(
-            "\nEscolha uma das op��es abaixo:\n"
-			"1. Inserc�o | 2. Remo��o | 3. Altera��o"
+            "\nEscolha uma das opções abaixo:\n"
+			"1. Insercão | 2. Remoção | 3. Alteração"
 			"4. Listagem | 5. Busca   | Outra tecla: Sair"
-			"\nOp��o? "
+			"\nOpção? "
         );
 		scanf("%d", &opcao);
 		system("clear");
