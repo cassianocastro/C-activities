@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <locale.h>
 #include <iso646.h>
+#include <locale.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
@@ -69,7 +69,10 @@ void gerarVetor(int* vetor)
 	}
 }
 
-int main(void)
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
