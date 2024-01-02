@@ -83,7 +83,7 @@ void insercao(void)
 {
 	char resposta = '\0';
 
-	printf("Olá, é a sua primeira vez com esta tela [s/n]? ");
+	printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
     scanf(" %c", &resposta);
 
     resposta = tolower(resposta);
@@ -169,7 +169,7 @@ void alteracao(void)
         "\nSelecione o tipo de dado:\n"
 		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
 		"\n4. Memória | 5. Modelo 	  | 6. Processador"
-		"\nOpção? "
+		"\nOpção\? "
     );
 	scanf("%d", &tipo);
 	getchar();
@@ -285,7 +285,7 @@ void busca(void)
             puts("\nCadastro não encontrado!");
         }
 
-        printf("\nDeseja realizar novamente [s/n]? ");
+        printf("\nDeseja realizar novamente [s/n]\? ");
 		scanf(" %c", &resposta);
 
 		resposta = tolower(resposta);
@@ -307,7 +307,7 @@ int main(int argc, const char* argv[])
             "\nEscolha uma das opções abaixo:\n"
 			"1. Insercão | 2. Remoção | 3. Alteração"
 			"4. Listagem | 5. Busca   | Outra tecla: Sair"
-			"\nOpção? "
+			"\nOpção\? "
         );
 		scanf("%d", &opcao);
 		system("clear");
