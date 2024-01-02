@@ -28,6 +28,7 @@ void crescente(int* vetor)
 			pos 	       = 0;
 		}
 	}
+
 	puts("\nVetor em ordem crescente:\nIndice\tValor");
 
 	for ( pos = 0; pos < TAMANHO_VETOR; printf("[%.2d]\t%d\n", pos, vetor[pos++]) );
@@ -82,9 +83,9 @@ int main(void)
 	while ( true )
     {
 		printf(
-            "\nEscolha o tipo de ordena��o:\n"
+            "\nEscolha o tipo de ordenação:\n"
 			"0 - Ordem crescente | 1 - Ordem decrescente | Outra tecla - Sair"
-			"\nOp��o? "
+			"\nOpção\? "
         );
 		scanf(" %d", &opcao);
 
