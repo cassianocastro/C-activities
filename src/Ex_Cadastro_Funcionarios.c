@@ -1,11 +1,11 @@
-#include <stdio.h>
-#include <locale.h>
-#include <string.h>
-#include <stdbool.h>
-#include <stdlib.h>
 #include <iso646.h>
 #include <inttypes.h>
-#include "includes/PIP.h"
+#include <locale.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "./includes/PIP.h"
 
 #define SIZE_employees 10
 #define SIZE 50
