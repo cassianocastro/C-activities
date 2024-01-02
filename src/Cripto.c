@@ -48,7 +48,10 @@ void descriptografar(char* frase)
     }
 }
 
-int main(void)
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
     Options opcao;
 
