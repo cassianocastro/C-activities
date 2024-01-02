@@ -245,7 +245,7 @@ void insertWage(int i)
             }
         }
 
-        printf("\nDeseja inserir outro valor [s/n]? ");
+        printf("\nDeseja inserir outro valor [s/n]\? ");
         scanf(" %c", &response);
 
     } while ( response == 's' );
@@ -264,7 +264,7 @@ void wages(void)
 	{
 		if ( code == employees[i].code )
         {
-            printf("\nDeseja realizar a inserção de todos os salários [s/n]? ");
+            printf("\nDeseja realizar a inserção de todos os salários [s/n]\? ");
             scanf(" %c", &response);
 
             if ( verifyResponse(response) == 's')
@@ -304,7 +304,7 @@ int main(int argc, const char* argv[])
             \n1 - Inserção | 2 - Remoção\
             \n3 - Exibir   | 4 - Valores\
             \n0 - Finalizar\
-            \nOpção? "
+            \nOpção\? "
         );
 		scanf("%i", &option);
 		getchar();
