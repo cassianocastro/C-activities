@@ -18,11 +18,11 @@ Options;
 
 struct livro
 {
-	char
-	titulo [TAMANHO],
-	autor  [TAMANHO],
-	editora[TAMANHO],
-	assunto[TAMANHO];
+	char titulo[TAMANHO];
+	char autor[TAMANHO];
+	char editora[TAMANHO];
+	char assunto[TAMANHO];
+
 	unsigned short ano;
 }
 biblioteca[10];
