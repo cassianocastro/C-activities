@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <locale.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include <iso646.h>
+#include <locale.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define TAM_STRING 20
 #define TAMANHO_FROTA 10
