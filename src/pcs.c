@@ -41,64 +41,74 @@ typedef unsigned char Byte;
 unsigned short int num;
 Computador* inventario;
 
-void preenchimento_dados( Byte pos )
+void preenchimento_dados(Byte pos)
 {
 	getchar();
-	printf ("\nComputador n� %hhu\n\nMarca........: ", (pos + 1));
-	fgets  (inventario[pos].marca, MAX_SIZE_STR, stdin);
-	printf ("Modelo.......: ");
-	fgets  (inventario[pos].modelo, MAX_SIZE_STR, stdin);
-	printf ("Processador..: ");
-	fgets  (inventario[pos].processador, MAX_SIZE_STR, stdin);
+
+    printf("\nComputador n� %hhu\n\nMarca........: ", (pos + 1));
+	fgets(inventario[pos].marca, MAX_SIZE_STR, stdin);
+
+	printf("Modelo.......: ");
+	fgets(inventario[pos].modelo, MAX_SIZE_STR, stdin);
+
+	printf("Processador..: ");
+	fgets(inventario[pos].processador, MAX_SIZE_STR, stdin);
 
     do {
-		printf ("\nTipo de Disco R�gido..."
-				"\nDigite \"s\" para SSD ou \"c\" para convencional: ");
-		scanf  (" %c", &inventario[pos].tipohd);
-	} while ( inventario[pos].tipohd not_eq 's' and inventario[pos].tipohd not_eq 'c' );
+		printf(
+            "\nTipo de Disco R�gido..."
+			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
+        );
+		scanf(" %c", &inventario[pos].tipohd);
+	} while (
+        inventario[pos].tipohd not_eq 's' and
+        inventario[pos].tipohd not_eq 'c'
+    );
 
-    printf ("\nCapacidade de Armazenamento (em GB): ");
-	scanf  ("%d", &inventario[pos].hd);
-	printf ("Tamanho da Mem�ria (em GB).........: ");
-	scanf  ("%d", &inventario[pos].memoria);
+    printf("\nCapacidade de Armazenamento (em GB): ");
+	scanf("%d", &inventario[pos].hd);
+
+	printf("Tamanho da Mem�ria (em GB).........: ");
+	scanf("%d", &inventario[pos].memoria);
 }
 
-void insercao( void )
+void insercao(void)
 {
 	char resposta = '\0';
 
-	printf ("Ol�, � a sua primeira vez com esta tela [s/n]? ");
-    scanf  (" %c", &resposta);
+	printf("Ol�, � a sua primeira vez com esta tela [s/n]? ");
+    scanf(" %c", &resposta);
 
-    resposta = tolower( resposta );
+    resposta = tolower(resposta);
 
 	if ( resposta == 'n' ) {
 		puts("\nInserindo novo computador...");
 	    num++;
-	    inventario = realloc ( inventario, num * sizeof (Computador) );
-	    preenchimento_dados ( num - 1 );
+	    inventario = realloc(inventario, num * sizeof (Computador));
+	    preenchimento_dados(num - 1);
 	} else {
-		printf ("Informe o n� de computadores a serem cadastrados: ");
-    	scanf  ("%hu", &num);
+		printf("Informe o n� de computadores a serem cadastrados: ");
+    	scanf("%hu", &num);
 
-	    inventario = calloc (num, sizeof (Computador));
-	    register Byte pos = 0;
-		for ( ; pos < num; pos++) preenchimento_dados(pos);
+	    inventario = calloc(num, sizeof(Computador));
+
+        register Byte pos = 0;
+		for ( ; pos < num; pos++ ) preenchimento_dados(pos);
 	}
 	puts("\nInser��o realizada.");
 }
 
-void remocao( void )
+void remocao(void)
 {
 	Byte index = 0, pos = 0, pos2 = 0;
 	Computador* new_inventario;
     bool was_found = false;
 
-	printf ("Informe o ID do computador: ");
-	scanf  ("%hhu", &index);
+	printf("Informe o ID do computador: ");
+	scanf("%hhu", &index);
 
 	index--;
-	new_inventario = calloc ((num - 1), sizeof (Computador));
+	new_inventario = calloc((num - 1), sizeof(Computador));
 
 	for ( pos = 0; pos < num; pos++ )
     {
@@ -106,9 +116,9 @@ void remocao( void )
 			was_found = true;
 			continue;
 		}
-		strcpy (new_inventario[pos2].marca,       inventario[pos].marca);
-		strcpy (new_inventario[pos2].modelo,      inventario[pos].modelo);
-		strcpy (new_inventario[pos2].processador, inventario[pos].processador);
+		strcpy(new_inventario[pos2].marca,       inventario[pos].marca);
+		strcpy(new_inventario[pos2].modelo,      inventario[pos].modelo);
+		strcpy(new_inventario[pos2].processador, inventario[pos].processador);
 		new_inventario[pos2].tipohd    		=     inventario[pos].tipohd;
 		new_inventario[pos2].hd  			=     inventario[pos].hd;
 		new_inventario[pos2].memoria  		=     inventario[pos].memoria;
@@ -116,7 +126,7 @@ void remocao( void )
 	}
 
 	if ( was_found ) {
-		free (inventario);
+		free(inventario);
 		inventario = new_inventario;
 		num --;
 		puts("\nRemo��o realizada.");
@@ -124,28 +134,29 @@ void remocao( void )
 		puts("\nCadastro N�O encontrado!");
 }
 
-void alteracao( void )
+void alteracao(void)
 {
 	Dados tipo; Byte index = 0;
 
-	printf ("\nInforme o ID do computador: ");
-	scanf  ("%hhu", &index);
+	printf("\nInforme o ID do computador: ");
+	scanf("%hhu", &index);
 
 	index--;
 
-	printf (
+	printf(
         "\nSelecione o tipo de dado:\n"
 		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
 		"\n4. Mem�ria | 5. Modelo 	  | 6. Processador"
 		"\nOp��o? "
     );
-	scanf  ( "%d", &tipo );
+	scanf("%d", &tipo);
 	getchar();
+
 	switch ( tipo )
     {
 		case MARCA:
-			printf ("Nova marca: ");
-			fgets  (inventario[index].marca, MAX_SIZE_STR, stdin);
+			printf("Nova marca: ");
+			fgets(inventario[index].marca, MAX_SIZE_STR, stdin);
 			break;
 		case TIPO_HD:
 			do {
@@ -154,24 +165,28 @@ void alteracao( void )
 					"\nDigite \"s\" para SSD ou \"c\" para convencional: "
                 );
 				scanf(" %c", &inventario[index].tipohd);
-				inventario[index].tipohd = tolower( inventario[index].tipohd );
-			} while ( inventario[index].tipohd not_eq 's' and inventario[index].tipohd not_eq 'c' );
+
+                inventario[index].tipohd = tolower(inventario[index].tipohd);
+			} while (
+                inventario[index].tipohd not_eq 's' and
+                inventario[index].tipohd not_eq 'c'
+            );
 			break;
 		case HD:
-			printf ("Nova capacidade de armazenamento: ");
-			scanf  ("%d",  &inventario[index].hd);
+			printf("Nova capacidade de armazenamento: ");
+			scanf("%d", &inventario[index].hd);
 			break;
 		case MEMORIA:
-			printf ("Novo tamanho de mem�ria: ");
-			scanf  ("%d",  &inventario[index].memoria);
+			printf("Novo tamanho de mem�ria: ");
+			scanf("%d", &inventario[index].memoria);
 			break;
 		case MODELO:
-			printf ("Novo Modelo: ");
-			fgets  (inventario[index].modelo, MAX_SIZE_STR, stdin);
+			printf("Novo Modelo: ");
+			fgets(inventario[index].modelo, MAX_SIZE_STR, stdin);
 			break;
 		case PROCESSADOR:
-			printf ("Novo Processador: ");
-			fgets  (inventario[index].processador, MAX_SIZE_STR, stdin);
+			printf("Novo Processador: ");
+			fgets(inventario[index].processador, MAX_SIZE_STR, stdin);
 			break;
 		default:
 			puts("\nOp��o inv�lida!");
@@ -179,11 +194,11 @@ void alteracao( void )
 	puts("\nAltera��o realizada.");
 }
 
-void listagem( void )
+void listagem(void)
 {
 	register Byte pos = 0;
 
-    for ( ; pos < num; pos++)
+    for ( ; pos < num; pos++ )
     {
 		printf(
             "\nComputador n� %hhu:\n"
@@ -204,22 +219,23 @@ void listagem( void )
 	}
 }
 
-void busca( void )
+void busca(void)
 {
 	char resposta     = '\0', modelo[MAX_SIZE_STR];
 	bool was_found    = false;
     register Byte pos = 0;
 
 	getchar();
+
     do {
-    	printf ("\nInforme o modelo do computador: ");
-	    fgets  (modelo, MAX_SIZE_STR, stdin);
+    	printf("\nInforme o modelo do computador: ");
+	    fgets(modelo, MAX_SIZE_STR, stdin);
 
 	    was_found = false;
 
 	    for ( pos = 0; pos < num; pos++ )
         {
-			if ( strcmp (modelo, inventario[pos].modelo) != 0 ) continue;
+			if ( strcmp(modelo, inventario[pos].modelo) != 0 ) continue;
 
             printf(
                 "\nComputador n� %hhu:\n"
@@ -242,15 +258,15 @@ void busca( void )
 		if ( not was_found )
             puts("\nCadastro N�O encontrado!");
 
-        printf ("\nDeseja realizar novamente [s/n]? ");
-		scanf  (" %c", &resposta);
-		resposta = tolower( resposta );
+        printf("\nDeseja realizar novamente [s/n]? ");
+		scanf(" %c", &resposta);
+		resposta = tolower(resposta);
 	} while ( resposta == 's' );
 }
 
-int main( void )
+int main(void)
 {
-	setlocale( LC_ALL, "" );
+	setlocale(LC_ALL, "");
 
 	Opcoes opcao;
 
@@ -262,8 +278,8 @@ int main( void )
 			"4. Listagem | 5. Busca   | Outra tecla: Sair"
 			"\nOp��o? "
         );
-		scanf ( "%d", &opcao );
-		system( "clear" );
+		scanf("%d", &opcao);
+		system("clear");
 
     	switch ( opcao )
         {
@@ -287,5 +303,5 @@ int main( void )
 				exit(EXIT_SUCCESS);
 		}
 	}
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
