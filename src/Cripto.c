@@ -72,5 +72,6 @@ int main( void )
                 puts ("Opção Inválida!");
         }
     } while ( opcao not_eq SAIR );
-    return ( EXIT_SUCCESS );
+
+    return EXIT_SUCCESS;
 }
