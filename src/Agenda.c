@@ -50,33 +50,42 @@ const unsigned short int ANO_ATUAL = 2021;
 Pessoa* agenda;
 unsigned short int num;
 
-void dados( byte pos )
+void dados(byte pos)
 {
 	bool is_okay;
 
 	getchar();
-	printf ("\nContato nº %hhu\n\nNome......: ", (pos + 1));
-	fgets  (agenda[pos].nome, 50, stdin);
-	printf ("Cidade....: ");
-	fgets  (agenda[pos].cidade, 20, stdin);
-	printf ("Telefone..: ");
-	fgets  (agenda[pos].telefone, 16, stdin);
+
+    printf("\nContato nº %hhu\n\nNome......: ", (pos + 1));
+	fgets(agenda[pos].nome, 50, stdin);
+
+    printf("Cidade....: ");
+	fgets(agenda[pos].cidade, 20, stdin);
+
+    printf("Telefone..: ");
+	fgets(agenda[pos].telefone, 16, stdin);
 
     do
     {
-		printf ("Sexo [M/F]? ");
-		scanf  (" %c", &agenda[pos].sexo);
-		agenda[pos].sexo = tolower( agenda[pos].sexo );
-	} while ( agenda[pos].sexo not_eq 'f' and agenda[pos].sexo not_eq 'm' );
+		printf("Sexo [M/F]? ");
+		scanf(" %c", &agenda[pos].sexo);
+
+		agenda[pos].sexo = tolower(agenda[pos].sexo);
+	} while (
+        agenda[pos].sexo not_eq 'f' and
+        agenda[pos].sexo not_eq 'm'
+    );
 
 	while ( true )
     {
-		printf ("Data de nascimento...\nDia: ");
-    	scanf  ("%hhu", &agenda[pos].dn.dia);
-    	printf ("Mês: ");
-    	scanf  ("%hhu", &agenda[pos].dn.mes);
-    	printf ("Ano: ");
-    	scanf  ("%hu",  &agenda[pos].dn.ano);
+		printf("Data de nascimento...\nDia: ");
+    	scanf("%hhu", &agenda[pos].dn.dia);
+
+        printf("Mês: ");
+    	scanf("%hhu", &agenda[pos].dn.mes);
+
+        printf("Ano: ");
+    	scanf("%hu",  &agenda[pos].dn.ano);
 
     	is_okay = validadata(
             agenda[pos].dn.dia,
@@ -93,27 +102,28 @@ void dados( byte pos )
 	agenda[pos].idade = (uint8_t) ANO_ATUAL - agenda[pos].dn.ano;
 }
 
-void insercao( void )
+void insercao(void)
 {
-	char resposta; register byte pos = 0;
+	char resposta;
+    register byte pos = 0;
 
 	printf("Olá, é a sua primeira vez com esta tela [s/n]? ");
-    scanf ( " %c", &resposta );
+    scanf(" %c", &resposta);
 
-    resposta = tolower( resposta );
+    resposta = tolower(resposta);
 
-	if ( resposta == 'n')
+	if ( resposta == 'n' )
     {
 		puts("Inserindo novo contato...");
 	    num++;
-	    agenda = realloc( agenda, num * sizeof (Pessoa) );
-	    dados( num - 1 );
+	    agenda = realloc(agenda, num * sizeof(Pessoa));
+	    dados(num - 1);
 	}
     else
     {
 		printf("Informe o nº de pessoas a serem cadastradas: ");
-    	scanf ("%hu", &num);
-	    agenda = calloc ( num, sizeof (Pessoa) );
+    	scanf("%hu", &num);
+	    agenda = calloc(num, sizeof(Pessoa));
 
 		for ( pos = 0; pos < num; pos++ ) dados(pos);
 	}
@@ -121,25 +131,25 @@ void insercao( void )
 	puts("\nInserção realizada.");
 }
 
-void remocao( void )
+void remocao(void)
 {
 	byte index = 0, pos = 0, pos2 = 0;
     bool was_found = false;
 	Pessoa* new_agenda;
 
 	printf("Informe o ID do contato: ");
-	scanf ("%hhu", &index);
+	scanf("%hhu", &index);
 
     index--;
-	new_agenda = calloc ( (num - 1), sizeof (Pessoa) );
+	new_agenda = calloc((num - 1), sizeof(Pessoa));
 
 	for ( pos = 0; pos < num; pos++ )
     {
 		if ( pos not_eq index )
         {
-			strcpy (new_agenda[pos2].nome,     agenda[pos].nome);
-			strcpy (new_agenda[pos2].cidade,   agenda[pos].cidade);
-			strcpy (new_agenda[pos2].telefone, agenda[pos].telefone);
+			strcpy(new_agenda[pos2].nome,     agenda[pos].nome);
+			strcpy(new_agenda[pos2].cidade,   agenda[pos].cidade);
+			strcpy(new_agenda[pos2].telefone, agenda[pos].telefone);
 			new_agenda[pos2].sexo    	=      agenda[pos].sexo;
 			new_agenda[pos2].dn.dia  	=      agenda[pos].dn.dia;
 			new_agenda[pos2].dn.mes  	=      agenda[pos].dn.mes;
@@ -147,12 +157,13 @@ void remocao( void )
 			new_agenda[pos2].idade   	=      agenda[pos].idade;
 			pos2++;
 		}
-        else was_found = true;
+        else
+            was_found = true;
 	}
 
 	if ( was_found )
     {
-		free (agenda);
+		free(agenda);
 		agenda = new_agenda;
 		num --;
 		puts("\nRemoção realizada.");
@@ -161,47 +172,57 @@ void remocao( void )
 		puts("\aCadastro não encontrado!!");
 }
 
-void alteracao( void )
+void alteracao(void)
 {
-	Dados tipo; byte index = 0; bool is_okay = false;
+	Dados tipo;
+    byte index = 0;
+    bool is_okay = false;
 
-	printf ("\nInforme o ID do contato: ");
-	scanf  ("%hhu", &index);
+	printf("\nInforme o ID do contato: ");
+	scanf("%hhu", &index);
 
     index--;
 
-	printf ("\nSelecione o tipo de dado:"
-			"\n1 - Nome;"
-			"\n2 - Sexo;"
-			"\n3 - Data de Nascimento;"
-			"\n4 - Cidade;"
-			"\n5 - Telefone;"
-			"\nOpção? ");
-	scanf ("%d", &tipo);
+	printf(
+        "\nSelecione o tipo de dado:"
+		"\n1 - Nome;"
+		"\n2 - Sexo;"
+		"\n3 - Data de Nascimento;"
+		"\n4 - Cidade;"
+		"\n5 - Telefone;"
+		"\nOpção? "
+    );
+	scanf("%d", &tipo);
 	getchar();
 
 	switch ( tipo )
     {
 		case NOME:
-			printf ("Novo nome: ");
-			fgets  (agenda[index].nome, 50, stdin);
+			printf("Novo nome: ");
+			fgets(agenda[index].nome, 50, stdin);
 			break;
 		case SEXO:
 			do {
-				printf ("Novo sexo [M/F]: ");
-				scanf  (" %c", &agenda[index].sexo);
-				agenda[index].sexo = tolower( agenda[index].sexo );
-			} while ( agenda[index].sexo not_eq 'f' and agenda[index].sexo not_eq 'm' );
+				printf("Novo sexo [M/F]: ");
+				scanf(" %c", &agenda[index].sexo);
+
+				agenda[index].sexo = tolower(agenda[index].sexo);
+			} while (
+                agenda[index].sexo not_eq 'f' and
+                agenda[index].sexo not_eq 'm'
+            );
 			break;
 		case DATA:
-			while (true)
+			while ( true )
             {
-				printf ("Nova data de nascimento...\nDia: ");
-				scanf  ("%hhu",  &agenda[index].dn.dia);
-				printf ("Mês: ");
-				scanf  ("%hhu",  &agenda[index].dn.mes);
-				printf ("Ano: ");
-				scanf  ("%hu",   &agenda[index].dn.ano);
+				printf("Nova data de nascimento...\nDia: ");
+				scanf("%hhu", &agenda[index].dn.dia);
+
+                printf("Mês: ");
+				scanf("%hhu", &agenda[index].dn.mes);
+
+                printf("Ano: ");
+				scanf("%hu", &agenda[index].dn.ano);
 
 				is_okay = validadata(
                     agenda[index].dn.dia,
@@ -217,11 +238,11 @@ void alteracao( void )
 			break;
 		case CIDADE:
 			printf("Nova cidade: ");
-			fgets (agenda[index].cidade, 20, stdin);
+			fgets(agenda[index].cidade, 20, stdin);
 			break;
 		case FONE:
 			printf("Novo telefone: ");
-			fgets (agenda[index].telefone, 16, stdin);
+			fgets(agenda[index].telefone, 16, stdin);
 			break;
 		default:
 			puts("\n\aOpção inválida!");
@@ -230,11 +251,11 @@ void alteracao( void )
 	puts("\nAlteração realizada.");
 }
 
-void listagem( void )
+void listagem(void)
 {
 	register byte pos = 0;
 
-    for ( ; pos < num; pos++)
+    for ( ; pos < num; pos++ )
     {
 		printf(
             "\n\tContato nº %hhu:"
@@ -257,13 +278,15 @@ void listagem( void )
 	}
 }
 
-void busca( void )
+void busca(void)
 {
-	char resposta = '\0'; bool was_found = false; byte mes = 0, pos = 0;
+	char resposta = '\0';
+    bool was_found = false;
+    byte mes = 0, pos = 0;
 
     do {
     	printf("\nDigite o nº do mês de nascimento (Ex.: Abril = 4): ");
-	    scanf ("%hu", &mes);
+	    scanf("%hu", &mes);
 
         was_found = false;
 
@@ -271,7 +294,7 @@ void busca( void )
         {
 			if ( mes != agenda[pos].dn.mes ) continue;
 
-			printf (
+			printf(
                 "\n\tContato nº %hhu:"
                 "\nNome..............: %s"
                 "Idade...............: %hhu anos"
@@ -299,15 +322,15 @@ void busca( void )
         }
 
         printf("\n\nDeseja realizar novamente [S/n]? ");
-		scanf (" %c", &resposta);
+		scanf(" %c", &resposta);
 
-		resposta = tolower( resposta );
+		resposta = tolower(resposta);
 	} while ( resposta == 's' );
 }
 
 int main (int argc, char const *argv[])
 {
-	setlocale( LC_ALL, "" );
+	setlocale(LC_ALL, "");
 
     Opcoes opcao;
 
@@ -349,7 +372,7 @@ int main (int argc, char const *argv[])
 		}
 	} while ( opcao not_eq SAIR );
 
-    free ( agenda );
+    free(agenda);
 
     return ( EXIT_SUCCESS );
 }
