@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <locale.h>
 #include <iso646.h>
+#include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define TAMANHO_FRASE 100
 
@@ -16,7 +16,7 @@ typedef enum
 }
 Options;
 
-void criptografar(char *frase)
+void criptografar(char* frase)
 {
     for ( byte i = 0; i < strlen(frase); i++ )
     {
@@ -32,7 +32,7 @@ void criptografar(char *frase)
     }
 }
 
-void descriptografar(char *frase)
+void descriptografar(char* frase)
 {
     for ( byte i = 0; i < strlen(frase); i++ )
     {
