@@ -153,7 +153,7 @@ char askUser(void)
 {
     char response = '\0';
 
-    printf("\nDeseja voltar ao menu principal [s/n]? ");
+    printf("\nDeseja voltar ao menu principal[s/n]\? ");
     scanf(" %c", &response);
 
     while ( not responseIsValid(response) )
@@ -176,7 +176,7 @@ void find(void)
 		printf(
             "\nSelecione o tipo de busca:\
             \n1 - Por título | 2 - Por Autor | 3 - Por Editora\
-            \nOpção? "
+            \nOpção\? "
         );
 		scanf("%hhd", &opcao);
 		system("clear");
@@ -287,7 +287,7 @@ int main(int argc, const char* argv[])
             \n1 - Inserir livro | 2 - Excluir livro\
             \n3 - Exibir acervo | 4 - Pesquisar\
             \n0 - Sair\
-            \nOpção? "
+            \nOpção\? "
         );
 		scanf("%d", &option);
 		system("clear");
