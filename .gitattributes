@@ -12,3 +12,4 @@
 *.exe binary
 *.run binary
 *.bin binary
+*.o binary
