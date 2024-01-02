@@ -1,13 +1,14 @@
+#include <ctype.h>
+#include <iso646.h>
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <locale.h>
-#include <iso646.h>
-#include <ctype.h>
-//OK
+
 typedef unsigned char byte;
 
-enum Meses{
+enum Meses
+{
     JANEIRO = 1,
     FEVEREIRO,
     MARCO,
@@ -22,44 +23,66 @@ enum Meses{
     DEZEMBRO
 };
 
-int geraPar(int limite){
+int geraPar(int limite)
+{
     int n = rand() % limite;
-    if (n % 2 == 0)
+
+    if ( n % 2 == 0 )
+    {
         return n;
+    }
+
     return (n + 1);
 }
 
-int geraImpar(int limite){
+int geraImpar(int limite)
+{
     int n = rand() % limite;
-    if (n % 2 != 0)
+
+    if ( n % 2 != 0 )
+    {
         return n;
+    }
+
     return (n - 1);
 }
 
-int geraprimo(int limite){
+int geraprimo(int limite)
+{
     int num, x, cd;
-    do{
+
+    do {
         cd = 0;
         num = rand() % limite;
-        for (x = 1; x <= num; x++){
-            if(num % x == 0) cd++;
-            if(cd > 2) break;
+
+        for ( x = 1; x <= num; x++ )
+        {
+            if ( num % x == 0 ) cd++;
+
+            if ( cd > 2 ) break;
         }
-    }while (cd != 2);
+    } while ( cd != 2 );
+
     return num;
 }
 
-char verifyResponse( char response ) {
-    response = tolower( response );
-	while ( response != 's' and response != 'n' ){
-		printf("\nOpção inválida. Digite novamente: ");
+char verifyResponse(char response)
+{
+    response = tolower(response);
+
+	while ( response != 's' and response != 'n' )
+    {
+		printf("\nOpÃ§Ã£o invÃ¡lida. Digite novamente: ");
 		scanf(" %c", &response);
 	}
+
 	return response;
 }
 
-bool isValid( int dia, int mes, int ano ){
-	switch ( mes ){
+bool isValid(int dia, int mes, int ano)
+{
+	switch ( mes )
+    {
 		case FEVEREIRO:
 			if ( ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0 )
 				return dia > 0 and dia <= 29;
@@ -84,11 +107,13 @@ bool isValid( int dia, int mes, int ano ){
 	}
 }
 
-char* nameOfThis ( byte month ){
-	switch ( month ){
+char* nameOfThis(byte month)
+{
+	switch ( month )
+    {
 		case JANEIRO:    return "Janeiro..";
 		case FEVEREIRO:  return "Fevereiro";
-		case MARCO:      return "Março....";
+		case MARCO:      return "MarÃ§o....";
 		case ABRIL:      return "Abril....";
 		case MAIO:       return "Maio.....";
 		case JUNHO:      return "Junho....";
@@ -99,5 +124,6 @@ char* nameOfThis ( byte month ){
 		case NOVEMBRO:   return "Novembro.";
 		case DEZEMBRO:   return "Dezembro.";
 	}
+
 	return NULL;
 }
