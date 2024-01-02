@@ -48,7 +48,10 @@ void descriptografar(char* frase)
     }
 }
 
-int main(void)
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
     Options opcao;
 
@@ -81,5 +84,5 @@ int main(void)
         }
     } while ( opcao not_eq SAIR );
 
-    return ( EXIT_SUCCESS );
+    return EXIT_SUCCESS;
 }
