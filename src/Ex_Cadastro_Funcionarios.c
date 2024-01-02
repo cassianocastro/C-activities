@@ -15,26 +15,35 @@ typedef unsigned char byte;
 
 typedef enum
 {
-    SAIR, INSERCAO, REMOCAO, EXIBIR, VALORES
-} Options;
+    SAIR,
+    INSERCAO,
+    REMOCAO,
+    EXIBIR,
+    VALORES
+}
+Options;
 
 typedef struct
 {
-	int day, month, year;
-} BirthDate;
+	int day;
+    int month;
+    int year;
+}
+BirthDate;
 
 struct employee
 {
-	char
-	cpf     [14],
-	name    [SIZE],
-	address [SIZE];
+	char cpf[14];
+	char name[SIZE];
+	char address[SIZE];
 
-	float wage[MONTHS], sum;
+	float wage[MONTHS];
+    float sum;
 	int code;
-	BirthDate birthDate;
 
-} employees[SIZE_employees];
+	BirthDate birthDate;
+}
+employees[SIZE_employees];
 
 void init( void )
 {
@@ -81,6 +90,7 @@ void show( void )
             employees[i].address,
             employees[i].sum
         );
+
         for ( byte month = 0; month < MONTHS; month++ )
 		{
             printf(
@@ -91,7 +101,11 @@ void show( void )
         }
         wasFound = true;
     }
-    if ( not wasFound ) puts ("Sem funcionários cadastrados!");
+
+    if ( not wasFound )
+    {
+        puts ("Sem funcionários cadastrados!");
+    }
 }
 
 void insert( void )
@@ -101,18 +115,23 @@ void insert( void )
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
-		if ( employees[i].birthDate.day == 0 ) {
+		if ( employees[i].birthDate.day == 0 )
+        {
 			printf ("Nome do funcionário: ");
 			gets   (employees[i].name);
-			printf ("CPF: ");
+
+        	printf ("CPF: ");
 			gets   (employees[i].cpf);
-			do
+
+        	do
 			{
 				printf ("Data de nascimento...\nDia: ");
 				scanf  ("%d", &employees[i].birthDate.day);
-				printf ("Mês: ");
+
+                printf ("Mês: ");
 				scanf  ("%d", &employees[i].birthDate.month);
-				printf ("Ano: ");
+
+                printf ("Ano: ");
 				scanf  ("%d", &employees[i].birthDate.year);
 
 				dateIsOkay = isValid(
@@ -120,18 +139,28 @@ void insert( void )
                     employees[i].birthDate.month,
                     employees[i].birthDate.year
                 );
-				if ( not dateIsOkay ) puts ("**Data Inválida!");
+
+				if ( not dateIsOkay )
+                {
+                    puts ("**Data Inválida!");
+                }
 			} while ( not dateIsOkay );
+
 			getchar();
 			printf ("Endereço: ");
 			gets   (employees[i].address);
+
 			printf ("Código (somente números): ");
 			scanf  ("%d", &employees[i].code);
-			getchar();
-			wasFound = true;
-			break;
+
+            getchar();
+
+            wasFound = true;
+
+            break;
 		}
 	}
+
 	if ( not wasFound )
         puts("Lista cheia.");
     else
@@ -148,7 +177,8 @@ void removeEmployee( void )
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
-		if ( code == employees[i].code ) {
+		if ( code == employees[i].code )
+        {
 			strcpy (employees[i].name, "");
 			strcpy (employees[i].address, "");
 			strcpy (employees[i].cpf, "");
@@ -163,10 +193,12 @@ void removeEmployee( void )
 			{
 				employees[i].wage[month] = 0.0f;
 			}
+
 			wasFound = true;
 			break;
 		}
 	}
+
 	if ( not wasFound )
         puts("Funcionário não encontrado.");
     else
@@ -198,8 +230,10 @@ void insertWage( int i )
 
         for ( byte month = 0; month < MONTHS; month++ )
 		{
-            if ( ( number - 1 ) == month ) {
+            if ( ( number - 1 ) == month )
+            {
                 employees[i].sum -= employees[i].wage[month];
+
                 printf ("Digite o valor: R$ ");
                 scanf  ("%f", &employees[i].wage[month]);
 
@@ -207,6 +241,7 @@ void insertWage( int i )
                 break;
             }
         }
+
         printf ("\nDeseja inserir outro valor [s/n]? ");
         scanf ( " %c", &response );
 
@@ -224,9 +259,11 @@ void wages( void )
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
-		if ( code == employees[i].code ) {
+		if ( code == employees[i].code )
+        {
             printf ("\nDeseja realizar a inserção de todos os salários [s/n]? ");
             scanf  (" %c", &response);
+
             if ( verifyResponse( response ) == 's')
                 insertAllWages( i );
             else
@@ -234,17 +271,25 @@ void wages( void )
 
             puts ("Inserção de valor(es) realizada.");
             wasFound = true;
+
             break;
 		}
 	}
-	if ( not wasFound ) puts ("Código inválido.");
+
+	if ( not wasFound )
+    {
+        puts ("Código inválido.");
+    }
 }
 
 int main( void )
 {
 	setlocale(LC_ALL, "");
+
     unsigned int option = 0;
+
     init();
+
 	do
 	{
 		printf(
@@ -257,6 +302,7 @@ int main( void )
 		scanf( "%i", &option );
 		getchar();
 		system ( "clear" );
+
 		switch ( option )
 		{
 			case INSERCAO:
@@ -278,5 +324,6 @@ int main( void )
 				puts ("Opção inválida!");
 		}
 	} while ( option not_eq SAIR );
+
 	return ( EXIT_SUCCESS );
 }
