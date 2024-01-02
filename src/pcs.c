@@ -9,13 +9,17 @@
 
 #define MAX_SIZE_STR 30
 
+typedef unsigned char Byte;
+
 typedef struct
 {
-    char tipohd,
-	modelo	   [MAX_SIZE_STR],
-	marca	   [MAX_SIZE_STR],
-	processador[MAX_SIZE_STR];
-    int memoria, hd;
+    char tipohd;
+	char modelo[MAX_SIZE_STR];
+	char marca[MAX_SIZE_STR];
+	char processador[MAX_SIZE_STR];
+
+    int memoria;
+    int hd;
 }
 Computador;
 
@@ -40,8 +44,8 @@ typedef enum
 }
 Dados;
 
-typedef unsigned char Byte;
 unsigned short int num;
+
 Computador* inventario;
 
 void preenchimento_dados(Byte pos)
