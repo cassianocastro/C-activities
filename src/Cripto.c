@@ -18,7 +18,7 @@ Options;
 
 void criptografar(char* frase)
 {
-    for ( byte i = 0, length = strlen( frase ); i < length; i++ )
+    for ( byte i = 0, length = strlen(frase); i < length; i++ )
 	{
         if ( frase[i] >= 97 and frase[i] <= 122 )
         {
@@ -34,7 +34,7 @@ void criptografar(char* frase)
 
 void descriptografar(char* frase)
 {
-    for ( byte i = 0, length = strlen( frase ); i < length; i++ )
+    for ( byte i = 0, length = strlen(frase); i < length; i++ )
 	{
         if ( frase[i] >= 97 and frase[i] <= 122 )
         {
@@ -55,10 +55,7 @@ int main(void)
     char frase[TAMANHO_FRASE];
 
     do {
-        printf(
-            "1 - Criptografar | 2 - Descriptografar | 0 - Sair\
-            \nOpção? "
-        );
+        printf("1 - Criptografar | 2 - Descriptografar | 0 - Sair\nOpção\? ");
         scanf("%d", &opcao);
         getchar();
 
