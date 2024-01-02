@@ -67,7 +67,7 @@ void dados(byte pos)
 
     do
     {
-		printf("Sexo [M/F]? ");
+		printf("Sexo [M/F]\? ");
 		scanf(" %c", &agenda[pos].sexo);
 
 		agenda[pos].sexo = tolower(agenda[pos].sexo);
@@ -107,7 +107,7 @@ void insercao(void)
 	char resposta;
     register byte pos = 0;
 
-	printf("Olá, é a sua primeira vez com esta tela [s/n]? ");
+	printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
     scanf(" %c", &resposta);
 
     resposta = tolower(resposta);
@@ -190,7 +190,7 @@ void alteracao(void)
 		"\n3 - Data de Nascimento;"
 		"\n4 - Cidade;"
 		"\n5 - Telefone;"
-		"\nOpção? "
+		"\nOpção\? "
     );
 	scanf("%d", &tipo);
 	getchar();
@@ -321,7 +321,7 @@ void busca(void)
             puts("\n\aCadastro não encontrado!!");
         }
 
-        printf("\n\nDeseja realizar novamente [S/n]? ");
+        printf("\n\nDeseja realizar novamente [S/n]\? ");
 		scanf(" %c", &resposta);
 
 		resposta = tolower(resposta);
@@ -346,7 +346,7 @@ int main(int argc, const char* argv[])
             "\n4 - Listagem;"
             "\n5 - Busca;"
             "\n6 - Sair;"
-            "\nOpção? "
+            "\nOpção\? "
         );
 		scanf("%d", &opcao);
 
