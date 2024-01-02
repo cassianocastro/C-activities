@@ -1,10 +1,10 @@
-#include <stdio.h>
-#include <locale.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <iso646.h>
 #include <ctype.h>
+#include <iso646.h>
+#include <locale.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define TAMANHO 50
 
