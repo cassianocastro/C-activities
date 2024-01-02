@@ -16,35 +16,39 @@ typedef enum
     INSERIR,
     EXCLUIR,
     EXIBIR
-} Opcoes;
+}
+Opcoes;
 
 struct carro
 {
-	char
-	modelo[TAM_STRING],
-	marca [TAM_STRING],
-	placa [TAM_STRING],
-	cor   [TAM_STRING];
-	unsigned short ano;
-} frota[TAMANHO_FROTA];
+	char modelo[TAM_STRING];
+	char marca[TAM_STRING];
+	char placa[TAM_STRING];
+	char cor[TAM_STRING];
 
-void inicializar( void )
+	unsigned short ano;
+}
+frota[TAMANHO_FROTA];
+
+void inicializar(void)
 {
 	for ( byte i = 0; i < TAMANHO_FROTA; i++ )
 	{
-        strcpy ( frota[i].modelo, "" );
-        strcpy ( frota[i].marca, "" );
-        strcpy ( frota[i].placa, "" );
-        strcpy ( frota[i].cor, "" );
+        strcpy(frota[i].modelo, "");
+        strcpy(frota[i].marca, "");
+        strcpy(frota[i].placa, "");
+        strcpy(frota[i].cor, "");
+
         frota[i].ano = 0;
     }
 }
 
-void exibir( void )
+void exibir(void)
 {
     for ( byte i = 0; i < TAMANHO_FROTA; i++ )
 	{
-        if ( frota[i].ano != 0 ) {
+        if ( frota[i].ano != 0 )
+        {
             printf(
                 "\nDados do carro\n"
                 "\nModelo...............: %s"
@@ -62,43 +66,54 @@ void exibir( void )
     }
 }
 
-void excluir( void )
+void excluir(void)
 {
     char placa_informada[TAM_STRING];
 
     printf("Informe a placa do veículo: ");
-    gets  ( placa_informada );
+    gets(placa_informada);
 
     for ( byte i = 0; i < TAMANHO_FROTA; i++ )
 	{
-        if ( strcmp ( placa_informada, frota[i].placa ) == 0 ) {
-            strcpy ( frota[i].modelo, "" );
-            strcpy ( frota[i].marca, "" );
-            strcpy ( frota[i].placa, "" );
-            strcpy ( frota[i].cor, "" );
+        if ( strcmp(placa_informada, frota[i].placa) == 0 )
+        {
+            strcpy(frota[i].modelo, "");
+            strcpy(frota[i].marca, "");
+            strcpy(frota[i].placa, "");
+            strcpy(frota[i].cor, "");
+
             frota[i].ano = 0;
-            puts ("\nCarro excluído.");
+
+            puts("\nCarro excluído.");
+
             break;
         }
     }
 }
 
-void inserir( void )
+void inserir(void)
 {
     for ( byte i = 0; i < TAMANHO_FROTA; i++ )
 	{
-        if ( frota[i].ano == 0 ) {
-            printf ("Marca..............: ");
-            gets   ( frota[i].marca );
-            printf ("Modelo.............: ");
-            gets   ( frota[i].modelo );
-            printf ("Cor................: ");
-            gets   ( frota[i].cor );
-            printf ("Placa..............: ");
-            gets   ( frota[i].placa );
-            printf ("Ano de fabricação..: ");
-            scanf  ( "%hu", &frota[i].ano );
-            puts   ("\nCarro incluído.");
+        if ( frota[i].ano == 0 )
+        {
+            printf("Marca..............: ");
+            gets(frota[i].marca);
+
+            printf("Modelo.............: ");
+            gets(frota[i].modelo);
+
+            printf("Cor................: ");
+            gets(frota[i].cor);
+
+            printf("Placa..............: ");
+            gets(frota[i].placa);
+
+            printf("Ano de fabricação..: ");
+            scanf("%hu", &frota[i].ano);
+
+            puts("\nCarro incluído.");
+
             break;
         }
     }
@@ -112,17 +127,20 @@ int main(int argc, const char* argv[])
     setlocale(LC_ALL, "");
 
 	unsigned int opcao = 0;
-	inicializar();
-	do {
+
+    inicializar();
+
+    do {
 		printf(
             "\nEscolha uma das opções:"
             "\n1 - Inserir carro  | 2 - Excluir carro"
             "\n3 - Exibir modelos | 0 - Finalizar"
             "\nOpção? "
         );
-		scanf ( "%d", &opcao );
-		system ( "clear" );
+		scanf("%d", &opcao);
+		system("clear");
 		getchar();
+
 		switch ( opcao )
 		{
 			case INSERIR:
@@ -135,10 +153,10 @@ int main(int argc, const char* argv[])
 				excluir();
 				break;
 			case SAIR:
-				puts ("\nFIM.");
+				puts("\nFIM.");
 				break;
 			default:
-				puts ("Opção inválida!");
+				puts("Opção inválida!");
 		}
 	} while ( opcao not_eq SAIR );
 
