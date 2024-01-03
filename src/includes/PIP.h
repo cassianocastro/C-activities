@@ -28,7 +28,10 @@ int geraPar(int limite)
     int n = rand() % limite;
 
     if ( n % 2 == 0 )
+    {
         return n;
+    }
+
     return (n + 1);
 }
 
@@ -37,7 +40,10 @@ int geraImpar(int limite)
     int n = rand() % limite;
 
     if ( n % 2 != 0 )
+    {
         return n;
+    }
+
     return (n - 1);
 }
 
@@ -52,6 +58,7 @@ int geraprimo(int limite)
         for ( x = 1; x <= num; x++ )
 		{
             if ( num % x == 0 ) cd++;
+
             if ( cd > 2 ) break;
         }
     } while ( cd != 2 );
@@ -59,27 +66,33 @@ int geraprimo(int limite)
 	return num;
 }
 
-char verifyResponse( char response )
+char verifyResponse(char response)
 {
-    response = tolower( response );
+    response = tolower(response);
 
 	while ( response != 's' and response != 'n' )
 	{
 		printf("\nOpção inválida. Digite novamente: ");
 		scanf(" %c", &response);
 	}
+
 	return response;
 }
 
-bool isValid( int dia, int mes, int ano )
+bool isValid(int dia, int mes, int ano)
 {
 	switch ( mes )
 	{
 		case FEVEREIRO:
 			if ( ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0 )
+            {
 				return dia > 0 and dia <= 29;
+            }
 			else if ( dia <= 28 and dia > 0 )
+            {
                 return true;
+            }
+
 			return false;
 		case JANEIRO:
 		case MARCO:
@@ -99,9 +112,10 @@ bool isValid( int dia, int mes, int ano )
 	}
 }
 
-char* nameOfThis( byte month )
+char* nameOfThis(byte month)
 {
-	switch ( month ){
+	switch ( month )
+    {
 		case JANEIRO:    return "Janeiro..";
 		case FEVEREIRO:  return "Fevereiro";
 		case MARCO:      return "Março....";
@@ -115,5 +129,6 @@ char* nameOfThis( byte month )
 		case NOVEMBRO:   return "Novembro.";
 		case DEZEMBRO:   return "Dezembro.";
 	}
+
 	return NULL;
 }
