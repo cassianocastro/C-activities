@@ -38,13 +38,17 @@ Dados;
 
 typedef struct
 {
-	int ID, RAM, HD;
-	float tamanho_tela;
-	char tipo,
-	marca	   [TAM],
-	modelo	   [TAM],
-	processador[TAM_PROCESS],
-	cor		   [TAM_COR];
+	int ID;
+    int RAM;
+    int HD;
+
+    float tamanho_tela;
+
+    char tipo;
+	char marca[TAM];
+	char modelo[TAM];
+	char processador[TAM_PROCESS];
+	char cor[TAM_COR];
 }
 Computador;
 
