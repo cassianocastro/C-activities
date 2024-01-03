@@ -173,7 +173,7 @@ void remocao(void)
 	}
     else
     {
-		printf("a\Erro nº %d: %s", errno, strerror(errno));
+		printf("\aErro nº %d: %s", errno, strerror(errno));
 
     	return;
 	}
@@ -199,7 +199,7 @@ void remocao(void)
 		puts("Computador Removido.");
 	}
     else
-        printf("a\Erro nº %d: %s", errno, strerror(errno));
+        printf("\aErro nº %d: %s", errno, strerror(errno));
 }
 
 void listagem(void)
