@@ -110,4 +110,9 @@ void searchContact(void);
  */
 void printContact(const Pessoa* const);
 
+/**
+ *
+ */
+const unsigned int showMainMenu(void);
+
 #endif
