@@ -10,11 +10,13 @@
 
 struct Dado
 {
-    char tipohd,
-    modelo     [TAM_STRING],
-    marca      [TAM_STRING],
-    processador[TAM_STRING];
-    int memoria, hd;
+    char tipohd;
+    char modelo[TAM_STRING];
+    char marca[TAM_STRING];
+    char processador[TAM_STRING];
+
+    int memoria;
+    int hd;
 };
 
 typedef enum
