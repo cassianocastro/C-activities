@@ -109,28 +109,30 @@ void dados(byte i)
 
 void addContact(void)
 {
-	char resposta;
-    register byte pos = 0;
+	char response = '\0';
 
-	printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
-    scanf(" %c", &resposta);
+	printf("Olá, é a sua primeira vez com esta tela[s/n]\? ");
+    scanf(" %c", &response);
 
-    resposta = tolower(resposta);
-
-	if ( resposta == 'n' )
+	if ( tolower(response) == 'n' )
     {
 		puts("Inserindo novo contato...");
 	    num++;
 	    agenda = (Pessoa*) realloc(agenda, num * sizeof(Pessoa));
-	    dados(num - 1);
+
+        dados(num - 1);
 	}
     else
     {
 		printf("Informe o nº de pessoas a serem cadastradas: ");
     	scanf("%hu", &num);
+
 	    agenda = (Pessoa*) calloc(num, sizeof(Pessoa));
 
-		for ( pos = 0; pos < num; pos++ ) dados(pos);
+		for ( register byte i = 0; i < num; ++i )
+        {
+            dados(i);
+        }
 	}
 
 	puts("\nInserção realizada.");
