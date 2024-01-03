@@ -56,9 +56,10 @@ void dados(byte pos)
 {
 	bool is_okay;
 
+    printf("\nContato nº %hhu\n\n", (pos + 1));
 	getchar();
 
-    printf("\nContato nº %hhu\n\nNome......: ", (pos + 1));
+    printf("Nome......: ");
 	fgets(agenda[pos].nome, 50, stdin);
 
     printf("Cidade....: ");
@@ -80,7 +81,9 @@ void dados(byte pos)
 
 	while ( true )
     {
-		printf("Data de nascimento...\nDia: ");
+        puts("Data de nascimento...");
+
+		printf("Dia: ");
     	scanf("%hhu", &agenda[pos].dn.dia);
 
         printf("Mês: ");
