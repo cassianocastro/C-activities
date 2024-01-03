@@ -79,7 +79,7 @@ void insercao(void)
 	register uint8_t pos = 0;
     short numero_cadastros = 0;
 
-	printf("Quantos cadastros voc� deseja fazer? ");
+	printf("Quantos cadastros voc� deseja fazer\? ");
 	scanf("%hu", &numero_cadastros);
 
 	for ( pos = 0; pos < numero_cadastros; pos++ )
@@ -303,7 +303,7 @@ void alterado(Computador* PC)
         "6 - Cor;\n"
         "7 - Memória RAM (em GB);\n"
         "8 - Capac. de Armazenamento (em GB);\n"
-        "Opção?"
+        "Opção\?"
     );
 	scanf("%d", &dado);
 	getchar();
@@ -453,7 +453,7 @@ int main(void)
             "5 - Remover cadastro;\n"
             "6 - Escolher outro arquivo;\n"
             "0 - Sair;\n"
-            "Opção? ",
+            "Opção\? ",
             nome_arquivo
         );
 		scanf("%d", &opcao);
