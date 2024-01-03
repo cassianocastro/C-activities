@@ -72,7 +72,7 @@ void dados(byte i)
     scanf("%d", &inventario[i].memoria);
 
 	do {
-		printf("\nTipo de HD...[s/c]? ");
+		printf("\nTipo de HD...[s/c]\? ");
         scanf(" %c", &inventario[i].tipohd);
 	} while (
         inventario[i].tipohd != 's' and
@@ -84,7 +84,7 @@ void insercao(void)
 {
     char resposta = '\0';
 
-    printf("Olá, é a sua primeira vez com esta tela [s/n]? ");
+    printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
     scanf(" %c", &resposta);
 
 	if ( tolower(resposta) == 'n')
@@ -169,7 +169,7 @@ void alteracao(void)
         "\nSelecione o tipo de dado:"
         "\n0 - Marca   | 1 - Tipo de HD | 2 - Capac. de Armazenamento;"
         "\n3 - Memória | 4 - Modelo     | 5 - Processador;"
-        "\nOpção? "
+        "\nOpção\? "
     );
 	scanf("%d", &dado);
 	getchar();
@@ -182,7 +182,7 @@ void alteracao(void)
 			break;
 		case TIPO_HD:
 			do {
-				printf("\nTipo de HD...[s/c]? ");
+				printf("\nTipo de HD...[s/c]\? ");
 				scanf(" %c", &inventario[index].tipohd);
 			} while (
                 inventario[index].tipohd != 's' and
@@ -278,7 +278,7 @@ void busca(void)
             puts("\nCadastro não encontrado!");
         }
 
-		printf("\nDeseja realizar novamente [s/n]? ");
+		printf("\nDeseja realizar novamente [s/n]\? ");
 		scanf(" %c", &resposta);
 	} while ( tolower(resposta) == 's' );
 }
@@ -297,7 +297,7 @@ int main(int argc, char const *argv[])
             "\nEscolha uma das opções:\n"
             "\n1 - Insercão | 2 - Remoção | 3 - Alteração"
             "\n4 - Listagem | 5 - Busca   | 0 - Sair"
-            "\nOpção? "
+            "\nOpção\? "
         );
 		scanf("%d", &opcao);
 		system("clear");
