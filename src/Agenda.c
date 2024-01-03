@@ -59,6 +59,18 @@ Pessoa* agenda;
 
 unsigned short int num;
 
+void dados(byte);
+
+void insercao(void);
+
+void listagem(void);
+
+void alteracao(void);
+
+void remocao(void);
+
+void busca(void);
+
 /**
  *
  */
