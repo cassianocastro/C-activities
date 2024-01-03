@@ -12,16 +12,23 @@ typedef unsigned char byte;
 
 typedef struct
 {
-	byte dia, mes;
-	unsigned short int ano;
+	byte dia;
+    byte mes;
+
+    unsigned short int ano;
 }
 Data_nascimento;
 
 typedef struct
 {
 	Data_nascimento dn;
-	byte idade;
-    char nome[51], cidade[21], telefone[17], sexo;
+
+    byte idade;
+
+    char nome[51];
+    char cidade[21];
+    char telefone[17];
+    char sexo;
 }
 Pessoa;
 
@@ -47,7 +54,9 @@ typedef enum
 Dados;
 
 const unsigned short int ANO_ATUAL = 2021;
+
 Pessoa* agenda;
+
 unsigned short int num;
 
 /**
