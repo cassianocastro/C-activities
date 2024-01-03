@@ -16,7 +16,7 @@ void hanoi(int n, char x, char y, char z)
     }
 }
 
-int main(int argc, char const *argv[])
+int main(int argc, const char* argv[])
 {
     int numDiscos = 0;
 
