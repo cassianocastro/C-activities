@@ -233,7 +233,7 @@ void listagem(void)
 
 void alteracao(void)
 {
-	Dados tipo;
+	unsigned int tipo = 0u;
     byte index = 0;
     bool is_okay = false;
 
@@ -359,7 +359,7 @@ void busca(void)
 
     do {
     	printf("\nDigite o nº do mês de nascimento (Ex.: Abril = 4): ");
-	    scanf("%hu", &mes);
+	    scanf("%hhu", &mes);
 
         was_found = false;
 
