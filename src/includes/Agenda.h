@@ -105,4 +105,9 @@ void deleteContact(void);
  */
 void searchContact(void);
 
+/**
+ *
+ */
+void printPerson(const Pessoa* const);
+
 #endif
