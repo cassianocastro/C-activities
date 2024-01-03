@@ -2,11 +2,11 @@
 #include <conio.h>
 #include <windows.h>
 
-// Impress�o de texto colorido
+// Impressão de texto colorido
 
 /*
     Cores do DOS
-    Descri��o: Procedimento para defini��o de Cores do DOS
+    Descrição: Procedimento para definição de Cores do DOS
 */
 enum DOS_COLORS
 {
@@ -17,7 +17,7 @@ enum DOS_COLORS
 
 /*
     Cores das letras
-    Descri��o: Procedimento para inserir cores de letras no programa
+    Descrição: Procedimento para inserir cores de letras no programa
 */
 void textcolor (enum DOS_COLORS iColor)
 {
