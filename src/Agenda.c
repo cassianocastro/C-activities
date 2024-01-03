@@ -50,6 +50,58 @@ const unsigned short int ANO_ATUAL = 2021;
 Pessoa* agenda;
 unsigned short int num;
 
+/**
+ *
+ */
+int main(int argc, const char* argv[])
+{
+	setlocale(LC_ALL, "");
+
+    Opcoes opcao;
+
+    do {
+	    printf (
+            "\nEscolha uma das opções abaixo:"
+            "\n1 - Insercão;"
+            "\n2 - Remoção;"
+            "\n3 - Alteração;"
+            "\n4 - Listagem;"
+            "\n5 - Busca;"
+            "\n6 - Sair;"
+            "\nOpção\? "
+        );
+		scanf("%d", &opcao);
+
+    	switch ( opcao )
+        {
+	    	case INSERCAO:
+	    		insercao();
+	    		break;
+			case REMOCAO:
+				remocao();
+				break;
+			case ALTERACAO:
+				alteracao();
+				break;
+			case LISTAGEM:
+				listagem();
+				break;
+	    	case BUSCA:
+	    		busca();
+	    		break;
+			case SAIR:
+				puts("\nFIM...");
+				break;
+	    	default:
+	    		puts("\aOpção inválida!");
+		}
+	} while ( opcao not_eq SAIR );
+
+    free(agenda);
+
+    return EXIT_SUCCESS;
+}
+
 void dados(byte pos)
 {
 	bool is_okay;
@@ -131,45 +183,31 @@ void insercao(void)
 	puts("\nInserção realizada.");
 }
 
-void remocao(void)
+void listagem(void)
 {
-	byte index = 0, pos = 0, pos2 = 0;
-    bool was_found = false;
-	Pessoa* new_agenda;
+	register byte pos = 0;
 
-	printf("Informe o ID do contato: ");
-	scanf("%hhu", &index);
-
-    index--;
-	new_agenda = calloc((num - 1), sizeof(Pessoa));
-
-	for ( pos = 0; pos < num; pos++ )
+    for ( ; pos < num; pos++ )
     {
-		if ( pos not_eq index )
-        {
-			strcpy(new_agenda[pos2].nome,     agenda[pos].nome);
-			strcpy(new_agenda[pos2].cidade,   agenda[pos].cidade);
-			strcpy(new_agenda[pos2].telefone, agenda[pos].telefone);
-			new_agenda[pos2].sexo    	=      agenda[pos].sexo;
-			new_agenda[pos2].dn.dia  	=      agenda[pos].dn.dia;
-			new_agenda[pos2].dn.mes  	=      agenda[pos].dn.mes;
-			new_agenda[pos2].dn.ano  	=      agenda[pos].dn.ano;
-			new_agenda[pos2].idade   	=      agenda[pos].idade;
-			pos2++;
-		}
-        else
-            was_found = true;
+		printf(
+            "\n\tContato nº %hhu:"
+			"\nNome..............: %s"
+			"Idade...............: %hhu anos"
+			"\nSexo..............: %c"
+			"\nCidade............: %s"
+			"Telefone............: %s"
+			"Data de Nascimento..: %hhu/%hhu/%hu",
+			(pos + 1),
+			agenda[pos].nome,
+			agenda[pos].idade,
+			agenda[pos].sexo,
+			agenda[pos].cidade,
+			agenda[pos].telefone,
+			agenda[pos].dn.dia,
+			agenda[pos].dn.mes,
+			agenda[pos].dn.ano
+        );
 	}
-
-	if ( was_found )
-    {
-		free(agenda);
-		agenda = new_agenda;
-		num --;
-		puts("\nRemoção realizada.");
-	}
-    else
-		puts("\aCadastro não encontrado!!");
 }
 
 void alteracao(void)
@@ -251,31 +289,45 @@ void alteracao(void)
 	puts("\nAlteração realizada.");
 }
 
-void listagem(void)
+void remocao(void)
 {
-	register byte pos = 0;
+	byte index = 0, pos = 0, pos2 = 0;
+    bool was_found = false;
+	Pessoa* new_agenda;
 
-    for ( ; pos < num; pos++ )
+	printf("Informe o ID do contato: ");
+	scanf("%hhu", &index);
+
+    index--;
+	new_agenda = calloc((num - 1), sizeof(Pessoa));
+
+	for ( pos = 0; pos < num; pos++ )
     {
-		printf(
-            "\n\tContato nº %hhu:"
-			"\nNome..............: %s"
-			"Idade...............: %hhu anos"
-			"\nSexo..............: %c"
-			"\nCidade............: %s"
-			"Telefone............: %s"
-			"Data de Nascimento..: %hhu/%hhu/%hu",
-			(pos + 1),
-			agenda[pos].nome,
-			agenda[pos].idade,
-			agenda[pos].sexo,
-			agenda[pos].cidade,
-			agenda[pos].telefone,
-			agenda[pos].dn.dia,
-			agenda[pos].dn.mes,
-			agenda[pos].dn.ano
-        );
+		if ( pos not_eq index )
+        {
+			strcpy(new_agenda[pos2].nome,     agenda[pos].nome);
+			strcpy(new_agenda[pos2].cidade,   agenda[pos].cidade);
+			strcpy(new_agenda[pos2].telefone, agenda[pos].telefone);
+			new_agenda[pos2].sexo    	=      agenda[pos].sexo;
+			new_agenda[pos2].dn.dia  	=      agenda[pos].dn.dia;
+			new_agenda[pos2].dn.mes  	=      agenda[pos].dn.mes;
+			new_agenda[pos2].dn.ano  	=      agenda[pos].dn.ano;
+			new_agenda[pos2].idade   	=      agenda[pos].idade;
+			pos2++;
+		}
+        else
+            was_found = true;
 	}
+
+	if ( was_found )
+    {
+		free(agenda);
+		agenda = new_agenda;
+		num --;
+		puts("\nRemoção realizada.");
+	}
+    else
+		puts("\aCadastro não encontrado!!");
 }
 
 void busca(void)
@@ -326,56 +378,4 @@ void busca(void)
 
 		resposta = tolower(resposta);
 	} while ( resposta == 's' );
-}
-
-/**
- *
- */
-int main(int argc, const char* argv[])
-{
-	setlocale(LC_ALL, "");
-
-    Opcoes opcao;
-
-    do {
-	    printf (
-            "\nEscolha uma das opções abaixo:"
-            "\n1 - Insercão;"
-            "\n2 - Remoção;"
-            "\n3 - Alteração;"
-            "\n4 - Listagem;"
-            "\n5 - Busca;"
-            "\n6 - Sair;"
-            "\nOpção\? "
-        );
-		scanf("%d", &opcao);
-
-    	switch ( opcao )
-        {
-	    	case INSERCAO:
-	    		insercao();
-	    		break;
-			case REMOCAO:
-				remocao();
-				break;
-			case ALTERACAO:
-				alteracao();
-				break;
-			case LISTAGEM:
-				listagem();
-				break;
-	    	case BUSCA:
-	    		busca();
-	    		break;
-			case SAIR:
-				puts("\nFIM...");
-				break;
-	    	default:
-	    		puts("\aOpção inválida!");
-		}
-	} while ( opcao not_eq SAIR );
-
-    free(agenda);
-
-    return EXIT_SUCCESS;
 }
