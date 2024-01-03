@@ -12,12 +12,12 @@ int main(int argc, const char* argv[])
     do {
 	    printf (
             "\nEscolha uma das opções abaixo:"
-            "\n1 - Insercão;"
-            "\n2 - Remoção;"
-            "\n3 - Alteração;"
-            "\n4 - Listagem;"
-            "\n5 - Busca;"
-            "\n6 - Sair;"
+            "\n1. Insercão;"
+            "\n2. Remoção;"
+            "\n3. Alteração;"
+            "\n4. Listagem;"
+            "\n5. Busca;"
+            "\n0. Sair;"
             "\nOpção\? "
         );
 		scanf("%d", &option);
