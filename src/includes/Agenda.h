@@ -47,12 +47,12 @@ Pessoa;
  */
 typedef enum
 {
-	SAIR,
-	INSERCAO,
-	REMOCAO,
-	ALTERACAO,
-	LISTAGEM,
-	BUSCA
+	EXIT,
+	CREATE,
+	READ,
+	UPDATE,
+	DELETE,
+	SEARCH
 }
 Opcoes;
 
