@@ -25,19 +25,19 @@ int main(int argc, const char* argv[])
     	switch ( option )
         {
 	    	case CREATE:
-	    		insercao();
+	    		addContact();
 	    		break;
             case READ:
-				listagem();
+				showContacts();
 				break;
             case UPDATE:
-				alteracao();
+				updateContact();
 				break;
 			case DELETE:
-				remocao();
+				deleteContact();
 				break;
 	    	case SEARCH:
-	    		busca();
+	    		searchContact();
 	    		break;
 			case EXIT:
 				puts("\nFIM...");
@@ -104,7 +104,7 @@ void dados(byte pos)
 	agenda[pos].idade = (uint8_t) ANO_ATUAL - agenda[pos].dn.ano;
 }
 
-void insercao(void)
+void addContact(void)
 {
 	char resposta;
     register byte pos = 0;
@@ -133,7 +133,7 @@ void insercao(void)
 	puts("\nInserção realizada.");
 }
 
-void listagem(void)
+void showContacts(void)
 {
 	register byte pos = 0;
 
@@ -160,7 +160,7 @@ void listagem(void)
 	}
 }
 
-void alteracao(void)
+void updateContact(void)
 {
 	unsigned int tipo = 0u;
     byte index = 0;
@@ -239,7 +239,7 @@ void alteracao(void)
 	puts("\nAlteração realizada.");
 }
 
-void remocao(void)
+void deleteContact(void)
 {
 	byte index = 0, pos = 0, pos2 = 0;
     bool was_found = false;
@@ -280,7 +280,7 @@ void remocao(void)
 		puts("\aCadastro não encontrado!!");
 }
 
-void busca(void)
+void searchContact(void)
 {
 	char resposta = '\0';
     bool was_found = false;

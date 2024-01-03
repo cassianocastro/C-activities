@@ -83,26 +83,26 @@ void dados(byte);
 /**
  *
  */
-void insercao(void);
+void addContact(void);
 
 /**
  *
  */
-void listagem(void);
+void showContacts(void);
 
 /**
  *
  */
-void alteracao(void);
+void updateContact(void);
 
 /**
  *
  */
-void remocao(void);
+void deleteContact(void);
 
 /**
  *
  */
-void busca(void);
+void searchContact(void);
 
 #endif
