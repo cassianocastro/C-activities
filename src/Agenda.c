@@ -10,17 +10,7 @@ int main(int argc, const char* argv[])
     unsigned int option = 0u;
 
     do {
-	    printf (
-            "\nEscolha uma das opções abaixo:"
-            "\n1. Insercão;"
-            "\n2. Listagem;"
-            "\n3. Alteração;"
-            "\n4. Remoção;"
-            "\n5. Busca;"
-            "\n0. Sair;"
-            "\nOpção\? "
-        );
-		scanf("%d", &option);
+	    option = showMainMenu();
 
     	switch ( option )
         {
@@ -336,4 +326,23 @@ void printContact(const Pessoa* const contact)
         contact->dn.mes,
         contact->dn.ano
     );
+}
+
+const unsigned int showMainMenu(void)
+{
+    unsigned int option = 0u;
+
+    printf (
+        "\nEscolha uma das opções abaixo:"
+        "\n1. Insercão;"
+        "\n2. Listagem;"
+        "\n3. Alteração;"
+        "\n4. Remoção;"
+        "\n5. Busca;"
+        "\n0. Sair;"
+        "\nOpção\? "
+    );
+    scanf("%d", &option);
+
+    return option;
 }
