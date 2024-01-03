@@ -54,7 +54,7 @@ int main(int argc, const char* argv[])
 
 void dados(byte i)
 {
-	bool is_okay;
+	bool ok = false;
 
     printf("\nContato nº %hhu\n\n", (i + 1));
 	getchar();
@@ -92,13 +92,13 @@ void dados(byte i)
         printf("Ano: ");
     	scanf("%hu",  &agenda[i].dn.ano);
 
-    	is_okay = validadata(
+    	ok = validadata(
             agenda[i].dn.dia,
 			agenda[i].dn.mes,
 			agenda[i].dn.ano
         );
 
-		if ( not is_okay )
+		if ( not ok )
 			puts("Data inválida!!");
 		else
 			break;
