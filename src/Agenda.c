@@ -24,28 +24,28 @@ int main(int argc, const char* argv[])
 
     	switch ( option )
         {
-	    	case INSERCAO:
+	    	case CREATE:
 	    		insercao();
 	    		break;
-            case LISTAGEM:
+            case READ:
 				listagem();
 				break;
-            case ALTERACAO:
+            case UPDATE:
 				alteracao();
 				break;
-			case REMOCAO:
+			case DELETE:
 				remocao();
 				break;
-	    	case BUSCA:
+	    	case SEARCH:
 	    		busca();
 	    		break;
-			case SAIR:
+			case EXIT:
 				puts("\nFIM...");
 				break;
 	    	default:
 	    		puts("\aOpção inválida!");
 		}
-	} while ( option not_eq SAIR );
+	} while ( option not_eq EXIT );
 
     free(agenda);
 
