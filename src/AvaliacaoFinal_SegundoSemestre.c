@@ -20,7 +20,8 @@ typedef enum
 	ALTERACAO,
 	REMOCAO,
 	OUTRO_ARQUIVO
-} Opcoes;
+}
+Opcoes;
 
 typedef enum
 {
@@ -32,7 +33,8 @@ typedef enum
 	COR,
 	RAM,
 	ARMAZENAMENTO
-} Dados;
+}
+Dados;
 
 typedef struct
 {
@@ -43,9 +45,12 @@ typedef struct
 	modelo	   [TAM],
 	processador[TAM_PROCESS],
 	cor		   [TAM_COR];
-} Computador;
+}
+Computador;
 
-FILE* arquivo; char nome_arquivo[TAM]; Computador PC;
+FILE* arquivo;
+char nome_arquivo[TAM];
+Computador PC;
 
 bool okay(int* index_pointer)
 {
@@ -59,9 +64,9 @@ bool okay(int* index_pointer)
 
         if (feof (arquivo)) break;
 
-        if (PC_teste.ID == (*index_pointer))
-            return true;
+        if (PC_teste.ID == (*index_pointer)) return true;
 	}
+
 	return false;
 }
 
@@ -75,25 +80,34 @@ void insercao( void )
 	for ( pos = 0; pos < numero_cadastros; pos++ )
     {
 		fseek (arquivo, 0, SEEK_END);
-		getchar();
-		printf (
+
+        getchar();
+
+        printf (
             "\n\tComputador nº %hhu"
 			"\nMarca..........................: ",
             (pos + 1)
         );
 		fgets  (PC.marca, sizeof (PC.marca), stdin);
+
 		printf ("Modelo.........................: ");
 		fgets  (PC.modelo, sizeof (PC.modelo), stdin);
+
 		printf ("Processador....................: ");
 		fgets  (PC.processador, sizeof (PC.processador), stdin);
+
 		printf ("Cor............................: ");
 		fgets  (PC.cor, sizeof (PC.cor), stdin);
+
 		printf ("Tamanho da Tela................: ");
 		scanf  ("%f", &PC.tamanho_tela);
+
 		printf ("Mem�ria RAM (em GB)............: ");
 		scanf  ("%d", &PC.RAM);
+
 		printf ("Capac. de Armazenamento (em GB): ");
 		scanf  ("%d", &PC.HD);
+
 		do {
 			printf ("Tipo [d/n].....................: ");
 			scanf  (" %c", &PC.tipo);
@@ -109,8 +123,10 @@ void insercao( void )
 			else
 				break;
 		}
+
 		fwrite (&PC, sizeof (Computador), 1, arquivo);
 	}
+
 	puts("\nCadastro(s) realizado(s).");
 }
 
@@ -121,14 +137,17 @@ void remocao( void )
 	printf ("Informe o ID do computador: ");
 	scanf  ("%d", &index);
 
-	if ( not okay (&index)) {
+	if ( not okay (&index))
+    {
 		puts ("\aID não encontrado.");
+
 		return;
 	}
 
 	FILE* arquivo_temporario = fopen ("temporario.xxx", "ab+");
 
-	if ( arquivo_temporario not_eq NULL ) {
+	if ( arquivo_temporario not_eq NULL )
+    {
 		fseek (arquivo, 0, SEEK_SET);
 
 		while (true)
@@ -138,15 +157,20 @@ void remocao( void )
             if (feof (arquivo)) break;
 
             if (PC.ID not_eq index)
+            {
 				fwrite (&PC, sizeof (Computador), 1, arquivo_temporario);
+            }
 		}
 
 		fclose (arquivo_temporario);
 		fclose (arquivo);
 		remove (nome_arquivo);
-	} else {
+	}
+    else
+    {
 		printf("a\Erro nº %d: %s", errno, strerror (errno));
-		return;
+
+    	return;
 	}
 
 	arquivo = fopen (nome_arquivo, "ab+");
@@ -164,10 +188,12 @@ void remocao( void )
 
 			fwrite (&PC, sizeof (Computador), 1, arquivo);
 		}
+
 		fclose (arquivo_temporario);
 		remove ("temporario.xxx");
 		puts ("Computador Removido.");
-	} else
+	}
+    else
         printf("a\Erro nº %d: %s", errno, strerror (errno));
 }
 
@@ -204,12 +230,14 @@ void listagem( void )
             PC.tipo
         );
 	}
+
 	( pos == 0 ) ? puts("\a\nEstoque VAZIO.") : system("pause");
 }
 
 void busca( void )
 {
-	int index = 0; bool was_found = false;
+	int index = 0;
+    bool was_found = false;
 
 	printf ("Informe o ID do computador: ");
 	scanf  ("%d", &index);
@@ -243,10 +271,16 @@ void busca( void )
             PC.HD,
             PC.tipo
         );
+
 		was_found = true;
+
 		break;
 	}
-	if ( not was_found ) puts("\aComputador NÃO ENCONTRADO.");
+
+	if ( not was_found )
+    {
+        puts("\aComputador NÃO ENCONTRADO.");
+    }
 }
 
 void alterado(Computador *PC)
@@ -316,14 +350,17 @@ void alteracao( void )
     printf ("Informe o ID do computador: ");
 	scanf  ("%d", &index);
 
-    if ( not okay (&index) ) {
+    if ( not okay (&index) )
+    {
 		puts("\aComputador NÃO ENCONTRADO.");
+
 		return;
 	}
 
 	FILE* arquivo_temporario = fopen ("temporario.xxx", "ab+");
 
-	if ( arquivo_temporario != NULL ) {
+	if ( arquivo_temporario != NULL )
+    {
 		fseek (arquivo, 0, SEEK_SET);
 
         while (true)
@@ -333,23 +370,32 @@ void alteracao( void )
         	if (feof (arquivo)) break;
 
         	if (PC.ID not_eq index)
+            {
 				fwrite (&PC, sizeof (Computador), 1, arquivo_temporario);
-			else {
+            }
+			else
+            {
 				alterado (&PC);
 				fwrite (&PC, sizeof (Computador), 1, arquivo_temporario);
 			}
 		}
+
 		fclose (arquivo_temporario);
 		fclose (arquivo);
 		remove (nome_arquivo);
-	} else {
-		printf("Erro nº %d: %s", errno, strerror (errno));
-		return;
 	}
+    else
+    {
+		printf("Erro nº %d: %s", errno, strerror (errno));
+
+    	return;
+	}
+
 	arquivo = fopen (nome_arquivo, "ab+");
 	arquivo_temporario = fopen ("temporario.xxx", "rb");
 
-	if ( arquivo != NULL and arquivo_temporario != NULL ) {
+	if ( arquivo != NULL and arquivo_temporario != NULL )
+    {
 		fseek (arquivo_temporario, 0, SEEK_SET);
 
 		while (true)
@@ -360,6 +406,7 @@ void alteracao( void )
 
         	fwrite (&PC, sizeof (Computador), 1, arquivo);
 		}
+
 		fclose(arquivo_temporario);
 		remove("temporario.xxx");
 		puts("Alteração realizada.");
@@ -373,9 +420,11 @@ void escolher( void )
 
 	arquivo = fopen (nome_arquivo, "ab+");
 
-	if ( arquivo == NULL ) {
+	if ( arquivo == NULL )
+    {
 		printf("Erro nº %d: %s", errno, strerror (errno));
-		exit(EXIT_SUCCESS);
+
+    	exit(EXIT_SUCCESS);
 	}
 }
 
@@ -386,6 +435,7 @@ int main( void )
     Opcoes opcao;
 
     escolher();
+
 	Inicio_do_Programa:
 		printf(
             "\nArquivo utilizado: %s\n\n"
@@ -431,6 +481,7 @@ int main( void )
 			default:
 				puts("\aDígito inválido!");
 		}
+
 	if ( opcao not_eq SAIR ) goto Inicio_do_Programa;
 
 	return EXIT_SUCCESS;
