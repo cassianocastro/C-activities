@@ -27,14 +27,14 @@ int main(int argc, const char* argv[])
 	    	case INSERCAO:
 	    		insercao();
 	    		break;
-			case REMOCAO:
-				remocao();
+            case LISTAGEM:
+				listagem();
 				break;
-			case ALTERACAO:
+            case ALTERACAO:
 				alteracao();
 				break;
-			case LISTAGEM:
-				listagem();
+			case REMOCAO:
+				remocao();
 				break;
 	    	case BUSCA:
 	    		busca();
