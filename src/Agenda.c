@@ -114,15 +114,7 @@ void addContact(void)
 	printf("Olá, é a sua primeira vez com esta tela[s/n]\? ");
     scanf(" %c", &response);
 
-	if ( tolower(response) == 'n' )
-    {
-		puts("Inserindo novo contato...");
-	    num++;
-	    agenda = (Pessoa*) realloc(agenda, num * sizeof(Pessoa));
-
-        dados(num - 1);
-	}
-    else
+	if ( tolower(response) == 's' )
     {
 		printf("Informe o nº de pessoas a serem cadastradas: ");
     	scanf("%hu", &num);
@@ -133,6 +125,14 @@ void addContact(void)
         {
             dados(i);
         }
+	}
+    else
+    {
+        puts("Inserindo novo contato...");
+
+	    agenda = (Pessoa*) realloc(agenda, ++num * sizeof(Pessoa));
+
+        dados(num - 1);
 	}
 
 	puts("\nInserção realizada.");
