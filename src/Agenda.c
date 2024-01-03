@@ -142,24 +142,7 @@ void showContacts(void)
 {
     for ( register byte i = 0; i < num; ++i )
     {
-		printf(
-            "\n\tContato nº %hhu:"
-			"\nNome..............: %s"
-			"Idade...............: %hhu anos"
-			"\nSexo..............: %c"
-			"\nCidade............: %s"
-			"Telefone............: %s"
-			"Data de Nascimento..: %hhu/%hhu/%hu",
-			(i + 1),
-			agenda[i].nome,
-			agenda[i].idade,
-			agenda[i].sexo,
-			agenda[i].cidade,
-			agenda[i].telefone,
-			agenda[i].dn.dia,
-			agenda[i].dn.mes,
-			agenda[i].dn.ano
-        );
+        printContact(&agenda[i]);
 	}
 }
 
@@ -331,4 +314,26 @@ void searchContact(void)
 
 		resposta = tolower(resposta);
 	} while ( resposta == 's' );
+}
+
+void printContact(const Pessoa* const contact)
+{
+    printf(
+        // "\n\tContato nº %hhu:"
+        "\nNome..............: %s"
+        "Idade...............: %hhu anos\n"
+        "Sexo................: %c\n"
+        "Cidade..............: %s"
+        "Telefone............: %s"
+        "Data de Nascimento..: %hhu/%hhu/%hu",
+        // (i + 1),
+        contact->nome,
+        contact->idade,
+        contact->sexo,
+        contact->cidade,
+        contact->telefone,
+        contact->dn.dia,
+        contact->dn.mes,
+        contact->dn.ano
+    );
 }
