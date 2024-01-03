@@ -152,7 +152,10 @@ void remocao(void)
         puts("\nCadastro não encontrado!");
 }
 
-void alteracao(void) // Fazer a verificacao antes de alterar...
+/**
+ * Fazer a verificacao antes de alterar...
+ */
+void alteracao(void)
 {
 	Dados dado;
     byte index = 0;
@@ -280,6 +283,9 @@ void busca(void)
 	} while ( tolower(resposta) == 's' );
 }
 
+/**
+ *
+ */
 int main(int argc, char const *argv[])
 {
 	setlocale(LC_ALL, "");
