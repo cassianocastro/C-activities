@@ -108,6 +108,6 @@ void searchContact(void);
 /**
  *
  */
-void printPerson(const Pessoa* const);
+void printContact(const Pessoa* const);
 
 #endif
