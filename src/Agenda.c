@@ -10,6 +10,9 @@
 
 typedef unsigned char byte;
 
+/**
+ *
+ */
 typedef struct
 {
 	byte dia;
@@ -19,6 +22,9 @@ typedef struct
 }
 Data_nascimento;
 
+/**
+ *
+ */
 typedef struct
 {
 	Data_nascimento dn;
@@ -32,6 +38,9 @@ typedef struct
 }
 Pessoa;
 
+/**
+ *
+ */
 typedef enum
 {
 	SAIR,
@@ -43,6 +52,9 @@ typedef enum
 }
 Opcoes;
 
+/**
+ *
+ */
 typedef enum
 {
 	NOME = 1,
@@ -59,16 +71,34 @@ Pessoa* agenda;
 
 unsigned short int num;
 
+/**
+ *
+ */
 void dados(byte);
 
+/**
+ *
+ */
 void insercao(void);
 
+/**
+ *
+ */
 void listagem(void);
 
+/**
+ *
+ */
 void alteracao(void);
 
+/**
+ *
+ */
 void remocao(void);
 
+/**
+ *
+ */
 void busca(void);
 
 /**
