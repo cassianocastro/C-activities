@@ -1,3 +1,3 @@
 # C-activities
 
-Simple exercises maded in C.
+Exercises in C.
