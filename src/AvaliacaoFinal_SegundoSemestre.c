@@ -1,11 +1,11 @@
+#include <errno.h>
+#include <inttypes.h>
+#include <iso646.h>
+#include <locale.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#include <locale.h>
-#include <iso646.h>
-#include <inttypes.h>
-#include <errno.h>
 
 #define TAM 50
 #define TAM_PROCESS 20
