@@ -66,7 +66,7 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-    Opcoes opcao;
+    unsigned int option = 0u;
 
     do {
 	    printf (
@@ -79,9 +79,9 @@ int main(int argc, const char* argv[])
             "\n6 - Sair;"
             "\nOpção\? "
         );
-		scanf("%d", &opcao);
+		scanf("%d", &option);
 
-    	switch ( opcao )
+    	switch ( option )
         {
 	    	case INSERCAO:
 	    		insercao();
@@ -104,7 +104,7 @@ int main(int argc, const char* argv[])
 	    	default:
 	    		puts("\aOpção inválida!");
 		}
-	} while ( opcao not_eq SAIR );
+	} while ( option not_eq SAIR );
 
     free(agenda);
 
