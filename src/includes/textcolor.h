@@ -1,13 +1,11 @@
-#include <stdio.h>
 #include <conio.h>
+#include <stdio.h>
 #include <windows.h>
 
-// Impressão de texto colorido
-
-/*
-    Cores do DOS
-    Descrição: Procedimento para definição de Cores do DOS
-*/
+/**
+ * Cores do DOS
+ * Descrição: Procedimento para definição de Cores do DOS
+ */
 enum DOS_COLORS
 {
     BLACK, BLUE, GREEN, CYAN, RED, MAGENTA, BROWN,
@@ -15,10 +13,10 @@ enum DOS_COLORS
     LIGHT_CYAN, LIGHT_RED, LIGHT_MAGENTA, YELLOW, WHITE
 };
 
-/*
-    Cores das letras
-    Descrição: Procedimento para inserir cores de letras no programa
-*/
+/**
+ * Cores das letras
+ * Descrição: Procedimento para inserir cores de letras no programa
+ */
 void textcolor(enum DOS_COLORS iColor)
 {
     HANDLE hl = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -32,16 +30,17 @@ void textcolor(enum DOS_COLORS iColor)
     SetConsoleTextAttribute(hl, bufferInfo.wAttributes |= iColor);
 }
 
-/*
-ROTINA PRINCIPAL
-*/
+/**
+ * Impressão de texto colorido
+ */
 int main(void)
 {
     textcolor(BLUE);
-    printf("\n Aprovado");
+    printf("\nAprovado");
 
     textcolor(RED);
-    printf("\n Reprovado");
+    printf("\nReprovado");
+
     getch();
 
     return 0;
