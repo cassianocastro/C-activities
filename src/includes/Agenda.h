@@ -40,7 +40,7 @@ typedef struct
     char telefone[17];
     char sexo;
 }
-Pessoa;
+Contact;
 
 /**
  *
@@ -71,7 +71,7 @@ Dados;
 
 const unsigned short int ANO_ATUAL = 2021;
 
-Pessoa* agenda;
+Contact* agenda;
 
 unsigned short int num;
 
@@ -108,7 +108,7 @@ void searchContact(void);
 /**
  *
  */
-void printContact(const Pessoa* const);
+void printContact(const Contact* const);
 
 /**
  *

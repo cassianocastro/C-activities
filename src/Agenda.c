@@ -109,7 +109,7 @@ void addContact(void)
 		printf("Informe o nº de pessoas a serem cadastradas: ");
     	scanf("%hu", &num);
 
-	    agenda = (Pessoa*) calloc(num, sizeof(Pessoa));
+	    agenda = (Contact*) calloc(num, sizeof(Contact));
 
 		for ( register byte i = 0; i < num; ++i )
         {
@@ -120,7 +120,7 @@ void addContact(void)
     {
         puts("Inserindo novo contato...");
 
-	    agenda = (Pessoa*) realloc(agenda, ++num * sizeof(Pessoa));
+	    agenda = (Contact*) realloc(agenda, ++num * sizeof(Contact));
 
         dados(num - 1);
 	}
@@ -219,13 +219,13 @@ void deleteContact(void)
 {
 	byte index = 0, pos = 0, pos2 = 0;
     bool was_found = false;
-	Pessoa* new_agenda;
+	Contact* new_agenda;
 
 	printf("Informe o ID do contato: ");
 	scanf("%hhu", &index);
 
     index--;
-	new_agenda = calloc((num - 1), sizeof(Pessoa));
+	new_agenda = calloc((num - 1), sizeof(Contact));
 
 	for ( pos = 0; pos < num; pos++ )
     {
@@ -306,7 +306,7 @@ void searchContact(void)
 	} while ( resposta == 's' );
 }
 
-void printContact(const Pessoa* const contact)
+void printContact(const Contact* const contact)
 {
     printf(
         // "\n\tContato nº %hhu:"
