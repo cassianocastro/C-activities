@@ -1,7 +1,7 @@
-#include <stdio.h>
+#include <inttypes.h>
 #include <iso646.h>
 #include <stdbool.h>
-#include <inttypes.h>
+#include <stdio.h>
 
 enum Meses
 {
