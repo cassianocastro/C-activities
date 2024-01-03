@@ -217,39 +217,42 @@ void updateContact(void)
 
 void deleteContact(void)
 {
-	byte index = 0, pos = 0, pos2 = 0;
-    bool was_found = false;
-	Contact* new_agenda;
+	byte index = 0;
+    bool found = false;
 
-	printf("Informe o ID do contato: ");
+	printf("ID do contato: ");
 	scanf("%hhu", &index);
 
-    index--;
-	new_agenda = calloc((num - 1), sizeof(Contact));
+	Contact* tmp = (Contact*) calloc((num - 1), sizeof(Contact));
 
-	for ( pos = 0; pos < num; pos++ )
+    --index;
+
+	for ( register byte i = 0, j = 0; i < num; ++i )
     {
-		if ( pos not_eq index )
+		if ( i not_eq index )
         {
-			strcpy(new_agenda[pos2].nome,     agenda[pos].nome);
-			strcpy(new_agenda[pos2].cidade,   agenda[pos].cidade);
-			strcpy(new_agenda[pos2].telefone, agenda[pos].telefone);
-			new_agenda[pos2].sexo    	=      agenda[pos].sexo;
-			new_agenda[pos2].dn.dia  	=      agenda[pos].dn.dia;
-			new_agenda[pos2].dn.mes  	=      agenda[pos].dn.mes;
-			new_agenda[pos2].dn.ano  	=      agenda[pos].dn.ano;
-			new_agenda[pos2].idade   	=      agenda[pos].idade;
-			pos2++;
+			strcpy(tmp[j].nome,     agenda[i].nome);
+			strcpy(tmp[j].cidade,   agenda[i].cidade);
+			strcpy(tmp[j].telefone, agenda[i].telefone);
+
+			tmp[j].sexo   = agenda[i].sexo;
+			tmp[j].dn.dia = agenda[i].dn.dia;
+			tmp[j].dn.mes = agenda[i].dn.mes;
+			tmp[j].dn.ano = agenda[i].dn.ano;
+			tmp[j].idade  = agenda[i].idade;
+
+            ++j;
 		}
         else
-            was_found = true;
+            found = true;
 	}
 
-	if ( was_found )
+	if ( found )
     {
 		free(agenda);
-		agenda = new_agenda;
-		num --;
+		agenda = tmp;
+		num--;
+
 		puts("\nRemoção realizada.");
 	}
     else
