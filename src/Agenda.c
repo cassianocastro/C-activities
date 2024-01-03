@@ -13,9 +13,9 @@ int main(int argc, const char* argv[])
 	    printf (
             "\nEscolha uma das opções abaixo:"
             "\n1. Insercão;"
-            "\n2. Remoção;"
+            "\n2. Listagem;"
             "\n3. Alteração;"
-            "\n4. Listagem;"
+            "\n4. Remoção;"
             "\n5. Busca;"
             "\n0. Sair;"
             "\nOpção\? "
