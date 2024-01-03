@@ -52,31 +52,31 @@ int main(int argc, const char* argv[])
     return EXIT_SUCCESS;
 }
 
-void dados(byte pos)
+void dados(byte i)
 {
 	bool is_okay;
 
-    printf("\nContato nº %hhu\n\n", (pos + 1));
+    printf("\nContato nº %hhu\n\n", (i + 1));
 	getchar();
 
     printf("Nome......: ");
-	fgets(agenda[pos].nome, 50, stdin);
+	fgets(agenda[i].nome, 50, stdin);
 
     printf("Cidade....: ");
-	fgets(agenda[pos].cidade, 20, stdin);
+	fgets(agenda[i].cidade, 20, stdin);
 
     printf("Telefone..: ");
-	fgets(agenda[pos].telefone, 16, stdin);
+	fgets(agenda[i].telefone, 16, stdin);
 
     do
     {
 		printf("Sexo [M/F]\? ");
-		scanf(" %c", &agenda[pos].sexo);
+		scanf(" %c", &agenda[i].sexo);
 
-		agenda[pos].sexo = tolower(agenda[pos].sexo);
+		agenda[i].sexo = tolower(agenda[i].sexo);
 	} while (
-        agenda[pos].sexo not_eq 'f' and
-        agenda[pos].sexo not_eq 'm'
+        agenda[i].sexo not_eq 'f' and
+        agenda[i].sexo not_eq 'm'
     );
 
 	while ( true )
@@ -84,18 +84,18 @@ void dados(byte pos)
         puts("Data de nascimento...");
 
 		printf("Dia: ");
-    	scanf("%hhu", &agenda[pos].dn.dia);
+    	scanf("%hhu", &agenda[i].dn.dia);
 
         printf("Mês: ");
-    	scanf("%hhu", &agenda[pos].dn.mes);
+    	scanf("%hhu", &agenda[i].dn.mes);
 
         printf("Ano: ");
-    	scanf("%hu",  &agenda[pos].dn.ano);
+    	scanf("%hu",  &agenda[i].dn.ano);
 
     	is_okay = validadata(
-            agenda[pos].dn.dia,
-			agenda[pos].dn.mes,
-			agenda[pos].dn.ano
+            agenda[i].dn.dia,
+			agenda[i].dn.mes,
+			agenda[i].dn.ano
         );
 
 		if ( not is_okay )
@@ -104,7 +104,7 @@ void dados(byte pos)
 			break;
 	}
 
-	agenda[pos].idade = (uint8_t) ANO_ATUAL - agenda[pos].dn.ano;
+	agenda[i].idade = (uint8_t) ANO_ATUAL - agenda[i].dn.ano;
 }
 
 void addContact(void)
