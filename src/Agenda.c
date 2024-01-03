@@ -37,7 +37,7 @@ int main(int argc, const char* argv[])
 		}
 	} while ( option not_eq EXIT );
 
-    free(agenda);
+    free(contacts);
 
     return EXIT_SUCCESS;
 }
@@ -50,23 +50,23 @@ void dados(byte i)
 	getchar();
 
     printf("Nome......: ");
-	fgets(agenda[i].nome, 50, stdin);
+	fgets(contacts[i].nome, 50, stdin);
 
     printf("Cidade....: ");
-	fgets(agenda[i].cidade, 20, stdin);
+	fgets(contacts[i].cidade, 20, stdin);
 
     printf("Telefone..: ");
-	fgets(agenda[i].telefone, 16, stdin);
+	fgets(contacts[i].telefone, 16, stdin);
 
     do
     {
 		printf("Sexo [M/F]\? ");
-		scanf(" %c", &agenda[i].sexo);
+		scanf(" %c", &contacts[i].sexo);
 
-		agenda[i].sexo = tolower(agenda[i].sexo);
+		contacts[i].sexo = tolower(contacts[i].sexo);
 	} while (
-        agenda[i].sexo not_eq 'f' and
-        agenda[i].sexo not_eq 'm'
+        contacts[i].sexo not_eq 'f' and
+        contacts[i].sexo not_eq 'm'
     );
 
 	while ( true )
@@ -74,18 +74,18 @@ void dados(byte i)
         puts("Data de nascimento...");
 
 		printf("Dia: ");
-    	scanf("%hhu", &agenda[i].dn.dia);
+    	scanf("%hhu", &contacts[i].dn.dia);
 
         printf("Mês: ");
-    	scanf("%hhu", &agenda[i].dn.mes);
+    	scanf("%hhu", &contacts[i].dn.mes);
 
         printf("Ano: ");
-    	scanf("%hu",  &agenda[i].dn.ano);
+    	scanf("%hu",  &contacts[i].dn.ano);
 
     	ok = validadata(
-            agenda[i].dn.dia,
-			agenda[i].dn.mes,
-			agenda[i].dn.ano
+            contacts[i].dn.dia,
+			contacts[i].dn.mes,
+			contacts[i].dn.ano
         );
 
 		if ( not ok )
@@ -94,7 +94,7 @@ void dados(byte i)
 			break;
 	}
 
-	agenda[i].idade = (uint8_t) ANO_ATUAL - agenda[i].dn.ano;
+	contacts[i].idade = (uint8_t) ANO_ATUAL - contacts[i].dn.ano;
 }
 
 void addContact(void)
@@ -109,7 +109,7 @@ void addContact(void)
 		printf("Informe o nº de pessoas a serem cadastradas: ");
     	scanf("%hu", &num);
 
-	    agenda = (Contact*) calloc(num, sizeof(Contact));
+	    contacts = (Contact*) calloc(num, sizeof(Contact));
 
 		for ( register byte i = 0; i < num; ++i )
         {
@@ -120,7 +120,7 @@ void addContact(void)
     {
         puts("Inserindo novo contato...");
 
-	    agenda = (Contact*) realloc(agenda, ++num * sizeof(Contact));
+	    contacts = (Contact*) realloc(contacts, ++num * sizeof(Contact));
 
         dados(num - 1);
 	}
@@ -132,7 +132,7 @@ void showContacts(void)
 {
     for ( register byte i = 0; i < num; ++i )
     {
-        printContact(&agenda[i]);
+        printContact(&contacts[i]);
 	}
 }
 
@@ -163,35 +163,35 @@ void updateContact(void)
     {
 		case NOME:
 			printf("Novo nome: ");
-			fgets(agenda[index].nome, 50, stdin);
+			fgets(contacts[index].nome, 50, stdin);
 			break;
 		case SEXO:
 			do {
 				printf("Novo sexo [M/F]: ");
-				scanf(" %c", &agenda[index].sexo);
+				scanf(" %c", &contacts[index].sexo);
 
-				agenda[index].sexo = tolower(agenda[index].sexo);
+				contacts[index].sexo = tolower(contacts[index].sexo);
 			} while (
-                agenda[index].sexo not_eq 'f' and
-                agenda[index].sexo not_eq 'm'
+                contacts[index].sexo not_eq 'f' and
+                contacts[index].sexo not_eq 'm'
             );
 			break;
 		case DATA:
 			while ( true )
             {
 				printf("Nova data de nascimento...\nDia: ");
-				scanf("%hhu", &agenda[index].dn.dia);
+				scanf("%hhu", &contacts[index].dn.dia);
 
                 printf("Mês: ");
-				scanf("%hhu", &agenda[index].dn.mes);
+				scanf("%hhu", &contacts[index].dn.mes);
 
                 printf("Ano: ");
-				scanf("%hu", &agenda[index].dn.ano);
+				scanf("%hu", &contacts[index].dn.ano);
 
 				is_okay = validadata(
-                    agenda[index].dn.dia,
-					agenda[index].dn.mes,
-					agenda[index].dn.ano
+                    contacts[index].dn.dia,
+					contacts[index].dn.mes,
+					contacts[index].dn.ano
                 );
 
 				if ( not is_okay )
@@ -202,11 +202,11 @@ void updateContact(void)
 			break;
 		case CIDADE:
 			printf("Nova cidade: ");
-			fgets(agenda[index].cidade, 20, stdin);
+			fgets(contacts[index].cidade, 20, stdin);
 			break;
 		case FONE:
 			printf("Novo telefone: ");
-			fgets(agenda[index].telefone, 16, stdin);
+			fgets(contacts[index].telefone, 16, stdin);
 			break;
 		default:
 			puts("\n\aOpção inválida!");
@@ -231,15 +231,15 @@ void deleteContact(void)
     {
 		if ( i not_eq index )
         {
-			strcpy(tmp[j].nome,     agenda[i].nome);
-			strcpy(tmp[j].cidade,   agenda[i].cidade);
-			strcpy(tmp[j].telefone, agenda[i].telefone);
+			strcpy(tmp[j].nome,     contacts[i].nome);
+			strcpy(tmp[j].cidade,   contacts[i].cidade);
+			strcpy(tmp[j].telefone, contacts[i].telefone);
 
-			tmp[j].sexo   = agenda[i].sexo;
-			tmp[j].dn.dia = agenda[i].dn.dia;
-			tmp[j].dn.mes = agenda[i].dn.mes;
-			tmp[j].dn.ano = agenda[i].dn.ano;
-			tmp[j].idade  = agenda[i].idade;
+			tmp[j].sexo   = contacts[i].sexo;
+			tmp[j].dn.dia = contacts[i].dn.dia;
+			tmp[j].dn.mes = contacts[i].dn.mes;
+			tmp[j].dn.ano = contacts[i].dn.ano;
+			tmp[j].idade  = contacts[i].idade;
 
             ++j;
 		}
@@ -249,8 +249,8 @@ void deleteContact(void)
 
 	if ( found )
     {
-		free(agenda);
-		agenda = tmp;
+		free(contacts);
+		contacts = tmp;
 		num--;
 
 		puts("\nRemoção realizada.");
@@ -273,7 +273,7 @@ void searchContact(void)
 
 	    for ( pos = 0; pos < num; pos++ )
         {
-			if ( mes != agenda[pos].dn.mes ) continue;
+			if ( mes != contacts[pos].dn.mes ) continue;
 
 			printf(
                 "\n\tContato nº %hhu:"
@@ -284,14 +284,14 @@ void searchContact(void)
                 "Telefone............: %s"
                 "Data de Nascimento..: %hhu/%hhu/%hu",
                 (pos + 1),
-                agenda[pos].nome,
-                agenda[pos].idade,
-                agenda[pos].sexo,
-                agenda[pos].cidade,
-                agenda[pos].telefone,
-                agenda[pos].dn.dia,
-                agenda[pos].dn.mes,
-                agenda[pos].dn.ano
+                contacts[pos].nome,
+                contacts[pos].idade,
+                contacts[pos].sexo,
+                contacts[pos].cidade,
+                contacts[pos].telefone,
+                contacts[pos].dn.dia,
+                contacts[pos].dn.mes,
+                contacts[pos].dn.ano
             );
 
 			was_found = true;

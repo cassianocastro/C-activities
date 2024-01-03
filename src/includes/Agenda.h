@@ -71,7 +71,7 @@ Dados;
 
 const unsigned short int ANO_ATUAL = 2021;
 
-Contact* agenda;
+Contact* contacts;
 
 unsigned short int num;
 
