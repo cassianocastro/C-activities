@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-	mova n discos do pino a para o pino b usando
-	o pino c como intermediario
-*/
+/**
+ * Move n discos do pino a para o pino b usando o pino c como intermediario
+ */
 void hanoi(int n, char x, char y, char z)
 {
     if ( n == 1 )
