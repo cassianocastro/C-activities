@@ -79,7 +79,7 @@ void insercao(void)
 	register uint8_t pos = 0;
     short numero_cadastros = 0;
 
-	printf("Quantos cadastros voc� deseja fazer\? ");
+	printf("Quantos cadastros você deseja fazer\? ");
 	scanf("%hu", &numero_cadastros);
 
 	for ( pos = 0; pos < numero_cadastros; pos++ )
@@ -107,7 +107,7 @@ void insercao(void)
 		printf("Tamanho da Tela................: ");
 		scanf("%f", &PC.tamanho_tela);
 
-		printf("Mem�ria RAM (em GB)............: ");
+		printf("Memória RAM (em GB)............: ");
 		scanf("%d", &PC.RAM);
 
 		printf("Capac. de Armazenamento (em GB): ");
@@ -221,7 +221,7 @@ void listagem(void)
             "Processador....................: %s"
             "Cor............................: %s"
             "Tamanho da Tela................: %.1f\"\n"
-            "Mem�ria RAM....................: %d GB\n"
+            "Memória RAM....................: %d GB\n"
             "Capac. de Armazenamento........: %d GB\n"
             "Tipo...........................: %c\n\n",
             PC.ID,
@@ -264,7 +264,7 @@ void busca( void )
             "Processador....................: %s"
             "Cor............................: %s"
             "Tamanho da Tela................: %.1f\"\n"
-            "Mem�ria RAM....................: %d GB\n"
+            "Memória RAM....................: %d GB\n"
             "Capac. de Armazenamento........: %d GB\n"
             "Tipo...........................: %c\n\n",
             PC.ID,
