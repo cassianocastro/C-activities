@@ -121,14 +121,14 @@ void addContact(void)
     {
 		puts("Inserindo novo contato...");
 	    num++;
-	    agenda = realloc(agenda, num * sizeof(Pessoa));
+	    agenda = (Pessoa*) realloc(agenda, num * sizeof(Pessoa));
 	    dados(num - 1);
 	}
     else
     {
 		printf("Informe o nº de pessoas a serem cadastradas: ");
     	scanf("%hu", &num);
-	    agenda = calloc(num, sizeof(Pessoa));
+	    agenda = (Pessoa*) calloc(num, sizeof(Pessoa));
 
 		for ( pos = 0; pos < num; pos++ ) dados(pos);
 	}
