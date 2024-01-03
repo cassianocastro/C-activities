@@ -140,9 +140,7 @@ void addContact(void)
 
 void showContacts(void)
 {
-	register byte pos = 0;
-
-    for ( ; pos < num; pos++ )
+    for ( register byte i = 0; i < num; ++i )
     {
 		printf(
             "\n\tContato nº %hhu:"
@@ -152,15 +150,15 @@ void showContacts(void)
 			"\nCidade............: %s"
 			"Telefone............: %s"
 			"Data de Nascimento..: %hhu/%hhu/%hu",
-			(pos + 1),
-			agenda[pos].nome,
-			agenda[pos].idade,
-			agenda[pos].sexo,
-			agenda[pos].cidade,
-			agenda[pos].telefone,
-			agenda[pos].dn.dia,
-			agenda[pos].dn.mes,
-			agenda[pos].dn.ano
+			(i + 1),
+			agenda[i].nome,
+			agenda[i].idade,
+			agenda[i].sexo,
+			agenda[i].cidade,
+			agenda[i].telefone,
+			agenda[i].dn.dia,
+			agenda[i].dn.mes,
+			agenda[i].dn.ano
         );
 	}
 }
