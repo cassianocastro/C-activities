@@ -239,7 +239,7 @@ void listagem(void)
 	( pos == 0 ) ? puts("\a\nEstoque VAZIO.") : system("pause");
 }
 
-void busca( void )
+void busca(void)
 {
 	int index = 0;
     bool was_found = false;
@@ -442,7 +442,7 @@ int main(int argc, const char* argv[])
 
     escolher();
 
-	Inicio_do_Programa:
+	begin:
 		printf(
             "\nArquivo utilizado: %s\n\n"
             "Escolha uma das opções abaixo:\n"
@@ -488,7 +488,7 @@ int main(int argc, const char* argv[])
 				puts("\aDígito inválido!");
 		}
 
-	if ( opcao not_eq SAIR ) goto Inicio_do_Programa;
+	if ( opcao not_eq SAIR ) goto begin;
 
 	return EXIT_SUCCESS;
 }
