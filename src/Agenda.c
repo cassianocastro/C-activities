@@ -261,19 +261,19 @@ void deleteContact(void)
 
 void searchContact(void)
 {
-	char resposta = '\0';
-    bool was_found = false;
-    byte mes = 0, pos = 0;
+	char response = '\0';
+    bool found = false;
+    byte month = 0, i = 0;
 
     do {
     	printf("\nDigite o nº do mês de nascimento (Ex.: Abril = 4): ");
-	    scanf("%hhu", &mes);
+	    scanf("%hhu", &month);
 
-        was_found = false;
+        found = false;
 
-	    for ( pos = 0; pos < num; pos++ )
+	    for ( i = 0; i < num; i++ )
         {
-			if ( mes != contacts[pos].dn.month ) continue;
+			if ( month != contacts[i].dn.month ) continue;
 
 			printf(
                 "\n\tContato nº %hhu:"
@@ -283,30 +283,29 @@ void searchContact(void)
                 "\nCidade............: %s"
                 "Telefone............: %s"
                 "Data de Nascimento..: %hhu/%hhu/%hu",
-                (pos + 1),
-                contacts[pos].name,
-                contacts[pos].age,
-                contacts[pos].sex,
-                contacts[pos].city,
-                contacts[pos].phone,
-                contacts[pos].dn.day,
-                contacts[pos].dn.month,
-                contacts[pos].dn.year
+                (i + 1),
+                contacts[i].name,
+                contacts[i].age,
+                contacts[i].sex,
+                contacts[i].city,
+                contacts[i].phone,
+                contacts[i].dn.day,
+                contacts[i].dn.month,
+                contacts[i].dn.year
             );
 
-			was_found = true;
+			found = true;
 		}
 
-		if ( not was_found )
+		if ( not found )
         {
             puts("\n\aCadastro não encontrado!!");
         }
 
         printf("\n\nDeseja realizar novamente [S/n]\? ");
-		scanf(" %c", &resposta);
+		scanf(" %c", &response);
 
-		resposta = tolower(resposta);
-	} while ( resposta == 's' );
+	} while ( tolower(response) == 's' );
 }
 
 void printContact(const Contact* const contact)
