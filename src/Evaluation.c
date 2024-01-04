@@ -235,7 +235,7 @@ void busca(void)
 
 void alterado(Computador* PC)
 {
-	Dados dado;
+	unsigned int dado = 0u;
 
 	printf(
         "Escolha o dado que deseja alterar:\n"
