@@ -50,23 +50,23 @@ void dados(byte i)
 	getchar();
 
     printf("Nome......: ");
-	fgets(contacts[i].nome, 50, stdin);
+	fgets(contacts[i].name, 50, stdin);
 
     printf("Cidade....: ");
-	fgets(contacts[i].cidade, 20, stdin);
+	fgets(contacts[i].city, 20, stdin);
 
     printf("Telefone..: ");
-	fgets(contacts[i].telefone, 16, stdin);
+	fgets(contacts[i].phone, 16, stdin);
 
     do
     {
 		printf("Sexo [M/F]\? ");
-		scanf(" %c", &contacts[i].sexo);
+		scanf(" %c", &contacts[i].sex);
 
-		contacts[i].sexo = tolower(contacts[i].sexo);
+		contacts[i].sex = tolower(contacts[i].sex);
 	} while (
-        contacts[i].sexo not_eq 'f' and
-        contacts[i].sexo not_eq 'm'
+        contacts[i].sex not_eq 'f' and
+        contacts[i].sex not_eq 'm'
     );
 
 	while ( true )
@@ -94,7 +94,7 @@ void dados(byte i)
 			break;
 	}
 
-	contacts[i].idade = (uint8_t) ANO_ATUAL - contacts[i].dn.year;
+	contacts[i].age = (uint8_t) ANO_ATUAL - contacts[i].dn.year;
 }
 
 void addContact(void)
@@ -163,17 +163,17 @@ void updateContact(void)
     {
 		case NOME:
 			printf("Novo nome: ");
-			fgets(contacts[index].nome, 50, stdin);
+			fgets(contacts[index].name, 50, stdin);
 			break;
 		case SEXO:
 			do {
 				printf("Novo sexo [M/F]: ");
-				scanf(" %c", &contacts[index].sexo);
+				scanf(" %c", &contacts[index].sex);
 
-				contacts[index].sexo = tolower(contacts[index].sexo);
+				contacts[index].sex = tolower(contacts[index].sex);
 			} while (
-                contacts[index].sexo not_eq 'f' and
-                contacts[index].sexo not_eq 'm'
+                contacts[index].sex not_eq 'f' and
+                contacts[index].sex not_eq 'm'
             );
 			break;
 		case DATA:
@@ -202,11 +202,11 @@ void updateContact(void)
 			break;
 		case CIDADE:
 			printf("Nova cidade: ");
-			fgets(contacts[index].cidade, 20, stdin);
+			fgets(contacts[index].city, 20, stdin);
 			break;
 		case FONE:
 			printf("Novo telefone: ");
-			fgets(contacts[index].telefone, 16, stdin);
+			fgets(contacts[index].phone, 16, stdin);
 			break;
 		default:
 			puts("\n\aOpção inválida!");
@@ -231,15 +231,15 @@ void deleteContact(void)
     {
 		if ( i not_eq index )
         {
-			strcpy(tmp[j].nome,     contacts[i].nome);
-			strcpy(tmp[j].cidade,   contacts[i].cidade);
-			strcpy(tmp[j].telefone, contacts[i].telefone);
+			strcpy(tmp[j].name,  contacts[i].name);
+			strcpy(tmp[j].city,  contacts[i].city);
+			strcpy(tmp[j].phone, contacts[i].phone);
 
-			tmp[j].sexo   = contacts[i].sexo;
-			tmp[j].dn.day = contacts[i].dn.day;
+			tmp[j].sex      = contacts[i].sex;
+			tmp[j].dn.day   = contacts[i].dn.day;
 			tmp[j].dn.month = contacts[i].dn.month;
-			tmp[j].dn.year = contacts[i].dn.year;
-			tmp[j].idade  = contacts[i].idade;
+			tmp[j].dn.year  = contacts[i].dn.year;
+			tmp[j].age      = contacts[i].age;
 
             ++j;
 		}
@@ -284,11 +284,11 @@ void searchContact(void)
                 "Telefone............: %s"
                 "Data de Nascimento..: %hhu/%hhu/%hu",
                 (pos + 1),
-                contacts[pos].nome,
-                contacts[pos].idade,
-                contacts[pos].sexo,
-                contacts[pos].cidade,
-                contacts[pos].telefone,
+                contacts[pos].name,
+                contacts[pos].age,
+                contacts[pos].sex,
+                contacts[pos].city,
+                contacts[pos].phone,
                 contacts[pos].dn.day,
                 contacts[pos].dn.month,
                 contacts[pos].dn.year
@@ -320,11 +320,11 @@ void printContact(const Contact* const contact)
         "Telefone............: %s"
         "Data de Nascimento..: %hhu/%hhu/%hu",
         // (i + 1),
-        contact->nome,
-        contact->idade,
-        contact->sexo,
-        contact->cidade,
-        contact->telefone,
+        contact->name,
+        contact->age,
+        contact->sex,
+        contact->city,
+        contact->phone,
         contact->dn.day,
         contact->dn.month,
         contact->dn.year
