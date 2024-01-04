@@ -84,12 +84,7 @@ void showContacts(void)
 void updateContact(void)
 {
     bool ok = false;
-    byte id = 0;
-
-	printf("\nID do contato: ");
-	scanf("%hhu", &id);
-
-    --id;
+    byte id = getContactID();
 
     unsigned int tipo = showUpdateMenu();
 
@@ -153,15 +148,10 @@ void updateContact(void)
 
 void deleteContact(void)
 {
-	byte index = 0;
     bool found = false;
-
-	printf("ID do contato: ");
-	scanf("%hhu", &index);
+	byte index = getContactID();
 
 	Contact* tmp = (Contact*) calloc((num - 1), sizeof(Contact));
-
-    --index;
 
 	for ( register byte i = 0, j = 0; i < num; ++i )
     {
@@ -340,4 +330,14 @@ const unsigned int showUpdateMenu(void)
 	getchar();
 
     return option;
+}
+
+byte getContactID(void)
+{
+    byte id = 0;
+
+	printf("\nID do contato: ");
+	scanf("%hhu", &id);
+
+    return --id;
 }
