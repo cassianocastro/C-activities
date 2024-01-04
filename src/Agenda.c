@@ -179,7 +179,9 @@ void updateContact(void)
 		case BIRTHDATE:
 			while ( true )
             {
-				printf("Nova data de nascimento...\nDia: ");
+                puts("Nova data de nascimento...");
+
+				printf("Dia: ");
 				scanf("%hhu", &contacts[id].dn.day);
 
                 printf("Mês: ");
