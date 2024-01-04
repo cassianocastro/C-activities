@@ -120,4 +120,9 @@ const unsigned int showMainMenu(void);
  */
 const unsigned int showUpdateMenu(void);
 
+/**
+ *
+ */
+byte getContactID(void);
+
 #endif
