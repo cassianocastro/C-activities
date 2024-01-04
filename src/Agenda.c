@@ -42,61 +42,6 @@ int main(int argc, const char* argv[])
     return EXIT_SUCCESS;
 }
 
-void showContactForm(byte i)
-{
-	bool ok = false;
-
-    printf("\nContato nº %hhu\n\n", (i + 1));
-	getchar();
-
-    printf("Nome......: ");
-	fgets(contacts[i].name, 50, stdin);
-
-    printf("Cidade....: ");
-	fgets(contacts[i].city, 20, stdin);
-
-    printf("Telefone..: ");
-	fgets(contacts[i].phone, 16, stdin);
-
-    do
-    {
-		printf("Sexo [M/F]\? ");
-		scanf(" %c", &contacts[i].sex);
-
-		contacts[i].sex = tolower(contacts[i].sex);
-	} while (
-        contacts[i].sex not_eq 'f' and
-        contacts[i].sex not_eq 'm'
-    );
-
-	while ( true )
-    {
-        puts("Data de nascimento...");
-
-		printf("Dia: ");
-    	scanf("%hhu", &contacts[i].dn.day);
-
-        printf("Mês: ");
-    	scanf("%hhu", &contacts[i].dn.month);
-
-        printf("Ano: ");
-    	scanf("%hu",  &contacts[i].dn.year);
-
-    	ok = validadata(
-            contacts[i].dn.day,
-			contacts[i].dn.month,
-			contacts[i].dn.year
-        );
-
-		if ( not ok )
-			puts("Data inválida!!");
-		else
-			break;
-	}
-
-	contacts[i].age = (uint8_t) ANO_ATUAL - contacts[i].dn.year;
-}
-
 void addContact(void)
 {
 	char response = '\0';
@@ -291,6 +236,61 @@ void searchContact(void)
 		scanf(" %c", &response);
 
 	} while ( tolower(response) == 's' );
+}
+
+void showContactForm(byte i)
+{
+	bool ok = false;
+
+    printf("\nContato nº %hhu\n\n", (i + 1));
+	getchar();
+
+    printf("Nome......: ");
+	fgets(contacts[i].name, 50, stdin);
+
+    printf("Cidade....: ");
+	fgets(contacts[i].city, 20, stdin);
+
+    printf("Telefone..: ");
+	fgets(contacts[i].phone, 16, stdin);
+
+    do
+    {
+		printf("Sexo [M/F]\? ");
+		scanf(" %c", &contacts[i].sex);
+
+		contacts[i].sex = tolower(contacts[i].sex);
+	} while (
+        contacts[i].sex not_eq 'f' and
+        contacts[i].sex not_eq 'm'
+    );
+
+	while ( true )
+    {
+        puts("Data de nascimento...");
+
+		printf("Dia: ");
+    	scanf("%hhu", &contacts[i].dn.day);
+
+        printf("Mês: ");
+    	scanf("%hhu", &contacts[i].dn.month);
+
+        printf("Ano: ");
+    	scanf("%hu",  &contacts[i].dn.year);
+
+    	ok = validadata(
+            contacts[i].dn.day,
+			contacts[i].dn.month,
+			contacts[i].dn.year
+        );
+
+		if ( not ok )
+			puts("Data inválida!!");
+		else
+			break;
+	}
+
+	contacts[i].age = (uint8_t) ANO_ATUAL - contacts[i].dn.year;
 }
 
 void printContact(const Contact* const contact)
