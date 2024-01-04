@@ -273,26 +273,9 @@ void searchContact(void)
 
 	    for ( register byte i = 0; i < num; ++i )
         {
-			if ( month != contacts[i].dn.month ) continue;
+			if ( contacts[i].dn.month != month ) continue;
 
-			printf(
-                "\n\tContato nº %hhu:"
-                "\nNome..............: %s"
-                "Idade...............: %hhu anos"
-                "\nSexo..............: %c"
-                "\nCidade............: %s"
-                "Telefone............: %s"
-                "Data de Nascimento..: %hhu/%hhu/%hu",
-                (i + 1),
-                contacts[i].name,
-                contacts[i].age,
-                contacts[i].sex,
-                contacts[i].city,
-                contacts[i].phone,
-                contacts[i].dn.day,
-                contacts[i].dn.month,
-                contacts[i].dn.year
-            );
+            printContact(&contacts[i]);
 
 			found = true;
 		}
