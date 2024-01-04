@@ -83,26 +83,15 @@ void showContacts(void)
 
 void updateContact(void)
 {
-	unsigned int tipo = 0u;
-    byte id = 0;
     bool ok = false;
+    byte id = 0;
 
 	printf("\nID do contato: ");
 	scanf("%hhu", &id);
 
     --id;
 
-	printf(
-        "\nSelecione o tipo de dado:"
-		"\n1. Nome;"
-		"\n2. Sexo;"
-		"\n3. Data de Nascimento;"
-		"\n4. Cidade;"
-		"\n5. Telefone;"
-		"\nOpção\? "
-    );
-	scanf("%d", &tipo);
-	getchar();
+    unsigned int tipo = showUpdateMenu();
 
 	switch ( tipo )
     {
@@ -330,6 +319,25 @@ const unsigned int showMainMenu(void)
         "\nOpção\? "
     );
     scanf("%d", &option);
+
+    return option;
+}
+
+const unsigned int showUpdateMenu(void)
+{
+    unsigned int option = 0u;
+
+    printf(
+        "\nSelecione o tipo de dado:"
+		"\n1. Nome;"
+		"\n2. Sexo;"
+		"\n3. Data de Nascimento;"
+		"\n4. Cidade;"
+		"\n5. Telefone;"
+		"\nOpção\? "
+    );
+	scanf("%d", &option);
+	getchar();
 
     return option;
 }
