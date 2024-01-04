@@ -139,13 +139,13 @@ void showContacts(void)
 void updateContact(void)
 {
 	unsigned int tipo = 0u;
-    byte index = 0;
+    byte id = 0;
     bool ok = false;
 
 	printf("\nID do contato: ");
-	scanf("%hhu", &index);
+	scanf("%hhu", &id);
 
-    index--;
+    --id;
 
 	printf(
         "\nSelecione o tipo de dado:"
@@ -163,35 +163,35 @@ void updateContact(void)
     {
 		case NAME:
 			printf("Novo nome: ");
-			fgets(contacts[index].name, 50, stdin);
+			fgets(contacts[id].name, 50, stdin);
 			break;
 		case SEX:
 			do {
 				printf("Novo sexo [M/F]: ");
-				scanf(" %c", &contacts[index].sex);
+				scanf(" %c", &contacts[id].sex);
 
-				contacts[index].sex = tolower(contacts[index].sex);
+				contacts[id].sex = tolower(contacts[id].sex);
 			} while (
-                contacts[index].sex not_eq 'f' and
-                contacts[index].sex not_eq 'm'
+                contacts[id].sex not_eq 'f' and
+                contacts[id].sex not_eq 'm'
             );
 			break;
 		case BIRTHDATE:
 			while ( true )
             {
 				printf("Nova data de nascimento...\nDia: ");
-				scanf("%hhu", &contacts[index].dn.day);
+				scanf("%hhu", &contacts[id].dn.day);
 
                 printf("Mês: ");
-				scanf("%hhu", &contacts[index].dn.month);
+				scanf("%hhu", &contacts[id].dn.month);
 
                 printf("Ano: ");
-				scanf("%hu", &contacts[index].dn.year);
+				scanf("%hu", &contacts[id].dn.year);
 
 				ok = validadata(
-                    contacts[index].dn.day,
-					contacts[index].dn.month,
-					contacts[index].dn.year
+                    contacts[id].dn.day,
+					contacts[id].dn.month,
+					contacts[id].dn.year
                 );
 
 				if ( not ok )
@@ -202,11 +202,11 @@ void updateContact(void)
 			break;
 		case CITY:
 			printf("Nova cidade: ");
-			fgets(contacts[index].city, 20, stdin);
+			fgets(contacts[id].city, 20, stdin);
 			break;
 		case PHONE:
 			printf("Novo telefone: ");
-			fgets(contacts[index].phone, 16, stdin);
+			fgets(contacts[id].phone, 16, stdin);
 			break;
 		default:
 			puts("\n\aOpção inválida!");
