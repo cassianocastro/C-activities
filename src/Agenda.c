@@ -161,11 +161,11 @@ void updateContact(void)
 
 	switch ( tipo )
     {
-		case NOME:
+		case NAME:
 			printf("Novo nome: ");
 			fgets(contacts[index].name, 50, stdin);
 			break;
-		case SEXO:
+		case SEX:
 			do {
 				printf("Novo sexo [M/F]: ");
 				scanf(" %c", &contacts[index].sex);
@@ -176,7 +176,7 @@ void updateContact(void)
                 contacts[index].sex not_eq 'm'
             );
 			break;
-		case DATA:
+		case BIRTHDATE:
 			while ( true )
             {
 				printf("Nova data de nascimento...\nDia: ");
@@ -200,11 +200,11 @@ void updateContact(void)
                     break;
 			}
 			break;
-		case CIDADE:
+		case CITY:
 			printf("Nova cidade: ");
 			fgets(contacts[index].city, 20, stdin);
 			break;
-		case FONE:
+		case PHONE:
 			printf("Novo telefone: ");
 			fgets(contacts[index].phone, 16, stdin);
 			break;
