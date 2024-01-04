@@ -290,7 +290,7 @@ void showContactForm(byte i)
 			break;
 	}
 
-	contacts[i].age = (uint8_t) ANO_ATUAL - contacts[i].dn.year;
+	contacts[i].age = (uint8_t) CURRENT_YEAR - contacts[i].dn.year;
 }
 
 void printContact(const Contact* const contact)
