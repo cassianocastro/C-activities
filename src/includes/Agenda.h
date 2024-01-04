@@ -69,7 +69,7 @@ typedef enum
 }
 Dados;
 
-const unsigned short int ANO_ATUAL = 2021;
+const unsigned short int CURRENT_YEAR = 2024;
 
 Contact* contacts;
 
