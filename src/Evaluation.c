@@ -366,7 +366,7 @@ void alteracao(void)
 void escolher(void)
 {
 	printf("\nInforme o nome do arquivo: ");
-	gets(nome_arquivo);
+	fgets(nome_arquivo, sizeof(nome_arquivo), stdin);
 
 	arquivo = fopen(nome_arquivo, "ab+");
 
