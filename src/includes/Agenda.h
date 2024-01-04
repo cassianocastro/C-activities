@@ -33,12 +33,12 @@ typedef struct
 {
 	Data_nascimento dn;
 
-    byte idade;
+    byte age;
 
-    char nome[51];
-    char cidade[21];
-    char telefone[17];
-    char sexo;
+    char name[51];
+    char city[21];
+    char phone[17];
+    char sex;
 }
 Contact;
 
