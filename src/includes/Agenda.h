@@ -19,10 +19,10 @@ typedef unsigned char byte;
  */
 typedef struct
 {
-	byte dia;
-    byte mes;
+	byte day;
+    byte month;
 
-    unsigned short int ano;
+    unsigned short int year;
 }
 Data_nascimento;
 
