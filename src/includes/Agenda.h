@@ -61,11 +61,11 @@ Opcoes;
  */
 typedef enum
 {
-	NOME = 1,
-	SEXO,
-	DATA,
-	CIDADE,
-	FONE
+	NAME = 1,
+	SEX,
+	BIRTHDATE,
+	CITY,
+	PHONE
 }
 Dados;
 
