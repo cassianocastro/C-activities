@@ -142,18 +142,18 @@ void updateContact(void)
     byte index = 0;
     bool ok = false;
 
-	printf("\nInforme o ID do contato: ");
+	printf("\nID do contato: ");
 	scanf("%hhu", &index);
 
     index--;
 
 	printf(
         "\nSelecione o tipo de dado:"
-		"\n1 - Nome;"
-		"\n2 - Sexo;"
-		"\n3 - Data de Nascimento;"
-		"\n4 - Cidade;"
-		"\n5 - Telefone;"
+		"\n1. Nome;"
+		"\n2. Sexo;"
+		"\n3. Data de Nascimento;"
+		"\n4. Cidade;"
+		"\n5. Telefone;"
 		"\nOpção\? "
     );
 	scanf("%d", &tipo);
