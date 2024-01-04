@@ -140,7 +140,7 @@ void updateContact(void)
 {
 	unsigned int tipo = 0u;
     byte index = 0;
-    bool is_okay = false;
+    bool ok = false;
 
 	printf("\nInforme o ID do contato: ");
 	scanf("%hhu", &index);
@@ -188,13 +188,13 @@ void updateContact(void)
                 printf("Ano: ");
 				scanf("%hu", &contacts[index].dn.year);
 
-				is_okay = validadata(
+				ok = validadata(
                     contacts[index].dn.day,
 					contacts[index].dn.month,
 					contacts[index].dn.year
                 );
 
-				if ( not is_okay )
+				if ( not ok )
                     puts("Data inválida!");
 				else
                     break;
