@@ -115,4 +115,9 @@ void printContact(const Contact* const);
  */
 const unsigned int showMainMenu(void);
 
+/**
+ *
+ */
+const unsigned int showUpdateMenu(void);
+
 #endif
