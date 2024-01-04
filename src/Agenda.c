@@ -42,7 +42,7 @@ int main(int argc, const char* argv[])
     return EXIT_SUCCESS;
 }
 
-void dados(byte i)
+void showContactForm(byte i)
 {
 	bool ok = false;
 
@@ -113,7 +113,7 @@ void addContact(void)
 
 		for ( register byte i = 0; i < num; ++i )
         {
-            dados(i);
+            showContactForm(i);
         }
 	}
     else
@@ -122,7 +122,7 @@ void addContact(void)
 
 	    contacts = (Contact*) realloc(contacts, ++num * sizeof(Contact));
 
-        dados(num - 1);
+        showContactForm(num - 1);
 	}
 
 	puts("\nInserção realizada.");
