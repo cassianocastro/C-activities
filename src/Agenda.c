@@ -263,7 +263,7 @@ void searchContact(void)
 {
 	char response = '\0';
     bool found = false;
-    byte month = 0, i = 0;
+    byte month = 0;
 
     do {
     	printf("\nDigite o nº do mês de nascimento (Ex.: Abril = 4): ");
@@ -271,7 +271,7 @@ void searchContact(void)
 
         found = false;
 
-	    for ( i = 0; i < num; i++ )
+	    for ( register byte i = 0; i < num; ++i )
         {
 			if ( month != contacts[i].dn.month ) continue;
 
