@@ -78,11 +78,6 @@ unsigned short int num;
 /**
  *
  */
-void dados(byte);
-
-/**
- *
- */
 void addContact(void);
 
 /**
@@ -104,6 +99,11 @@ void deleteContact(void);
  *
  */
 void searchContact(void);
+
+/**
+ *
+ */
+void showContactForm(byte);
 
 /**
  *
