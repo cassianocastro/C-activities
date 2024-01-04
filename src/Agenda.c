@@ -74,18 +74,18 @@ void dados(byte i)
         puts("Data de nascimento...");
 
 		printf("Dia: ");
-    	scanf("%hhu", &contacts[i].dn.dia);
+    	scanf("%hhu", &contacts[i].dn.day);
 
         printf("Mês: ");
-    	scanf("%hhu", &contacts[i].dn.mes);
+    	scanf("%hhu", &contacts[i].dn.month);
 
         printf("Ano: ");
-    	scanf("%hu",  &contacts[i].dn.ano);
+    	scanf("%hu",  &contacts[i].dn.year);
 
     	ok = validadata(
-            contacts[i].dn.dia,
-			contacts[i].dn.mes,
-			contacts[i].dn.ano
+            contacts[i].dn.day,
+			contacts[i].dn.month,
+			contacts[i].dn.year
         );
 
 		if ( not ok )
@@ -94,7 +94,7 @@ void dados(byte i)
 			break;
 	}
 
-	contacts[i].idade = (uint8_t) ANO_ATUAL - contacts[i].dn.ano;
+	contacts[i].idade = (uint8_t) ANO_ATUAL - contacts[i].dn.year;
 }
 
 void addContact(void)
@@ -180,18 +180,18 @@ void updateContact(void)
 			while ( true )
             {
 				printf("Nova data de nascimento...\nDia: ");
-				scanf("%hhu", &contacts[index].dn.dia);
+				scanf("%hhu", &contacts[index].dn.day);
 
                 printf("Mês: ");
-				scanf("%hhu", &contacts[index].dn.mes);
+				scanf("%hhu", &contacts[index].dn.month);
 
                 printf("Ano: ");
-				scanf("%hu", &contacts[index].dn.ano);
+				scanf("%hu", &contacts[index].dn.year);
 
 				is_okay = validadata(
-                    contacts[index].dn.dia,
-					contacts[index].dn.mes,
-					contacts[index].dn.ano
+                    contacts[index].dn.day,
+					contacts[index].dn.month,
+					contacts[index].dn.year
                 );
 
 				if ( not is_okay )
@@ -236,9 +236,9 @@ void deleteContact(void)
 			strcpy(tmp[j].telefone, contacts[i].telefone);
 
 			tmp[j].sexo   = contacts[i].sexo;
-			tmp[j].dn.dia = contacts[i].dn.dia;
-			tmp[j].dn.mes = contacts[i].dn.mes;
-			tmp[j].dn.ano = contacts[i].dn.ano;
+			tmp[j].dn.day = contacts[i].dn.day;
+			tmp[j].dn.month = contacts[i].dn.month;
+			tmp[j].dn.year = contacts[i].dn.year;
 			tmp[j].idade  = contacts[i].idade;
 
             ++j;
@@ -273,7 +273,7 @@ void searchContact(void)
 
 	    for ( pos = 0; pos < num; pos++ )
         {
-			if ( mes != contacts[pos].dn.mes ) continue;
+			if ( mes != contacts[pos].dn.month ) continue;
 
 			printf(
                 "\n\tContato nº %hhu:"
@@ -289,9 +289,9 @@ void searchContact(void)
                 contacts[pos].sexo,
                 contacts[pos].cidade,
                 contacts[pos].telefone,
-                contacts[pos].dn.dia,
-                contacts[pos].dn.mes,
-                contacts[pos].dn.ano
+                contacts[pos].dn.day,
+                contacts[pos].dn.month,
+                contacts[pos].dn.year
             );
 
 			was_found = true;
@@ -325,9 +325,9 @@ void printContact(const Contact* const contact)
         contact->sexo,
         contact->cidade,
         contact->telefone,
-        contact->dn.dia,
-        contact->dn.mes,
-        contact->dn.ano
+        contact->dn.day,
+        contact->dn.month,
+        contact->dn.year
     );
 }
 
