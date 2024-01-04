@@ -24,14 +24,14 @@ typedef struct
 
     unsigned short int year;
 }
-Data_nascimento;
+BirthDate;
 
 /**
  *
  */
 typedef struct
 {
-	Data_nascimento dn;
+	BirthDate dn;
 
     byte age;
 
@@ -54,7 +54,7 @@ typedef enum
 	DELETE,
 	SEARCH
 }
-Opcoes;
+Options;
 
 /**
  *
@@ -67,7 +67,7 @@ typedef enum
 	CITY,
 	PHONE
 }
-Dados;
+Data;
 
 const unsigned short int CURRENT_YEAR = 2024;
 
