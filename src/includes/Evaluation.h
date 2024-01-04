@@ -62,4 +62,44 @@ char nome_arquivo[TAM];
 
 Computador PC;
 
+/**
+ *
+ */
+void insercao(void);
+
+/**
+ *
+ */
+void listagem(void);
+
+/**
+ *
+ */
+void alteracao(void);
+
+/**
+ *
+ */
+void remocao(void);
+
+/**
+ *
+ */
+void busca(void);
+
+/**
+ *
+ */
+bool okay(int*);
+
+/**
+ *
+ */
+void alterado(Computador*);
+
+/**
+ *
+ */
+void escolher(void);
+
 #endif
