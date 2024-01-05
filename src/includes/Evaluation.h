@@ -117,4 +117,14 @@ unsigned int getComputerID(void);
  */
 void showComputerForm(unsigned short int);
 
+/**
+ *
+ */
+const unsigned int getMainMenuChoice(void);
+
+/**
+ *
+ */
+const unsigned int getUpdateMenuChoice(void);
+
 #endif
