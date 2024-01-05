@@ -2,13 +2,13 @@
 
 bool ok(int* id)
 {
-	Computador pc;
+	Computer pc;
 
 	fseek(arquivo, 0, SEEK_SET);
 
     while ( true )
     {
-		fread(&pc, sizeof(Computador), 1, arquivo);
+		fread(&pc, sizeof(Computer), 1, arquivo);
 
         if ( feof(arquivo) ) break;
 
@@ -69,7 +69,7 @@ void insercao(void)
 				break;
 		}
 
-		fwrite(&PC, sizeof(Computador), 1, arquivo);
+		fwrite(&PC, sizeof(Computer), 1, arquivo);
 	}
 
 	puts("\nCadastro(s) realizado(s).");
@@ -97,13 +97,13 @@ void remocao(void)
 
 		while ( true )
         {
-			fread(&PC, sizeof(Computador), 1, arquivo);
+			fread(&PC, sizeof(Computer), 1, arquivo);
 
             if ( feof(arquivo) ) break;
 
             if ( PC.ID not_eq index )
             {
-				fwrite(&PC, sizeof(Computador), 1, arquivo_temporario);
+				fwrite(&PC, sizeof(Computer), 1, arquivo_temporario);
             }
 		}
 
@@ -127,11 +127,11 @@ void remocao(void)
 
 		while ( true )
         {
-			fread(&PC, sizeof(Computador), 1, arquivo_temporario);
+			fread(&PC, sizeof(Computer), 1, arquivo_temporario);
 
 			if ( feof(arquivo_temporario) ) break;
 
-			fwrite(&PC, sizeof(Computador), 1, arquivo);
+			fwrite(&PC, sizeof(Computer), 1, arquivo);
 		}
 
 		fclose(arquivo_temporario);
@@ -150,7 +150,7 @@ void listagem(void)
 
 	for ( ; not feof(arquivo); ++i )
     {
-		fread(&PC, sizeof(Computador), 1, arquivo);
+		fread(&PC, sizeof(Computer), 1, arquivo);
 
 		if ( feof(arquivo) ) break;
 
@@ -191,7 +191,7 @@ void busca(void)
 
 	while ( true )
     {
-		fread(&PC, sizeof(Computador), 1, arquivo);
+		fread(&PC, sizeof(Computer), 1, arquivo);
 
 		if ( feof(arquivo) ) break;
 
@@ -229,7 +229,7 @@ void busca(void)
     }
 }
 
-void alterado(Computador* pc)
+void alterado(Computer* pc)
 {
 	unsigned int dado = 0u;
 
@@ -311,18 +311,18 @@ void alteracao(void)
 
         while ( true )
         {
-			fread(&PC, sizeof(Computador), 1, arquivo);
+			fread(&PC, sizeof(Computer), 1, arquivo);
 
         	if ( feof(arquivo) ) break;
 
         	if ( PC.ID not_eq index )
             {
-				fwrite(&PC, sizeof(Computador), 1, arquivo_temporario);
+				fwrite(&PC, sizeof(Computer), 1, arquivo_temporario);
             }
 			else
             {
 				alterado(&PC);
-				fwrite(&PC, sizeof(Computador), 1, arquivo_temporario);
+				fwrite(&PC, sizeof(Computer), 1, arquivo_temporario);
 			}
 		}
 
@@ -346,11 +346,11 @@ void alteracao(void)
 
 		while ( true )
         {
-			fread(&PC, sizeof(Computador), 1, arquivo_temporario);
+			fread(&PC, sizeof(Computer), 1, arquivo_temporario);
 
         	if ( feof(arquivo_temporario) ) break;
 
-        	fwrite(&PC, sizeof(Computador), 1, arquivo);
+        	fwrite(&PC, sizeof(Computer), 1, arquivo);
 		}
 
 		fclose(arquivo_temporario);
