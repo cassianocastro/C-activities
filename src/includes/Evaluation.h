@@ -90,6 +90,11 @@ void searchComputer(void);
 /**
  *
  */
+void printComputer(const Computer* const);
+
+/**
+ *
+ */
 bool ok(int*);
 
 /**
