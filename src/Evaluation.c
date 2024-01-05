@@ -30,13 +30,10 @@ void insercao(void)
     {
 		fseek(arquivo, 0, SEEK_END);
 
+        printf("\n\tComputador nº %hhu\n", (pos + 1));
         getchar();
 
-        printf(
-            "\n\tComputador nº %hhu"
-			"\nMarca..........................: ",
-            (pos + 1)
-        );
+        printf("Marca..........................: ");
 		fgets(PC.marca, sizeof(PC.marca), stdin);
 
 		printf("Modelo.........................: ");
