@@ -9,21 +9,7 @@ int main(int argc, const char* argv[])
     chooseFile();
 
 	begin:
-		printf(
-            "\nArquivo utilizado: %s\n"
-            "\nEscolha uma das opções abaixo:"
-            "\n1. Inserir de novos computadores;"
-            "\n2. Exibir computadores;"
-            "\n3. Buscar PC;"
-            "\n4. Alterar dados;"
-            "\n5. Remover cadastro;"
-            "\n6. Escolher outro arquivo;"
-            "\n0. Sair;"
-            "\nOpção\? ",
-            nome_arquivo
-        );
-		scanf("%d", &option);
-		getchar();
+		option = getMainMenuChoice();
 
 		system("clear");
 
@@ -277,24 +263,9 @@ bool ok(int* id)
 
 void alterado(Computer* pc)
 {
-	unsigned int dado = 0u;
+	unsigned int data = getUpdateMenuChoice();
 
-	printf(
-        "Escolha o dado que deseja alterar:"
-        "\n1. Tipo;"
-        "\n2. Tamanho da Tela;"
-        "\n3. Marca;"
-        "\n4. Modelo;"
-        "\n5. Processador;"
-        "\n6. Cor;"
-        "\n7. Memória RAM (em GB);"
-        "\n8. Capac. de Armazenamento (em GB);"
-        "\nOpção\? "
-    );
-	scanf("%d", &dado);
-	getchar();
-
-	switch ( dado )
+	switch ( data )
     {
 		case TYPE:
 			do {
@@ -424,4 +395,47 @@ unsigned int getComputerID(void)
 	scanf("%d", &id);
 
     return id;
+}
+
+const unsigned int getMainMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha uma das opções abaixo:"
+        "\n1. Inserir de novos computadores;"
+        "\n2. Exibir computadores;"
+        "\n3. Buscar PC;"
+        "\n4. Alterar dados;"
+        "\n5. Remover cadastro;"
+        "\n6. Escolher outro arquivo;"
+        "\n0. Sair;"
+        "\nOpção\? "
+    );
+    scanf("%d", &choice);
+    getchar();
+
+    return choice;
+}
+
+const unsigned int getUpdateMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+	printf(
+        "Escolha o dado que deseja alterar:"
+        "\n1. Tipo;"
+        "\n2. Tamanho da Tela;"
+        "\n3. Marca;"
+        "\n4. Modelo;"
+        "\n5. Processador;"
+        "\n6. Cor;"
+        "\n7. Memória RAM (em GB);"
+        "\n8. Capac. de Armazenamento (em GB);"
+        "\nOpção\? "
+    );
+	scanf("%d", &choice);
+	getchar();
+
+    return choice;
 }
