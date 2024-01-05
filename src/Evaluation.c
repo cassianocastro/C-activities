@@ -129,26 +129,7 @@ void showComputers(void)
 
 		if ( feof(arquivo) ) break;
 
-		printf(
-            "\n\tComputador ID nº %d:\n"
-            "Marca..........................: %s"
-            "Modelo.........................: %s"
-            "Processador....................: %s"
-            "Cor............................: %s"
-            "Tamanho da Tela................: %.1f\"\n"
-            "Memória RAM....................: %d GB\n"
-            "Capac. de Armazenamento........: %d GB\n"
-            "Tipo...........................: %c\n\n",
-            computer.ID,
-            computer.mark,
-            computer.model,
-            computer.processor,
-            computer.color,
-            computer.screen,
-            computer.memory,
-            computer.storage,
-            computer.type
-        );
+        printComputer(&computer);
 	}
 
 	( i == 0 ) ? puts("\a\nEstoque vazio.") : system("pause");
@@ -309,26 +290,7 @@ void searchComputer(void)
 
 		if ( computer.ID != index ) continue;
 
-		printf(
-            "\n\tComputador ID nº %d:\n"
-            "Marca..........................: %s"
-            "Modelo.........................: %s"
-            "Processador....................: %s"
-            "Cor............................: %s"
-            "Tamanho da Tela................: %.1f\"\n"
-            "Memória RAM....................: %d GB\n"
-            "Capac. de Armazenamento........: %d GB\n"
-            "Tipo...........................: %c\n\n",
-            computer.ID,
-            computer.mark,
-            computer.model,
-            computer.processor,
-            computer.color,
-            computer.screen,
-            computer.memory,
-            computer.storage,
-            computer.type
-        );
+		printComputer(&computer);
 
 		found = true;
 
@@ -432,4 +394,28 @@ void chooseFile(void)
 
     	exit(EXIT_SUCCESS);
 	}
+}
+
+void printComputer(const Computer* const computer)
+{
+    printf(
+        "\n\tComputador ID nº %d:\n"
+        "Marca..........................: %s"
+        "Modelo.........................: %s"
+        "Processador....................: %s"
+        "Cor............................: %s"
+        "Tamanho da Tela................: %.1f\"\n"
+        "Memória RAM....................: %d GB\n"
+        "Capac. de Armazenamento........: %d GB\n"
+        "Tipo...........................: %c\n\n",
+        computer->ID,
+        computer->mark,
+        computer->model,
+        computer->processor,
+        computer->color,
+        computer->screen,
+        computer->memory,
+        computer->storage,
+        computer->type
+    );
 }
