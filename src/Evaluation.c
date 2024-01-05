@@ -20,12 +20,12 @@ bool ok(int* id)
 
 void insercao(void)
 {
-    short numero_cadastros = 0;
+    short cadastros = 0;
 
 	printf("Quantos cadastros você deseja fazer\? ");
-	scanf("%hu", &numero_cadastros);
+	scanf("%hu", &cadastros);
 
-	for ( register uint8_t i = 0; i < numero_cadastros; ++i )
+	for ( register uint8_t i = 0; i < cadastros; ++i )
     {
 		fseek(arquivo, 0, SEEK_END);
 
@@ -229,7 +229,7 @@ void busca(void)
     }
 }
 
-void alterado(Computador* PC)
+void alterado(Computador* pc)
 {
 	unsigned int dado = 0u;
 
@@ -253,36 +253,36 @@ void alterado(Computador* PC)
 		case TIPO:
 			do {
 				printf("Novo Tipo [d/n]: ");
-				scanf(" %c", &PC->tipo);
-			} while ( PC->tipo not_eq 'd' and PC->tipo not_eq 'n' );
+				scanf(" %c", &pc->tipo);
+			} while ( pc->tipo not_eq 'd' and pc->tipo not_eq 'n' );
 			break;
 		case TAMANHO_TELA:
 			printf("Novo Tamanho da Tela: ");
-			scanf("%f", &PC->tamanho_tela);
+			scanf("%f", &pc->tamanho_tela);
 			break;
 		case MARCA:
 			printf("Nova Marca: ");
-			fgets(PC->marca, sizeof(PC->marca), stdin);
+			fgets(pc->marca, sizeof(pc->marca), stdin);
 			break;
 		case MODELO:
 			printf("Novo Modelo: ");
-			fgets(PC->modelo, sizeof(PC->modelo), stdin);
+			fgets(pc->modelo, sizeof(pc->modelo), stdin);
 			break;
 		case PROCESSADOR:
 			printf("Novo Processador: ");
-			fgets(PC->processador, sizeof(PC->processador), stdin);
+			fgets(pc->processador, sizeof(pc->processador), stdin);
 			break;
 		case COR:
 			printf("Nova Cor: ");
-			fgets(PC->cor, sizeof(PC->cor), stdin);
+			fgets(pc->cor, sizeof(pc->cor), stdin);
 			break;
 		case RAM:
 			printf("Nova Memória RAM (em GB): ");
-			scanf("%d", &PC->RAM);
+			scanf("%d", &pc->RAM);
 			break;
 		case ARMAZENAMENTO:
 			printf("Nova Capac. de Armazenamento (em GB): ");
-			scanf("%d", &PC->HD);
+			scanf("%d", &pc->HD);
 			break;
 		default:
 			puts("\aDígito inválido!");
