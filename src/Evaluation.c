@@ -62,53 +62,16 @@ int main(int argc, const char* argv[])
 
 void addComputer(void)
 {
-    short cadastros = 0;
+    unsigned short int cadastros = 0;
 
 	printf("Quantos cadastros você deseja fazer\? ");
 	scanf("%hu", &cadastros);
 
-	for ( register uint8_t i = 0; i < cadastros; ++i )
+	for ( register unsigned short int i = 0; i < cadastros; ++i )
     {
 		fseek(arquivo, 0, SEEK_END);
 
-        printf("\n\tComputador nº %hhu\n", (i + 1));
-        getchar();
-
-        printf("Marca..........................: ");
-		fgets(computer.mark, sizeof(computer.mark), stdin);
-
-		printf("Modelo.........................: ");
-		fgets(computer.model, sizeof(computer.model), stdin);
-
-		printf("Processador....................: ");
-		fgets(computer.processor, sizeof(computer.processor), stdin);
-
-		printf("Cor............................: ");
-		fgets(computer.color, sizeof(computer.color), stdin);
-
-		printf("Tamanho da Tela................: ");
-		scanf("%f", &computer.screen);
-
-		printf("Memória RAM (em GB)............: ");
-		scanf("%d", &computer.memory);
-
-		printf("Capac. de Armazenamento (em GB): ");
-		scanf("%d", &computer.storage);
-
-		do {
-			printf("Tipo [d/n].....................: ");
-			scanf(" %c", &computer.type);
-		} while ( computer.type not_eq 'd' and computer.type not_eq 'n' );
-
-		while ( true )
-        {
-            computer.ID = getComputerID();
-
-			if ( ok(&computer.ID) )
-				puts("\nID já utilizado!");
-			else
-				break;
-		}
+        showComputerForm(i);
 
 		fwrite(&computer, sizeof(Computer), 1, arquivo);
 	}
@@ -385,6 +348,48 @@ void chooseFile(void)
 
     	exit(EXIT_SUCCESS);
 	}
+}
+
+void showComputerForm(unsigned short int i)
+{
+    printf("\n\tComputador nº %hhu\n", (i + 1));
+    getchar();
+
+    printf("Marca..........................: ");
+    fgets(computer.mark, sizeof(computer.mark), stdin);
+
+    printf("Modelo.........................: ");
+    fgets(computer.model, sizeof(computer.model), stdin);
+
+    printf("Processador....................: ");
+    fgets(computer.processor, sizeof(computer.processor), stdin);
+
+    printf("Cor............................: ");
+    fgets(computer.color, sizeof(computer.color), stdin);
+
+    printf("Tamanho da Tela................: ");
+    scanf("%f", &computer.screen);
+
+    printf("Memória RAM (em GB)............: ");
+    scanf("%d", &computer.memory);
+
+    printf("Capac. de Armazenamento (em GB): ");
+    scanf("%d", &computer.storage);
+
+    do {
+        printf("Tipo [d/n].....................: ");
+        scanf(" %c", &computer.type);
+    } while ( computer.type not_eq 'd' and computer.type not_eq 'n' );
+
+    while ( true )
+    {
+        computer.ID = getComputerID();
+
+        if ( ok(&computer.ID) )
+            puts("\nID já utilizado!");
+        else
+            break;
+    }
 }
 
 void printComputer(const Computer* const computer)
