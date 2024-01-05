@@ -65,27 +65,27 @@ Computer computer;
 /**
  *
  */
-void insercao(void);
+void addComputer(void);
 
 /**
  *
  */
-void listagem(void);
+void showComputers(void);
 
 /**
  *
  */
-void alteracao(void);
+void updateComputer(void);
 
 /**
  *
  */
-void remocao(void);
+void deleteComputer(void);
 
 /**
  *
  */
-void busca(void);
+void searchComputer(void);
 
 /**
  *
@@ -100,6 +100,6 @@ void alterado(Computer*);
 /**
  *
  */
-void escolher(void);
+void chooseFile(void);
 
 #endif
