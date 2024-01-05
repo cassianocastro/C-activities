@@ -54,13 +54,13 @@ typedef struct
 	char processador[TAM_PROCESS];
 	char cor[TAM_COR];
 }
-Computador;
+Computer;
 
 FILE* arquivo;
 
 char nome_arquivo[TAM];
 
-Computador PC;
+Computer PC;
 
 /**
  *
@@ -95,7 +95,7 @@ bool ok(int*);
 /**
  *
  */
-void alterado(Computador*);
+void alterado(Computer*);
 
 /**
  *
