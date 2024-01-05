@@ -55,11 +55,11 @@ typedef struct
 }
 Computer;
 
-FILE* arquivo;
+extern FILE* arquivo;
 
-char nome_arquivo[TAM];
+extern char nome_arquivo[TAM];
 
-Computer computer;
+extern Computer computer;
 
 /**
  *
