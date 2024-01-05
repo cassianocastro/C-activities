@@ -1,18 +1,18 @@
 #include "./includes/Evaluation.h"
 
-bool okay(int* index_pointer)
+bool okay(int* id)
 {
-	Computador PC_teste;
+	Computador pc;
 
 	fseek(arquivo, 0, SEEK_SET);
 
     while ( true )
     {
-		fread(&PC_teste, sizeof(Computador), 1, arquivo);
+		fread(&pc, sizeof(Computador), 1, arquivo);
 
         if ( feof(arquivo) ) break;
 
-        if ( PC_teste.ID == (*index_pointer) ) return true;
+        if ( pc.ID == (*id) ) return true;
 	}
 
 	return false;
