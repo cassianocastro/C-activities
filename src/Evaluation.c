@@ -144,11 +144,11 @@ void remocao(void)
 
 void listagem(void)
 {
-	register uint8_t pos = 0;
+	register uint8_t i = 0;
 
 	fseek(arquivo, 0, SEEK_SET);
 
-	for ( ; not feof(arquivo); pos++)
+	for ( ; not feof(arquivo); ++i )
     {
 		fread(&PC, sizeof(Computador), 1, arquivo);
 
@@ -176,13 +176,13 @@ void listagem(void)
         );
 	}
 
-	( pos == 0 ) ? puts("\a\nEstoque VAZIO.") : system("pause");
+	( i == 0 ) ? puts("\a\nEstoque VAZIO.") : system("pause");
 }
 
 void busca(void)
 {
 	int index = 0;
-    bool was_found = false;
+    bool found = false;
 
 	printf("Informe o ID do computador: ");
 	scanf("%d", &index);
@@ -218,12 +218,12 @@ void busca(void)
             PC.tipo
         );
 
-		was_found = true;
+		found = true;
 
 		break;
 	}
 
-	if ( not was_found )
+	if ( not found )
     {
         puts("\aComputador NÃO ENCONTRADO.");
     }
@@ -378,7 +378,7 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-    unsigned int opcao = 0u;
+    unsigned int option = 0u;
 
     escolher();
 
@@ -396,11 +396,11 @@ int main(int argc, const char* argv[])
             "Opção\? ",
             nome_arquivo
         );
-		scanf("%d", &opcao);
+		scanf("%d", &option);
 		getchar();
 		system("clear");
 
-		switch ( opcao )
+		switch ( option )
         {
 			case SAIR:
 				puts("Até mais...");
@@ -428,7 +428,7 @@ int main(int argc, const char* argv[])
 				puts("\aDígito inválido!");
 		}
 
-	if ( opcao not_eq SAIR ) goto begin;
+	if ( option not_eq SAIR ) goto begin;
 
 	return EXIT_SUCCESS;
 }
