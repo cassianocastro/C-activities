@@ -1,9 +1,7 @@
 #include "./includes/Evaluation.h"
 
-int main(int argc, const char* argv[])
+void start(void)
 {
-	setlocale(LC_ALL, "");
-
     unsigned int option = 0u;
 
     chooseFile();
@@ -42,8 +40,6 @@ int main(int argc, const char* argv[])
 		}
 
 	if ( option not_eq EXIT ) goto begin;
-
-	return EXIT_SUCCESS;
 }
 
 void addComputer(void)
