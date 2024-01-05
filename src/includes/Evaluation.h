@@ -112,4 +112,9 @@ void chooseFile(void);
  */
 unsigned int getComputerID(void);
 
+/**
+ *
+ */
+void showComputerForm(unsigned short int);
+
 #endif
