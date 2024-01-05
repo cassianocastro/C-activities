@@ -29,33 +29,33 @@ int main(int argc, const char* argv[])
 
 		switch ( option )
         {
-			case SAIR:
-				puts("Até mais...");
-				break;
-			case INSERCAO:
+			case CREATE:
 				addComputer();
 				break;
-			case LISTAGEM:
+			case READ:
 				showComputers();
 				break;
-			case BUSCA:
+			case SEARCH:
 				searchComputer();
 				break;
-			case ALTERACAO:
+			case UPDATE:
 				updateComputer();
 				break;
-			case REMOCAO:
+			case DELETE:
 				deleteComputer();
 				break;
-			case OUTRO_ARQUIVO:
+			case CHOOSE_FILE:
 				fclose(arquivo);
 				chooseFile();
+				break;
+            case EXIT:
+				puts("Até mais...");
 				break;
 			default:
 				puts("\aDígito inválido!");
 		}
 
-	if ( option not_eq SAIR ) goto begin;
+	if ( option not_eq EXIT ) goto begin;
 
 	return EXIT_SUCCESS;
 }
