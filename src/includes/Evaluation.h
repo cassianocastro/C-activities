@@ -107,4 +107,9 @@ void alterado(Computer*);
  */
 void chooseFile(void);
 
+/**
+ *
+ */
+unsigned int getComputerID(void);
+
 #endif
