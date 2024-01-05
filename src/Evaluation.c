@@ -1,6 +1,6 @@
 #include "./includes/Evaluation.h"
 
-bool okay(int* id)
+bool ok(int* id)
 {
 	Computador pc;
 
@@ -63,7 +63,7 @@ void insercao(void)
 			printf("Informe o ID do computador: ");
 			scanf("%d", &PC.ID);
 
-			if ( okay(&PC.ID) )
+			if ( ok(&PC.ID) )
 				puts("\nID JÁ UTILIZADO!");
 			else
 				break;
@@ -82,7 +82,7 @@ void remocao(void)
 	printf("Informe o ID do computador: ");
 	scanf("%d", &index);
 
-	if ( not okay(&index) )
+	if ( not ok(&index) )
     {
 		puts("\aID não encontrado.");
 
@@ -296,7 +296,7 @@ void alteracao(void)
     printf("Informe o ID do computador: ");
 	scanf("%d", &index);
 
-    if ( not okay(&index) )
+    if ( not ok(&index) )
     {
 		puts("\aComputador NÃO ENCONTRADO.");
 
