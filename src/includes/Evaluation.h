@@ -60,7 +60,7 @@ FILE* arquivo;
 
 char nome_arquivo[TAM];
 
-Computer PC;
+Computer computer;
 
 /**
  *
