@@ -17,15 +17,15 @@
 
 typedef enum
 {
-	SAIR,
-	INSERCAO,
-	LISTAGEM,
-	BUSCA,
-	ALTERACAO,
-	REMOCAO,
-	OUTRO_ARQUIVO
+	EXIT,
+	CREATE,
+	READ,
+	SEARCH,
+	UPDATE,
+	DELETE,
+	CHOOSE_FILE
 }
-Opcoes;
+Options;
 
 typedef enum
 {
