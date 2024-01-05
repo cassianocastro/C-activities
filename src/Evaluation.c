@@ -102,8 +102,7 @@ void addComputer(void)
 
 		while ( true )
         {
-			printf("ID do computador: ");
-			scanf("%d", &computer.ID);
+            computer.ID = getComputerID();
 
 			if ( ok(&computer.ID) )
 				puts("\nID já utilizado!");
@@ -137,12 +136,9 @@ void showComputers(void)
 
 void updateComputer(void)
 {
-	int index = 0;
+	unsigned int id = getComputerID();
 
-    printf("ID do computador: ");
-	scanf("%d", &index);
-
-    if ( not ok(&index) )
+    if ( not ok(&id) )
     {
 		puts("\aComputador não encontrado.");
 
@@ -161,7 +157,7 @@ void updateComputer(void)
 
         	if ( feof(arquivo) ) break;
 
-        	if ( computer.ID not_eq index )
+        	if ( computer.ID not_eq id )
             {
 				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
             }
@@ -207,12 +203,9 @@ void updateComputer(void)
 
 void deleteComputer(void)
 {
-	int index = 0;
+	unsigned int id = getComputerID();
 
-	printf("ID do computador: ");
-	scanf("%d", &index);
-
-	if ( not ok(&index) )
+	if ( not ok(&id) )
     {
 		puts("\aID não encontrado.");
 
@@ -231,7 +224,7 @@ void deleteComputer(void)
 
             if ( feof(arquivo) ) break;
 
-            if ( computer.ID not_eq index )
+            if ( computer.ID not_eq id )
             {
 				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
             }
@@ -274,11 +267,9 @@ void deleteComputer(void)
 
 void searchComputer(void)
 {
-    bool found = false;
-	int id = 0;
+	unsigned int id = getComputerID();
 
-	printf("ID do computador: ");
-	scanf("%d", &id);
+    bool found = false;
 
 	fseek(arquivo, 0, SEEK_SET);
 
@@ -335,7 +326,7 @@ void alterado(Computer* pc)
         "\n6. Cor;"
         "\n7. Memória RAM (em GB);"
         "\n8. Capac. de Armazenamento (em GB);"
-        "\nOpção\?"
+        "\nOpção\? "
     );
 	scanf("%d", &dado);
 	getchar();
@@ -418,4 +409,14 @@ void printComputer(const Computer* const computer)
         computer->storage,
         computer->type
     );
+}
+
+unsigned int getComputerID(void)
+{
+    unsigned int id = 0u;
+
+    printf("ID do computador: ");
+	scanf("%d", &id);
+
+    return id;
 }
