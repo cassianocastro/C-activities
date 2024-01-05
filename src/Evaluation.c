@@ -33,43 +33,43 @@ void insercao(void)
         getchar();
 
         printf("Marca..........................: ");
-		fgets(PC.marca, sizeof(PC.marca), stdin);
+		fgets(computer.marca, sizeof(computer.marca), stdin);
 
 		printf("Modelo.........................: ");
-		fgets(PC.modelo, sizeof(PC.modelo), stdin);
+		fgets(computer.modelo, sizeof(computer.modelo), stdin);
 
 		printf("Processador....................: ");
-		fgets(PC.processador, sizeof(PC.processador), stdin);
+		fgets(computer.processador, sizeof(computer.processador), stdin);
 
 		printf("Cor............................: ");
-		fgets(PC.cor, sizeof(PC.cor), stdin);
+		fgets(computer.cor, sizeof(computer.cor), stdin);
 
 		printf("Tamanho da Tela................: ");
-		scanf("%f", &PC.tamanho_tela);
+		scanf("%f", &computer.tamanho_tela);
 
 		printf("Memória RAM (em GB)............: ");
-		scanf("%d", &PC.RAM);
+		scanf("%d", &computer.RAM);
 
 		printf("Capac. de Armazenamento (em GB): ");
-		scanf("%d", &PC.HD);
+		scanf("%d", &computer.HD);
 
 		do {
 			printf("Tipo [d/n].....................: ");
-			scanf(" %c", &PC.tipo);
-		} while ( PC.tipo not_eq 'd' and PC.tipo not_eq 'n' );
+			scanf(" %c", &computer.tipo);
+		} while ( computer.tipo not_eq 'd' and computer.tipo not_eq 'n' );
 
 		while ( true )
         {
 			printf("ID do computador: ");
-			scanf("%d", &PC.ID);
+			scanf("%d", &computer.ID);
 
-			if ( ok(&PC.ID) )
+			if ( ok(&computer.ID) )
 				puts("\nID já utilizado!");
 			else
 				break;
 		}
 
-		fwrite(&PC, sizeof(Computer), 1, arquivo);
+		fwrite(&computer, sizeof(Computer), 1, arquivo);
 	}
 
 	puts("\nCadastro(s) realizado(s).");
@@ -97,13 +97,13 @@ void remocao(void)
 
 		while ( true )
         {
-			fread(&PC, sizeof(Computer), 1, arquivo);
+			fread(&computer, sizeof(Computer), 1, arquivo);
 
             if ( feof(arquivo) ) break;
 
-            if ( PC.ID not_eq index )
+            if ( computer.ID not_eq index )
             {
-				fwrite(&PC, sizeof(Computer), 1, arquivo_temporario);
+				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
             }
 		}
 
@@ -127,11 +127,11 @@ void remocao(void)
 
 		while ( true )
         {
-			fread(&PC, sizeof(Computer), 1, arquivo_temporario);
+			fread(&computer, sizeof(Computer), 1, arquivo_temporario);
 
 			if ( feof(arquivo_temporario) ) break;
 
-			fwrite(&PC, sizeof(Computer), 1, arquivo);
+			fwrite(&computer, sizeof(Computer), 1, arquivo);
 		}
 
 		fclose(arquivo_temporario);
@@ -150,7 +150,7 @@ void listagem(void)
 
 	for ( ; not feof(arquivo); ++i )
     {
-		fread(&PC, sizeof(Computer), 1, arquivo);
+		fread(&computer, sizeof(Computer), 1, arquivo);
 
 		if ( feof(arquivo) ) break;
 
@@ -164,15 +164,15 @@ void listagem(void)
             "Memória RAM....................: %d GB\n"
             "Capac. de Armazenamento........: %d GB\n"
             "Tipo...........................: %c\n\n",
-            PC.ID,
-            PC.marca,
-            PC.modelo,
-            PC.processador,
-            PC.cor,
-            PC.tamanho_tela,
-            PC.RAM,
-            PC.HD,
-            PC.tipo
+            computer.ID,
+            computer.marca,
+            computer.modelo,
+            computer.processador,
+            computer.cor,
+            computer.tamanho_tela,
+            computer.RAM,
+            computer.HD,
+            computer.tipo
         );
 	}
 
@@ -191,11 +191,11 @@ void busca(void)
 
 	while ( true )
     {
-		fread(&PC, sizeof(Computer), 1, arquivo);
+		fread(&computer, sizeof(Computer), 1, arquivo);
 
 		if ( feof(arquivo) ) break;
 
-		if ( PC.ID != index ) continue;
+		if ( computer.ID != index ) continue;
 
 		printf(
             "\n\tComputador ID nº %d:\n"
@@ -207,15 +207,15 @@ void busca(void)
             "Memória RAM....................: %d GB\n"
             "Capac. de Armazenamento........: %d GB\n"
             "Tipo...........................: %c\n\n",
-            PC.ID,
-            PC.marca,
-            PC.modelo,
-            PC.processador,
-            PC.cor,
-            PC.tamanho_tela,
-            PC.RAM,
-            PC.HD,
-            PC.tipo
+            computer.ID,
+            computer.marca,
+            computer.modelo,
+            computer.processador,
+            computer.cor,
+            computer.tamanho_tela,
+            computer.RAM,
+            computer.HD,
+            computer.tipo
         );
 
 		found = true;
@@ -311,18 +311,18 @@ void alteracao(void)
 
         while ( true )
         {
-			fread(&PC, sizeof(Computer), 1, arquivo);
+			fread(&computer, sizeof(Computer), 1, arquivo);
 
         	if ( feof(arquivo) ) break;
 
-        	if ( PC.ID not_eq index )
+        	if ( computer.ID not_eq index )
             {
-				fwrite(&PC, sizeof(Computer), 1, arquivo_temporario);
+				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
             }
 			else
             {
-				alterado(&PC);
-				fwrite(&PC, sizeof(Computer), 1, arquivo_temporario);
+				alterado(&computer);
+				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
 			}
 		}
 
@@ -346,11 +346,11 @@ void alteracao(void)
 
 		while ( true )
         {
-			fread(&PC, sizeof(Computer), 1, arquivo_temporario);
+			fread(&computer, sizeof(Computer), 1, arquivo_temporario);
 
         	if ( feof(arquivo_temporario) ) break;
 
-        	fwrite(&PC, sizeof(Computer), 1, arquivo);
+        	fwrite(&computer, sizeof(Computer), 1, arquivo);
 		}
 
 		fclose(arquivo_temporario);
