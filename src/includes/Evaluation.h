@@ -43,16 +43,16 @@ Data;
 typedef struct
 {
 	int ID;
-    int RAM;
-    int HD;
+    int memory;
+    int storage;
 
-    float tamanho_tela;
+    float screen;
 
-    char tipo;
-	char marca[TAM];
-	char modelo[TAM];
-	char processador[TAM_PROCESS];
-	char cor[TAM_COR];
+    char type;
+	char mark[TAM];
+	char model[TAM];
+	char processor[TAM_PROCESS];
+	char color[TAM_COR];
 }
 Computer;
 
