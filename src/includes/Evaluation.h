@@ -90,7 +90,7 @@ void busca(void);
 /**
  *
  */
-bool okay(int*);
+bool ok(int*);
 
 /**
  *
