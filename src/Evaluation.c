@@ -20,17 +20,16 @@ bool okay(int* id)
 
 void insercao(void)
 {
-	register uint8_t pos = 0;
     short numero_cadastros = 0;
 
 	printf("Quantos cadastros você deseja fazer\? ");
 	scanf("%hu", &numero_cadastros);
 
-	for ( pos = 0; pos < numero_cadastros; pos++ )
+	for ( register uint8_t i = 0; i < numero_cadastros; ++i )
     {
 		fseek(arquivo, 0, SEEK_END);
 
-        printf("\n\tComputador nº %hhu\n", (pos + 1));
+        printf("\n\tComputador nº %hhu\n", (i + 1));
         getchar();
 
         printf("Marca..........................: ");
