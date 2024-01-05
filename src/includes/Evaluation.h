@@ -29,16 +29,16 @@ Opcoes;
 
 typedef enum
 {
-	TIPO = 1,
-	TAMANHO_TELA,
-	MARCA,
-	MODELO,
-	PROCESSADOR,
-	COR,
-	RAM,
-	ARMAZENAMENTO
+	TYPE = 1,
+	SCREEN,
+	MARK,
+	MODEL,
+	PROCESSOR,
+	COLOR,
+	MEMORY,
+	STORAGE
 }
-Dados;
+Data;
 
 typedef struct
 {
