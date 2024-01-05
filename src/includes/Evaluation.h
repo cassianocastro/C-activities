@@ -126,4 +126,9 @@ const unsigned int getMainMenuChoice(void);
  */
 const unsigned int getUpdateMenuChoice(void);
 
+/**
+ *
+ */
+void start(void);
+
 #endif
