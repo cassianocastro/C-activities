@@ -18,7 +18,7 @@ bool ok(int* id)
 	return false;
 }
 
-void insercao(void)
+void addComputer(void)
 {
     short cadastros = 0;
 
@@ -75,7 +75,7 @@ void insercao(void)
 	puts("\nCadastro(s) realizado(s).");
 }
 
-void remocao(void)
+void deleteComputer(void)
 {
 	int index = 0;
 
@@ -142,7 +142,7 @@ void remocao(void)
         printf("\aErro nº %d: %s", errno, strerror(errno));
 }
 
-void listagem(void)
+void showComputers(void)
 {
 	register uint8_t i = 0;
 
@@ -179,7 +179,7 @@ void listagem(void)
 	( i == 0 ) ? puts("\a\nEstoque vazio.") : system("pause");
 }
 
-void busca(void)
+void searchComputer(void)
 {
 	int index = 0;
     bool found = false;
@@ -289,7 +289,7 @@ void alterado(Computer* pc)
 	}
 }
 
-void alteracao(void)
+void updateComputer(void)
 {
 	int index = 0;
 
@@ -359,7 +359,7 @@ void alteracao(void)
 	}
 }
 
-void escolher(void)
+void chooseFile(void)
 {
 	printf("\nNome do arquivo: ");
 	fgets(nome_arquivo, sizeof(nome_arquivo), stdin);
@@ -380,7 +380,7 @@ int main(int argc, const char* argv[])
 
     unsigned int option = 0u;
 
-    escolher();
+    chooseFile();
 
 	begin:
 		printf(
@@ -407,23 +407,23 @@ int main(int argc, const char* argv[])
 				puts("Até mais...");
 				break;
 			case INSERCAO:
-				insercao();
+				addComputer();
 				break;
 			case LISTAGEM:
-				listagem();
+				showComputers();
 				break;
 			case BUSCA:
-				busca();
+				searchComputer();
 				break;
 			case ALTERACAO:
-				alteracao();
+				updateComputer();
 				break;
 			case REMOCAO:
-				remocao();
+				deleteComputer();
 				break;
 			case OUTRO_ARQUIVO:
 				fclose(arquivo);
-				escolher();
+				chooseFile();
 				break;
 			default:
 				puts("\aDígito inválido!");
