@@ -75,30 +75,30 @@ void addComputer(void)
         getchar();
 
         printf("Marca..........................: ");
-		fgets(computer.marca, sizeof(computer.marca), stdin);
+		fgets(computer.mark, sizeof(computer.mark), stdin);
 
 		printf("Modelo.........................: ");
-		fgets(computer.modelo, sizeof(computer.modelo), stdin);
+		fgets(computer.model, sizeof(computer.model), stdin);
 
 		printf("Processador....................: ");
-		fgets(computer.processador, sizeof(computer.processador), stdin);
+		fgets(computer.processor, sizeof(computer.processor), stdin);
 
 		printf("Cor............................: ");
-		fgets(computer.cor, sizeof(computer.cor), stdin);
+		fgets(computer.color, sizeof(computer.color), stdin);
 
 		printf("Tamanho da Tela................: ");
-		scanf("%f", &computer.tamanho_tela);
+		scanf("%f", &computer.screen);
 
 		printf("Memória RAM (em GB)............: ");
-		scanf("%d", &computer.RAM);
+		scanf("%d", &computer.memory);
 
 		printf("Capac. de Armazenamento (em GB): ");
-		scanf("%d", &computer.HD);
+		scanf("%d", &computer.storage);
 
 		do {
 			printf("Tipo [d/n].....................: ");
-			scanf(" %c", &computer.tipo);
-		} while ( computer.tipo not_eq 'd' and computer.tipo not_eq 'n' );
+			scanf(" %c", &computer.type);
+		} while ( computer.type not_eq 'd' and computer.type not_eq 'n' );
 
 		while ( true )
         {
@@ -140,14 +140,14 @@ void showComputers(void)
             "Capac. de Armazenamento........: %d GB\n"
             "Tipo...........................: %c\n\n",
             computer.ID,
-            computer.marca,
-            computer.modelo,
-            computer.processador,
-            computer.cor,
-            computer.tamanho_tela,
-            computer.RAM,
-            computer.HD,
-            computer.tipo
+            computer.mark,
+            computer.model,
+            computer.processor,
+            computer.color,
+            computer.screen,
+            computer.memory,
+            computer.storage,
+            computer.type
         );
 	}
 
@@ -320,14 +320,14 @@ void searchComputer(void)
             "Capac. de Armazenamento........: %d GB\n"
             "Tipo...........................: %c\n\n",
             computer.ID,
-            computer.marca,
-            computer.modelo,
-            computer.processador,
-            computer.cor,
-            computer.tamanho_tela,
-            computer.RAM,
-            computer.HD,
-            computer.tipo
+            computer.mark,
+            computer.model,
+            computer.processor,
+            computer.color,
+            computer.screen,
+            computer.memory,
+            computer.storage,
+            computer.type
         );
 
 		found = true;
@@ -383,36 +383,36 @@ void alterado(Computer* pc)
 		case TYPE:
 			do {
 				printf("Novo Tipo [d/n]: ");
-				scanf(" %c", &pc->tipo);
-			} while ( pc->tipo not_eq 'd' and pc->tipo not_eq 'n' );
+				scanf(" %c", &pc->type);
+			} while ( pc->type not_eq 'd' and pc->type not_eq 'n' );
 			break;
 		case SCREEN:
 			printf("Novo Tamanho da Tela: ");
-			scanf("%f", &pc->tamanho_tela);
+			scanf("%f", &pc->screen);
 			break;
 		case MARK:
 			printf("Nova Marca: ");
-			fgets(pc->marca, sizeof(pc->marca), stdin);
+			fgets(pc->mark, sizeof(pc->mark), stdin);
 			break;
 		case MODEL:
 			printf("Novo Modelo: ");
-			fgets(pc->modelo, sizeof(pc->modelo), stdin);
+			fgets(pc->model, sizeof(pc->model), stdin);
 			break;
 		case PROCESSOR:
 			printf("Novo Processador: ");
-			fgets(pc->processador, sizeof(pc->processador), stdin);
+			fgets(pc->processor, sizeof(pc->processor), stdin);
 			break;
 		case COLOR:
 			printf("Nova Cor: ");
-			fgets(pc->cor, sizeof(pc->cor), stdin);
+			fgets(pc->color, sizeof(pc->color), stdin);
 			break;
 		case MEMORY:
 			printf("Nova Memória RAM (em GB): ");
-			scanf("%d", &pc->RAM);
+			scanf("%d", &pc->memory);
 			break;
 		case STORAGE:
 			printf("Nova Capac. de Armazenamento (em GB): ");
-			scanf("%d", &pc->HD);
+			scanf("%d", &pc->storage);
 			break;
 		default:
 			puts("\aDígito inválido!");
