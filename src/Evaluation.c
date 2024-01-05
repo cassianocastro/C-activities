@@ -60,11 +60,11 @@ void insercao(void)
 
 		while ( true )
         {
-			printf("Informe o ID do computador: ");
+			printf("ID do computador: ");
 			scanf("%d", &PC.ID);
 
 			if ( ok(&PC.ID) )
-				puts("\nID JÁ UTILIZADO!");
+				puts("\nID já utilizado!");
 			else
 				break;
 		}
@@ -79,7 +79,7 @@ void remocao(void)
 {
 	int index = 0;
 
-	printf("Informe o ID do computador: ");
+	printf("ID do computador: ");
 	scanf("%d", &index);
 
 	if ( not ok(&index) )
@@ -176,7 +176,7 @@ void listagem(void)
         );
 	}
 
-	( i == 0 ) ? puts("\a\nEstoque VAZIO.") : system("pause");
+	( i == 0 ) ? puts("\a\nEstoque vazio.") : system("pause");
 }
 
 void busca(void)
@@ -184,7 +184,7 @@ void busca(void)
 	int index = 0;
     bool found = false;
 
-	printf("Informe o ID do computador: ");
+	printf("ID do computador: ");
 	scanf("%d", &index);
 
 	fseek(arquivo, 0, SEEK_SET);
@@ -225,7 +225,7 @@ void busca(void)
 
 	if ( not found )
     {
-        puts("\aComputador NÃO ENCONTRADO.");
+        puts("\aComputador não encontrado.");
     }
 }
 
@@ -234,16 +234,16 @@ void alterado(Computador* pc)
 	unsigned int dado = 0u;
 
 	printf(
-        "Escolha o dado que deseja alterar:\n"
-        "1 - Tipo;\n"
-        "2 - Tamanho da Tela;\n"
-        "3 - Marca;\n"
-        "4 - Modelo;\n"
-        "5 - Processador;\n"
-        "6 - Cor;\n"
-        "7 - Memória RAM (em GB);\n"
-        "8 - Capac. de Armazenamento (em GB);\n"
-        "Opção\?"
+        "Escolha o dado que deseja alterar:"
+        "\n1. Tipo;"
+        "\n2. Tamanho da Tela;"
+        "\n3. Marca;"
+        "\n4. Modelo;"
+        "\n5. Processador;"
+        "\n6. Cor;"
+        "\n7. Memória RAM (em GB);"
+        "\n8. Capac. de Armazenamento (em GB);"
+        "\nOpção\?"
     );
 	scanf("%d", &dado);
 	getchar();
@@ -293,12 +293,12 @@ void alteracao(void)
 {
 	int index = 0;
 
-    printf("Informe o ID do computador: ");
+    printf("ID do computador: ");
 	scanf("%d", &index);
 
     if ( not ok(&index) )
     {
-		puts("\aComputador NÃO ENCONTRADO.");
+		puts("\aComputador não encontrado.");
 
 		return;
 	}
@@ -361,7 +361,7 @@ void alteracao(void)
 
 void escolher(void)
 {
-	printf("\nInforme o nome do arquivo: ");
+	printf("\nNome do arquivo: ");
 	fgets(nome_arquivo, sizeof(nome_arquivo), stdin);
 
 	arquivo = fopen(nome_arquivo, "ab+");
@@ -384,20 +384,21 @@ int main(int argc, const char* argv[])
 
 	begin:
 		printf(
-            "\nArquivo utilizado: %s\n\n"
-            "Escolha uma das opções abaixo:\n"
-            "1 - Inserir de novos computadores;\n"
-            "2 - Exibir computadores;\n"
-            "3 - Buscar PC;\n"
-            "4 - Alterar dados;\n"
-            "5 - Remover cadastro;\n"
-            "6 - Escolher outro arquivo;\n"
-            "0 - Sair;\n"
-            "Opção\? ",
+            "\nArquivo utilizado: %s\n"
+            "\nEscolha uma das opções abaixo:"
+            "\n1. Inserir de novos computadores;"
+            "\n2. Exibir computadores;"
+            "\n3. Buscar PC;"
+            "\n4. Alterar dados;"
+            "\n5. Remover cadastro;"
+            "\n6. Escolher outro arquivo;"
+            "\n0. Sair;"
+            "\nOpção\? ",
             nome_arquivo
         );
 		scanf("%d", &option);
 		getchar();
+
 		system("clear");
 
 		switch ( option )
