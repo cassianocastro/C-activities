@@ -274,11 +274,11 @@ void deleteComputer(void)
 
 void searchComputer(void)
 {
-	int index = 0;
     bool found = false;
+	int id = 0;
 
 	printf("ID do computador: ");
-	scanf("%d", &index);
+	scanf("%d", &id);
 
 	fseek(arquivo, 0, SEEK_SET);
 
@@ -288,7 +288,7 @@ void searchComputer(void)
 
 		if ( feof(arquivo) ) break;
 
-		if ( computer.ID != index ) continue;
+		if ( computer.ID != id ) continue;
 
 		printComputer(&computer);
 
