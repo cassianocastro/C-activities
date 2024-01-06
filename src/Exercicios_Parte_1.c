@@ -23,8 +23,10 @@ void brincarComNumeros(void)
 
 	printf("\nDigite um n�mero: ");
 	scanf("%d", &a);
+
 	printf("Outro...: ");
 	scanf("%d", &b);
+
 	maior(a, b, &resposta);
 
 	( resposta not_eq 0 )
@@ -39,8 +41,11 @@ Byte maiorNoVetor(Byte *vetor, Byte tamanho)
 	for ( indice = 0; indice < tamanho; indice++ )
     {
 		if ( vetor[indice] > maior )
+        {
 			maior = vetor[indice];
+        }
 	}
+
 	return maior;
 }
 
@@ -52,15 +57,15 @@ void gerarVetor(void)
 	Byte vetor[TAMANHO], indice = 0;
 
 	puts("\nVetor gerado:");
+
 	for ( indice = 0; indice < TAMANHO; indice++ )
     {
 		vetor[indice] = rand() % LIMITE_RANDOMICO;
-		printf("%.2d - ", vetor[indice]);
+
+        printf("%.2d - ", vetor[indice]);
 	}
-	printf(
-        "\nO maior valor presente no vetor �: %.2d",
-        maiorNoVetor(vetor, TAMANHO)
-    );
+
+	printf("\nO maior valor presente no vetor �: %.2d", maiorNoVetor(vetor, TAMANHO));
 }
 
 int main(void)
@@ -82,5 +87,6 @@ int main(void)
 		gerarVetor();
 	else
 		puts("Op��o inv�lida!!");
+
 	return (EXIT_SUCCESS);
 }
