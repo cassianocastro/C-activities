@@ -57,7 +57,7 @@ char* verifyOption(char* option)
 	while ( strcmp(option, "sim") != 0 and strcmp(option, "nao") != 0 )
     {
 		printf("Resposta inválida. Digite novamente: ");
-		gets(option);
+		scanf(" %[^\n]s", option);
 	}
 
 	return option;
@@ -72,12 +72,12 @@ int main(void)
 
     generateMatrix();
 
-	char option[3] = "\0\0\0";
+	char option[] = "\0\0\0";
 
 	printf("\nDeseja realizar outra operação [sim/nao]\? ");
-	gets(option);
+	scanf(" %[^\n]s", option);
 
-	printf("\nOpção escolhida: %s", verifyOption(option));
+	printf("\nOpção escolhida: %s\n", verifyOption(option));
 
 	return EXIT_SUCCESS;
 }
