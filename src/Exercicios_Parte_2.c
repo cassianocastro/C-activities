@@ -20,7 +20,7 @@ void escrever(Ushort *vetor)
 {
 	Ushort indice = 0, indice2 = 0;
 
-	puts("\n�ndice\tValor");
+	puts("\nÍndice\tValor");
 
 	for ( ; indice2 < TAMANHO; printf("[%hu]\t%.2hu\n", indice2++, vetor[indice2]));
 
@@ -36,7 +36,7 @@ void maiornovetor(Ushort *vetor)
 		if ( vetor[indice] > maior ) maior = vetor[indice];
 	}
 
-	printf("\nO maior valor presente no vetor �: %.2hu", maior);
+	printf("\nO maior valor presente no vetor é: %.2hu", maior);
 }
 
 void inverter(Ushort *vetor)
@@ -62,7 +62,7 @@ void ordenar(Ushort *vetor)
 	printf(
         "\nSelecione o tipo de ordenamento:\n"
 		"1. Crescente | 2. Decrescente"
-		"\nOp��o? "
+		"\nOpção\? "
     );
 	scanf("%hu", &tipo);
 
@@ -100,7 +100,7 @@ void ordenar(Ushort *vetor)
 	}
     else
     {
-        puts("\nOp��o inv�lida!");
+        puts("\nOpção inválida!");
     }
 
 	escrever(vetor);
@@ -113,10 +113,10 @@ void converterMoeda(void)
 	printf("\nInforme o valor em R$: ");
 	scanf("%f", &real);
 
-	printf("O valor atual do d�lar: ");
+	printf("O valor atual do dólar: ");
 	scanf("%f", &dolar);
 
-	printf("\nA quantia correspondente em d�lares � de: U$ %.2f", real / dolar);
+	printf("\nA quantia correspondente em dólares é de: U$ %.2f", real / dolar);
 }
 
 void converterTemperatura(void)
@@ -126,11 +126,11 @@ void converterTemperatura(void)
 	printf("\nInforme a temperatura em graus Celsius: ");
 	scanf("%f", &celsius);
 
-	printf("\nDigite 1 para convers�o em Farenheit ou 0 para Kelvin. Op��o? ");
+	printf("\nDigite 1 para conversão em Farenheit ou 0 para Kelvin. Opção\? ");
 	scanf("%hhu", &opcao);
 
 	printf(
-        "A temperatura em graus Kelvin �: %.1f",
+        "A temperatura em graus Kelvin é: %.1f",
         ( opcao not_eq 1 ) ? (celsius + 273.15) : ((celsius * 9 / 5) + 32)
     );
 }
@@ -154,9 +154,9 @@ int main(void)
 	escrever(vetor);
 
 	printf(
-        "\nEscolha uma op��o referente ao vetor:\n"
-		"1. Invert�-lo | 2. Orden�-lo | 3. Descobrir seu maior n�mero"
-		"\nOp��o? "
+        "\nEscolha uma opção referente ao vetor:\n"
+		"1. Invertê-lo | 2. Ordená-lo | 3. Descobrir seu maior número"
+		"\nOpção\? "
     );
 	scanf("%d", &opcao);
 
@@ -172,7 +172,7 @@ int main(void)
 			ordenar(vetor);
 			break;
 		default:
-			puts("\nOp��o inv�lida!");
+			puts("\nOpção inválida!");
 	}
 
 	converterTemperatura();
