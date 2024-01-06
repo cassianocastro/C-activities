@@ -135,6 +135,9 @@ void converterTemperatura(void)
     );
 }
 
+/**
+ *
+ */
 int main(void)
 {
 	setlocale(LC_ALL, "");
@@ -177,5 +180,5 @@ int main(void)
 
 	converterTemperatura();
 
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
