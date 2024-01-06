@@ -142,16 +142,16 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-    srand(time(NULL));
-
 	Opcao opcao;
-    Ushort indice = 0, vetor[TAMANHO];
+    Ushort vetor[TAMANHO] = { 0 };
+
+    srand(time(NULL));
 
 	puts("Vetor gerado:");
 
-	for ( indice = 0; indice < TAMANHO; indice++ )
+	for ( register Ushort i = 0; i < TAMANHO; ++i )
     {
-		vetor[indice] = rand() % LIMITE_RANDOMICO;
+		vetor[i] = rand() % LIMITE_RANDOMICO;
 	}
 
 	escrever(vetor);
