@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef unsigned char Byte;
+typedef unsigned char byte;
 
 void maior(int x, int y, int* resp)
 {
@@ -35,9 +35,9 @@ void brincarComNumeros(void)
         puts("\nOs números são iguais.");
 }
 
-Byte maiorNoVetor(Byte* vetor, Byte tamanho)
+byte maiorNoVetor(byte* vetor, byte tamanho)
 {
-	Byte maior = 0, indice = 0;
+	byte maior = 0, indice = 0;
 
 	for ( indice = 0; indice < tamanho; indice++ )
     {
@@ -54,8 +54,8 @@ void gerarVetor(void)
 {
 	srand(time(NULL));
 
-	const Byte TAMANHO = 10, LIMITE_RANDOMICO = 101;
-	Byte vetor[TAMANHO], indice = 0;
+	const byte TAMANHO = 10, LIMITE_RANDOMICO = 101;
+	byte vetor[TAMANHO], indice = 0;
 
 	puts("\nVetor gerado:");
 
@@ -73,7 +73,7 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-	Byte opcao = 0;
+	byte opcao = 0;
 
 	printf(
         "Escolha uma opção:"
