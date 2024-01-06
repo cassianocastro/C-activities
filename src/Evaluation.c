@@ -98,59 +98,57 @@ void updateComputer(void)
 
 	FILE* tmp = fopen("temporario.xxx", "ab+");
 
-	if ( tmp != NULL )
+	if ( tmp == NULL )
     {
-		fseek(arquivo, 0, SEEK_SET);
-
-        while ( true )
-        {
-			fread(&computer, sizeof(Computer), 1, arquivo);
-
-        	if ( feof(arquivo) ) break;
-
-        	if ( computer.ID not_eq id )
-            {
-				fwrite(&computer, sizeof(Computer), 1, tmp);
-            }
-			else
-            {
-				alterado(&computer);
-				fwrite(&computer, sizeof(Computer), 1, tmp);
-			}
-		}
-
-		fclose(tmp);
-		fclose(arquivo);
-		remove(nome_arquivo);
-	}
-    else
-    {
-		printf("Erro nº %d: %s", errno, strerror(errno));
+        printf("Erro nº %d: %s", errno, strerror(errno));
 
     	return;
-	}
+    }
+
+    fseek(arquivo, 0, SEEK_SET);
+
+    while ( true )
+    {
+        fread(&computer, sizeof(Computer), 1, arquivo);
+
+        if ( feof(arquivo) ) break;
+
+        if ( computer.ID == id )
+        {
+            alterado(&computer);
+        }
+
+        fwrite(&computer, sizeof(Computer), 1, tmp);
+    }
+
+    fclose(tmp);
+    fclose(arquivo);
+
+    remove(nome_arquivo);
 
 	arquivo = fopen(nome_arquivo, "ab+");
 	tmp     = fopen("temporario.xxx", "rb");
 
-	if ( arquivo != NULL and tmp != NULL )
+	if ( arquivo == NULL or tmp == NULL )
     {
-		fseek(tmp, 0, SEEK_SET);
+        return;
+    }
 
-		while ( true )
-        {
-			fread(&computer, sizeof(Computer), 1, tmp);
+    fseek(tmp, 0, SEEK_SET);
 
-        	if ( feof(tmp) ) break;
+    while ( true )
+    {
+        fread(&computer, sizeof(Computer), 1, tmp);
 
-        	fwrite(&computer, sizeof(Computer), 1, arquivo);
-		}
+        if ( feof(tmp) ) break;
 
-		fclose(tmp);
-		remove("temporario.xxx");
+        fwrite(&computer, sizeof(Computer), 1, arquivo);
+    }
 
-		puts("Alteração realizada.");
-	}
+    fclose(tmp);
+    remove("temporario.xxx");
+
+    puts("Alteração realizada.");
 }
 
 void deleteComputer(void)
