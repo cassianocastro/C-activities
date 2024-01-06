@@ -1,8 +1,9 @@
+#include <iso646.h>
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <locale.h>
-#include <iso646.h>
+#include <time.h>
 
 typedef unsigned short int Ushort;
 
@@ -29,11 +30,11 @@ void escrever(Ushort* vetor)
 
 void maiornovetor(Ushort* vetor)
 {
-	Ushort indice = 0, maior = 0;
+	Ushort maior = 0;
 
-	for ( indice = 0; indice < TAMANHO; indice++ )
+	for ( register Ushort i = 0; i < TAMANHO; ++i )
     {
-		if ( vetor[indice] > maior ) maior = vetor[indice];
+		if ( vetor[i] > maior ) maior = vetor[i];
 	}
 
 	printf("\nO maior valor presente no vetor é: %.2hu", maior);
@@ -144,7 +145,7 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-    Ushort vetor[TAMANHO] = { 0 };
+    Ushort vetor[TAMANHO];
 
     srand(time(NULL));
 
