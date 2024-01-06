@@ -22,21 +22,20 @@ void testandoAlinhamento(void)
 
 void gerarMatriz(void)
 {
-	ushort lin = 0, col = 0;
 	ushort m[TAMANHO_MATRIZ][TAMANHO_MATRIZ];
 
-	printf("Matriz gerada:\n\n");
+	puts("Matriz gerada:\n");
 
-	for ( lin = 0; lin < TAMANHO_MATRIZ; lin++ )
+	for ( register ushort i = 0; i < TAMANHO_MATRIZ; ++i )
     {
-		for ( col = 0; col < TAMANHO_MATRIZ; col++ )
+		for ( register ushort j = 0; j < TAMANHO_MATRIZ; ++j )
         {
-			m[lin][col] = rand() % LIMITE_RANDOMICO;
+			m[i][j] = rand() % LIMITE_RANDOMICO;
 
-			printf("\t%.2d", m[lin][col]);
+			printf("\t%.2d", m[i][j]);
 		}
 
-		printf("\n");
+		puts("\n");
 	}
 }
 
