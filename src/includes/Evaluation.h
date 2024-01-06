@@ -94,7 +94,7 @@ void printComputer(const Computer* const);
 /**
  *
  */
-bool ok(int*);
+bool ok(int);
 
 /**
  *
