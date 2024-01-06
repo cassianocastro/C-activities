@@ -1,8 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <inttypes.h>
 #include <iso646.h>
 #include <locale.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef unsigned short ushort;
 
