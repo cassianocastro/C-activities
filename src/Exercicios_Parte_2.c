@@ -142,7 +142,6 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-	Opcao opcao;
     Ushort vetor[TAMANHO] = { 0 };
 
     srand(time(NULL));
@@ -156,14 +155,16 @@ int main(void)
 
 	escrever(vetor);
 
+    unsigned int option = 0u;
+
 	printf(
         "\nEscolha uma opção referente ao vetor:\n"
 		"1. Invertê-lo | 2. Ordená-lo | 3. Descobrir seu maior número"
 		"\nOpção\? "
     );
-	scanf("%d", &opcao);
+	scanf("%d", &option);
 
-	switch ( opcao )
+	switch ( option )
     {
 		case INVERSAO:
 			inverter(vetor);
