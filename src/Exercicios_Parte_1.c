@@ -52,21 +52,22 @@ byte maiorNoVetor(byte* vetor, byte tamanho)
 
 void gerarVetor(void)
 {
-	srand(time(NULL));
+	const byte SIZE = 10, RANDOM_LIMIT = 101;
 
-	const byte TAMANHO = 10, LIMITE_RANDOMICO = 101;
-	byte vetor[TAMANHO];
+    byte vetor[SIZE];
+
+    srand(time(NULL));
 
 	puts("\nVetor gerado:");
 
-	for ( register byte i = 0; i < TAMANHO; ++i )
+	for ( register byte i = 0; i < SIZE; ++i )
     {
-		vetor[i] = rand() % LIMITE_RANDOMICO;
+		vetor[i] = rand() % RANDOM_LIMIT;
 
         printf("%.2d - ", vetor[i]);
 	}
 
-	printf("\nO maior valor presente no vetor é: %.2d", maiorNoVetor(vetor, TAMANHO));
+	printf("\nO maior valor presente no vetor é: %.2d", maiorNoVetor(vetor, SIZE));
 }
 
 int main(void)
