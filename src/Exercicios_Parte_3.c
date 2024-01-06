@@ -44,7 +44,7 @@ char* verificarOpcao(char* opcao)
 {
 	while ( strcmp(opcao, "sim") != 0 and strcmp(opcao, "nao") != 0 )
     {
-		printf("Resposta inv�lida. Digite novamente: ");
+		printf("Resposta inválida. Digite novamente: ");
 		gets(opcao);
 	}
 
@@ -54,16 +54,17 @@ char* verificarOpcao(char* opcao)
 int main(void)
 {
 	setlocale(LC_ALL, "");
+
 	srand(time(NULL));
 
     gerarMatriz();
 
 	char opcao[3] = "\0\0\0";
 
-	printf("\nDeseja realizar outra opera��o [sim/nao]? ");
+	printf("\nDeseja realizar outra operação [sim/nao]\? ");
 	gets(opcao);
 
-	printf("\nOp��o escolhida: %s", verificarOpcao(opcao));
+	printf("\nOpção escolhida: %s", verificarOpcao(opcao));
 
 	return 0;
 }
