@@ -13,10 +13,10 @@ const ushort TAMANHO_MATRIZ = 6, LIMITE_RANDOMICO = 100;
  */
 void canAlignOutput(void)
 {
-	int valor = 1;
+	int value = 1;
 
-    printf("Justificado a direita  => %5d\n", valor);
-    printf("Justificado a esquerda => %-5d\n", valor);
+    printf("Justificado a direita  => %5d\n", value);
+    printf("Justificado a esquerda => %-5d\n", value);
 
 	uint_fast8_t fast = 190;
 
@@ -48,15 +48,15 @@ void generateMatrix(void)
 /**
  *
  */
-char* verifyOption(char* opcao)
+char* verifyOption(char* option)
 {
-	while ( strcmp(opcao, "sim") != 0 and strcmp(opcao, "nao") != 0 )
+	while ( strcmp(option, "sim") != 0 and strcmp(option, "nao") != 0 )
     {
 		printf("Resposta inválida. Digite novamente: ");
-		gets(opcao);
+		gets(option);
 	}
 
-	return opcao;
+	return option;
 }
 
 /**
@@ -70,12 +70,12 @@ int main(void)
 
     generateMatrix();
 
-	char opcao[3] = "\0\0\0";
+	char option[3] = "\0\0\0";
 
 	printf("\nDeseja realizar outra operação [sim/nao]\? ");
-	gets(opcao);
+	gets(option);
 
-	printf("\nOpção escolhida: %s", verifyOption(opcao));
+	printf("\nOpção escolhida: %s", verifyOption(option));
 
 	return EXIT_SUCCESS;
 }
