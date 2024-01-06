@@ -272,36 +272,36 @@ void alterado(Computer* pc)
     {
 		case TYPE:
 			do {
-				printf("Novo Tipo [d/n]: ");
+				printf("Tipo [d/n]: ");
 				scanf(" %c", &pc->type);
 			} while ( pc->type not_eq 'd' and pc->type not_eq 'n' );
 			break;
 		case SCREEN:
-			printf("Novo Tamanho da Tela: ");
+			printf("Tamanho da Tela: ");
 			scanf("%f", &pc->screen);
 			break;
 		case MARK:
-			printf("Nova Marca: ");
+			printf("Marca: ");
 			fgets(pc->mark, sizeof(pc->mark), stdin);
 			break;
 		case MODEL:
-			printf("Novo Modelo: ");
+			printf("Modelo: ");
 			fgets(pc->model, sizeof(pc->model), stdin);
 			break;
 		case PROCESSOR:
-			printf("Novo Processador: ");
+			printf("Processador: ");
 			fgets(pc->processor, sizeof(pc->processor), stdin);
 			break;
 		case COLOR:
-			printf("Nova Cor: ");
+			printf("Cor: ");
 			fgets(pc->color, sizeof(pc->color), stdin);
 			break;
 		case MEMORY:
-			printf("Nova Memória RAM (em GB): ");
+			printf("Memória RAM (em GB): ");
 			scanf("%d", &pc->memory);
 			break;
 		case STORAGE:
-			printf("Nova Capac. de Armazenamento (em GB): ");
+			printf("Capac. de Armazenamento (em GB): ");
 			scanf("%d", &pc->storage);
 			break;
 		default:
