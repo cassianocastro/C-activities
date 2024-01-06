@@ -21,7 +21,7 @@ void brincarComNumeros(void)
 {
 	int a = 0, b = 0, resposta = 0;
 
-	printf("\nDigite um n�mero: ");
+	printf("\nDigite um número: ");
 	scanf("%d", &a);
 
 	printf("Outro...: ");
@@ -30,9 +30,9 @@ void brincarComNumeros(void)
 	maior(a, b, &resposta);
 
 	if ( resposta not_eq 0 )
-        printf("O maior n�mero �: %d", resposta);
+        printf("O maior número é: %d", resposta);
     else
-        puts("\nOs n�meros s�o iguais.");
+        puts("\nOs números são iguais.");
 }
 
 Byte maiorNoVetor(Byte* vetor, Byte tamanho)
@@ -66,7 +66,7 @@ void gerarVetor(void)
         printf("%.2d - ", vetor[indice]);
 	}
 
-	printf("\nO maior valor presente no vetor �: %.2d", maiorNoVetor(vetor, TAMANHO));
+	printf("\nO maior valor presente no vetor é: %.2d", maiorNoVetor(vetor, TAMANHO));
 }
 
 int main(void)
@@ -76,9 +76,9 @@ int main(void)
 	Byte opcao = 0;
 
 	printf(
-        "Escolha uma op��o:"
-		"\n1. Brincar com N�meros | 2. Gerar um Vetor"
-		"\nOp��o? "
+        "Escolha uma opção:"
+		"\n1. Brincar com Números | 2. Gerar um Vetor"
+		"\nOpção\? "
     );
 	scanf("%hhu", &opcao);
 
@@ -87,7 +87,7 @@ int main(void)
 	else if ( opcao == 2 )
 		gerarVetor();
 	else
-		puts("Op��o inv�lida!!");
+		puts("Opção inválida!");
 
 	return EXIT_SUCCESS;
 }
