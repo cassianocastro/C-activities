@@ -7,19 +7,19 @@
 
 typedef unsigned char byte;
 
-void maior(int x, int y, int* resp)
+void maior(int x, int y, int* response)
 {
 	if ( x > y )
-        *resp = x;
+        *response = x;
 	else if ( x == y )
-        *resp = 0;
+        *response = 0;
 	else
-        *resp = y;
+        *response = y;
 }
 
 void brincarComNumeros(void)
 {
-	int a = 0, b = 0, resposta = 0;
+	int a = 0, b = 0, response = 0;
 
 	printf("\nDigite um número: ");
 	scanf("%d", &a);
@@ -27,23 +27,23 @@ void brincarComNumeros(void)
 	printf("Outro...: ");
 	scanf("%d", &b);
 
-	maior(a, b, &resposta);
+	maior(a, b, &response);
 
-	if ( resposta not_eq 0 )
-        printf("O maior número é: %d", resposta);
+	if ( response not_eq 0 )
+        printf("O maior número é: %d", response);
     else
         puts("\nOs números são iguais.");
 }
 
 byte maiorNoVetor(byte* vetor, byte tamanho)
 {
-	byte maior = 0, indice = 0;
+	byte maior = 0, i = 0;
 
-	for ( indice = 0; indice < tamanho; indice++ )
+	for ( i = 0; i < tamanho; i++ )
     {
-		if ( vetor[indice] > maior )
+		if ( vetor[i] > maior )
         {
-			maior = vetor[indice];
+			maior = vetor[i];
         }
 	}
 
@@ -55,15 +55,15 @@ void gerarVetor(void)
 	srand(time(NULL));
 
 	const byte TAMANHO = 10, LIMITE_RANDOMICO = 101;
-	byte vetor[TAMANHO], indice = 0;
+	byte vetor[TAMANHO], i = 0;
 
 	puts("\nVetor gerado:");
 
-	for ( indice = 0; indice < TAMANHO; indice++ )
+	for ( i = 0; i < TAMANHO; i++ )
     {
-		vetor[indice] = rand() % LIMITE_RANDOMICO;
+		vetor[i] = rand() % LIMITE_RANDOMICO;
 
-        printf("%.2d - ", vetor[indice]);
+        printf("%.2d - ", vetor[i]);
 	}
 
 	printf("\nO maior valor presente no vetor é: %.2d", maiorNoVetor(vetor, TAMANHO));
@@ -73,18 +73,18 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-	byte opcao = 0;
+	byte option = 0;
 
 	printf(
         "Escolha uma opção:"
 		"\n1. Brincar com Números | 2. Gerar um Vetor"
 		"\nOpção\? "
     );
-	scanf("%hhu", &opcao);
+	scanf("%hhu", &option);
 
-	if ( opcao == 1 )
+	if ( option == 1 )
 		brincarComNumeros();
-	else if ( opcao == 2 )
+	else if ( option == 2 )
 		gerarVetor();
 	else
 		puts("Opção inválida!");
