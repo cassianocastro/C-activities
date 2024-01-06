@@ -31,7 +31,7 @@ void brincarComNumeros(void)
 	maior(a, b, &response);
 
 	if ( response not_eq 0 )
-        printf("O maior número é: %d", response);
+        printf("O maior número é: %d\n", response);
     else
         puts("\nOs números são iguais.");
 }
@@ -68,7 +68,7 @@ void generateVector(void)
         printf("%.2d - ", vetor[i]);
 	}
 
-	printf("\nO maior valor presente no vetor é: %.2d", maiorNoVetor(vetor, SIZE));
+	printf("\nO maior valor presente no vetor é: %.2d\n", maiorNoVetor(vetor, SIZE));
 }
 
 /**
