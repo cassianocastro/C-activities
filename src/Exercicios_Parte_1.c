@@ -37,9 +37,9 @@ void brincarComNumeros(void)
 
 byte maiorNoVetor(byte* vetor, byte tamanho)
 {
-	byte maior = 0, i = 0;
+	byte maior = 0;
 
-	for ( i = 0; i < tamanho; i++ )
+	for ( register byte i = 0; i < tamanho; ++i )
     {
 		if ( vetor[i] > maior )
         {
@@ -55,11 +55,11 @@ void gerarVetor(void)
 	srand(time(NULL));
 
 	const byte TAMANHO = 10, LIMITE_RANDOMICO = 101;
-	byte vetor[TAMANHO], i = 0;
+	byte vetor[TAMANHO];
 
 	puts("\nVetor gerado:");
 
-	for ( i = 0; i < TAMANHO; i++ )
+	for ( register byte i = 0; i < TAMANHO; ++i )
     {
 		vetor[i] = rand() % LIMITE_RANDOMICO;
 
