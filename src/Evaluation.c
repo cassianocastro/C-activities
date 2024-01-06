@@ -163,9 +163,9 @@ void deleteComputer(void)
 		return;
 	}
 
-	FILE* arquivo_temporario = fopen("temporario.xxx", "ab+");
+	FILE* tmp = fopen("temporario.xxx", "ab+");
 
-	if ( arquivo_temporario not_eq NULL )
+	if ( tmp not_eq NULL )
     {
 		fseek(arquivo, 0, SEEK_SET);
 
@@ -177,13 +177,14 @@ void deleteComputer(void)
 
             if ( computer.ID not_eq id )
             {
-				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
+				fwrite(&computer, sizeof(Computer), 1, tmp);
             }
 		}
 
-		fclose(arquivo_temporario);
+		fclose(tmp);
 		fclose(arquivo);
-		remove(nome_arquivo);
+
+        remove(nome_arquivo);
 	}
     else
     {
@@ -193,23 +194,24 @@ void deleteComputer(void)
 	}
 
 	arquivo = fopen(nome_arquivo, "ab+");
-	arquivo_temporario = fopen("temporario.xxx", "rb");
+	tmp = fopen("temporario.xxx", "rb");
 
-	if ( arquivo not_eq NULL and arquivo_temporario not_eq NULL )
+	if ( arquivo not_eq NULL and tmp not_eq NULL )
     {
-		fseek(arquivo_temporario, 0, SEEK_SET);
+		fseek(tmp, 0, SEEK_SET);
 
 		while ( true )
         {
-			fread(&computer, sizeof(Computer), 1, arquivo_temporario);
+			fread(&computer, sizeof(Computer), 1, tmp);
 
-			if ( feof(arquivo_temporario) ) break;
+			if ( feof(tmp) ) break;
 
 			fwrite(&computer, sizeof(Computer), 1, arquivo);
 		}
 
-		fclose(arquivo_temporario);
+		fclose(tmp);
 		remove("temporario.xxx");
+
 		puts("Computador Removido.");
 	}
     else
