@@ -6,8 +6,6 @@
 
 typedef unsigned short ushort;
 
-const ushort MATRIX_SIZE = 6, RANDOM_LIMIT = 100;
-
 /**
  * @test
  */
@@ -28,7 +26,11 @@ void canAlignOutput(void)
  */
 void generateMatrix(void)
 {
+    const ushort MATRIX_SIZE = 6, RANDOM_LIMIT = 100;
+
 	ushort m[MATRIX_SIZE][MATRIX_SIZE];
+
+    srand(time(NULL));
 
 	puts("Matriz gerada:\n");
 
@@ -65,8 +67,6 @@ char* verifyOption(char* option)
 int main(void)
 {
 	setlocale(LC_ALL, "");
-
-	srand(time(NULL));
 
     generateMatrix();
 
