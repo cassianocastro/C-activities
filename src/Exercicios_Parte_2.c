@@ -6,6 +6,14 @@
 
 typedef unsigned short int Ushort;
 
+typedef enum
+{
+	INVERSAO = 1,
+    MAIOR,
+    ORDENACAO
+}
+Opcao;
+
 const Ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
 
 void escrever(Ushort *vetor)
@@ -126,14 +134,6 @@ void converterTemperatura(void)
         ( opcao not_eq 1 ) ? (celsius + 273.15) : ((celsius * 9 / 5) + 32)
     );
 }
-
-typedef enum
-{
-	INVERSAO = 1,
-    MAIOR,
-    ORDENACAO
-}
-Opcao;
 
 int main(void)
 {
