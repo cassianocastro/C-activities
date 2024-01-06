@@ -89,7 +89,7 @@ void updateComputer(void)
 {
 	unsigned int id = getComputerID();
 
-    if ( not ok(&id) )
+    if ( not ok(id) )
     {
 		puts("\aComputador não encontrado.");
 
@@ -155,7 +155,7 @@ void deleteComputer(void)
 {
 	unsigned int id = getComputerID();
 
-	if ( not ok(&id) )
+	if ( not ok(id) )
     {
 		puts("\aID não encontrado.");
 
@@ -246,7 +246,7 @@ void searchComputer(void)
     }
 }
 
-bool ok(int* id)
+bool ok(int id)
 {
 	Computer pc;
 
@@ -258,7 +258,7 @@ bool ok(int* id)
 
         if ( feof(arquivo) ) break;
 
-        if ( pc.ID == (*id) ) return true;
+        if ( pc.ID == id ) return true;
 	}
 
 	return false;
@@ -359,7 +359,7 @@ void showComputerForm(unsigned short int i)
     {
         computer.ID = getComputerID();
 
-        if ( ok(&computer.ID) )
+        if ( ok(computer.ID) )
             puts("\nID já utilizado!");
         else
             break;
