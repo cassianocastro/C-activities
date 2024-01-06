@@ -50,7 +50,7 @@ byte maiorNoVetor(byte* vetor, byte tamanho)
 	return maior;
 }
 
-void gerarVetor(void)
+void generateVector(void)
 {
 	const byte SIZE = 10, RANDOM_LIMIT = 101;
 
@@ -70,6 +70,9 @@ void gerarVetor(void)
 	printf("\nO maior valor presente no vetor é: %.2d", maiorNoVetor(vetor, SIZE));
 }
 
+/**
+ *
+ */
 int main(void)
 {
 	setlocale(LC_ALL, "");
@@ -86,7 +89,7 @@ int main(void)
 	if ( option == 1 )
 		brincarComNumeros();
 	else if ( option == 2 )
-		gerarVetor();
+		generateVector();
 	else
 		puts("Opção inválida!");
 
