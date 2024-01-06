@@ -8,7 +8,10 @@ typedef unsigned short ushort;
 
 const ushort TAMANHO_MATRIZ = 6, LIMITE_RANDOMICO = 100;
 
-void testandoAlinhamento(void)
+/**
+ * @test
+ */
+void canAlignOutput(void)
 {
 	int valor = 1;
 
@@ -20,7 +23,10 @@ void testandoAlinhamento(void)
 	printf("Poder: %hhu\nSizeof: %hhu", fast, sizeof(uint_fast8_t));
 }
 
-void gerarMatriz(void)
+/**
+ *
+ */
+void generateMatrix(void)
 {
 	ushort m[TAMANHO_MATRIZ][TAMANHO_MATRIZ];
 
@@ -39,7 +45,10 @@ void gerarMatriz(void)
 	}
 }
 
-char* verificarOpcao(char* opcao)
+/**
+ *
+ */
+char* verifyOption(char* opcao)
 {
 	while ( strcmp(opcao, "sim") != 0 and strcmp(opcao, "nao") != 0 )
     {
@@ -59,14 +68,14 @@ int main(void)
 
 	srand(time(NULL));
 
-    gerarMatriz();
+    generateMatrix();
 
 	char opcao[3] = "\0\0\0";
 
 	printf("\nDeseja realizar outra operação [sim/nao]\? ");
 	gets(opcao);
 
-	printf("\nOpção escolhida: %s", verificarOpcao(opcao));
+	printf("\nOpção escolhida: %s", verifyOption(opcao));
 
 	return EXIT_SUCCESS;
 }
