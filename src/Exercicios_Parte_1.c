@@ -29,9 +29,10 @@ void brincarComNumeros(void)
 
 	maior(a, b, &resposta);
 
-	( resposta not_eq 0 )
-        ? printf("O maior n�mero �: %d", resposta)
-        : puts("\nOs n�meros s�o iguais.");
+	if ( resposta not_eq 0 )
+        printf("O maior n�mero �: %d", resposta);
+    else
+        puts("\nOs n�meros s�o iguais.");
 }
 
 Byte maiorNoVetor(Byte *vetor, Byte tamanho)
