@@ -164,57 +164,57 @@ void deleteComputer(void)
 
 	FILE* tmp = fopen("temporario.xxx", "ab+");
 
-	if ( tmp not_eq NULL )
+	if ( tmp == NULL )
     {
-		fseek(arquivo, 0, SEEK_SET);
-
-		while ( true )
-        {
-			fread(&computer, sizeof(Computer), 1, arquivo);
-
-            if ( feof(arquivo) ) break;
-
-            if ( computer.ID not_eq id )
-            {
-				fwrite(&computer, sizeof(Computer), 1, tmp);
-            }
-		}
-
-		fclose(tmp);
-		fclose(arquivo);
-
-        remove(nome_arquivo);
-	}
-    else
-    {
-		printf("\aErro nº %d: %s", errno, strerror(errno));
+        printf("\aErro nº %d: %s", errno, strerror(errno));
 
     	return;
-	}
+    }
+
+    fseek(arquivo, 0, SEEK_SET);
+
+    while ( true )
+    {
+        fread(&computer, sizeof(Computer), 1, arquivo);
+
+        if ( feof(arquivo) ) break;
+
+        if ( computer.ID not_eq id )
+        {
+            fwrite(&computer, sizeof(Computer), 1, tmp);
+        }
+    }
+
+    fclose(tmp);
+    fclose(arquivo);
+
+    remove(nome_arquivo);
 
 	arquivo = fopen(nome_arquivo, "ab+");
-	tmp = fopen("temporario.xxx", "rb");
+	tmp     = fopen("temporario.xxx", "rb");
 
-	if ( arquivo not_eq NULL and tmp not_eq NULL )
+	if ( arquivo == NULL or tmp == NULL )
     {
-		fseek(tmp, 0, SEEK_SET);
-
-		while ( true )
-        {
-			fread(&computer, sizeof(Computer), 1, tmp);
-
-			if ( feof(tmp) ) break;
-
-			fwrite(&computer, sizeof(Computer), 1, arquivo);
-		}
-
-		fclose(tmp);
-		remove("temporario.xxx");
-
-		puts("Computador Removido.");
-	}
-    else
         printf("\aErro nº %d: %s", errno, strerror(errno));
+
+        return;
+    }
+
+    fseek(tmp, 0, SEEK_SET);
+
+    while ( true )
+    {
+        fread(&computer, sizeof(Computer), 1, tmp);
+
+        if ( feof(tmp) ) break;
+
+        fwrite(&computer, sizeof(Computer), 1, arquivo);
+    }
+
+    fclose(tmp);
+    remove("temporario.xxx");
+
+    puts("Computador Removido.");
 }
 
 void searchComputer(void)
