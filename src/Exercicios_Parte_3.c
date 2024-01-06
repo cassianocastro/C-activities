@@ -51,6 +51,9 @@ char* verificarOpcao(char* opcao)
 	return opcao;
 }
 
+/**
+ *
+ */
 int main(void)
 {
 	setlocale(LC_ALL, "");
@@ -66,5 +69,5 @@ int main(void)
 
 	printf("\nOpção escolhida: %s", verificarOpcao(opcao));
 
-	return 0;
+	return EXIT_SUCCESS;
 }
