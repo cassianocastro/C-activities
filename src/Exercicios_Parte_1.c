@@ -7,7 +7,7 @@
 
 typedef unsigned char Byte;
 
-void maior(int x, int y, int *resp)
+void maior(int x, int y, int* resp)
 {
 	if ( x > y )
         *resp = x;
@@ -35,7 +35,7 @@ void brincarComNumeros(void)
         puts("\nOs n�meros s�o iguais.");
 }
 
-Byte maiorNoVetor(Byte *vetor, Byte tamanho)
+Byte maiorNoVetor(Byte* vetor, Byte tamanho)
 {
 	Byte maior = 0, indice = 0;
 
@@ -89,5 +89,5 @@ int main(void)
 	else
 		puts("Op��o inv�lida!!");
 
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }
