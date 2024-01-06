@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include <inttypes.h>
 #include <iso646.h>
 #include <locale.h>
-#include <inttypes.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef unsigned char Byte;
 
