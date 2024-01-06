@@ -96,9 +96,9 @@ void updateComputer(void)
 		return;
 	}
 
-	FILE* arquivo_temporario = fopen("temporario.xxx", "ab+");
+	FILE* tmp = fopen("temporario.xxx", "ab+");
 
-	if ( arquivo_temporario != NULL )
+	if ( tmp != NULL )
     {
 		fseek(arquivo, 0, SEEK_SET);
 
@@ -110,16 +110,16 @@ void updateComputer(void)
 
         	if ( computer.ID not_eq id )
             {
-				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
+				fwrite(&computer, sizeof(Computer), 1, tmp);
             }
 			else
             {
 				alterado(&computer);
-				fwrite(&computer, sizeof(Computer), 1, arquivo_temporario);
+				fwrite(&computer, sizeof(Computer), 1, tmp);
 			}
 		}
 
-		fclose(arquivo_temporario);
+		fclose(tmp);
 		fclose(arquivo);
 		remove(nome_arquivo);
 	}
@@ -131,23 +131,24 @@ void updateComputer(void)
 	}
 
 	arquivo = fopen(nome_arquivo, "ab+");
-	arquivo_temporario = fopen("temporario.xxx", "rb");
+	tmp     = fopen("temporario.xxx", "rb");
 
-	if ( arquivo != NULL and arquivo_temporario != NULL )
+	if ( arquivo != NULL and tmp != NULL )
     {
-		fseek(arquivo_temporario, 0, SEEK_SET);
+		fseek(tmp, 0, SEEK_SET);
 
 		while ( true )
         {
-			fread(&computer, sizeof(Computer), 1, arquivo_temporario);
+			fread(&computer, sizeof(Computer), 1, tmp);
 
-        	if ( feof(arquivo_temporario) ) break;
+        	if ( feof(tmp) ) break;
 
         	fwrite(&computer, sizeof(Computer), 1, arquivo);
 		}
 
-		fclose(arquivo_temporario);
+		fclose(tmp);
 		remove("temporario.xxx");
+
 		puts("Alteração realizada.");
 	}
 }
