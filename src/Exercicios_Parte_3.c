@@ -5,6 +5,7 @@
 #include <locale.h>
 
 typedef unsigned short ushort;
+
 const ushort TAMANHO_MATRIZ = 6, LIMITE_RANDOMICO = 100;
 
 void testandoAlinhamento( void )
@@ -13,7 +14,9 @@ void testandoAlinhamento( void )
 
     printf("Justificado a direita  => %5d\n",valor);
     printf("Justificado a esquerda => %-5d\n",valor);
+
 	uint_fast8_t fast = 190;
+
 	printf("Poder: %hhu\nSizeof: %hhu", fast, sizeof( uint_fast8_t ));
 }
 
@@ -29,8 +32,10 @@ void gerarMatriz( void )
 		for ( col = 0; col < TAMANHO_MATRIZ; col++ )
         {
 			m[lin][col] = rand() % LIMITE_RANDOMICO;
+
 			printf("\t%.2d", m[lin][col]);
 		}
+
 		printf("\n");
 	}
 }
@@ -42,6 +47,7 @@ char* verificarOpcao( char* opcao )
 		printf("Resposta inv�lida. Digite novamente: ");
 		gets( opcao );
 	}
+
 	return opcao;
 }
 
@@ -56,6 +62,8 @@ int main( void )
 
 	printf ("\nDeseja realizar outra opera��o [sim/nao]? ");
 	gets   ( opcao );
+
 	printf ("\nOp��o escolhida: %s", verificarOpcao( opcao ));
+
 	return 0;
 }
