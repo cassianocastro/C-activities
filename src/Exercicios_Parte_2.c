@@ -8,18 +8,18 @@ typedef unsigned short int Ushort;
 
 const Ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
 
-void escrever ( Ushort *vetor )
+void escrever(Ushort *vetor)
 {
 	Ushort indice = 0, indice2 = 0;
 
-	puts ("\n�ndice\tValor");
+	puts("\n�ndice\tValor");
 
 	for ( ; indice2 < TAMANHO; printf("[%hu]\t%.2hu\n", indice2++, vetor[indice2]));
 
     printf("\n");
 }
 
-void maiornovetor( Ushort *vetor )
+void maiornovetor(Ushort *vetor)
 {
 	Ushort indice = 0, maior = 0;
 
@@ -31,11 +31,11 @@ void maiornovetor( Ushort *vetor )
 	printf("\nO maior valor presente no vetor �: %.2hu", maior);
 }
 
-void inverter( Ushort *vetor )
+void inverter(Ushort *vetor)
 {
 	Ushort indice = 0, auxiliar = 0, contador = 0;
 
-	puts ("\nVetor invertido:");
+	puts("\nVetor invertido:");
 
 	for ( indice = 0, contador = 1; indice < (TAMANHO / 2); indice++, contador++ )
     {
@@ -44,10 +44,10 @@ void inverter( Ushort *vetor )
 		vetor[TAMANHO - contador] = auxiliar;
 	}
 
-	escrever( vetor );
+	escrever(vetor);
 }
 
-void ordenar( Ushort *vetor )
+void ordenar(Ushort *vetor)
 {
 	Ushort indice = 0, auxiliar = 0, assistente = 0, tipo = 0;
 
@@ -56,11 +56,11 @@ void ordenar( Ushort *vetor )
 		"1. Crescente | 2. Decrescente"
 		"\nOp��o? "
     );
-	scanf ( "%hu", &tipo );
+	scanf("%hu", &tipo);
 
 	if ( tipo == 1 )
     {
-		puts ("\nVetor em ordem crescente:");
+		puts("\nVetor em ordem crescente:");
 
 		for ( indice = 1; indice < TAMANHO; indice++ )
         {
@@ -76,7 +76,7 @@ void ordenar( Ushort *vetor )
 	}
     else if ( tipo == 2 )
     {
-		puts ("\nVetor em ordem decrescente:");
+		puts("\nVetor em ordem decrescente:");
 
 		for ( indice = 1; indice < TAMANHO; indice++ )
         {
@@ -92,13 +92,13 @@ void ordenar( Ushort *vetor )
 	}
     else
     {
-        puts ("\nOp��o inv�lida!");
+        puts("\nOp��o inv�lida!");
     }
 
-	escrever( vetor );
+	escrever(vetor);
 }
 
-void converterMoeda( void )
+void converterMoeda(void)
 {
 	float real = 0.0f, dolar = 0.0f;
 
@@ -111,17 +111,17 @@ void converterMoeda( void )
 	printf("\nA quantia correspondente em d�lares � de: U$ %.2f", real / dolar);
 }
 
-void converterTemperatura( void )
+void converterTemperatura(void)
 {
 	float celsius = 0.0f; unsigned char opcao = 0;
 
-	printf ("\nInforme a temperatura em graus Celsius: ");
-	scanf  ( "%f", &celsius );
+	printf("\nInforme a temperatura em graus Celsius: ");
+	scanf("%f", &celsius);
 
-	printf ("\nDigite 1 para convers�o em Farenheit ou 0 para Kelvin. Op��o? ");
-	scanf  ( "%hhu", &opcao );
+	printf("\nDigite 1 para convers�o em Farenheit ou 0 para Kelvin. Op��o? ");
+	scanf("%hhu", &opcao);
 
-	printf (
+	printf(
         "A temperatura em graus Kelvin �: %.1f",
         ( opcao not_eq 1 ) ? (celsius + 273.15) : ((celsius * 9 / 5) + 32)
     );
@@ -135,46 +135,47 @@ typedef enum
 }
 Opcao;
 
-int main( void )
+int main(void)
 {
-	setlocale( LC_ALL, "" );
+	setlocale(LC_ALL, "");
 
-    srand( time(NULL) );
+    srand(time(NULL));
 
-	Opcao opcao; Ushort indice = 0, vetor[TAMANHO];
+	Opcao opcao;
+    Ushort indice = 0, vetor[TAMANHO];
 
-	puts ("Vetor gerado:");
+	puts("Vetor gerado:");
 
 	for ( indice = 0; indice < TAMANHO; indice++ )
     {
 		vetor[indice] = rand() % LIMITE_RANDOMICO;
 	}
 
-	escrever( vetor );
+	escrever(vetor);
 
 	printf(
         "\nEscolha uma op��o referente ao vetor:\n"
 		"1. Invert�-lo | 2. Orden�-lo | 3. Descobrir seu maior n�mero"
 		"\nOp��o? "
     );
-	scanf( "%d", &opcao );
+	scanf("%d", &opcao);
 
 	switch ( opcao )
     {
 		case INVERSAO:
-			inverter( vetor );
+			inverter(vetor);
 			break;
 		case MAIOR:
-			maiornovetor( vetor );
+			maiornovetor(vetor);
 			break;
 		case ORDENACAO:
-			ordenar( vetor );
+			ordenar(vetor);
 			break;
 		default:
-			puts ("\nOp��o inv�lida!");
+			puts("\nOp��o inv�lida!");
 	}
 
 	converterTemperatura();
 
-	return ( EXIT_SUCCESS );
+	return (EXIT_SUCCESS);
 }
