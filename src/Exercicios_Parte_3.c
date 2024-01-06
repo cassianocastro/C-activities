@@ -6,7 +6,7 @@
 
 typedef unsigned short ushort;
 
-const ushort TAMANHO_MATRIZ = 6, LIMITE_RANDOMICO = 100;
+const ushort MATRIX_SIZE = 6, RANDOM_LIMIT = 100;
 
 /**
  * @test
@@ -28,15 +28,15 @@ void canAlignOutput(void)
  */
 void generateMatrix(void)
 {
-	ushort m[TAMANHO_MATRIZ][TAMANHO_MATRIZ];
+	ushort m[MATRIX_SIZE][MATRIX_SIZE];
 
 	puts("Matriz gerada:\n");
 
-	for ( register ushort i = 0; i < TAMANHO_MATRIZ; ++i )
+	for ( register ushort i = 0; i < MATRIX_SIZE; ++i )
     {
-		for ( register ushort j = 0; j < TAMANHO_MATRIZ; ++j )
+		for ( register ushort j = 0; j < MATRIX_SIZE; ++j )
         {
-			m[i][j] = rand() % LIMITE_RANDOMICO;
+			m[i][j] = rand() % RANDOM_LIMIT;
 
 			printf("\t%.2d", m[i][j]);
 		}
