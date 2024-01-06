@@ -16,7 +16,7 @@ Opcao;
 
 const Ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
 
-void escrever(Ushort *vetor)
+void escrever(Ushort* vetor)
 {
 	Ushort indice = 0, indice2 = 0;
 
@@ -27,7 +27,7 @@ void escrever(Ushort *vetor)
     printf("\n");
 }
 
-void maiornovetor(Ushort *vetor)
+void maiornovetor(Ushort* vetor)
 {
 	Ushort indice = 0, maior = 0;
 
@@ -39,7 +39,7 @@ void maiornovetor(Ushort *vetor)
 	printf("\nO maior valor presente no vetor é: %.2hu", maior);
 }
 
-void inverter(Ushort *vetor)
+void inverter(Ushort* vetor)
 {
 	Ushort indice = 0, auxiliar = 0, contador = 0;
 
@@ -55,7 +55,7 @@ void inverter(Ushort *vetor)
 	escrever(vetor);
 }
 
-void ordenar(Ushort *vetor)
+void ordenar(Ushort* vetor)
 {
 	Ushort indice = 0, auxiliar = 0, assistente = 0, tipo = 0;
 
@@ -121,10 +121,12 @@ void converterMoeda(void)
 
 void converterTemperatura(void)
 {
-	float celsius = 0.0f; unsigned char opcao = 0;
+	float celsius = 0.0f;
 
 	printf("\nInforme a temperatura em graus Celsius: ");
 	scanf("%f", &celsius);
+
+    unsigned char opcao = 0;
 
 	printf("\nDigite 1 para conversão em Farenheit ou 0 para Kelvin. Opção\? ");
 	scanf("%hhu", &opcao);
