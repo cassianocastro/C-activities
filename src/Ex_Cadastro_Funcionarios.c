@@ -185,7 +185,7 @@ void showEmployees(void)
 void removeEmployee(void)
 {
 	int code = 0;
-	bool wasFound = false;
+	bool found = false;
 
 	printf("Código do funcionário: ");
 	scanf("%d", &code);
@@ -209,13 +209,13 @@ void removeEmployee(void)
 				employees[i].wage[month] = 0.0f;
 			}
 
-			wasFound = true;
+			found = true;
 
 			break;
 		}
 	}
 
-	if ( not wasFound )
+	if ( not found )
         puts("Funcionário não encontrado.");
     else
         puts("Funcionário excluído.");
