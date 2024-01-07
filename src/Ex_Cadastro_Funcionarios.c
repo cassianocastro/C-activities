@@ -140,7 +140,7 @@ void addEmployee(void)
 
 void showEmployees(void)
 {
-    bool wasFound = false;
+    bool found = false;
 
     for ( byte i = 0; i < SIZE_employees; i++ )
 	{
@@ -172,10 +172,10 @@ void showEmployees(void)
             );
         }
 
-        wasFound = true;
+        found = true;
     }
 
-    if ( not wasFound )
+    if ( not found )
     {
         puts("Sem funcionários cadastrados!");
     }
