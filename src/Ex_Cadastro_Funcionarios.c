@@ -237,10 +237,9 @@ void insertWage(int i)
     byte number   = 0;
     char response = '\0';
 
-    do
-	{
+    do {
         printf("\nDigite o nº do mês na qual deseja inserir o salário.(Ex.: Abril = 4): ");
-        scanf("%i", &number);
+        scanf("%hhi", &number);
 
         for ( byte month = 0; month < MONTHS; month++ )
 		{
