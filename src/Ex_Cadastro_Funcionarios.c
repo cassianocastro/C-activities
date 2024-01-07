@@ -135,6 +135,16 @@ void printEmployeeInfo(const struct employee* const employee)
     }
 }
 
+const unsigned int getEmployeeCode(void)
+{
+    unsigned int code = 0u;
+
+	printf("Código do funcionário: ");
+	scanf("%d", &code);
+
+    return code;
+}
+
 void addEmployee(void)
 {
 	bool found = false;
@@ -175,10 +185,7 @@ void showEmployees(void)
 
 void removeEmployee(void)
 {
-	unsigned int code = 0u;
-
-	printf("Código do funcionário: ");
-	scanf("%d", &code);
+	unsigned int code = getEmployeeCode();
 
 	bool found = false;
 
@@ -245,10 +252,7 @@ void wages(void)
 {
 	char response = '\0';
 	bool found = false;
-	byte code  = 0;
-
-    printf("\nCódigo do funcionário: ");
-    scanf("%i", &code);
+	byte code  = getEmployeeCode();
 
 	for ( byte i = 0; i < ARRAY_SIZE; i++ )
 	{
