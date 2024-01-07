@@ -66,7 +66,7 @@ void init(void)
     }
 }
 
-void show(void)
+void showEmployees(void)
 {
     bool wasFound = false;
 
@@ -109,7 +109,7 @@ void show(void)
     }
 }
 
-void insert(void)
+void addEmployee(void)
 {
 	bool wasFound   = false;
 	bool dateIsOkay = false;
@@ -312,10 +312,10 @@ int main(int argc, const char* argv[])
 		switch ( option )
 		{
 			case CREATE:
-				insert();
+				addEmployee();
 				break;
 			case READ:
-				show();
+				showEmployees();
 				break;
 			case DELETE:
 				removeEmployee();
