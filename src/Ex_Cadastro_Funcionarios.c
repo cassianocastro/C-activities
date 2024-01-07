@@ -31,7 +31,7 @@ typedef struct
 }
 BirthDate;
 
-struct employee
+typedef struct
 {
 	char cpf[14];
 	char name[SIZE];
@@ -43,11 +43,13 @@ struct employee
 
 	BirthDate bd;
 }
-employees[ARRAY_SIZE];
+Employee;
 
-struct employee createEmployee(void)
+Employee employees[ARRAY_SIZE];
+
+Employee createEmployee(void)
 {
-    struct employee employee = {
+    Employee employee = {
         .name     = "",
         .address  = "",
         .cpf      = "",
@@ -62,10 +64,10 @@ struct employee createEmployee(void)
     return employee;
 }
 
-struct employee showEmployeeForm(void)
+Employee showEmployeeForm(void)
 {
     bool ok = false;
-    struct employee employee = createEmployee();
+    Employee employee = createEmployee();
 
     printf("Nome do funcionário: ");
     gets(employee.name);
@@ -110,7 +112,7 @@ struct employee showEmployeeForm(void)
     return employee;
 }
 
-void printEmployeeInfo(const struct employee* const employee)
+void printEmployeeInfo(const Employee* const employee)
 {
     printf(
         "\n\nFuncionário nº %d:"
