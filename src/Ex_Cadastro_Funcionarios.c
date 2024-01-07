@@ -145,6 +145,21 @@ const unsigned int getEmployeeCode(void)
     return code;
 }
 
+const unsigned int getMainMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\n\nEscolha uma opção:"
+        "\n1. Inserção | 2. Exibir | 3. Remoção | 4. Valores | 0. Finalizar"
+        "\nOpção\? "
+    );
+    scanf("%i", &choice);
+    getchar();
+
+    return choice;
+}
+
 void addEmployee(void)
 {
 	bool found = false;
@@ -287,22 +302,15 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-    unsigned int option = 0u;
-
     for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         employees[i] = createEmployee();
     }
 
-	do
-	{
-		printf(
-            "\n\nEscolha uma opção:"
-            "\n1. Inserção | 2. Exibir | 3. Remoção | 4. Valores | 0. Finalizar"
-            "\nOpção\? "
-        );
-		scanf("%i", &option);
-		getchar();
+    unsigned int option = 0u;
+
+	do {
+		option = getMainMenuChoice();
 
 		system("clear");
 
