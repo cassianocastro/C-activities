@@ -45,7 +45,7 @@ struct employee
 }
 employees[SIZE_employees];
 
-struct employee init(void)
+struct employee createEmployee(void)
 {
     struct employee employee = {
         .name     = "",
@@ -300,11 +300,11 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-    unsigned int option = 0;
+    unsigned int option = 0u;
 
     for ( register byte i = 0; i < SIZE_employees; ++i )
 	{
-        employees[i] = init();
+        employees[i] = createEmployee();
     }
 
 	do
