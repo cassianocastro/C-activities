@@ -123,7 +123,7 @@ void addEmployee(void)
 {
 	bool found = false;
 
-	for ( byte i = 0; i < SIZE_employees; i++ )
+	for ( register byte i = 0; i < SIZE_employees; ++i )
 	{
 		if ( employees[i].bd.day == 0 )
         {
