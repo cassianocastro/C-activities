@@ -66,53 +66,68 @@ void init(void)
     }
 }
 
+struct employee showEmployeeForm(void)
+{
+    bool ok = false;
+    struct employee employee;
+
+    printf("Nome do funcionário: ");
+    gets(employee.name);
+
+    printf("CPF: ");
+    gets(employee.cpf);
+
+    do {
+        puts("Data de nascimento...");
+
+        printf("Dia: ");
+        scanf("%d", &employee.bd.day);
+
+        printf("Mês: ");
+        scanf("%d", &employee.bd.month);
+
+        printf("Ano: ");
+        scanf("%d", &employee.bd.year);
+
+        ok = isValid(
+            employee.bd.day,
+            employee.bd.month,
+            employee.bd.year
+        );
+
+        if ( not ok )
+        {
+            puts("**Data Inválida!");
+        }
+    } while ( not ok );
+
+    getchar();
+
+    printf("Endereço: ");
+    gets(employee.address);
+
+    printf("Código (somente números): ");
+    scanf("%d", &employee.code);
+
+    getchar();
+
+    for ( byte month = 0; month < MONTHS; month++ )
+    {
+        employee.wage[month] = 0.0f;
+    }
+
+    return employee;
+}
+
 void addEmployee(void)
 {
-	bool found = false, ok = false;
+	bool found = false;
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
 		if ( employees[i].bd.day == 0 )
         {
-			printf("Nome do funcionário: ");
-			gets(employees[i].name);
-
-        	printf("CPF: ");
-			gets(employees[i].cpf);
-
-        	do {
-                puts("Data de nascimento...");
-
-				printf("Dia: ");
-				scanf("%d", &employees[i].bd.day);
-
-                printf("Mês: ");
-				scanf("%d", &employees[i].bd.month);
-
-                printf("Ano: ");
-				scanf("%d", &employees[i].bd.year);
-
-				ok = isValid(
-                    employees[i].bd.day,
-                    employees[i].bd.month,
-                    employees[i].bd.year
-                );
-
-				if ( not ok )
-                {
-                    puts("**Data Inválida!");
-                }
-			} while ( not ok );
-
-			getchar();
-
-			printf("Endereço: ");
-			gets(employees[i].address);
-
-			printf("Código (somente números): ");
-			scanf("%d", &employees[i].code);
-
-            getchar();
+            employees[i] = showEmployeeForm();
 
             found = true;
 
