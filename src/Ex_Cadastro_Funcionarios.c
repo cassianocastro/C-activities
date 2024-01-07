@@ -65,7 +65,7 @@ struct employee createEmployee(void)
 struct employee showEmployeeForm(void)
 {
     bool ok = false;
-    struct employee employee;
+    struct employee employee = createEmployee();
 
     printf("Nome do funcionário: ");
     gets(employee.name);
@@ -106,11 +106,6 @@ struct employee showEmployeeForm(void)
     scanf("%d", &employee.code);
 
     getchar();
-
-    for ( byte month = 0; month < MONTHS; month++ )
-    {
-        employee.wage[month] = 0.0f;
-    }
 
     return employee;
 }
