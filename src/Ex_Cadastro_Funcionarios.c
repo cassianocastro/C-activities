@@ -181,29 +181,17 @@ void showEmployees(void)
 void removeEmployee(void)
 {
 	int code = 0;
-	bool found = false;
 
 	printf("Código do funcionário: ");
 	scanf("%d", &code);
+
+	bool found = false;
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
 		if ( code == employees[i].code )
         {
-			strcpy(employees[i].name, "");
-			strcpy(employees[i].address, "");
-			strcpy(employees[i].cpf, "");
-
-			employees[i].bd.day   = 0;
-			employees[i].bd.month = 0;
-			employees[i].bd.year  = 0;
-			employees[i].code     = 0;
-			employees[i].sum      = 0.0f;
-
-			for ( byte month = 0; month < MONTHS; month++ )
-			{
-				employees[i].wage[month] = 0.0f;
-			}
+			employees[i] = createEmployee();
 
 			found = true;
 
