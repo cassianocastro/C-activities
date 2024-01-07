@@ -80,9 +80,10 @@ void addEmployee(void)
         	printf("CPF: ");
 			gets(employees[i].cpf);
 
-        	do
-			{
-				printf("Data de nascimento...\nDia: ");
+        	do {
+                puts("Data de nascimento...");
+
+				printf("Dia: ");
 				scanf("%d", &employees[i].birthDate.day);
 
                 printf("Mês: ");
@@ -104,6 +105,7 @@ void addEmployee(void)
 			} while ( not ok );
 
 			getchar();
+
 			printf("Endereço: ");
 			gets(employees[i].address);
 
