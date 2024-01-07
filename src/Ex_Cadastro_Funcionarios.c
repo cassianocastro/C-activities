@@ -165,11 +165,7 @@ void showEmployees(void)
 
         for ( byte month = 0; month < MONTHS; month++ )
 		{
-            printf(
-                "\nSalário/%s......: R$ %.2f",
-                nameOfThis(month + 1),
-                employees[i].wage[month]
-            );
+            printf("\nSalário/%s......: R$ %.2f", nameOfThis(month + 1), employees[i].wage[month]);
         }
 
         found = true;
