@@ -66,49 +66,6 @@ void init(void)
     }
 }
 
-void showEmployees(void)
-{
-    bool wasFound = false;
-
-    for ( byte i = 0; i < SIZE_employees; i++ )
-	{
-        if ( employees[i].birthDate.day == 0 ) continue;
-
-        printf(
-            "\n\nFuncionário nº %d:"
-            "\nNome...................: %s"
-            "\nCPF....................: %s"
-            "\nData de Nascimento.....: %d/%.2d/%d"
-            "\nEndereço...............: %s\n"
-            "\nRenda Anual............: R$ %.2f\n",
-            employees[i].code,
-            employees[i].name,
-            employees[i].cpf,
-            employees[i].birthDate.day,
-            employees[i].birthDate.month,
-            employees[i].birthDate.year,
-            employees[i].address,
-            employees[i].sum
-        );
-
-        for ( byte month = 0; month < MONTHS; month++ )
-		{
-            printf(
-                "\nSalário/%s......: R$ %.2f",
-                nameOfThis(month + 1),
-                employees[i].wage[month]
-            );
-        }
-
-        wasFound = true;
-    }
-
-    if ( not wasFound )
-    {
-        puts("Sem funcionários cadastrados!");
-    }
-}
-
 void addEmployee(void)
 {
 	bool wasFound   = false;
@@ -166,6 +123,49 @@ void addEmployee(void)
         puts("Lista cheia.");
     else
         puts("Funcionário incluído.");
+}
+
+void showEmployees(void)
+{
+    bool wasFound = false;
+
+    for ( byte i = 0; i < SIZE_employees; i++ )
+	{
+        if ( employees[i].birthDate.day == 0 ) continue;
+
+        printf(
+            "\n\nFuncionário nº %d:"
+            "\nNome...................: %s"
+            "\nCPF....................: %s"
+            "\nData de Nascimento.....: %d/%.2d/%d"
+            "\nEndereço...............: %s\n"
+            "\nRenda Anual............: R$ %.2f\n",
+            employees[i].code,
+            employees[i].name,
+            employees[i].cpf,
+            employees[i].birthDate.day,
+            employees[i].birthDate.month,
+            employees[i].birthDate.year,
+            employees[i].address,
+            employees[i].sum
+        );
+
+        for ( byte month = 0; month < MONTHS; month++ )
+		{
+            printf(
+                "\nSalário/%s......: R$ %.2f",
+                nameOfThis(month + 1),
+                employees[i].wage[month]
+            );
+        }
+
+        wasFound = true;
+    }
+
+    if ( not wasFound )
+    {
+        puts("Sem funcionários cadastrados!");
+    }
 }
 
 void removeEmployee(void)
