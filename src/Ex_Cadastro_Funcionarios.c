@@ -15,11 +15,11 @@ typedef unsigned char byte;
 
 typedef enum
 {
-    SAIR,
-    INSERCAO,
-    REMOCAO,
-    EXIBIR,
-    VALORES
+    EXIT,
+    CREATE,
+    READ,
+    DELETE,
+    VALUES
 }
 Options;
 
@@ -301,7 +301,7 @@ int main(int argc, const char* argv[])
 	{
 		printf(
             "\n\nEscolha uma opção:"
-            "\n1. Inserção | 2. Remoção | 3. Exibir | 4. Valores | 0. Finalizar"
+            "\n1. Inserção | 2. Exibir | 3. Remoção | 4. Valores | 0. Finalizar"
             "\nOpção\? "
         );
 		scanf("%i", &option);
@@ -311,25 +311,25 @@ int main(int argc, const char* argv[])
 
 		switch ( option )
 		{
-			case INSERCAO:
+			case CREATE:
 				insert();
 				break;
-			case REMOCAO:
-				removeEmployee();
-				break;
-			case EXIBIR:
+			case READ:
 				show();
 				break;
-            case VALORES:
+			case DELETE:
+				removeEmployee();
+				break;
+            case VALUES:
 				wages();
 				break;
-			case SAIR:
+			case EXIT:
 				puts("\nFIM...");
 				break;
 			default:
 				puts("Opção inválida!");
 		}
-	} while ( option not_eq SAIR );
+	} while ( option not_eq EXIT );
 
 	return EXIT_SUCCESS;
 }
