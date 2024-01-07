@@ -180,14 +180,14 @@ void showEmployees(void)
 
 void removeEmployee(void)
 {
-	int code = 0;
+	unsigned int code = 0u;
 
 	printf("Código do funcionário: ");
 	scanf("%d", &code);
 
 	bool found = false;
 
-	for ( byte i = 0; i < SIZE_employees; i++ )
+	for ( register byte i = 0; i < SIZE_employees; ++i )
 	{
 		if ( code == employees[i].code )
         {
@@ -199,7 +199,7 @@ void removeEmployee(void)
 		}
 	}
 
-    puts(not found ? "Funcionário não encontrado." : "Funcionário excluído.");
+    printf("Funcionário %s.", not found ? "não encontrado" : "excluído");
 }
 
 void insertAllWages(int i)
