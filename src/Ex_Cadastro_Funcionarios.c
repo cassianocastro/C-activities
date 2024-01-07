@@ -244,8 +244,8 @@ void insertWage(int i)
 void wages(void)
 {
 	char response = '\0';
-	bool wasFound = false;
-	byte code     = 0;
+	bool found = false;
+	byte code  = 0;
 
     printf("\nCódigo do funcionário: ");
     scanf("%i", &code);
@@ -264,13 +264,13 @@ void wages(void)
 
             puts("Inserção de valor(es) realizada.");
 
-            wasFound = true;
+            found = true;
 
             break;
 		}
 	}
 
-	if ( not wasFound )
+	if ( not found )
     {
         puts("Código inválido.");
     }
