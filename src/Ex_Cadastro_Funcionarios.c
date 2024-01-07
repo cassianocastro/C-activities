@@ -45,7 +45,7 @@ struct employee
 }
 employees[SIZE_employees];
 
-void init(void)
+struct employee init(void)
 {
     struct employee employee = {
         .name     = "",
@@ -59,10 +59,7 @@ void init(void)
         .wage     = { 0.0f }
     };
 
-    for ( byte i = 0; i < SIZE_employees; i++ )
-	{
-        employees[i] = employee;
-    }
+    return employee;
 }
 
 struct employee showEmployeeForm(void)
@@ -305,7 +302,10 @@ int main(int argc, const char* argv[])
 
     unsigned int option = 0;
 
-    init();
+    for ( register byte i = 0; i < SIZE_employees; ++i )
+	{
+        employees[i] = init();
+    }
 
 	do
 	{
