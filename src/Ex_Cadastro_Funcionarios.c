@@ -47,22 +47,21 @@ employees[SIZE_employees];
 
 void init(void)
 {
+    struct employee employee = {
+        .name     = "",
+        .address  = "",
+        .cpf      = "",
+        .bd.day   = 0,
+        .bd.month = 0,
+        .bd.year  = 0,
+        .code     = 0,
+        .sum      = 0.0f,
+        .wage     = { 0.0f }
+    };
+
     for ( byte i = 0; i < SIZE_employees; i++ )
 	{
-        strcpy(employees[i].name, "");
-        strcpy(employees[i].address, "");
-        strcpy(employees[i].cpf, "");
-
-        employees[i].bd.day   = 0;
-        employees[i].bd.month = 0;
-        employees[i].bd.year  = 0;
-        employees[i].code     = 0;
-        employees[i].sum      = 0.0f;
-
-        for ( byte month = 0; month < MONTHS; month++ )
-		{
-            employees[i].wage[month] = 0.0f;
-        }
+        employees[i] = employee;
     }
 }
 
