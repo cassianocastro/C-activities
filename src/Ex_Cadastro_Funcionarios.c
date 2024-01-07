@@ -68,8 +68,7 @@ void init(void)
 
 void addEmployee(void)
 {
-	bool wasFound   = false;
-	bool dateIsOkay = false;
+	bool found = false, ok = false;
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
@@ -92,17 +91,17 @@ void addEmployee(void)
                 printf("Ano: ");
 				scanf("%d", &employees[i].birthDate.year);
 
-				dateIsOkay = isValid(
+				ok = isValid(
                     employees[i].birthDate.day,
                     employees[i].birthDate.month,
                     employees[i].birthDate.year
                 );
 
-				if ( not dateIsOkay )
+				if ( not ok )
                 {
                     puts("**Data Inválida!");
                 }
-			} while ( not dateIsOkay );
+			} while ( not ok );
 
 			getchar();
 			printf("Endereço: ");
@@ -113,13 +112,13 @@ void addEmployee(void)
 
             getchar();
 
-            wasFound = true;
+            found = true;
 
             break;
 		}
 	}
 
-	if ( not wasFound )
+	if ( not found )
         puts("Lista cheia.");
     else
         puts("Funcionário incluído.");
