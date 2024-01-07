@@ -142,7 +142,7 @@ void showEmployees(void)
 {
     bool found = false;
 
-    for ( byte i = 0; i < SIZE_employees; i++ )
+    for ( register byte i = 0; i < SIZE_employees; ++i )
 	{
         if ( employees[i].bd.day == 0 ) continue;
 
@@ -163,7 +163,7 @@ void showEmployees(void)
             employees[i].sum
         );
 
-        for ( byte month = 0; month < MONTHS; month++ )
+        for ( register byte month = 0; month < MONTHS; ++month )
 		{
             printf("\nSalário/%s......: R$ %.2f", nameOfThis(month + 1), employees[i].wage[month]);
         }
