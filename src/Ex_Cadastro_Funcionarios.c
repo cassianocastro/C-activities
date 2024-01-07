@@ -215,10 +215,7 @@ void removeEmployee(void)
 		}
 	}
 
-	if ( not found )
-        puts("Funcionário não encontrado.");
-    else
-        puts("Funcionário excluído.");
+    puts(not found ? "Funcionário não encontrado." : "Funcionário excluído.");
 }
 
 void insertAllWages(int i)
