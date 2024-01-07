@@ -120,10 +120,7 @@ void addEmployee(void)
 		}
 	}
 
-	if ( not found )
-        puts("Lista cheia.");
-    else
-        puts("Funcionário incluído.");
+    puts(not found ? "Lista cheia." : "Funcionário incluído.");
 }
 
 void showEmployees(void)
