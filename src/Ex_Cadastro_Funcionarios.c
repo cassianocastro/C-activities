@@ -7,7 +7,7 @@
 #include <string.h>
 #include "./includes/PIP.h"
 
-#define SIZE_employees 10
+#define ARRAY_SIZE 10
 #define SIZE 50
 #define MONTHS 12
 
@@ -43,7 +43,7 @@ struct employee
 
 	BirthDate bd;
 }
-employees[SIZE_employees];
+employees[ARRAY_SIZE];
 
 struct employee createEmployee(void)
 {
@@ -139,7 +139,7 @@ void addEmployee(void)
 {
 	bool found = false;
 
-	for ( register byte i = 0; i < SIZE_employees; ++i )
+	for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
 		if ( employees[i].bd.day == 0 )
         {
@@ -158,7 +158,7 @@ void showEmployees(void)
 {
     bool found = false;
 
-    for ( register byte i = 0; i < SIZE_employees; ++i )
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         if ( employees[i].bd.day == 0 ) continue;
 
@@ -182,7 +182,7 @@ void removeEmployee(void)
 
 	bool found = false;
 
-	for ( register byte i = 0; i < SIZE_employees; ++i )
+	for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
 		if ( code == employees[i].code )
         {
@@ -250,7 +250,7 @@ void wages(void)
     printf("\nCódigo do funcionário: ");
     scanf("%i", &code);
 
-	for ( byte i = 0; i < SIZE_employees; i++ )
+	for ( byte i = 0; i < ARRAY_SIZE; i++ )
 	{
 		if ( code == employees[i].code )
         {
@@ -285,7 +285,7 @@ int main(int argc, const char* argv[])
 
     unsigned int option = 0u;
 
-    for ( register byte i = 0; i < SIZE_employees; ++i )
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         employees[i] = createEmployee();
     }
