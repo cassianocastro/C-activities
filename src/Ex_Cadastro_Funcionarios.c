@@ -119,6 +119,31 @@ struct employee showEmployeeForm(void)
     return employee;
 }
 
+void printEmployeeInfo(const struct employee* const employee)
+{
+    printf(
+        "\n\nFuncionário nº %d:"
+        "\nNome...................: %s"
+        "\nCPF....................: %s"
+        "\nData de Nascimento.....: %d/%.2d/%d"
+        "\nEndereço...............: %s\n"
+        "\nRenda Anual............: R$ %.2f\n",
+        employee->code,
+        employee->name,
+        employee->cpf,
+        employee->bd.day,
+        employee->bd.month,
+        employee->bd.year,
+        employee->address,
+        employee->sum
+    );
+
+    for ( register byte i = 0; i < MONTHS; ++i )
+    {
+        printf("\nSalário/%s......: R$ %.2f", nameOfThis(i + 1), employee->wage[i]);
+    }
+}
+
 void addEmployee(void)
 {
 	bool found = false;
@@ -146,27 +171,7 @@ void showEmployees(void)
 	{
         if ( employees[i].bd.day == 0 ) continue;
 
-        printf(
-            "\n\nFuncionário nº %d:"
-            "\nNome...................: %s"
-            "\nCPF....................: %s"
-            "\nData de Nascimento.....: %d/%.2d/%d"
-            "\nEndereço...............: %s\n"
-            "\nRenda Anual............: R$ %.2f\n",
-            employees[i].code,
-            employees[i].name,
-            employees[i].cpf,
-            employees[i].bd.day,
-            employees[i].bd.month,
-            employees[i].bd.year,
-            employees[i].address,
-            employees[i].sum
-        );
-
-        for ( register byte month = 0; month < MONTHS; ++month )
-		{
-            printf("\nSalário/%s......: R$ %.2f", nameOfThis(month + 1), employees[i].wage[month]);
-        }
+        printEmployeeInfo(&employees[i]);
 
         found = true;
     }
