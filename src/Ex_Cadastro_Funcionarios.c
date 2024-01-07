@@ -41,7 +41,7 @@ struct employee
     float sum;
 	int code;
 
-	BirthDate birthDate;
+	BirthDate bd;
 }
 employees[SIZE_employees];
 
@@ -53,11 +53,11 @@ void init(void)
         strcpy(employees[i].address, "");
         strcpy(employees[i].cpf, "");
 
-        employees[i].birthDate.day   = 0;
-        employees[i].birthDate.month = 0;
-        employees[i].birthDate.year  = 0;
-        employees[i].code            = 0;
-        employees[i].sum             = 0.0f;
+        employees[i].bd.day   = 0;
+        employees[i].bd.month = 0;
+        employees[i].bd.year  = 0;
+        employees[i].code     = 0;
+        employees[i].sum      = 0.0f;
 
         for ( byte month = 0; month < MONTHS; month++ )
 		{
@@ -72,7 +72,7 @@ void addEmployee(void)
 
 	for ( byte i = 0; i < SIZE_employees; i++ )
 	{
-		if ( employees[i].birthDate.day == 0 )
+		if ( employees[i].bd.day == 0 )
         {
 			printf("Nome do funcionário: ");
 			gets(employees[i].name);
@@ -84,18 +84,18 @@ void addEmployee(void)
                 puts("Data de nascimento...");
 
 				printf("Dia: ");
-				scanf("%d", &employees[i].birthDate.day);
+				scanf("%d", &employees[i].bd.day);
 
                 printf("Mês: ");
-				scanf("%d", &employees[i].birthDate.month);
+				scanf("%d", &employees[i].bd.month);
 
                 printf("Ano: ");
-				scanf("%d", &employees[i].birthDate.year);
+				scanf("%d", &employees[i].bd.year);
 
 				ok = isValid(
-                    employees[i].birthDate.day,
-                    employees[i].birthDate.month,
-                    employees[i].birthDate.year
+                    employees[i].bd.day,
+                    employees[i].bd.month,
+                    employees[i].bd.year
                 );
 
 				if ( not ok )
@@ -129,7 +129,7 @@ void showEmployees(void)
 
     for ( byte i = 0; i < SIZE_employees; i++ )
 	{
-        if ( employees[i].birthDate.day == 0 ) continue;
+        if ( employees[i].bd.day == 0 ) continue;
 
         printf(
             "\n\nFuncionário nº %d:"
@@ -141,9 +141,9 @@ void showEmployees(void)
             employees[i].code,
             employees[i].name,
             employees[i].cpf,
-            employees[i].birthDate.day,
-            employees[i].birthDate.month,
-            employees[i].birthDate.year,
+            employees[i].bd.day,
+            employees[i].bd.month,
+            employees[i].bd.year,
             employees[i].address,
             employees[i].sum
         );
@@ -182,11 +182,11 @@ void removeEmployee(void)
 			strcpy(employees[i].address, "");
 			strcpy(employees[i].cpf, "");
 
-			employees[i].birthDate.day   = 0;
-			employees[i].birthDate.month = 0;
-			employees[i].birthDate.year  = 0;
-			employees[i].code            = 0;
-			employees[i].sum             = 0.0f;
+			employees[i].bd.day   = 0;
+			employees[i].bd.month = 0;
+			employees[i].bd.year  = 0;
+			employees[i].code     = 0;
+			employees[i].sum      = 0.0f;
 
 			for ( byte month = 0; month < MONTHS; month++ )
 			{
