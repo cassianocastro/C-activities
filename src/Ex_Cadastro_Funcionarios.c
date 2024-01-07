@@ -300,14 +300,13 @@ int main(int argc, const char* argv[])
 	do
 	{
 		printf(
-            "\n\nEscolha uma opção:\
-            \n1 - Inserção | 2 - Remoção\
-            \n3 - Exibir   | 4 - Valores\
-            \n0 - Finalizar\
-            \nOpção\? "
+            "\n\nEscolha uma opção:"
+            "\n1. Inserção | 2. Remoção | 3. Exibir | 4. Valores | 0. Finalizar"
+            "\nOpção\? "
         );
 		scanf("%i", &option);
 		getchar();
+
 		system("clear");
 
 		switch ( option )
