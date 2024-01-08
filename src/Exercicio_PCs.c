@@ -222,7 +222,7 @@ void updateComputer(void)
 			puts("\nOpção inválida!");
 	}
 
-	puts("\nAlteração realizada com sucesso.");
+	puts("\nAlteração realizada.");
 }
 
 void deleteComputer(void)
