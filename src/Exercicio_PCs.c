@@ -130,6 +130,16 @@ const unsigned int getUpdateMenuChoice(void)
     return choice;
 }
 
+const byte getComputerID(void)
+{
+    byte id = 0;
+
+	printf("\nInforme o ID do PC: ");
+    scanf("%hhu", &id);
+
+	return --id;
+}
+
 void addComputer(void)
 {
     char response = '\0';
@@ -174,13 +184,7 @@ void showComputers(void)
  */
 void updateComputer(void)
 {
-    byte index = 0;
-
-	printf("\nInforme o ID do PC: ");
-    scanf("%hhu", &index);
-
-	index--;
-
+    byte index = getComputerID();
     unsigned int dado = getUpdateMenuChoice();
 
 	switch ( dado )
@@ -224,12 +228,8 @@ void updateComputer(void)
 void deleteComputer(void)
 {
 	bool found = false;
-	byte id = 0;
+	byte id    = getComputerID();
 
-	printf("Informe o ID do PC: ");
-    scanf("%hhu", &id);
-
-	id--;
     Computer* tmp = (Computer*) calloc((numero - 1), sizeof(Computer));
 
 	for ( register byte i = 0, j = 0; i < numero; ++i )
