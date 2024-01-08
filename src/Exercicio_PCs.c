@@ -8,7 +8,7 @@
 
 #define TAM_STRING 30
 
-struct Dado
+typedef struct
 {
     char storageType;
     char model[TAM_STRING];
@@ -17,7 +17,8 @@ struct Dado
 
     int memory;
     int storage;
-};
+}
+Computer;
 
 typedef enum
 {
@@ -40,8 +41,6 @@ typedef enum
     PROCESSOR
 }
 Dados;
-
-typedef struct Dado Computer;
 
 typedef unsigned char byte;
 
