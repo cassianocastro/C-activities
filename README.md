@@ -2,7 +2,7 @@
 
 ## Description
 
-Exercises in C.
+Driven menu programs written in C.
 
 ## How to compile
 
