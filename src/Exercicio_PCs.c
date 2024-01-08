@@ -41,11 +41,11 @@ typedef enum
 }
 Dados;
 
-typedef struct Dado Computador;
+typedef struct Dado Computer;
 
 typedef unsigned char byte;
 
-Computador* inventary;
+Computer* inventary;
 
 unsigned short numero;
 
@@ -90,7 +90,7 @@ void insercao(void)
 		printf("Informe o nº de PC\'s a serem cadastrados: ");
         scanf("%hu", &numero);
 
-        inventary = calloc(numero, sizeof(Computador));
+        inventary = calloc(numero, sizeof(Computer));
 
 		for ( register byte i = 0; i < numero; ++i )
         {
@@ -101,7 +101,7 @@ void insercao(void)
     {
 		puts("\nInserindo novo computador...");
 
-	    inventary = realloc(inventary, ++numero * sizeof(Computador));
+	    inventary = realloc(inventary, ++numero * sizeof(Computer));
 
         dados(numero - 1);
 	}
@@ -111,7 +111,7 @@ void insercao(void)
 
 void remocao(void)
 {
-	Computador* novo_inventario;
+	Computer* novo_inventario;
 	bool was_found = false;
 	byte id = 0;
 
@@ -119,7 +119,7 @@ void remocao(void)
     scanf("%hhu", &id);
 
 	id--;
-	novo_inventario = calloc((numero - 1), sizeof(Computador));
+	novo_inventario = calloc((numero - 1), sizeof(Computer));
 
 	for ( byte i = 0, j = 0; i < numero; i++ )
 	{
