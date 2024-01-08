@@ -48,33 +48,37 @@ Computer* inventary;
 
 unsigned short numero;
 
-void showComputerForm(byte i)
+Computer showComputerForm(byte i)
 {
+    Computer computer;
+
     printf("\nComputador nº %hhu\n", (i + 1));
 	getchar();
 
     printf("Marca....................: ");
-    gets(inventary[i].mark);
+    gets(computer.mark);
 
 	printf("Modelo...................: ");
-    gets(inventary[i].model);
+    gets(computer.model);
 
 	printf("Processador..............: ");
-    gets(inventary[i].processor);
+    gets(computer.processor);
 
 	printf("Memória (em GB)..........: ");
-    scanf("%d", &inventary[i].memory);
+    scanf("%d", &computer.memory);
 
     printf("Armazenamento (em GB)....: ");
-    scanf("%d", &inventary[i].storage);
+    scanf("%d", &computer.storage);
 
 	do {
-		printf("\nTipo de HD...[s/c]\? ");
-        scanf(" %c", &inventary[i].storageType);
+		printf("Tipo de HD...[s/c]\? ");
+        scanf(" %c", &computer.storageType);
 	} while (
-        inventary[i].storageType != 's' and
-        inventary[i].storageType != 'c'
+        computer.storageType != 's' and
+        computer.storageType != 'c'
     );
+
+    return computer;
 }
 
 void printComputerInfo(const byte i, const Computer* const computer)
@@ -156,7 +160,7 @@ void addComputer(void)
 
 		for ( register byte i = 0; i < numero; ++i )
         {
-            showComputerForm(i);
+            inventary[i] = showComputerForm(i);
         }
 	}
     else
@@ -165,7 +169,7 @@ void addComputer(void)
 
 	    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
 
-        showComputerForm(numero - 1);
+        inventary[numero - 1] = showComputerForm(numero - 1);
 	}
 
 	puts("\nInserção realizada.");
