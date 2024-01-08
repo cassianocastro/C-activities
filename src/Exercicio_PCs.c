@@ -168,12 +168,12 @@ void addOneComputer(void)
 
 void addComputer(void)
 {
-    char response = '\0';
+    unsigned int response = 0u;
 
-    printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
-    scanf(" %c", &response);
+    printf("Quantos computadores deseja cadastrar\? ");
+    scanf(" %d", &response);
 
-	if ( tolower(response) == 's')
+	if ( response > 1 )
         addSeveralComputers();
     else
         addOneComputer();
