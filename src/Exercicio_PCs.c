@@ -62,11 +62,11 @@ void showComputerForm(byte i)
 	printf("Processador..............: ");
     gets(inventary[i].processor);
 
-    printf("Armazenamento (em GB)....: ");
-    scanf("%d", &inventary[i].storage);
-
 	printf("Memória (em GB)..........: ");
     scanf("%d", &inventary[i].memory);
+
+    printf("Armazenamento (em GB)....: ");
+    scanf("%d", &inventary[i].storage);
 
 	do {
 		printf("\nTipo de HD...[s/c]\? ");
