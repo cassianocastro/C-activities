@@ -10,13 +10,13 @@
 
 struct Dado
 {
-    char tipohd;
-    char modelo[TAM_STRING];
-    char marca[TAM_STRING];
-    char processador[TAM_STRING];
+    char storageType;
+    char model[TAM_STRING];
+    char mark[TAM_STRING];
+    char processor[TAM_STRING];
 
-    int memoria;
-    int hd;
+    int memory;
+    int storage;
 };
 
 typedef enum
@@ -55,26 +55,26 @@ void dados(byte i)
 	getchar();
 
     printf("Marca....................: ");
-    gets(inventario[i].marca);
+    gets(inventario[i].mark);
 
 	printf("Modelo...................: ");
-    gets(inventario[i].modelo);
+    gets(inventario[i].model);
 
 	printf("Processador..............: ");
-    gets(inventario[i].processador);
+    gets(inventario[i].processor);
 
     printf("Armazenamento (em GB)....: ");
-    scanf("%d", &inventario[i].hd);
+    scanf("%d", &inventario[i].storage);
 
 	printf("Memória (em GB)..........: ");
-    scanf("%d", &inventario[i].memoria);
+    scanf("%d", &inventario[i].memory);
 
 	do {
 		printf("\nTipo de HD...[s/c]\? ");
-        scanf(" %c", &inventario[i].tipohd);
+        scanf(" %c", &inventario[i].storageType);
 	} while (
-        inventario[i].tipohd != 's' and
-        inventario[i].tipohd != 'c'
+        inventario[i].storageType != 's' and
+        inventario[i].storageType != 'c'
     );
 }
 
@@ -125,12 +125,12 @@ void remocao(void)
 	{
 		if ( i != id )
         {
-			strcpy(novo_inventario[j].marca,       inventario[i].marca);
-			strcpy(novo_inventario[j].modelo,      inventario[i].modelo);
-			strcpy(novo_inventario[j].processador, inventario[i].processador);
-			novo_inventario[j].tipohd    		=  inventario[i].tipohd;
-			novo_inventario[j].hd  			    =  inventario[i].hd;
-			novo_inventario[j].memoria  		=  inventario[i].memoria;
+			strcpy(novo_inventario[j].mark,      inventario[i].mark);
+			strcpy(novo_inventario[j].model,     inventario[i].model);
+			strcpy(novo_inventario[j].processor, inventario[i].processor);
+			novo_inventario[j].storageType = inventario[i].storageType;
+			novo_inventario[j].storage     = inventario[i].storage;
+			novo_inventario[j].memory      = inventario[i].memory;
 			j++;
 		}
         else
@@ -175,32 +175,32 @@ void alteracao(void)
 	{
 		case MARK:
 			printf("Nova marca: ");
-			gets(inventario[index].marca);
+			gets(inventario[index].mark);
 			break;
 		case STORAGE_TYPE:
 			do {
 				printf("\nTipo de HD...[s/c]\? ");
-				scanf(" %c", &inventario[index].tipohd);
+				scanf(" %c", &inventario[index].storageType);
 			} while (
-                inventario[index].tipohd != 's' and
-                inventario[index].tipohd != 'c'
+                inventario[index].storageType != 's' and
+                inventario[index].storageType != 'c'
             );
 			break;
 		case STORAGE:
 			printf("Nova capac. de armazenamento: ");
-			scanf("%d", &inventario[index].hd);
+			scanf("%d", &inventario[index].storage);
 			break;
 		case MEMORY:
 			printf("Novo tamanho de memória: ");
-			scanf("%d", &inventario[index].memoria);
+			scanf("%d", &inventario[index].memory);
 			break;
 		case MODEL:
 			printf("Novo Modelo: ");
-			gets(inventario[index].modelo);
+			gets(inventario[index].model);
 			break;
 		case PROCESSOR:
 			printf("Novo Processador: ");
-			gets(inventario[index].processador);
+			gets(inventario[index].processor);
 			break;
 		default:
 			puts("\nOpção inválida!");
@@ -223,12 +223,12 @@ void listagem(void)
             "\nProcessador........................: %s"
             "\n------------",
             ( i + 1 ),
-            inventario[i].marca,
-            inventario[i].modelo,
-            inventario[i].tipohd,
-            inventario[i].hd,
-            inventario[i].memoria,
-            inventario[i].processador
+            inventario[i].mark,
+            inventario[i].model,
+            inventario[i].storageType,
+            inventario[i].storage,
+            inventario[i].memory,
+            inventario[i].processor
         );
 	}
 }
@@ -247,7 +247,7 @@ void busca(void)
 
 		for ( byte i = 0; i < numero; i++ )
 		{
-			if ( strcmp(modelo, inventario[i].modelo) == 0 )
+			if ( strcmp(modelo, inventario[i].model) == 0 )
             {
                 printf(
 			        "\nComputador nº %hhu:"
@@ -259,12 +259,12 @@ void busca(void)
                     "\nProcessador........................: %s"
                     "\n------------",
                     ( i + 1 ),
-                    inventario[i].marca,
-                    inventario[i].modelo,
-                    inventario[i].tipohd,
-                    inventario[i].hd,
-                    inventario[i].memoria,
-                    inventario[i].processador
+                    inventario[i].mark,
+                    inventario[i].model,
+                    inventario[i].storageType,
+                    inventario[i].storage,
+                    inventario[i].memory,
+                    inventario[i].processor
                 );
 
 				was_found = true;
