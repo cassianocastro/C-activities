@@ -80,12 +80,12 @@ void dados(byte i)
 
 void insercao(void)
 {
-    char resposta = '\0';
+    char response = '\0';
 
     printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
-    scanf(" %c", &resposta);
+    scanf(" %c", &response);
 
-	if ( tolower(resposta) == 's')
+	if ( tolower(response) == 's')
     {
 		printf("Informe o nº de PC\'s a serem cadastrados: ");
         scanf("%hu", &numero);
