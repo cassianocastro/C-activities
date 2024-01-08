@@ -77,6 +77,27 @@ void showComputerForm(byte i)
     );
 }
 
+void printComputerInfo(const byte i, const Computer* const computer)
+{
+    printf(
+        "\nComputador nº %hhu:"
+        "\nMarca......................: %s"
+        "\nModelo.....................: %s"
+        "\nTipo de HD.................: %c"
+        "\nCapac. de Armazenamento....: %d GB"
+        "\nMemória....................: %d GB"
+        "\nProcessador................: %s"
+        "\n------------",
+        i,
+        computer->mark,
+        computer->model,
+        computer->storageType,
+        computer->storage,
+        computer->memory,
+        computer->processor
+    );
+}
+
 void addComputer(void)
 {
     char response = '\0';
@@ -110,25 +131,9 @@ void addComputer(void)
 
 void showComputers(void)
 {
-    for ( byte i = 0; i < numero; i++ )
+    for ( register byte i = 0; i < numero; ++i )
 	{
-        printf(
-            "\nComputador nº %hhu:"
-            "\nMarca..............................: %s"
-            "\nModelo.............................: %s"
-            "\nTipo de HD.........................: %c"
-            "\nCapac. de Armazenamento............: %d GB"
-            "\nMemória............................: %d GB"
-            "\nProcessador........................: %s"
-            "\n------------",
-            ( i + 1 ),
-            inventary[i].mark,
-            inventary[i].model,
-            inventary[i].storageType,
-            inventary[i].storage,
-            inventary[i].memory,
-            inventary[i].processor
-        );
+        printComputerInfo(i + 1, &inventary[i]);
 	}
 }
 
@@ -248,23 +253,7 @@ void searchComputer(void)
 		{
 			if ( strcmp(modelo, inventary[i].model) == 0 )
             {
-                printf(
-			        "\nComputador nº %hhu:"
-                    "\nMarca..............................: %s"
-                    "\nModelo.............................: %s"
-                    "\nTipo de HD.........................: %c"
-                    "\nCapac. de Armazenamento............: %d GB"
-                    "\nMemória............................: %d GB"
-                    "\nProcessador........................: %s"
-                    "\n------------",
-                    ( i + 1 ),
-                    inventary[i].mark,
-                    inventary[i].model,
-                    inventary[i].storageType,
-                    inventary[i].storage,
-                    inventary[i].memory,
-                    inventary[i].processor
-                );
+                printComputerInfo(i + 1, &inventary[i]);
 
 				was_found = true;
 			}
