@@ -114,6 +114,22 @@ const unsigned int getMainMenuChoice(void)
     return choice;
 }
 
+const unsigned int getUpdateMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nSelecione o tipo de dado:"
+        "\n0 - Marca   | 1 - Tipo de HD | 2 - Capac. de Armazenamento;"
+        "\n3 - Memória | 4 - Modelo     | 5 - Processador;"
+        "\nOpção\? "
+    );
+	scanf("%d", &choice);
+	getchar();
+
+    return choice;
+}
+
 void addComputer(void)
 {
     char response = '\0';
@@ -158,7 +174,6 @@ void showComputers(void)
  */
 void updateComputer(void)
 {
-	unsigned int dado = 0u;
     byte index = 0;
 
 	printf("\nInforme o ID do PC: ");
@@ -166,14 +181,7 @@ void updateComputer(void)
 
 	index--;
 
-    printf(
-        "\nSelecione o tipo de dado:"
-        "\n0 - Marca   | 1 - Tipo de HD | 2 - Capac. de Armazenamento;"
-        "\n3 - Memória | 4 - Modelo     | 5 - Processador;"
-        "\nOpção\? "
-    );
-	scanf("%d", &dado);
-	getchar();
+    unsigned int dado = getUpdateMenuChoice();
 
 	switch ( dado )
 	{
