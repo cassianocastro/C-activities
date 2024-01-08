@@ -51,12 +51,10 @@ unsigned short numero;
 
 void dados(byte i)
 {
+    printf("\nComputador nº %hhu\n", (i + 1));
 	getchar();
 
-    printf(
-        "\nComputador nº %hhu\n"
-        "Marca....................: ", ( i + 1 )
-    );
+    printf("Marca....................: ");
     gets(inventario[i].marca);
 
 	printf("Modelo...................: ");
