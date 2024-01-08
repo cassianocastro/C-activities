@@ -32,12 +32,12 @@ Opcoes;
 
 typedef enum
 {
-	MARCA,
-    TIPO_HD,
-    HD,
-    MEMORIA,
-    MODELO,
-    PROCESSADOR
+	MARK,
+    STORAGE_TYPE,
+    STORAGE,
+    MEMORY,
+    MODEL,
+    PROCESSOR
 }
 Dados;
 
@@ -173,11 +173,11 @@ void alteracao(void)
 
 	switch ( dado )
 	{
-		case MARCA:
+		case MARK:
 			printf("Nova marca: ");
 			gets(inventario[index].marca);
 			break;
-		case TIPO_HD:
+		case STORAGE_TYPE:
 			do {
 				printf("\nTipo de HD...[s/c]\? ");
 				scanf(" %c", &inventario[index].tipohd);
@@ -186,19 +186,19 @@ void alteracao(void)
                 inventario[index].tipohd != 'c'
             );
 			break;
-		case HD:
+		case STORAGE:
 			printf("Nova capac. de armazenamento: ");
 			scanf("%d", &inventario[index].hd);
 			break;
-		case MEMORIA:
+		case MEMORY:
 			printf("Novo tamanho de memória: ");
 			scanf("%d", &inventario[index].memoria);
 			break;
-		case MODELO:
+		case MODEL:
 			printf("Novo Modelo: ");
 			gets(inventario[index].modelo);
 			break;
-		case PROCESSADOR:
+		case PROCESSOR:
 			printf("Novo Processador: ");
 			gets(inventario[index].processador);
 			break;
