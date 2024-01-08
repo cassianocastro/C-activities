@@ -144,6 +144,28 @@ const byte getComputerID(void)
 	return --id;
 }
 
+void addSeveralComputers(void)
+{
+    printf("Informe o nº de PC\'s a serem cadastrados: ");
+    scanf("%hu", &numero);
+
+    inventary = (Computer*) calloc(numero, sizeof(Computer));
+
+    for ( register byte i = 0; i < numero; ++i )
+    {
+        inventary[i] = showComputerForm(i);
+    }
+}
+
+void addOneComputer(void)
+{
+    puts("\nInserindo novo computador...");
+
+    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
+
+    inventary[numero - 1] = showComputerForm(numero - 1);
+}
+
 void addComputer(void)
 {
     char response = '\0';
@@ -152,25 +174,9 @@ void addComputer(void)
     scanf(" %c", &response);
 
 	if ( tolower(response) == 's')
-    {
-		printf("Informe o nº de PC\'s a serem cadastrados: ");
-        scanf("%hu", &numero);
-
-        inventary = (Computer*) calloc(numero, sizeof(Computer));
-
-		for ( register byte i = 0; i < numero; ++i )
-        {
-            inventary[i] = showComputerForm(i);
-        }
-	}
+        addSeveralComputers();
     else
-    {
-		puts("\nInserindo novo computador...");
-
-	    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
-
-        inventary[numero - 1] = showComputerForm(numero - 1);
-	}
+        addOneComputer();
 
 	puts("\nInserção realizada.");
 }
