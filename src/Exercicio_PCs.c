@@ -101,8 +101,7 @@ void insercao(void)
     {
 		puts("\nInserindo novo computador...");
 
-        numero++;
-	    inventario = realloc(inventario, numero * sizeof(Computador));
+	    inventario = realloc(inventario, ++numero * sizeof(Computador));
 
         dados(numero - 1);
 	}
