@@ -1,121 +1,47 @@
 #include "./includes/Computer.h"
 
-Computer showComputerForm(byte i)
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
-    Computer computer;
+	setlocale(LC_ALL, "");
 
-    printf("\nComputador nº %hhu\n", (i + 1));
-	getchar();
+	unsigned int option = 0u;
 
-    printf("Marca....................: ");
-    gets(computer.mark);
+    do {
+	    option = getMainMenuChoice();
 
-	printf("Modelo...................: ");
-    gets(computer.model);
+		system("clear");
 
-	printf("Processador..............: ");
-    gets(computer.processor);
+    	switch ( option )
+		{
+	    	case CREATE:
+	    		addComputer();
+	    		break;
+			case READ:
+				showComputers();
+				break;
+			case UPDATE:
+				updateComputer();
+				break;
+			case DELETE:
+				deleteComputer();
+				break;
+	    	case SEARCH:
+	    		searchComputer();
+	    		break;
+			case EXIT:
+				puts("\nFIM.");
+				break;
+	    	default:
+	    		puts("Opção inválida!");
+		}
+	} while ( option not_eq EXIT );
 
-	printf("Memória (em GB)..........: ");
-    scanf("%d", &computer.memory);
+    free(inventary);
 
-    printf("Armazenamento (em GB)....: ");
-    scanf("%d", &computer.storage);
-
-	do {
-		printf("Tipo de HD...[s/c]\? ");
-        scanf(" %c", &computer.storageType);
-	} while (
-        computer.storageType != 's' and
-        computer.storageType != 'c'
-    );
-
-    return computer;
-}
-
-void printComputerInfo(const byte i, const Computer* const computer)
-{
-    printf(
-        "\nComputador nº %hhu:"
-        "\nMarca......................: %s"
-        "\nModelo.....................: %s"
-        "\nTipo de HD.................: %c"
-        "\nCapac. de Armazenamento....: %d GB"
-        "\nMemória....................: %d GB"
-        "\nProcessador................: %s"
-        "\n------------",
-        i,
-        computer->mark,
-        computer->model,
-        computer->storageType,
-        computer->storage,
-        computer->memory,
-        computer->processor
-    );
-}
-
-const unsigned int getMainMenuChoice(void)
-{
-    unsigned int choice = 0u;
-
-    printf(
-        "\nEscolha uma das opções:\n"
-        "\n1. Insercão | 2. Listagem | 3. Alteração"
-        "\n4. Remoção  | 5. Busca    | 0. Sair"
-        "\nOpção\? "
-    );
-    scanf("%d", &choice);
-    getchar();
-
-    return choice;
-}
-
-const unsigned int getUpdateMenuChoice(void)
-{
-    unsigned int choice = 0u;
-
-    printf(
-        "\nSelecione o tipo de dado:"
-        "\n0 - Marca   | 1 - Tipo de HD | 2 - Capac. de Armazenamento;"
-        "\n3 - Memória | 4 - Modelo     | 5 - Processador;"
-        "\nOpção\? "
-    );
-	scanf("%d", &choice);
-	getchar();
-
-    return choice;
-}
-
-const byte getComputerID(void)
-{
-    byte id = 0;
-
-	printf("\nInforme o ID do PC: ");
-    scanf("%hhu", &id);
-
-	return --id;
-}
-
-void addSeveralComputers(void)
-{
-    printf("Informe o nº de PC\'s a serem cadastrados: ");
-    scanf("%hu", &numero);
-
-    inventary = (Computer*) calloc(numero, sizeof(Computer));
-
-    for ( register byte i = 0; i < numero; ++i )
-    {
-        inventary[i] = showComputerForm(i);
-    }
-}
-
-void addOneComputer(void)
-{
-    puts("\nInserindo novo computador...");
-
-    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
-
-    inventary[numero - 1] = showComputerForm(numero - 1);
+	return EXIT_SUCCESS;
 }
 
 void addComputer(void)
@@ -251,46 +177,120 @@ void searchComputer(void)
 	} while ( tolower(response) == 's' );
 }
 
-/**
- *
- */
-int main(int argc, const char* argv[])
+Computer showComputerForm(byte i)
 {
-	setlocale(LC_ALL, "");
+    Computer computer;
 
-	unsigned int option = 0u;
+    printf("\nComputador nº %hhu\n", (i + 1));
+	getchar();
 
-    do {
-	    option = getMainMenuChoice();
+    printf("Marca....................: ");
+    gets(computer.mark);
 
-		system("clear");
+	printf("Modelo...................: ");
+    gets(computer.model);
 
-    	switch ( option )
-		{
-	    	case CREATE:
-	    		addComputer();
-	    		break;
-			case READ:
-				showComputers();
-				break;
-			case UPDATE:
-				updateComputer();
-				break;
-			case DELETE:
-				deleteComputer();
-				break;
-	    	case SEARCH:
-	    		searchComputer();
-	    		break;
-			case EXIT:
-				puts("\nFIM.");
-				break;
-	    	default:
-	    		puts("Opção inválida!");
-		}
-	} while ( option not_eq EXIT );
+	printf("Processador..............: ");
+    gets(computer.processor);
 
-    free(inventary);
+	printf("Memória (em GB)..........: ");
+    scanf("%d", &computer.memory);
 
-	return EXIT_SUCCESS;
+    printf("Armazenamento (em GB)....: ");
+    scanf("%d", &computer.storage);
+
+	do {
+		printf("Tipo de HD...[s/c]\? ");
+        scanf(" %c", &computer.storageType);
+	} while (
+        computer.storageType != 's' and
+        computer.storageType != 'c'
+    );
+
+    return computer;
+}
+
+void printComputerInfo(const byte i, const Computer* const computer)
+{
+    printf(
+        "\nComputador nº %hhu:"
+        "\nMarca......................: %s"
+        "\nModelo.....................: %s"
+        "\nTipo de HD.................: %c"
+        "\nCapac. de Armazenamento....: %d GB"
+        "\nMemória....................: %d GB"
+        "\nProcessador................: %s"
+        "\n------------",
+        i,
+        computer->mark,
+        computer->model,
+        computer->storageType,
+        computer->storage,
+        computer->memory,
+        computer->processor
+    );
+}
+
+const unsigned int getMainMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha uma das opções:\n"
+        "\n1. Insercão | 2. Listagem | 3. Alteração"
+        "\n4. Remoção  | 5. Busca    | 0. Sair"
+        "\nOpção\? "
+    );
+    scanf("%d", &choice);
+    getchar();
+
+    return choice;
+}
+
+const unsigned int getUpdateMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nSelecione o tipo de dado:"
+        "\n0 - Marca   | 1 - Tipo de HD | 2 - Capac. de Armazenamento;"
+        "\n3 - Memória | 4 - Modelo     | 5 - Processador;"
+        "\nOpção\? "
+    );
+	scanf("%d", &choice);
+	getchar();
+
+    return choice;
+}
+
+const byte getComputerID(void)
+{
+    byte id = 0;
+
+	printf("\nInforme o ID do PC: ");
+    scanf("%hhu", &id);
+
+	return --id;
+}
+
+void addSeveralComputers(void)
+{
+    printf("Informe o nº de PC\'s a serem cadastrados: ");
+    scanf("%hu", &numero);
+
+    inventary = (Computer*) calloc(numero, sizeof(Computer));
+
+    for ( register byte i = 0; i < numero; ++i )
+    {
+        inventary[i] = showComputerForm(i);
+    }
+}
+
+void addOneComputer(void)
+{
+    puts("\nInserindo novo computador...");
+
+    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
+
+    inventary[numero - 1] = showComputerForm(numero - 1);
 }
