@@ -119,7 +119,7 @@ void remocao(void)
 	id--;
     Computer* tmp = (Computer*) calloc((numero - 1), sizeof(Computer));
 
-	for ( byte i = 0, j = 0; i < numero; i++ )
+	for ( register byte i = 0, j = 0; i < numero; ++i )
 	{
 		if ( i != id )
         {
@@ -129,7 +129,8 @@ void remocao(void)
 			tmp[j].storageType = inventary[i].storageType;
 			tmp[j].storage     = inventary[i].storage;
 			tmp[j].memory      = inventary[i].memory;
-			j++;
+
+            ++j;
 		}
         else
             found = true;
@@ -139,7 +140,7 @@ void remocao(void)
     {
 		free(inventary);
 		inventary = tmp;
-		numero --;
+		numero--;
 
 		puts("\nRemoção realizada.");
 	}
