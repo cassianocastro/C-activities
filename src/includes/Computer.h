@@ -12,6 +12,9 @@
 
 #define TAM_STRING 30
 
+/**
+ *
+ */
 typedef struct
 {
     char storageType;
@@ -24,6 +27,9 @@ typedef struct
 }
 Computer;
 
+/**
+ *
+ */
 typedef enum
 {
 	EXIT,
@@ -35,6 +41,9 @@ typedef enum
 }
 Opcoes;
 
+/**
+ *
+ */
 typedef enum
 {
 	MARK,
@@ -51,5 +60,65 @@ typedef unsigned char byte;
 Computer* inventary;
 
 unsigned short numero;
+
+/**
+ *
+ */
+void addComputer(void);
+
+/**
+ *
+ */
+void showComputers(void);
+
+/**
+ *
+ */
+void updateComputer(void);
+
+/**
+ *
+ */
+void deleteComputer(void);
+
+/**
+ *
+ */
+void searchComputer(void);
+
+/**
+ *
+ */
+void addOneComputer(void);
+
+/**
+ *
+ */
+void addSeveralComputers(void);
+
+/**
+ *
+ */
+Computer showComputerForm(byte);
+
+/**
+ *
+ */
+void printComputerInfo(const byte, const Computer* const);
+
+/**
+ *
+ */
+const byte getComputerID(void);
+
+/**
+ *
+ */
+const unsigned int getMainMenuChoice(void);
+
+/**
+ *
+ */
+const unsigned int getUpdateMenuChoice(void);
 
 #endif
