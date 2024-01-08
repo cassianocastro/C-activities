@@ -85,16 +85,7 @@ void insercao(void)
     printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
     scanf(" %c", &resposta);
 
-	if ( tolower(resposta) == 'n')
-    {
-		puts("\nInserindo novo computador...");
-
-        numero++;
-	    inventario = realloc(inventario, numero * sizeof(Computador));
-
-        dados(numero - 1);
-	}
-    else
+	if ( tolower(resposta) == 's')
     {
 		printf("Informe o nº de PC\'s a serem cadastrados: ");
         scanf("%hu", &numero);
@@ -105,6 +96,15 @@ void insercao(void)
         {
             dados(i);
         }
+	}
+    else
+    {
+		puts("\nInserindo novo computador...");
+
+        numero++;
+	    inventario = realloc(inventario, numero * sizeof(Computador));
+
+        dados(numero - 1);
 	}
 
 	puts("\nInserção realizada.");
