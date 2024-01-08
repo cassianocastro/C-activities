@@ -154,7 +154,7 @@ void remocao(void)
  */
 void alteracao(void)
 {
-	Dados dado;
+	unsigned int dado = 0u;
     byte index = 0;
 
 	printf("\nInforme o ID do PC: ");
@@ -288,7 +288,7 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-	Opcoes opcao;
+	unsigned int opcao = 0u;
 
     do {
 	    printf (
