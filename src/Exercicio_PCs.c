@@ -48,7 +48,7 @@ Computer* inventary;
 
 unsigned short numero;
 
-void dados(byte i)
+void showComputerForm(byte i)
 {
     printf("\nComputador nº %hhu\n", (i + 1));
 	getchar();
@@ -77,7 +77,7 @@ void dados(byte i)
     );
 }
 
-void insercao(void)
+void addComputer(void)
 {
     char response = '\0';
 
@@ -93,7 +93,7 @@ void insercao(void)
 
 		for ( register byte i = 0; i < numero; ++i )
         {
-            dados(i);
+            showComputerForm(i);
         }
 	}
     else
@@ -102,13 +102,13 @@ void insercao(void)
 
 	    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
 
-        dados(numero - 1);
+        showComputerForm(numero - 1);
 	}
 
 	puts("\nInserção realizada.");
 }
 
-void remocao(void)
+void deleteComputer(void)
 {
 	bool found = false;
 	byte id = 0;
@@ -151,7 +151,7 @@ void remocao(void)
 /**
  * Fazer a verificacao antes de alterar...
  */
-void alteracao(void)
+void updateComputer(void)
 {
 	unsigned int dado = 0u;
     byte index = 0;
@@ -208,7 +208,7 @@ void alteracao(void)
 	puts("\nAlteração realizada com sucesso.");
 }
 
-void listagem(void)
+void showComputers(void)
 {
     for ( byte i = 0; i < numero; i++ )
 	{
@@ -232,7 +232,7 @@ void listagem(void)
 	}
 }
 
-void busca(void)
+void searchComputer(void)
 {
 	char resposta = '\0', modelo[TAM_STRING];
     bool was_found = false;
@@ -303,19 +303,19 @@ int main(int argc, const char* argv[])
     	switch ( opcao )
 		{
 	    	case CREATE:
-	    		insercao();
+	    		addComputer();
 	    		break;
 			case READ:
-				listagem();
+				showComputers();
 				break;
 			case UPDATE:
-				alteracao();
+				updateComputer();
 				break;
 			case DELETE:
-				remocao();
+				deleteComputer();
 				break;
 	    	case SEARCH:
-	    		busca();
+	    		searchComputer();
 	    		break;
 			case EXIT:
 				puts("\nFIM.");
