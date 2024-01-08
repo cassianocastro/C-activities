@@ -110,7 +110,7 @@ void insercao(void)
 
 void remocao(void)
 {
-	bool was_found = false;
+	bool found = false;
 	byte id = 0;
 
 	printf("Informe o ID do PC: ");
@@ -132,10 +132,10 @@ void remocao(void)
 			j++;
 		}
         else
-            was_found = true;
+            found = true;
 	}
 
-    if ( was_found )
+    if ( found )
     {
 		free(inventary);
 		inventary = tmp;
