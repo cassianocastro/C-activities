@@ -98,6 +98,22 @@ void printComputerInfo(const byte i, const Computer* const computer)
     );
 }
 
+const unsigned int getMainMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha uma das opções:\n"
+        "\n1. Insercão | 2. Listagem | 3. Alteração"
+        "\n4. Remoção  | 5. Busca    | 0. Sair"
+        "\nOpção\? "
+    );
+    scanf("%d", &choice);
+    getchar();
+
+    return choice;
+}
+
 void addComputer(void)
 {
     char response = '\0';
@@ -278,15 +294,9 @@ int main(int argc, const char* argv[])
 	unsigned int opcao = 0u;
 
     do {
-	    printf (
-            "\nEscolha uma das opções:\n"
-            "\n1 - Insercão | 2 - Listagem | 3 - Alteração"
-            "\n4 - Remoção | 5 - Busca   | 0 - Sair"
-            "\nOpção\? "
-        );
-		scanf("%d", &opcao);
+	    opcao = getMainMenuChoice();
+
 		system("clear");
-		getchar();
 
     	switch ( opcao )
 		{
