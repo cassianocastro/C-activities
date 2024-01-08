@@ -108,44 +108,28 @@ void addComputer(void)
 	puts("\nInserção realizada.");
 }
 
-void deleteComputer(void)
+void showComputers(void)
 {
-	bool found = false;
-	byte id = 0;
-
-	printf("Informe o ID do PC: ");
-    scanf("%hhu", &id);
-
-	id--;
-    Computer* tmp = (Computer*) calloc((numero - 1), sizeof(Computer));
-
-	for ( register byte i = 0, j = 0; i < numero; ++i )
+    for ( byte i = 0; i < numero; i++ )
 	{
-		if ( i != id )
-        {
-			strcpy(tmp[j].mark,      inventary[i].mark);
-			strcpy(tmp[j].model,     inventary[i].model);
-			strcpy(tmp[j].processor, inventary[i].processor);
-			tmp[j].storageType = inventary[i].storageType;
-			tmp[j].storage     = inventary[i].storage;
-			tmp[j].memory      = inventary[i].memory;
-
-            ++j;
-		}
-        else
-            found = true;
+        printf(
+            "\nComputador nº %hhu:"
+            "\nMarca..............................: %s"
+            "\nModelo.............................: %s"
+            "\nTipo de HD.........................: %c"
+            "\nCapac. de Armazenamento............: %d GB"
+            "\nMemória............................: %d GB"
+            "\nProcessador........................: %s"
+            "\n------------",
+            ( i + 1 ),
+            inventary[i].mark,
+            inventary[i].model,
+            inventary[i].storageType,
+            inventary[i].storage,
+            inventary[i].memory,
+            inventary[i].processor
+        );
 	}
-
-    if ( found )
-    {
-		free(inventary);
-		inventary = tmp;
-		numero--;
-
-		puts("\nRemoção realizada.");
-	}
-    else
-        puts("\nCadastro não encontrado!");
 }
 
 /**
@@ -208,28 +192,44 @@ void updateComputer(void)
 	puts("\nAlteração realizada com sucesso.");
 }
 
-void showComputers(void)
+void deleteComputer(void)
 {
-    for ( byte i = 0; i < numero; i++ )
+	bool found = false;
+	byte id = 0;
+
+	printf("Informe o ID do PC: ");
+    scanf("%hhu", &id);
+
+	id--;
+    Computer* tmp = (Computer*) calloc((numero - 1), sizeof(Computer));
+
+	for ( register byte i = 0, j = 0; i < numero; ++i )
 	{
-        printf(
-            "\nComputador nº %hhu:"
-            "\nMarca..............................: %s"
-            "\nModelo.............................: %s"
-            "\nTipo de HD.........................: %c"
-            "\nCapac. de Armazenamento............: %d GB"
-            "\nMemória............................: %d GB"
-            "\nProcessador........................: %s"
-            "\n------------",
-            ( i + 1 ),
-            inventary[i].mark,
-            inventary[i].model,
-            inventary[i].storageType,
-            inventary[i].storage,
-            inventary[i].memory,
-            inventary[i].processor
-        );
+		if ( i != id )
+        {
+			strcpy(tmp[j].mark,      inventary[i].mark);
+			strcpy(tmp[j].model,     inventary[i].model);
+			strcpy(tmp[j].processor, inventary[i].processor);
+			tmp[j].storageType = inventary[i].storageType;
+			tmp[j].storage     = inventary[i].storage;
+			tmp[j].memory      = inventary[i].memory;
+
+            ++j;
+		}
+        else
+            found = true;
 	}
+
+    if ( found )
+    {
+		free(inventary);
+		inventary = tmp;
+		numero--;
+
+		puts("\nRemoção realizada.");
+	}
+    else
+        puts("\nCadastro não encontrado!");
 }
 
 void searchComputer(void)
