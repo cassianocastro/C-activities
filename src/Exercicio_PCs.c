@@ -248,7 +248,7 @@ void searchComputer(void)
 
 	    found = false;
 
-		for ( byte i = 0; i < numero; i++ )
+		for ( register byte i = 0; i < numero; ++i )
 		{
 			if ( strcmp(model, inventary[i].model) == 0 )
             {
