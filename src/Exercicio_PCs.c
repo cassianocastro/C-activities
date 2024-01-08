@@ -239,34 +239,33 @@ void deleteComputer(void)
 
 void searchComputer(void)
 {
-	char resposta = '\0', modelo[TAM_STRING];
-    bool was_found = false;
+	char response = '\0', model[TAM_STRING];
+    bool found = false;
 
-    do
-	{
+    do {
     	printf("\nInforme o modelo do computador: ");
-        gets(modelo);
+        gets(model);
 
-	    was_found = false;
+	    found = false;
 
 		for ( byte i = 0; i < numero; i++ )
 		{
-			if ( strcmp(modelo, inventary[i].model) == 0 )
+			if ( strcmp(model, inventary[i].model) == 0 )
             {
                 printComputerInfo(i + 1, &inventary[i]);
 
-				was_found = true;
+				found = true;
 			}
 		}
 
-		if ( not was_found )
+		if ( not found )
         {
             puts("\nCadastro não encontrado!");
         }
 
 		printf("\nDeseja realizar novamente [s/n]\? ");
-		scanf(" %c", &resposta);
-	} while ( tolower(resposta) == 's' );
+		scanf(" %c", &response);
+	} while ( tolower(response) == 's' );
 }
 
 /**
