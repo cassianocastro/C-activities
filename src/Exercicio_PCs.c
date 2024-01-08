@@ -92,7 +92,7 @@ void insercao(void)
 
         inventario = calloc(numero, sizeof(Computador));
 
-		for ( byte i = 0; i < numero; i++ )
+		for ( register byte i = 0; i < numero; ++i )
         {
             dados(i);
         }
