@@ -21,12 +21,12 @@ struct Dado
 
 typedef enum
 {
-	SAIR,
-    INSERCAO,
-    REMOCAO,
-    ALTERACAO,
-    LISTAGEM,
-    BUSCA
+	EXIT,
+    CREATE,
+    READ,
+    UPDATE,
+    DELETE,
+    SEARCH
 }
 Opcoes;
 
@@ -293,8 +293,8 @@ int main(int argc, const char* argv[])
     do {
 	    printf (
             "\nEscolha uma das opções:\n"
-            "\n1 - Insercão | 2 - Remoção | 3 - Alteração"
-            "\n4 - Listagem | 5 - Busca   | 0 - Sair"
+            "\n1 - Insercão | 2 - Listagem | 3 - Alteração"
+            "\n4 - Remoção | 5 - Busca   | 0 - Sair"
             "\nOpção\? "
         );
 		scanf("%d", &opcao);
@@ -303,28 +303,28 @@ int main(int argc, const char* argv[])
 
     	switch ( opcao )
 		{
-	    	case INSERCAO:
+	    	case CREATE:
 	    		insercao();
 	    		break;
-			case REMOCAO:
-				remocao();
-				break;
-			case ALTERACAO:
-				alteracao();
-				break;
-			case LISTAGEM:
+			case READ:
 				listagem();
 				break;
-	    	case BUSCA:
+			case UPDATE:
+				alteracao();
+				break;
+			case DELETE:
+				remocao();
+				break;
+	    	case SEARCH:
 	    		busca();
 	    		break;
-			case SAIR:
+			case EXIT:
 				puts("\nFIM.");
 				break;
 	    	default:
 	    		puts("Opção inválida!");
 		}
-	} while ( opcao not_eq SAIR );
+	} while ( opcao not_eq EXIT );
 
     free(inventario);
 
