@@ -110,7 +110,6 @@ void insercao(void)
 
 void remocao(void)
 {
-	Computer* novo_inventario;
 	bool was_found = false;
 	byte id = 0;
 
@@ -118,18 +117,18 @@ void remocao(void)
     scanf("%hhu", &id);
 
 	id--;
-	novo_inventario = (Computer*) calloc((numero - 1), sizeof(Computer));
+    Computer* tmp = (Computer*) calloc((numero - 1), sizeof(Computer));
 
 	for ( byte i = 0, j = 0; i < numero; i++ )
 	{
 		if ( i != id )
         {
-			strcpy(novo_inventario[j].mark,      inventary[i].mark);
-			strcpy(novo_inventario[j].model,     inventary[i].model);
-			strcpy(novo_inventario[j].processor, inventary[i].processor);
-			novo_inventario[j].storageType = inventary[i].storageType;
-			novo_inventario[j].storage     = inventary[i].storage;
-			novo_inventario[j].memory      = inventary[i].memory;
+			strcpy(tmp[j].mark,      inventary[i].mark);
+			strcpy(tmp[j].model,     inventary[i].model);
+			strcpy(tmp[j].processor, inventary[i].processor);
+			tmp[j].storageType = inventary[i].storageType;
+			tmp[j].storage     = inventary[i].storage;
+			tmp[j].memory      = inventary[i].memory;
 			j++;
 		}
         else
@@ -139,7 +138,7 @@ void remocao(void)
     if ( was_found )
     {
 		free(inventary);
-		inventary = novo_inventario;
+		inventary = tmp;
 		numero --;
 
 		puts("\nRemoção realizada.");
