@@ -45,7 +45,7 @@ typedef struct Dado Computador;
 
 typedef unsigned char byte;
 
-Computador* inventario;
+Computador* inventary;
 
 unsigned short numero;
 
@@ -55,26 +55,26 @@ void dados(byte i)
 	getchar();
 
     printf("Marca....................: ");
-    gets(inventario[i].mark);
+    gets(inventary[i].mark);
 
 	printf("Modelo...................: ");
-    gets(inventario[i].model);
+    gets(inventary[i].model);
 
 	printf("Processador..............: ");
-    gets(inventario[i].processor);
+    gets(inventary[i].processor);
 
     printf("Armazenamento (em GB)....: ");
-    scanf("%d", &inventario[i].storage);
+    scanf("%d", &inventary[i].storage);
 
 	printf("Memória (em GB)..........: ");
-    scanf("%d", &inventario[i].memory);
+    scanf("%d", &inventary[i].memory);
 
 	do {
 		printf("\nTipo de HD...[s/c]\? ");
-        scanf(" %c", &inventario[i].storageType);
+        scanf(" %c", &inventary[i].storageType);
 	} while (
-        inventario[i].storageType != 's' and
-        inventario[i].storageType != 'c'
+        inventary[i].storageType != 's' and
+        inventary[i].storageType != 'c'
     );
 }
 
@@ -90,7 +90,7 @@ void insercao(void)
 		printf("Informe o nº de PC\'s a serem cadastrados: ");
         scanf("%hu", &numero);
 
-        inventario = calloc(numero, sizeof(Computador));
+        inventary = calloc(numero, sizeof(Computador));
 
 		for ( register byte i = 0; i < numero; ++i )
         {
@@ -101,7 +101,7 @@ void insercao(void)
     {
 		puts("\nInserindo novo computador...");
 
-	    inventario = realloc(inventario, ++numero * sizeof(Computador));
+	    inventary = realloc(inventary, ++numero * sizeof(Computador));
 
         dados(numero - 1);
 	}
@@ -125,12 +125,12 @@ void remocao(void)
 	{
 		if ( i != id )
         {
-			strcpy(novo_inventario[j].mark,      inventario[i].mark);
-			strcpy(novo_inventario[j].model,     inventario[i].model);
-			strcpy(novo_inventario[j].processor, inventario[i].processor);
-			novo_inventario[j].storageType = inventario[i].storageType;
-			novo_inventario[j].storage     = inventario[i].storage;
-			novo_inventario[j].memory      = inventario[i].memory;
+			strcpy(novo_inventario[j].mark,      inventary[i].mark);
+			strcpy(novo_inventario[j].model,     inventary[i].model);
+			strcpy(novo_inventario[j].processor, inventary[i].processor);
+			novo_inventario[j].storageType = inventary[i].storageType;
+			novo_inventario[j].storage     = inventary[i].storage;
+			novo_inventario[j].memory      = inventary[i].memory;
 			j++;
 		}
         else
@@ -139,8 +139,8 @@ void remocao(void)
 
     if ( was_found )
     {
-		free(inventario);
-		inventario = novo_inventario;
+		free(inventary);
+		inventary = novo_inventario;
 		numero --;
 
 		puts("\nRemoção realizada.");
@@ -175,32 +175,32 @@ void alteracao(void)
 	{
 		case MARK:
 			printf("Nova marca: ");
-			gets(inventario[index].mark);
+			gets(inventary[index].mark);
 			break;
 		case STORAGE_TYPE:
 			do {
 				printf("\nTipo de HD...[s/c]\? ");
-				scanf(" %c", &inventario[index].storageType);
+				scanf(" %c", &inventary[index].storageType);
 			} while (
-                inventario[index].storageType != 's' and
-                inventario[index].storageType != 'c'
+                inventary[index].storageType != 's' and
+                inventary[index].storageType != 'c'
             );
 			break;
 		case STORAGE:
 			printf("Nova capac. de armazenamento: ");
-			scanf("%d", &inventario[index].storage);
+			scanf("%d", &inventary[index].storage);
 			break;
 		case MEMORY:
 			printf("Novo tamanho de memória: ");
-			scanf("%d", &inventario[index].memory);
+			scanf("%d", &inventary[index].memory);
 			break;
 		case MODEL:
 			printf("Novo Modelo: ");
-			gets(inventario[index].model);
+			gets(inventary[index].model);
 			break;
 		case PROCESSOR:
 			printf("Novo Processador: ");
-			gets(inventario[index].processor);
+			gets(inventary[index].processor);
 			break;
 		default:
 			puts("\nOpção inválida!");
@@ -223,12 +223,12 @@ void listagem(void)
             "\nProcessador........................: %s"
             "\n------------",
             ( i + 1 ),
-            inventario[i].mark,
-            inventario[i].model,
-            inventario[i].storageType,
-            inventario[i].storage,
-            inventario[i].memory,
-            inventario[i].processor
+            inventary[i].mark,
+            inventary[i].model,
+            inventary[i].storageType,
+            inventary[i].storage,
+            inventary[i].memory,
+            inventary[i].processor
         );
 	}
 }
@@ -247,7 +247,7 @@ void busca(void)
 
 		for ( byte i = 0; i < numero; i++ )
 		{
-			if ( strcmp(modelo, inventario[i].model) == 0 )
+			if ( strcmp(modelo, inventary[i].model) == 0 )
             {
                 printf(
 			        "\nComputador nº %hhu:"
@@ -259,12 +259,12 @@ void busca(void)
                     "\nProcessador........................: %s"
                     "\n------------",
                     ( i + 1 ),
-                    inventario[i].mark,
-                    inventario[i].model,
-                    inventario[i].storageType,
-                    inventario[i].storage,
-                    inventario[i].memory,
-                    inventario[i].processor
+                    inventary[i].mark,
+                    inventary[i].model,
+                    inventary[i].storageType,
+                    inventary[i].storage,
+                    inventary[i].memory,
+                    inventary[i].processor
                 );
 
 				was_found = true;
@@ -326,7 +326,7 @@ int main(int argc, const char* argv[])
 		}
 	} while ( opcao not_eq EXIT );
 
-    free(inventario);
+    free(inventary);
 
 	return EXIT_SUCCESS;
 }
