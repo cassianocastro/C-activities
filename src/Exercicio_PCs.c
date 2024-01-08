@@ -296,14 +296,14 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-	unsigned int opcao = 0u;
+	unsigned int option = 0u;
 
     do {
-	    opcao = getMainMenuChoice();
+	    option = getMainMenuChoice();
 
 		system("clear");
 
-    	switch ( opcao )
+    	switch ( option )
 		{
 	    	case CREATE:
 	    		addComputer();
@@ -326,7 +326,7 @@ int main(int argc, const char* argv[])
 	    	default:
 	    		puts("Opção inválida!");
 		}
-	} while ( opcao not_eq EXIT );
+	} while ( option not_eq EXIT );
 
     free(inventary);
 
