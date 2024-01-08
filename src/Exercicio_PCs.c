@@ -89,7 +89,7 @@ void insercao(void)
 		printf("Informe o nº de PC\'s a serem cadastrados: ");
         scanf("%hu", &numero);
 
-        inventary = calloc(numero, sizeof(Computer));
+        inventary = (Computer*) calloc(numero, sizeof(Computer));
 
 		for ( register byte i = 0; i < numero; ++i )
         {
@@ -100,7 +100,7 @@ void insercao(void)
     {
 		puts("\nInserindo novo computador...");
 
-	    inventary = realloc(inventary, ++numero * sizeof(Computer));
+	    inventary = (Computer*) realloc(inventary, ++numero * sizeof(Computer));
 
         dados(numero - 1);
 	}
@@ -118,7 +118,7 @@ void remocao(void)
     scanf("%hhu", &id);
 
 	id--;
-	novo_inventario = calloc((numero - 1), sizeof(Computer));
+	novo_inventario = (Computer*) calloc((numero - 1), sizeof(Computer));
 
 	for ( byte i = 0, j = 0; i < numero; i++ )
 	{
