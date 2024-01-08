@@ -234,14 +234,16 @@ void deleteComputer(void)
 
 	for ( register byte i = 0, j = 0; i < numero; ++i )
 	{
-		if ( i != id )
+		if ( i == id )
         {
-            tmp[j] = inventary[i];
-
-            ++j;
-		}
-        else
             found = true;
+
+            continue;
+		}
+
+        tmp[j] = inventary[i];
+
+        ++j;
 	}
 
     if ( found )
