@@ -79,7 +79,7 @@ void preenchimento_dados(Byte pos)
 	scanf("%d", &inventario[pos].memoria);
 }
 
-void insercao(void)
+void addComputer(void)
 {
 	char resposta = '\0';
 
@@ -113,7 +113,7 @@ void insercao(void)
 	puts("\nInserção realizada.");
 }
 
-void remocao(void)
+void deleteComputer(void)
 {
 	Byte index = 0, pos = 0, pos2 = 0;
 	Computador* new_inventario;
@@ -155,7 +155,7 @@ void remocao(void)
 		puts("\nCadastro não encontrado!");
 }
 
-void alteracao(void)
+void updateComputer(void)
 {
 	unsigned int tipo = 0u;
     Byte index = 0;
@@ -217,7 +217,7 @@ void alteracao(void)
 	puts("\nAlteração realizada.");
 }
 
-void listagem(void)
+void showComputers(void)
 {
 	register Byte pos = 0;
 
@@ -242,7 +242,7 @@ void listagem(void)
 	}
 }
 
-void busca(void)
+void searchComputer(void)
 {
 	char resposta = '\0', modelo[MAX_SIZE_STR];
 	bool was_found = false;
@@ -325,19 +325,19 @@ int main(int argc, const char* argv[])
     	switch ( option )
         {
 	    	case CREATE:
-	    		insercao();
+	    		addComputer();
 	    		break;
 			case READ:
-				listagem();
+				showComputers();
 				break;
 			case UPDATE:
-				alteracao();
+				updateComputer();
 				break;
 			case DELETE:
-				remocao();
+				deleteComputer();
 				break;
 	    	case SEARCH:
-	    		busca();
+	    		searchComputer();
 	    		break;
 	    	default:
 	    		free(inventario);
