@@ -85,6 +85,11 @@ void preenchimento_dados(Byte);
 /**
  *
  */
+void printComputerInfo(Byte, const Computador* const);
+
+/**
+ *
+ */
 const unsigned int getMainMenuChoice(void);
 
 #endif
