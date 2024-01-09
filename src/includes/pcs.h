@@ -39,12 +39,12 @@ Opcoes;
 
 typedef enum
 {
-	MARCA = 1,
-	TIPO_HD,
-	HD,
-	MEMORIA,
-	MODELO,
-	PROCESSADOR
+	MARK = 1,
+	STORAGE_TYPE,
+	STORAGE,
+	MEMORY,
+	MODEL,
+	PROCESSOR
 }
 Dados;
 
