@@ -137,39 +137,39 @@ void updateComputer(void)
 
 void deleteComputer(void)
 {
-	Byte index = 0, pos = 0, pos2 = 0;
-	Computador* new_inventario;
-    bool was_found = false;
+    bool found = false;
+	Byte index = 0;
 
 	printf("Informe o ID do computador: ");
 	scanf("%hhu", &index);
 
 	index--;
-	new_inventario = calloc((num - 1), sizeof(Computador));
 
-	for ( pos = 0; pos < num; pos++ )
+	Computador* tmp = calloc((num - 1), sizeof(Computador));
+
+	for ( register Byte i = 0, j = 0; i < num; ++i )
     {
-		if ( pos == index )
+		if ( i == index )
         {
-			was_found = true;
+			found = true;
 
 			continue;
 		}
 
-		strcpy(new_inventario[pos2].mark,      inventario[pos].mark);
-		strcpy(new_inventario[pos2].model,     inventario[pos].model);
-		strcpy(new_inventario[pos2].processor, inventario[pos].processor);
-		new_inventario[pos2].storageType = inventario[pos].storageType;
-		new_inventario[pos2].storage     = inventario[pos].storage;
-		new_inventario[pos2].memory      = inventario[pos].memory;
+		strcpy(tmp[j].mark,      inventario[i].mark);
+		strcpy(tmp[j].model,     inventario[i].model);
+		strcpy(tmp[j].processor, inventario[i].processor);
+		tmp[j].storageType = inventario[i].storageType;
+		tmp[j].storage     = inventario[i].storage;
+		tmp[j].memory      = inventario[i].memory;
 
-        pos2++;
+        ++j;
 	}
 
-	if ( was_found )
+	if ( found )
     {
 		free(inventario);
-		inventario = new_inventario;
+		inventario = tmp;
 		num --;
 		puts("\nRemoção realizada.");
 	}
