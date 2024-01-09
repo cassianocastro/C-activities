@@ -79,22 +79,7 @@ void showComputers(void)
 {
     for ( register Byte i = 0; i < num; ++i )
     {
-		printf(
-            "\nComputador nº %hhu:\n"
-			"Marca..............................: %s"
-			"Modelo.............................: %s"
-			"Tipo de HD.........................: %c\n"
-			"Capac. de Armazenamento............: %d GB\n"
-			"Memória............................: %d GB\n"
-			"Processador........................: %s",
-			(i + 1),
-			inventario[i].mark,
-			inventario[i].model,
-			inventario[i].storageType,
-			inventario[i].storage,
-			inventario[i].memory,
-			inventario[i].processor
-        );
+		printComputerInfo(i, &inventario[i]);
 	}
 }
 
@@ -281,6 +266,26 @@ void preenchimento_dados(Byte pos)
 
 	printf("Tamanho da Memória (em GB).........: ");
 	scanf("%d", &inventario[pos].memory);
+}
+
+void printComputerInfo(Byte i, const Computador* const computer)
+{
+    printf(
+        "\nComputador nº %hhu:\n"
+        "Marca....................: %s"
+        "Modelo...................: %s"
+        "Tipo de HD...............: %c\n"
+        "Capac. de Armazenamento..: %d GB\n"
+        "Memória..................: %d GB\n"
+        "Processador..............: %s",
+        (i + 1),
+        computer->mark,
+        computer->model,
+        computer->storageType,
+        computer->storage,
+        computer->memory,
+        computer->processor
+    );
 }
 
 const unsigned int getMainMenuChoice(void)
