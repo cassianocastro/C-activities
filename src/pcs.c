@@ -25,11 +25,11 @@ Computador;
 
 typedef enum
 {
-	INSERCAO = 1,
-	REMOCAO,
-	ALTERACAO,
-	LISTAGEM,
-	BUSCA
+	CREATE = 1,
+	READ,
+	UPDATE,
+	DELETE,
+	SEARCH
 }
 Opcoes;
 
@@ -305,8 +305,8 @@ int main(int argc, const char* argv[])
     {
 	    printf(
             "\nEscolha uma das opções abaixo:"
-			"\n1. Insercão | 2. Remoção | 3. Alteração"
-			"\n4. Listagem | 5. Busca   | 6. Sair"
+			"\n1. Insercão | 2. Listagem | 3. Alteração"
+			"\n4. Remoção  | 5. Busca    | 6. Sair"
 			"\nOpção\? "
         );
 		scanf("%d", &opcao);
@@ -314,19 +314,19 @@ int main(int argc, const char* argv[])
 
     	switch ( opcao )
         {
-	    	case INSERCAO:
+	    	case CREATE:
 	    		insercao();
 	    		break;
-			case REMOCAO:
-				remocao();
-				break;
-			case ALTERACAO:
-				alteracao();
-				break;
-			case LISTAGEM:
+			case READ:
 				listagem();
 				break;
-	    	case BUSCA:
+			case UPDATE:
+				alteracao();
+				break;
+			case DELETE:
+				remocao();
+				break;
+	    	case SEARCH:
 	    		busca();
 	    		break;
 	    	default:
