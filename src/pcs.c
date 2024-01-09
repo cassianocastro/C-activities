@@ -90,12 +90,12 @@ void showComputers(void)
 			"Memória............................: %d GB\n"
 			"Processador........................: %s",
 			(pos + 1),
-			inventario[pos].marca,
-			inventario[pos].modelo,
-			inventario[pos].tipohd,
-			inventario[pos].hd,
-			inventario[pos].memoria,
-			inventario[pos].processador
+			inventario[pos].mark,
+			inventario[pos].model,
+			inventario[pos].storageType,
+			inventario[pos].storage,
+			inventario[pos].memory,
+			inventario[pos].processor
         );
 	}
 }
@@ -123,7 +123,7 @@ void updateComputer(void)
     {
 		case MARK:
 			printf("Nova marca: ");
-			fgets(inventario[index].marca, MAX_SIZE_STR, stdin);
+			fgets(inventario[index].mark, MAX_SIZE_STR, stdin);
 			break;
 		case STORAGE_TYPE:
 			do {
@@ -131,29 +131,29 @@ void updateComputer(void)
                     "Tipo de Disco Rígido..."
 					"\nDigite \"s\" para SSD ou \"c\" para convencional: "
                 );
-				scanf(" %c", &inventario[index].tipohd);
+				scanf(" %c", &inventario[index].storageType);
 
-                inventario[index].tipohd = tolower(inventario[index].tipohd);
+                inventario[index].storageType = tolower(inventario[index].storageType);
 			} while (
-                inventario[index].tipohd not_eq 's' and
-                inventario[index].tipohd not_eq 'c'
+                inventario[index].storageType not_eq 's' and
+                inventario[index].storageType not_eq 'c'
             );
 			break;
 		case STORAGE:
 			printf("Nova capacidade de armazenamento: ");
-			scanf("%d", &inventario[index].hd);
+			scanf("%d", &inventario[index].storage);
 			break;
 		case MEMORY:
 			printf("Novo tamanho de memória: ");
-			scanf("%d", &inventario[index].memoria);
+			scanf("%d", &inventario[index].memory);
 			break;
 		case MODEL:
 			printf("Novo Modelo: ");
-			fgets(inventario[index].modelo, MAX_SIZE_STR, stdin);
+			fgets(inventario[index].model, MAX_SIZE_STR, stdin);
 			break;
 		case PROCESSOR:
 			printf("Novo Processador: ");
-			fgets(inventario[index].processador, MAX_SIZE_STR, stdin);
+			fgets(inventario[index].processor, MAX_SIZE_STR, stdin);
 			break;
 		default:
 			puts("\nOpção inválida!");
@@ -183,12 +183,12 @@ void deleteComputer(void)
 			continue;
 		}
 
-		strcpy(new_inventario[pos2].marca,       inventario[pos].marca);
-		strcpy(new_inventario[pos2].modelo,      inventario[pos].modelo);
-		strcpy(new_inventario[pos2].processador, inventario[pos].processador);
-		new_inventario[pos2].tipohd    		=    inventario[pos].tipohd;
-		new_inventario[pos2].hd  			=    inventario[pos].hd;
-		new_inventario[pos2].memoria  		=    inventario[pos].memoria;
+		strcpy(new_inventario[pos2].mark,      inventario[pos].mark);
+		strcpy(new_inventario[pos2].model,     inventario[pos].model);
+		strcpy(new_inventario[pos2].processor, inventario[pos].processor);
+		new_inventario[pos2].storageType = inventario[pos].storageType;
+		new_inventario[pos2].storage     = inventario[pos].storage;
+		new_inventario[pos2].memory      = inventario[pos].memory;
 
         pos2++;
 	}
@@ -220,7 +220,7 @@ void searchComputer(void)
 
 	    for ( pos = 0; pos < num; pos++ )
         {
-			if ( strcmp(modelo, inventario[pos].modelo) != 0 ) continue;
+			if ( strcmp(modelo, inventario[pos].model) != 0 ) continue;
 
             printf(
                 "\nComputador nº %hhu:\n"
@@ -231,12 +231,12 @@ void searchComputer(void)
                 "Memória............................: %d GB\n"
                 "Processador........................: %s",
                 (pos + 1),
-                inventario[pos].marca,
-                inventario[pos].modelo,
-                inventario[pos].tipohd,
-                inventario[pos].hd,
-                inventario[pos].memoria,
-                inventario[pos].processador
+                inventario[pos].mark,
+                inventario[pos].model,
+                inventario[pos].storageType,
+                inventario[pos].storage,
+                inventario[pos].memory,
+                inventario[pos].processor
             );
 
 			was_found = true;
@@ -259,30 +259,30 @@ void preenchimento_dados(Byte pos)
 	getchar();
 
     printf("\nComputador nº %hhu\n\nMarca........: ", (pos + 1));
-	fgets(inventario[pos].marca, MAX_SIZE_STR, stdin);
+	fgets(inventario[pos].mark, MAX_SIZE_STR, stdin);
 
 	printf("Modelo.......: ");
-	fgets(inventario[pos].modelo, MAX_SIZE_STR, stdin);
+	fgets(inventario[pos].model, MAX_SIZE_STR, stdin);
 
 	printf("Processador..: ");
-	fgets(inventario[pos].processador, MAX_SIZE_STR, stdin);
+	fgets(inventario[pos].processor, MAX_SIZE_STR, stdin);
 
     do {
 		printf(
             "\nTipo de Disco Rígido..."
 			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
         );
-		scanf(" %c", &inventario[pos].tipohd);
+		scanf(" %c", &inventario[pos].storageType);
 	} while (
-        inventario[pos].tipohd not_eq 's' and
-        inventario[pos].tipohd not_eq 'c'
+        inventario[pos].storageType not_eq 's' and
+        inventario[pos].storageType not_eq 'c'
     );
 
     printf("\nCapacidade de Armazenamento (em GB): ");
-	scanf("%d", &inventario[pos].hd);
+	scanf("%d", &inventario[pos].storage);
 
 	printf("Tamanho da Memória (em GB).........: ");
-	scanf("%d", &inventario[pos].memoria);
+	scanf("%d", &inventario[pos].memory);
 }
 
 const unsigned int getMainMenuChoice(void)
