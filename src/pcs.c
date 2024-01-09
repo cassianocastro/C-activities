@@ -171,37 +171,35 @@ void deleteComputer(void)
 
 void searchComputer(void)
 {
-	char resposta = '\0', modelo[MAX_SIZE_STR];
-	bool was_found = false;
-    register byte pos = 0;
+	char response = '\0', model[MAX_SIZE_STR];
+	bool found = false;
 
 	getchar();
 
     do {
     	printf("\nInforme o modelo do computador: ");
-	    fgets(modelo, MAX_SIZE_STR, stdin);
+	    fgets(model, MAX_SIZE_STR, stdin);
 
-	    was_found = false;
+	    found = false;
 
-	    for ( pos = 0; pos < num; pos++ )
+	    for ( register byte i = 0; i < num; ++i )
         {
-			if ( strcmp(modelo, inventary[pos].model) != 0 ) continue;
+			if ( strcmp(model, inventary[i].model) != 0 ) continue;
 
-            printComputerInfo(pos, &inventary[pos]);
+            printComputerInfo(i, &inventary[i]);
 
-			was_found = true;
+			found = true;
 		}
 
-		if ( not was_found )
+		if ( not found )
         {
             puts("\nCadastro não encontrado!");
         }
 
         printf("\nDeseja realizar novamente [s/n]\? ");
-		scanf(" %c", &resposta);
+		scanf(" %c", &response);
 
-		resposta = tolower(resposta);
-	} while ( resposta == 's' );
+	} while ( tolower(response) == 's' );
 }
 
 const byte getComputerID(void)
