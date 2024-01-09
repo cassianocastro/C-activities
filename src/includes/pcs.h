@@ -92,4 +92,9 @@ void printComputerInfo(Byte, const Computador* const);
  */
 const unsigned int getMainMenuChoice(void);
 
+/**
+ *
+ */
+const unsigned int getUpdateMenuChoice(void);
+
 #endif
