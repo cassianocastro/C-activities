@@ -84,7 +84,7 @@ void showComputers(void)
 
 void updateComputer(void)
 {
-    byte index = getComputerID();
+    byte id = getComputerID();
 
 	unsigned int tipo = getUpdateMenuChoice();
 
@@ -92,7 +92,7 @@ void updateComputer(void)
     {
 		case MARK:
 			printf("Nova marca: ");
-			fgets(inventary[index].mark, MAX_SIZE_STR, stdin);
+			fgets(inventary[id].mark, MAX_SIZE_STR, stdin);
 			break;
 		case STORAGE_TYPE:
 			do {
@@ -100,29 +100,29 @@ void updateComputer(void)
                     "Tipo de Disco Rígido..."
 					"\nDigite \"s\" para SSD ou \"c\" para convencional: "
                 );
-				scanf(" %c", &inventary[index].storageType);
+				scanf(" %c", &inventary[id].storageType);
 
-                inventary[index].storageType = tolower(inventary[index].storageType);
+                inventary[id].storageType = tolower(inventary[id].storageType);
 			} while (
-                inventary[index].storageType not_eq 's' and
-                inventary[index].storageType not_eq 'c'
+                inventary[id].storageType not_eq 's' and
+                inventary[id].storageType not_eq 'c'
             );
 			break;
 		case STORAGE:
 			printf("Nova capacidade de armazenamento: ");
-			scanf("%d", &inventary[index].storage);
+			scanf("%d", &inventary[id].storage);
 			break;
 		case MEMORY:
 			printf("Novo tamanho de memória: ");
-			scanf("%d", &inventary[index].memory);
+			scanf("%d", &inventary[id].memory);
 			break;
 		case MODEL:
 			printf("Novo Modelo: ");
-			fgets(inventary[index].model, MAX_SIZE_STR, stdin);
+			fgets(inventary[id].model, MAX_SIZE_STR, stdin);
 			break;
 		case PROCESSOR:
 			printf("Novo Processador: ");
-			fgets(inventary[index].processor, MAX_SIZE_STR, stdin);
+			fgets(inventary[id].processor, MAX_SIZE_STR, stdin);
 			break;
 		default:
 			puts("\nOpção inválida!");
