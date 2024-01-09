@@ -299,7 +299,7 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-	Opcoes opcao;
+	unsigned int opcao = 0u;
 
     while ( true )
     {
