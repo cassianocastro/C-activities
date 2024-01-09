@@ -13,7 +13,7 @@
 
 #define MAX_SIZE_STR 30
 
-typedef unsigned char Byte;
+typedef unsigned char byte;
 
 typedef struct
 {
@@ -80,12 +80,12 @@ void searchComputer(void);
 /**
  *
  */
-void preenchimento_dados(Byte);
+void preenchimento_dados(byte);
 
 /**
  *
  */
-void printComputerInfo(Byte, const Computador* const);
+void printComputerInfo(byte, const Computador* const);
 
 /**
  *
@@ -100,6 +100,6 @@ const unsigned int getUpdateMenuChoice(void);
 /**
  *
  */
-const Byte getComputerID(void);
+const byte getComputerID(void);
 
 #endif
