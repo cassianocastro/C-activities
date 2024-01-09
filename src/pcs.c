@@ -205,22 +205,7 @@ void searchComputer(void)
         {
 			if ( strcmp(modelo, inventario[pos].model) != 0 ) continue;
 
-            printf(
-                "\nComputador nº %hhu:\n"
-                "Marca..............................: %s"
-                "Modelo.............................: %s"
-                "Tipo de HD.........................: %c\n"
-                "Capac. de Armazenamento............: %d GB\n"
-                "Memória............................: %d GB\n"
-                "Processador........................: %s",
-                (pos + 1),
-                inventario[pos].mark,
-                inventario[pos].model,
-                inventario[pos].storageType,
-                inventario[pos].storage,
-                inventario[pos].memory,
-                inventario[pos].processor
-            );
+            printComputerInfo(pos, &inventario[pos]);
 
 			was_found = true;
 		}
