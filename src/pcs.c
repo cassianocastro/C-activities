@@ -85,22 +85,14 @@ void showComputers(void)
 
 void updateComputer(void)
 {
-	unsigned int tipo = 0u;
     Byte index = 0;
 
 	printf("\nInforme o ID do computador: ");
 	scanf("%hhu", &index);
 
-	index--;
+    index--;
 
-	printf(
-        "\nSelecione o tipo de dado:\n"
-		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
-		"\n4. Memória | 5. Modelo 	  | 6. Processador"
-		"\nOpção\? "
-    );
-	scanf("%d", &tipo);
-	getchar();
+	unsigned int tipo = getUpdateMenuChoice();
 
 	switch ( tipo )
     {
@@ -284,6 +276,22 @@ const unsigned int getMainMenuChoice(void)
         "\nOpção\? "
     );
     scanf("%d", &choice);
+
+    return choice;
+}
+
+const unsigned int getUpdateMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nSelecione o tipo de dado:\n"
+		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
+		"\n4. Memória | 5. Modelo 	  | 6. Processador"
+		"\nOpção\? "
+    );
+    scanf("%d", &choice);
+    getchar();
 
     return choice;
 }
