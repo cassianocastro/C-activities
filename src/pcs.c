@@ -54,7 +54,7 @@ void addComputer(void)
     {
 		puts("\nInserindo novo computador...");
 	    num++;
-	    inventary = realloc(inventary, num * sizeof(Computador));
+	    inventary = realloc(inventary, num * sizeof(Computer));
 	    preenchimento_dados(num - 1);
 	}
     else
@@ -62,7 +62,7 @@ void addComputer(void)
 		printf("Informe o nº de computadores a serem cadastrados: ");
     	scanf("%hu", &num);
 
-	    inventary = calloc(num, sizeof(Computador));
+	    inventary = calloc(num, sizeof(Computer));
 
     	for ( register byte i = 0; i < num; ++i )
         {
@@ -135,7 +135,7 @@ void deleteComputer(void)
     bool found = false;
 	byte index = getComputerID();
 
-	Computador* tmp = calloc((num - 1), sizeof(Computador));
+	Computer* tmp = calloc((num - 1), sizeof(Computer));
 
 	for ( register byte i = 0, j = 0; i < num; ++i )
     {
@@ -243,7 +243,7 @@ void preenchimento_dados(byte pos)
 	scanf("%d", &inventary[pos].memory);
 }
 
-void printComputerInfo(byte i, const Computador* const computer)
+void printComputerInfo(byte i, const Computer* const computer)
 {
     printf(
         "\nComputador nº %hhu:\n"
