@@ -216,9 +216,10 @@ const byte getComputerID(void)
 
 void showComputerForm(byte pos)
 {
+    printf("\nComputador nº %hhu\n\n", (pos + 1));
 	getchar();
 
-    printf("\nComputador nº %hhu\n\nMarca........: ", (pos + 1));
+    printf("Marca........: ");
 	fgets(inventary[pos].mark, MAX_SIZE_STR, stdin);
 
 	printf("Modelo.......: ");
