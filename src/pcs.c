@@ -48,17 +48,9 @@ void addComputer(void)
 	printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
     scanf(" %c", &response);
 
-	if ( tolower(response) == 'n' )
+	if ( tolower(response) == 's' )
     {
-		puts("\nInserindo novo computador...");
-
-	    inventary = (Computer*) realloc(inventary, ++num * sizeof(Computer));
-
-        showComputerForm(num - 1);
-	}
-    else
-    {
-		printf("Informe o nº de computadores a serem cadastrados: ");
+        printf("Informe o nº de computadores a serem cadastrados: ");
     	scanf("%hu", &num);
 
 	    inventary = (Computer*) calloc(num, sizeof(Computer));
@@ -67,6 +59,14 @@ void addComputer(void)
         {
             showComputerForm(i);
         }
+    }
+    else
+    {
+		puts("\nInserindo novo computador...");
+
+	    inventary = (Computer*) realloc(inventary, ++num * sizeof(Computer));
+
+        showComputerForm(num - 1);
 	}
 
 	puts("\nInserção realizada.");
