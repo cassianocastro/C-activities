@@ -157,7 +157,7 @@ void remocao(void)
 
 void alteracao(void)
 {
-	Dados tipo;
+	unsigned int tipo = 0u;
     Byte index = 0;
 
 	printf("\nInforme o ID do computador: ");
