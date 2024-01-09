@@ -64,7 +64,7 @@ void addComputer(void)
 
 	    inventary = calloc(num, sizeof(Computador));
 
-    	for ( register Byte i = 0; i < num; ++i )
+    	for ( register byte i = 0; i < num; ++i )
         {
             preenchimento_dados(i);
         }
@@ -75,7 +75,7 @@ void addComputer(void)
 
 void showComputers(void)
 {
-    for ( register Byte i = 0; i < num; ++i )
+    for ( register byte i = 0; i < num; ++i )
     {
 		printComputerInfo(i, &inventary[i]);
 	}
@@ -83,7 +83,7 @@ void showComputers(void)
 
 void updateComputer(void)
 {
-    Byte index = getComputerID();
+    byte index = getComputerID();
 
 	unsigned int tipo = getUpdateMenuChoice();
 
@@ -133,11 +133,11 @@ void updateComputer(void)
 void deleteComputer(void)
 {
     bool found = false;
-	Byte index = getComputerID();
+	byte index = getComputerID();
 
 	Computador* tmp = calloc((num - 1), sizeof(Computador));
 
-	for ( register Byte i = 0, j = 0; i < num; ++i )
+	for ( register byte i = 0, j = 0; i < num; ++i )
     {
 		if ( i == index )
         {
@@ -171,7 +171,7 @@ void searchComputer(void)
 {
 	char resposta = '\0', modelo[MAX_SIZE_STR];
 	bool was_found = false;
-    register Byte pos = 0;
+    register byte pos = 0;
 
 	getchar();
 
@@ -202,9 +202,9 @@ void searchComputer(void)
 	} while ( resposta == 's' );
 }
 
-const Byte getComputerID(void)
+const byte getComputerID(void)
 {
-    Byte index = 0;
+    byte index = 0;
 
 	printf("ID do computador: ");
 	scanf("%hhu", &index);
@@ -212,7 +212,7 @@ const Byte getComputerID(void)
 	return --index;
 }
 
-void preenchimento_dados(Byte pos)
+void preenchimento_dados(byte pos)
 {
 	getchar();
 
@@ -243,7 +243,7 @@ void preenchimento_dados(Byte pos)
 	scanf("%d", &inventary[pos].memory);
 }
 
-void printComputerInfo(Byte i, const Computador* const computer)
+void printComputerInfo(byte i, const Computador* const computer)
 {
     printf(
         "\nComputador nº %hhu:\n"
