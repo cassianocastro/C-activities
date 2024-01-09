@@ -43,12 +43,12 @@ int main(int argc, const char* argv[])
 
 void addComputer(void)
 {
-	char response = '\0';
+	byte response = 0;
 
-	printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
-    scanf(" %c", &response);
+	printf("Quantos computadores deseja cadastrar\? ");
+    scanf("%hhu", &response);
 
-	if ( tolower(response) == 's' )
+	if ( response > 1 )
     {
         printf("Informe o nº de computadores a serem cadastrados: ");
     	scanf("%hu", &num);
