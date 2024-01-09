@@ -83,12 +83,7 @@ void showComputers(void)
 
 void updateComputer(void)
 {
-    Byte index = 0;
-
-	printf("\nInforme o ID do computador: ");
-	scanf("%hhu", &index);
-
-    index--;
+    Byte index = getComputerID();
 
 	unsigned int tipo = getUpdateMenuChoice();
 
@@ -138,12 +133,7 @@ void updateComputer(void)
 void deleteComputer(void)
 {
     bool found = false;
-	Byte index = 0;
-
-	printf("Informe o ID do computador: ");
-	scanf("%hhu", &index);
-
-	index--;
+	Byte index = getComputerID();
 
 	Computador* tmp = calloc((num - 1), sizeof(Computador));
 
@@ -210,6 +200,16 @@ void searchComputer(void)
 
 		resposta = tolower(resposta);
 	} while ( resposta == 's' );
+}
+
+const Byte getComputerID(void)
+{
+    Byte index = 0;
+
+	printf("ID do computador: ");
+	scanf("%hhu", &index);
+
+	return --index;
 }
 
 void preenchimento_dados(Byte pos)
