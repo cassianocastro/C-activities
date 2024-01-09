@@ -314,15 +314,15 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-	unsigned int opcao = 0u;
+	unsigned int option = 0u;
 
     while ( true )
     {
-	    opcao = getMainMenuChoice();
+	    option = getMainMenuChoice();
 
 		system("clear");
 
-    	switch ( opcao )
+    	switch ( option )
         {
 	    	case CREATE:
 	    		insercao();
