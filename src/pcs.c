@@ -43,14 +43,12 @@ int main(int argc, const char* argv[])
 
 void addComputer(void)
 {
-	char resposta = '\0';
+	char response = '\0';
 
 	printf("Olá, é a sua primeira vez com esta tela [s/n]\? ");
-    scanf(" %c", &resposta);
+    scanf(" %c", &response);
 
-    resposta = tolower(resposta);
-
-	if ( resposta == 'n' )
+	if ( tolower(response) == 'n' )
     {
 		puts("\nInserindo novo computador...");
 
