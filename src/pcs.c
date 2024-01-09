@@ -292,6 +292,21 @@ void busca(void)
 	} while ( resposta == 's' );
 }
 
+const unsigned int getMainMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha uma das opções abaixo:"
+        "\n1. Insercão | 2. Listagem | 3. Alteração"
+        "\n4. Remoção  | 5. Busca    | 6. Sair"
+        "\nOpção\? "
+    );
+    scanf("%d", &choice);
+
+    return choice;
+}
+
 /**
  *
  */
@@ -303,13 +318,8 @@ int main(int argc, const char* argv[])
 
     while ( true )
     {
-	    printf(
-            "\nEscolha uma das opções abaixo:"
-			"\n1. Insercão | 2. Listagem | 3. Alteração"
-			"\n4. Remoção  | 5. Busca    | 6. Sair"
-			"\nOpção\? "
-        );
-		scanf("%d", &opcao);
+	    opcao = getMainMenuChoice();
+
 		system("clear");
 
     	switch ( opcao )
