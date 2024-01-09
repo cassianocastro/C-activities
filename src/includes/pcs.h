@@ -35,7 +35,7 @@ typedef enum
 	DELETE,
 	SEARCH
 }
-Opcoes;
+Options;
 
 typedef enum
 {
@@ -46,7 +46,7 @@ typedef enum
 	MODEL,
 	PROCESSOR
 }
-Dados;
+Data;
 
 unsigned short int num;
 
