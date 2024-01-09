@@ -147,12 +147,7 @@ void deleteComputer(void)
 			continue;
 		}
 
-		strcpy(tmp[j].mark,      inventary[i].mark);
-		strcpy(tmp[j].model,     inventary[i].model);
-		strcpy(tmp[j].processor, inventary[i].processor);
-		tmp[j].storageType = inventary[i].storageType;
-		tmp[j].storage     = inventary[i].storage;
-		tmp[j].memory      = inventary[i].memory;
+        tmp[j] = inventary[i];
 
         ++j;
 	}
