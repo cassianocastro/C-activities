@@ -64,11 +64,9 @@ void addComputer(void)
 
 	    inventario = calloc(num, sizeof(Computador));
 
-        register Byte pos = 0;
-
-    	for ( ; pos < num; pos++ )
+    	for ( register Byte i = 0; i < num; ++i )
         {
-            preenchimento_dados(pos);
+            preenchimento_dados(i);
         }
 	}
 
