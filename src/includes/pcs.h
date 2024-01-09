@@ -97,4 +97,9 @@ const unsigned int getMainMenuChoice(void);
  */
 const unsigned int getUpdateMenuChoice(void);
 
+/**
+ *
+ */
+const Byte getComputerID(void);
+
 #endif
