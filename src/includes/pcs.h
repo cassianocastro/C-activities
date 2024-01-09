@@ -52,18 +52,39 @@ unsigned short int num;
 
 Computador* inventario;
 
+/**
+ *
+ */
 void addComputer(void);
 
+/**
+ *
+ */
 void showComputers(void);
 
+/**
+ *
+ */
 void updateComputer(void);
 
+/**
+ *
+ */
 void deleteComputer(void);
 
+/**
+ *
+ */
 void searchComputer(void);
 
+/**
+ *
+ */
 void preenchimento_dados(Byte);
 
+/**
+ *
+ */
 const unsigned int getMainMenuChoice(void);
 
 #endif
