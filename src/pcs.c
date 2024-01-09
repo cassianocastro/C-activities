@@ -304,9 +304,9 @@ int main(int argc, const char* argv[])
     while ( true )
     {
 	    printf(
-            "\nEscolha uma das opções abaixo:\n"
-			"1. Insercão | 2. Remoção | 3. Alteração"
-			"4. Listagem | 5. Busca   | Outra tecla: Sair"
+            "\nEscolha uma das opções abaixo:"
+			"\n1. Insercão | 2. Remoção | 3. Alteração"
+			"\n4. Listagem | 5. Busca   | 6. Sair"
 			"\nOpção\? "
         );
 		scanf("%d", &opcao);
