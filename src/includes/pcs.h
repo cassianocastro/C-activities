@@ -80,7 +80,7 @@ void searchComputer(void);
 /**
  *
  */
-void preenchimento_dados(byte);
+void showComputerForm(byte);
 
 /**
  *

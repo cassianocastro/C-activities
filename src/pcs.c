@@ -53,9 +53,10 @@ void addComputer(void)
 	if ( resposta == 'n' )
     {
 		puts("\nInserindo novo computador...");
-	    num++;
-	    inventary = (Computer*) realloc(inventary, num * sizeof(Computer));
-	    preenchimento_dados(num - 1);
+
+	    inventary = (Computer*) realloc(inventary, ++num * sizeof(Computer));
+
+        showComputerForm(num - 1);
 	}
     else
     {
@@ -66,7 +67,7 @@ void addComputer(void)
 
     	for ( register byte i = 0; i < num; ++i )
         {
-            preenchimento_dados(i);
+            showComputerForm(i);
         }
 	}
 
@@ -160,7 +161,8 @@ void deleteComputer(void)
     {
 		free(inventary);
 		inventary = tmp;
-		num --;
+		num--;
+
 		puts("\nRemoção realizada.");
 	}
     else
@@ -212,7 +214,7 @@ const byte getComputerID(void)
 	return --index;
 }
 
-void preenchimento_dados(byte pos)
+void showComputerForm(byte pos)
 {
 	getchar();
 
