@@ -17,13 +17,13 @@ typedef unsigned char Byte;
 
 typedef struct
 {
-    char tipohd;
-	char modelo[MAX_SIZE_STR];
-	char marca[MAX_SIZE_STR];
-	char processador[MAX_SIZE_STR];
+    char storageType;
+	char model[MAX_SIZE_STR];
+	char mark[MAX_SIZE_STR];
+	char processor[MAX_SIZE_STR];
 
-    int memoria;
-    int hd;
+    int memory;
+    int storage;
 }
 Computador;
 
