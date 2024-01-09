@@ -50,7 +50,7 @@ Dados;
 
 unsigned short int num;
 
-Computador* inventario;
+Computador* inventary;
 
 /**
  *
