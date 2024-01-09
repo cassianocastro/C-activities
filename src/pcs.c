@@ -77,9 +77,7 @@ void addComputer(void)
 
 void showComputers(void)
 {
-	register Byte pos = 0;
-
-    for ( ; pos < num; pos++ )
+    for ( register Byte i = 0; i < num; ++i )
     {
 		printf(
             "\nComputador nº %hhu:\n"
@@ -89,13 +87,13 @@ void showComputers(void)
 			"Capac. de Armazenamento............: %d GB\n"
 			"Memória............................: %d GB\n"
 			"Processador........................: %s",
-			(pos + 1),
-			inventario[pos].mark,
-			inventario[pos].model,
-			inventario[pos].storageType,
-			inventario[pos].storage,
-			inventario[pos].memory,
-			inventario[pos].processor
+			(i + 1),
+			inventario[i].mark,
+			inventario[i].model,
+			inventario[i].storageType,
+			inventario[i].storage,
+			inventario[i].memory,
+			inventario[i].processor
         );
 	}
 }
