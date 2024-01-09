@@ -25,7 +25,7 @@ typedef struct
     int memory;
     int storage;
 }
-Computador;
+Computer;
 
 typedef enum
 {
@@ -50,7 +50,7 @@ Dados;
 
 unsigned short int num;
 
-Computador* inventary;
+Computer* inventary;
 
 /**
  *
@@ -85,7 +85,7 @@ void preenchimento_dados(byte);
 /**
  *
  */
-void printComputerInfo(byte, const Computador* const);
+void printComputerInfo(byte, const Computer* const);
 
 /**
  *
