@@ -48,35 +48,59 @@ unsigned short int num;
 
 Computador* inventario;
 
-void preenchimento_dados(Byte pos)
+void addComputer(void);
+
+void showComputers(void);
+
+void updateComputer(void);
+
+void deleteComputer(void);
+
+void searchComputer(void);
+
+void preenchimento_dados(Byte);
+
+const unsigned int getMainMenuChoice(void);
+
+/**
+ *
+ */
+int main(int argc, const char* argv[])
 {
-	getchar();
+	setlocale(LC_ALL, "");
 
-    printf("\nComputador nº %hhu\n\nMarca........: ", (pos + 1));
-	fgets(inventario[pos].marca, MAX_SIZE_STR, stdin);
+	unsigned int option = 0u;
 
-	printf("Modelo.......: ");
-	fgets(inventario[pos].modelo, MAX_SIZE_STR, stdin);
+    while ( true )
+    {
+	    option = getMainMenuChoice();
 
-	printf("Processador..: ");
-	fgets(inventario[pos].processador, MAX_SIZE_STR, stdin);
+		system("clear");
 
-    do {
-		printf(
-            "\nTipo de Disco Rígido..."
-			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
-        );
-		scanf(" %c", &inventario[pos].tipohd);
-	} while (
-        inventario[pos].tipohd not_eq 's' and
-        inventario[pos].tipohd not_eq 'c'
-    );
+    	switch ( option )
+        {
+	    	case CREATE:
+	    		addComputer();
+	    		break;
+			case READ:
+				showComputers();
+				break;
+			case UPDATE:
+				updateComputer();
+				break;
+			case DELETE:
+				deleteComputer();
+				break;
+	    	case SEARCH:
+	    		searchComputer();
+	    		break;
+	    	default:
+	    		free(inventario);
+				exit(EXIT_SUCCESS);
+		}
+	}
 
-    printf("\nCapacidade de Armazenamento (em GB): ");
-	scanf("%d", &inventario[pos].hd);
-
-	printf("Tamanho da Memória (em GB).........: ");
-	scanf("%d", &inventario[pos].memoria);
+	return EXIT_SUCCESS;
 }
 
 void addComputer(void)
@@ -113,46 +137,29 @@ void addComputer(void)
 	puts("\nInserção realizada.");
 }
 
-void deleteComputer(void)
+void showComputers(void)
 {
-	Byte index = 0, pos = 0, pos2 = 0;
-	Computador* new_inventario;
-    bool was_found = false;
+	register Byte pos = 0;
 
-	printf("Informe o ID do computador: ");
-	scanf("%hhu", &index);
-
-	index--;
-	new_inventario = calloc((num - 1), sizeof(Computador));
-
-	for ( pos = 0; pos < num; pos++ )
+    for ( ; pos < num; pos++ )
     {
-		if ( pos == index )
-        {
-			was_found = true;
-
-			continue;
-		}
-
-		strcpy(new_inventario[pos2].marca,       inventario[pos].marca);
-		strcpy(new_inventario[pos2].modelo,      inventario[pos].modelo);
-		strcpy(new_inventario[pos2].processador, inventario[pos].processador);
-		new_inventario[pos2].tipohd    		=    inventario[pos].tipohd;
-		new_inventario[pos2].hd  			=    inventario[pos].hd;
-		new_inventario[pos2].memoria  		=    inventario[pos].memoria;
-
-        pos2++;
+		printf(
+            "\nComputador nº %hhu:\n"
+			"Marca..............................: %s"
+			"Modelo.............................: %s"
+			"Tipo de HD.........................: %c\n"
+			"Capac. de Armazenamento............: %d GB\n"
+			"Memória............................: %d GB\n"
+			"Processador........................: %s",
+			(pos + 1),
+			inventario[pos].marca,
+			inventario[pos].modelo,
+			inventario[pos].tipohd,
+			inventario[pos].hd,
+			inventario[pos].memoria,
+			inventario[pos].processador
+        );
 	}
-
-	if ( was_found )
-    {
-		free(inventario);
-		inventario = new_inventario;
-		num --;
-		puts("\nRemoção realizada.");
-	}
-    else
-		puts("\nCadastro não encontrado!");
 }
 
 void updateComputer(void)
@@ -217,29 +224,46 @@ void updateComputer(void)
 	puts("\nAlteração realizada.");
 }
 
-void showComputers(void)
+void deleteComputer(void)
 {
-	register Byte pos = 0;
+	Byte index = 0, pos = 0, pos2 = 0;
+	Computador* new_inventario;
+    bool was_found = false;
 
-    for ( ; pos < num; pos++ )
+	printf("Informe o ID do computador: ");
+	scanf("%hhu", &index);
+
+	index--;
+	new_inventario = calloc((num - 1), sizeof(Computador));
+
+	for ( pos = 0; pos < num; pos++ )
     {
-		printf(
-            "\nComputador nº %hhu:\n"
-			"Marca..............................: %s"
-			"Modelo.............................: %s"
-			"Tipo de HD.........................: %c\n"
-			"Capac. de Armazenamento............: %d GB\n"
-			"Memória............................: %d GB\n"
-			"Processador........................: %s",
-			(pos + 1),
-			inventario[pos].marca,
-			inventario[pos].modelo,
-			inventario[pos].tipohd,
-			inventario[pos].hd,
-			inventario[pos].memoria,
-			inventario[pos].processador
-        );
+		if ( pos == index )
+        {
+			was_found = true;
+
+			continue;
+		}
+
+		strcpy(new_inventario[pos2].marca,       inventario[pos].marca);
+		strcpy(new_inventario[pos2].modelo,      inventario[pos].modelo);
+		strcpy(new_inventario[pos2].processador, inventario[pos].processador);
+		new_inventario[pos2].tipohd    		=    inventario[pos].tipohd;
+		new_inventario[pos2].hd  			=    inventario[pos].hd;
+		new_inventario[pos2].memoria  		=    inventario[pos].memoria;
+
+        pos2++;
 	}
+
+	if ( was_found )
+    {
+		free(inventario);
+		inventario = new_inventario;
+		num --;
+		puts("\nRemoção realizada.");
+	}
+    else
+		puts("\nCadastro não encontrado!");
 }
 
 void searchComputer(void)
@@ -292,6 +316,37 @@ void searchComputer(void)
 	} while ( resposta == 's' );
 }
 
+void preenchimento_dados(Byte pos)
+{
+	getchar();
+
+    printf("\nComputador nº %hhu\n\nMarca........: ", (pos + 1));
+	fgets(inventario[pos].marca, MAX_SIZE_STR, stdin);
+
+	printf("Modelo.......: ");
+	fgets(inventario[pos].modelo, MAX_SIZE_STR, stdin);
+
+	printf("Processador..: ");
+	fgets(inventario[pos].processador, MAX_SIZE_STR, stdin);
+
+    do {
+		printf(
+            "\nTipo de Disco Rígido..."
+			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
+        );
+		scanf(" %c", &inventario[pos].tipohd);
+	} while (
+        inventario[pos].tipohd not_eq 's' and
+        inventario[pos].tipohd not_eq 'c'
+    );
+
+    printf("\nCapacidade de Armazenamento (em GB): ");
+	scanf("%d", &inventario[pos].hd);
+
+	printf("Tamanho da Memória (em GB).........: ");
+	scanf("%d", &inventario[pos].memoria);
+}
+
 const unsigned int getMainMenuChoice(void)
 {
     unsigned int choice = 0u;
@@ -305,45 +360,4 @@ const unsigned int getMainMenuChoice(void)
     scanf("%d", &choice);
 
     return choice;
-}
-
-/**
- *
- */
-int main(int argc, const char* argv[])
-{
-	setlocale(LC_ALL, "");
-
-	unsigned int option = 0u;
-
-    while ( true )
-    {
-	    option = getMainMenuChoice();
-
-		system("clear");
-
-    	switch ( option )
-        {
-	    	case CREATE:
-	    		addComputer();
-	    		break;
-			case READ:
-				showComputers();
-				break;
-			case UPDATE:
-				updateComputer();
-				break;
-			case DELETE:
-				deleteComputer();
-				break;
-	    	case SEARCH:
-	    		searchComputer();
-	    		break;
-	    	default:
-	    		free(inventario);
-				exit(EXIT_SUCCESS);
-		}
-	}
-
-	return EXIT_SUCCESS;
 }
