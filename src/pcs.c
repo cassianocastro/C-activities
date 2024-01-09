@@ -89,7 +89,7 @@ void updateComputer(void)
 	switch ( tipo )
     {
 		case MARK:
-			printf("Nova marca: ");
+			printf("Marca: ");
 			fgets(inventary[id].mark, MAX_SIZE_STR, stdin);
 			break;
 		case STORAGE_TYPE:
@@ -107,19 +107,19 @@ void updateComputer(void)
             );
 			break;
 		case STORAGE:
-			printf("Nova capacidade de armazenamento: ");
+			printf("Capacidade de armazenamento: ");
 			scanf("%d", &inventary[id].storage);
 			break;
 		case MEMORY:
-			printf("Novo tamanho de memória: ");
+			printf("Memória: ");
 			scanf("%d", &inventary[id].memory);
 			break;
 		case MODEL:
-			printf("Novo Modelo: ");
+			printf("Modelo: ");
 			fgets(inventary[id].model, MAX_SIZE_STR, stdin);
 			break;
 		case PROCESSOR:
-			printf("Novo Processador: ");
+			printf("Processador: ");
 			fgets(inventary[id].processor, MAX_SIZE_STR, stdin);
 			break;
 		default:
