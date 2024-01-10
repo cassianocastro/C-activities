@@ -49,7 +49,7 @@ void printCarInfo(const struct carro* const car)
 
 void inicializar(void)
 {
-	for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+	for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
         strcpy(frota[i].modelo, "");
         strcpy(frota[i].marca, "");
@@ -62,7 +62,7 @@ void inicializar(void)
 
 void addCar(void)
 {
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
         if ( frota[i].ano == 0 )
         {
@@ -90,7 +90,7 @@ void addCar(void)
 
 void showCars(void)
 {
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
         if ( frota[i].ano != 0 )
         {
@@ -106,7 +106,7 @@ void deleteCar(void)
     printf("Informe a placa do veículo: ");
     gets(placa_informada);
 
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
         if ( strcmp(placa_informada, frota[i].placa) == 0 )
         {
