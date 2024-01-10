@@ -1,5 +1,93 @@
 #include "./includes/Frota.h"
 
+/**
+ *
+ */
+int main(int argc, const char* argv[])
+{
+    setlocale(LC_ALL, "");
+
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
+	{
+        frota[i] = createCar();
+    }
+
+    unsigned int option = 0u;
+
+    do {
+		option = showMainMenu();
+
+		system("clear");
+
+		switch ( option )
+		{
+			case CREATE:
+                addCar();
+				break;
+			case READ:
+				showCars();
+				break;
+			case DELETE:
+				deleteCar();
+				break;
+			case EXIT:
+				puts("\nFim.");
+				break;
+			default:
+				puts("Opção inválida!");
+		}
+	} while ( option not_eq EXIT );
+
+	return EXIT_SUCCESS;
+}
+
+void addCar(void)
+{
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
+	{
+        if ( frota[i].release == 0 )
+        {
+            showCarForm(&frota[i]);
+
+            puts("\nCarro incluído.");
+
+            break;
+        }
+    }
+}
+
+void showCars(void)
+{
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
+	{
+        if ( frota[i].release != 0 )
+        {
+            printCarInfo(&frota[i]);
+        }
+    }
+}
+
+void deleteCar(void)
+{
+    char placa[STRING_SIZE];
+
+    printf("Informe a placa do veículo: ");
+    scanf("%[^\n]s", placa);
+    getchar();
+
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
+	{
+        if ( strcmp(placa, frota[i].placa) == 0 )
+        {
+            frota[i] = createCar();
+
+            puts("\nCarro excluído.");
+
+            break;
+        }
+    }
+}
+
 void showCarForm(Car* const car)
 {
     printf("Marca..............: ");
@@ -52,53 +140,6 @@ Car createCar(void)
 	return car;
 }
 
-void addCar(void)
-{
-    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
-	{
-        if ( frota[i].release == 0 )
-        {
-            showCarForm(&frota[i]);
-
-            puts("\nCarro incluído.");
-
-            break;
-        }
-    }
-}
-
-void showCars(void)
-{
-    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
-	{
-        if ( frota[i].release != 0 )
-        {
-            printCarInfo(&frota[i]);
-        }
-    }
-}
-
-void deleteCar(void)
-{
-    char placa[STRING_SIZE];
-
-    printf("Informe a placa do veículo: ");
-    scanf("%[^\n]s", placa);
-    getchar();
-
-    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
-	{
-        if ( strcmp(placa, frota[i].placa) == 0 )
-        {
-            frota[i] = createCar();
-
-            puts("\nCarro excluído.");
-
-            break;
-        }
-    }
-}
-
 const unsigned int showMainMenu(void)
 {
     unsigned int choice = 0u;
@@ -113,45 +154,4 @@ const unsigned int showMainMenu(void)
 	getchar();
 
     return choice;
-}
-
-/**
- *
- */
-int main(int argc, const char* argv[])
-{
-    setlocale(LC_ALL, "");
-
-    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
-	{
-        frota[i] = createCar();
-    }
-
-    unsigned int option = 0u;
-
-    do {
-		option = showMainMenu();
-
-		system("clear");
-
-		switch ( option )
-		{
-			case CREATE:
-                addCar();
-				break;
-			case READ:
-				showCars();
-				break;
-			case DELETE:
-				deleteCar();
-				break;
-			case EXIT:
-				puts("\nFim.");
-				break;
-			default:
-				puts("Opção inválida!");
-		}
-	} while ( option not_eq EXIT );
-
-	return EXIT_SUCCESS;
 }
