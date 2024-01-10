@@ -12,7 +12,7 @@ typedef unsigned char byte;
 
 typedef enum
 {
-    SAIR,
+    EXIT,
     CREATE,
     READ,
     DELETE
@@ -126,7 +126,7 @@ int main(int argc, const char* argv[])
 {
     setlocale(LC_ALL, "");
 
-	unsigned int opcao = 0;
+	unsigned int option = 0;
 
     inicializar();
 
@@ -137,11 +137,11 @@ int main(int argc, const char* argv[])
             "\n3. Excluir carro | 0. Finalizar"
             "\nOpção\? "
         );
-		scanf("%d", &opcao);
+		scanf("%d", &option);
 		system("clear");
 		getchar();
 
-		switch ( opcao )
+		switch ( option )
 		{
 			case CREATE:
                 inserir();
@@ -152,13 +152,13 @@ int main(int argc, const char* argv[])
 			case DELETE:
 				excluir();
 				break;
-			case SAIR:
+			case EXIT:
 				puts("\nFIM.");
 				break;
 			default:
 				puts("Opção inválida!");
 		}
-	} while ( opcao not_eq SAIR );
+	} while ( option not_eq EXIT );
 
 	return EXIT_SUCCESS;
 }
