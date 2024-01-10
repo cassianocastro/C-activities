@@ -13,6 +13,9 @@
 
 typedef unsigned char byte;
 
+/**
+ *
+ */
 typedef enum
 {
     EXIT,
@@ -22,6 +25,9 @@ typedef enum
 }
 Options;
 
+/**
+ *
+ */
 typedef struct
 {
 	char model[STRING_SIZE];
@@ -36,5 +42,40 @@ Car;
 Car frota[10];
 
 const unsigned int ARRAY_SIZE = 10u;
+
+/**
+ *
+ */
+Car createCar(void);
+
+/**
+ *
+ */
+void addCar(void);
+
+/**
+ *
+ */
+void showCars(void);
+
+/**
+ *
+ */
+void deleteCar(void);
+
+/**
+ *
+ */
+void showCarForm(Car* const);
+
+/**
+ *
+ */
+void printCarInfo(const Car* const);
+
+/**
+ *
+ */
+const unsigned int showMainMenu(void);
 
 #endif
