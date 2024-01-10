@@ -6,7 +6,8 @@
 #include <string.h>
 
 #define TAM_STRING 20
-#define TAMANHO_FROTA 10
+
+const unsigned int TAMANHO_FROTA = 10u;
 
 typedef unsigned char byte;
 
@@ -30,7 +31,7 @@ typedef struct
 }
 Car;
 
-Car frota[TAMANHO_FROTA];
+Car frota[10];
 
 void showCarForm(Car* const car)
 {
