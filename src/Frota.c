@@ -35,16 +35,20 @@ Car frota[TAMANHO_FROTA];
 void showCarForm(Car* const car)
 {
     printf("Marca..............: ");
-    gets(car->marca);
+    scanf("%[^\n]s", car->marca);
+    getchar();
 
     printf("Modelo.............: ");
-    gets(car->modelo);
+    scanf("%[^\n]s", car->modelo);
+    getchar();
 
     printf("Cor................: ");
-    gets(car->cor);
+    scanf("%[^\n]s", car->cor);
+    getchar();
 
     printf("Placa..............: ");
-    gets(car->placa);
+    scanf("%[^\n]s", car->placa);
+    getchar();
 
     printf("Ano de fabricação..: ");
     scanf("%hu", &car->ano);
