@@ -51,14 +51,17 @@ void printCarInfo(const Car* const car)
 
 void inicializar(void)
 {
+    Car car = {
+        .cor    = "",
+        .marca  = "",
+        .modelo = "",
+        .placa  = "",
+        .ano    = 0
+    };
+
 	for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
-        strcpy(frota[i].modelo, "");
-        strcpy(frota[i].marca, "");
-        strcpy(frota[i].placa, "");
-        strcpy(frota[i].cor, "");
-
-        frota[i].ano = 0;
+        frota[i] = car;
     }
 }
 
