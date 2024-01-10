@@ -36,13 +36,13 @@ void printCarInfo(const Car* const car)
 {
     printf(
         "\nDados do carro\n"
-        "\nModelo...............: %s"
         "\nMarca................: %s"
+        "\nModelo...............: %s"
         "\nPlaca................: %s"
         "\nCor..................: %s"
         "\nAno de fabricação....: %d\n",
-        car->modelo,
         car->marca,
+        car->modelo,
         car->placa,
         car->cor,
         car->ano
