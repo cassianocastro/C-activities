@@ -30,6 +30,23 @@ struct carro
 }
 frota[TAMANHO_FROTA];
 
+void printCarInfo(const struct carro* const car)
+{
+    printf(
+        "\nDados do carro\n"
+        "\nModelo...............: %s"
+        "\nMarca................: %s"
+        "\nPlaca................: %s"
+        "\nCor..................: %s"
+        "\nAno de fabricação....: %d\n",
+        car->modelo,
+        car->marca,
+        car->placa,
+        car->cor,
+        car->ano
+    );
+}
+
 void inicializar(void)
 {
 	for ( byte i = 0; i < TAMANHO_FROTA; i++ )
@@ -77,19 +94,7 @@ void showCars(void)
 	{
         if ( frota[i].ano != 0 )
         {
-            printf(
-                "\nDados do carro\n"
-                "\nModelo...............: %s"
-                "\nMarca................: %s"
-                "\nPlaca................: %s"
-                "\nCor..................: %s"
-                "\nAno de fabricação....: %d\n",
-                frota[i].modelo,
-                frota[i].marca,
-                frota[i].placa,
-                frota[i].cor,
-                frota[i].ano
-            );
+            printCarInfo(&frota[i]);
         }
     }
 }
