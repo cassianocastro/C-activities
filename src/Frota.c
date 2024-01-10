@@ -155,12 +155,12 @@ int main(int argc, const char* argv[])
 {
     setlocale(LC_ALL, "");
 
-	unsigned int option = 0u;
-
     for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         frota[i] = createCar();
     }
+
+    unsigned int option = 0u;
 
     do {
 		option = showMainMenu();
@@ -179,7 +179,7 @@ int main(int argc, const char* argv[])
 				deleteCar();
 				break;
 			case EXIT:
-				puts("\nFIM.");
+				puts("\nFim.");
 				break;
 			default:
 				puts("Opção inválida!");
