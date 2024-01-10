@@ -119,6 +119,22 @@ void inserir(void)
     }
 }
 
+const unsigned int showMainMenu(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha uma das opções:"
+        "\n1. Inserir carro | 2. Exibir modelos"
+        "\n3. Excluir carro | 0. Finalizar"
+        "\nOpção\? "
+    );
+	scanf("%d", &choice);
+	getchar();
+
+    return choice;
+}
+
 /**
  *
  */
@@ -126,20 +142,14 @@ int main(int argc, const char* argv[])
 {
     setlocale(LC_ALL, "");
 
-	unsigned int option = 0;
+	unsigned int option = 0u;
 
     inicializar();
 
     do {
-		printf(
-            "\nEscolha uma das opções:"
-            "\n1. Inserir carro | 2. Exibir modelos"
-            "\n3. Excluir carro | 0. Finalizar"
-            "\nOpção\? "
-        );
-		scanf("%d", &option);
+		option = showMainMenu();
+
 		system("clear");
-		getchar();
 
 		switch ( option )
 		{
