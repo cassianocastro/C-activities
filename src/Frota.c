@@ -112,12 +112,7 @@ void deleteCar(void)
 	{
         if ( strcmp(placa_informada, frota[i].placa) == 0 )
         {
-            strcpy(frota[i].modelo, "");
-            strcpy(frota[i].marca, "");
-            strcpy(frota[i].placa, "");
-            strcpy(frota[i].cor, "");
-
-            frota[i].ano = 0;
+            frota[i] = createCar();
 
             puts("\nCarro excluído.");
 
