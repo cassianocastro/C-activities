@@ -7,10 +7,17 @@ const unsigned int ARRAY_SIZE = 10u;
 /**
  *
  */
-int main(int argc, const char* argv[])
+int main(int argc, const char** argv)
 {
     setlocale(LC_ALL, "");
 
+    start();
+
+	return EXIT_SUCCESS;
+}
+
+void start(void)
+{
     for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         frota[i] = createCar();
@@ -41,8 +48,6 @@ int main(int argc, const char* argv[])
 				puts("Opção inválida!");
 		}
 	} while ( option not_eq EXIT );
-
-	return EXIT_SUCCESS;
 }
 
 void addCar(void)
