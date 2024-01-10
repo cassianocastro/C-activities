@@ -78,4 +78,9 @@ void printCarInfo(const Car* const);
  */
 const unsigned int showMainMenu(void);
 
+/**
+ *
+ */
+void start(void);
+
 #endif
