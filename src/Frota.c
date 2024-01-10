@@ -1,5 +1,9 @@
 #include "./includes/Frota.h"
 
+Car frota[10];
+
+const unsigned int ARRAY_SIZE = 10u;
+
 /**
  *
  */
