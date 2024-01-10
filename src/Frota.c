@@ -43,7 +43,7 @@ void inicializar(void)
     }
 }
 
-void inserir(void)
+void addCar(void)
 {
     for ( byte i = 0; i < TAMANHO_FROTA; i++ )
 	{
@@ -71,7 +71,7 @@ void inserir(void)
     }
 }
 
-void exibir(void)
+void showCars(void)
 {
     for ( byte i = 0; i < TAMANHO_FROTA; i++ )
 	{
@@ -94,7 +94,7 @@ void exibir(void)
     }
 }
 
-void excluir(void)
+void deleteCar(void)
 {
     char placa_informada[TAM_STRING];
 
@@ -154,13 +154,13 @@ int main(int argc, const char* argv[])
 		switch ( option )
 		{
 			case CREATE:
-                inserir();
+                addCar();
 				break;
 			case READ:
-				exibir();
+				showCars();
 				break;
 			case DELETE:
-				excluir();
+				deleteCar();
 				break;
 			case EXIT:
 				puts("\nFIM.");
