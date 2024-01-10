@@ -33,8 +33,10 @@ void exercicio1(void)
 
     printf("Cotação em Dólar: ");
     scanf("%f", &cotacao_dolar);
+
     printf("Valor em Reais: ");
     scanf("%f", &valor_reais);
+
     printf("O valor em dólares é: U$ %.2f", ( valor_reais / cotacao_dolar ));
 }
 
@@ -50,10 +52,13 @@ void exercicio2(void)
 
     printf("Temperatura em Graus Celsius: ");
     scanf("%f", &celsius);
+
     printf(
 		"A temperatura em..."
         "\nGraus Farenheit..: %.2f"
-        "\nGraus Kelvin.....: %.2f", ( (celsius * 1.8) + 32 ), ( celsius + 273.15 )
+        "\nGraus Kelvin.....: %.2f",
+        (celsius * 1.8 + 32),
+        (celsius + 273.15)
 	);
 }
 
@@ -71,23 +76,32 @@ void exercicio3(void)
 
     printf("Valor da Compra: ");
     scanf("%f", &valor_compra);
+
     do {
         printf("Sexo: ");
         scanf(" %c", &sexo);
+
         sexo = tolower(sexo);
     } while ( sexo != 'm' and sexo != 'f' );
 
-    if ( sexo == 'm' ) {
+    if ( sexo == 'm' )
+    {
         desconto      = valor_compra * 0.1;
         valor_liquido = valor_compra - desconto;
-    } else {
+    }
+    else
+    {
         desconto      = valor_compra * 0.15;
         valor_liquido = valor_compra - desconto;
     }
+
     printf(
 		"\nValor Bruto......: R$ %.2f"
         "\nValor Líquido....: R$ %.2f"
-        "\nDesconto.........: R$ %.2f", valor_compra, valor_liquido, desconto
+        "\nDesconto.........: R$ %.2f",
+        valor_compra,
+        valor_liquido,
+        desconto
 	);
 }
 
@@ -104,21 +118,32 @@ void exercicio4(void)
     printf("Valor: ");
     scanf("%f", &valor);
 
-    if ( valor < 100.0f ) {
+    if ( valor < 100.0f )
+    {
         float desconto = valor * 0.05f;
         valor_liquido  = valor - desconto;
+
         printf(
 			"\nValor Bruto......: R$ %.2f"
             "\nValor Líquido....: R$ %.2f"
-            "\nDesconto.........: R$ %.2f", valor, valor_liquido, desconto
+            "\nDesconto.........: R$ %.2f",
+            valor,
+            valor_liquido,
+            desconto
 		);
-    } else {
+    }
+    else
+    {
         float acrescimo = valor * 0.07f;
         valor_liquido   = valor + acrescimo;
+
         printf(
 			"\nValor Bruto......: R$ %.2f"
             "\nValor Líquido....: R$ %.2f"
-            "\nAcréscimo........: R$ %.2f", valor, valor_liquido, acrescimo
+            "\nAcréscimo........: R$ %.2f",
+            valor,
+            valor_liquido,
+            acrescimo
 		);
     }
 }
@@ -136,11 +161,17 @@ void exercicio5(void)
     scanf("%hhu", &serie_informada);
 
     if ( serie_informada >= 1 and serie_informada <= 4 )
+    {
         puts("Turno da Manhã.");
+    }
     else if ( serie_informada >= 5 and serie_informada <= 8 )
+    {
         puts("Turno da Tarde.");
+    }
     else
+    {
         puts("Dígito inválido.");
+    }
 }
 
 /*
@@ -168,10 +199,14 @@ void exercicio6(void)
     desconto = ( soma > 1000 ) ? soma * 0.1 : soma * 0.08;
 
     valor_liquido = soma - desconto;
+
     printf(
 		"\nValor Bruto......: R$ %.2f"
         "\nValor Líquido....: R$ %.2f"
-        "\nDesconto.........: R$ %.2f", soma, valor_liquido, desconto
+        "\nDesconto.........: R$ %.2f",
+        soma,
+        valor_liquido,
+        desconto
 	);
 }
 
@@ -190,10 +225,13 @@ void exercicio7(void)
 
     printf("Primeiro valor: ");
     scanf("%f", &valor1);
+
     printf("Segundo valor: ");
     scanf("%f", &valor2);
+
     printf("Terceiro valor: ");
     scanf("%f", &valor3);
+
     printf("Quarto valor: ");
     scanf("%f", &valor4);
 
@@ -201,9 +239,11 @@ void exercicio7(void)
     float soma2 = valor3 + valor4;
     float total = soma1  + soma2;
 
-    if ( soma1 > soma2 ) {
+    if ( soma1 > soma2 )
+    {
         float desconto = total * 0.2;
         valor_liquido  = total - desconto;
+
         printf(
 			"\nSoma dos 2 primeiros valores..: R$ %.2f"
             "\nSoma dos 2 últimos valores....: R$ %.2f"
@@ -212,9 +252,12 @@ void exercicio7(void)
             "\nDesconto......................: R$ %.2f",
             soma1, soma2, total, valor_liquido, desconto
 		);
-    } else {
+    }
+    else
+    {
         float acrescimo = total * 0.2;
         valor_liquido   = total + acrescimo;
+
         printf(
 			"\nSoma dos 2 primeiros valores..: R$ %.2f"
             "\nSoma dos 2 últimos valores....: R$ %.2f"
@@ -240,8 +283,11 @@ void exercicio8(void)
         scanf("%hhu", &vetor[indice]);
 
         if ( vetor[indice] > maior_numero )
+        {
             maior_numero = vetor[indice];
+        }
     }
+
     printf("O maior número informado foi: %hhu", maior_numero);
 }
 
@@ -260,13 +306,21 @@ void exercicio9(void)
         scanf("%hhu", &vetor[indice]);
 
         if ( vetor[indice] > maior_numero )
+        {
             maior_numero = vetor[indice];
+        }
+
         if ( vetor[indice] < menor_numero )
+        {
             menor_numero = vetor[indice];
+        }
     }
+
     printf(
 		"O maior número informado foi: %hhu\n"
-        "O menor número foi: %hhu", maior_numero, menor_numero
+        "O menor número foi: %hhu",
+        maior_numero,
+        menor_numero
 	);
 }
 
@@ -286,36 +340,44 @@ void exercicio10(void)
 
         ( vetor[indice] % 2 == 0 ) ? contador_Pares++ : contador_Impares++;
     }
+
     printf(
 		"Quantidade de números..."
         "\nPares......: %hhu"
-        "\nÍmpares....: %hhu", contador_Pares, contador_Impares
+        "\nÍmpares....: %hhu",
+        contador_Pares,
+        contador_Impares
 	);
 }
 
 int main(void)
 {
     setlocale(LC_ALL, "");
+
     Opcoes opcao;
 
     while ( true )
 	{
-        printf("\nEscolha a opção:"
-                "\n0. Sair"
-                "\n1. Exercício nº 01"
-                "\n2. Exercício nº 02"
-                "\n3. Exercício nº 03"
-                "\n4. Exercício nº 04"
-                "\n5. Exercício nº 05"
-                "\n6. Exercício nº 06"
-                "\n7. Exercício nº 07"
-                "\n8. Exercício nº 08"
-                "\n9. Exercício nº 09"
-                "\n10.Exercício nº 10"
-                "\nOpção? ");
+        printf(
+            "\nEscolha a opção:"
+            "\n0. Sair"
+            "\n1. Exercício nº 01"
+            "\n2. Exercício nº 02"
+            "\n3. Exercício nº 03"
+            "\n4. Exercício nº 04"
+            "\n5. Exercício nº 05"
+            "\n6. Exercício nº 06"
+            "\n7. Exercício nº 07"
+            "\n8. Exercício nº 08"
+            "\n9. Exercício nº 09"
+            "\n10.Exercício nº 10"
+            "\nOpção? "
+        );
         scanf("%d", &opcao);
         getchar();
+
         system("clear");
+
         switch ( opcao )
 		{
             case EXERCICIO1:
@@ -355,5 +417,6 @@ int main(void)
                 puts("Opção inválida!");
         }
     }
-    return (EXIT_SUCCESS);
+
+    return EXIT_SUCCESS;
 }
