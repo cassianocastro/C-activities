@@ -103,14 +103,14 @@ void showCars(void)
 
 void deleteCar(void)
 {
-    char placa_informada[TAM_STRING];
+    char placa[TAM_STRING];
 
     printf("Informe a placa do veículo: ");
-    gets(placa_informada);
+    gets(placa);
 
     for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
-        if ( strcmp(placa_informada, frota[i].placa) == 0 )
+        if ( strcmp(placa, frota[i].placa) == 0 )
         {
             frota[i] = createCar();
 
