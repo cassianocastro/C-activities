@@ -1,27 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <ctype.h>
-#include <iso646.h>
-#include <string.h>
-#include <locale.h>
-
-typedef unsigned char Byte;
-
-typedef enum
-{
-    SAIR,
-    EXERCICIO1,
-    EXERCICIO2,
-    EXERCICIO3,
-    EXERCICIO4,
-    EXERCICIO5,
-    EXERCICIO6,
-    EXERCICIO7,
-    EXERCICIO8,
-    EXERCICIO9,
-    EXERCICIO10
-} Opcoes;
+#include "./includes/ExerciciosLista1.h"
 
 /**
  * Faça um programa que converta a moeda real em dólar,
