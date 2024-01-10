@@ -49,7 +49,7 @@ void printCarInfo(const Car* const car)
     );
 }
 
-void inicializar(void)
+Car createCar(void)
 {
     Car car = {
         .cor    = "",
@@ -59,10 +59,7 @@ void inicializar(void)
         .ano    = 0
     };
 
-	for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
-	{
-        frota[i] = car;
-    }
+	return car;
 }
 
 void addCar(void)
@@ -154,7 +151,10 @@ int main(int argc, const char* argv[])
 
 	unsigned int option = 0u;
 
-    inicializar();
+    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
+	{
+        frota[i] = createCar();
+    }
 
     do {
 		option = showMainMenu();
