@@ -27,14 +27,14 @@ typedef enum
     Faça um programa que converta a moeda real em dólar, informando-se apenas a
     cotação do dólar e o valor em reais.
 */
-void exercicio1( void )
+void exercicio1(void)
 {
     float cotacao_dolar = 0.0f, valor_reais = 0.0f;
 
     printf("Cotação em Dólar: ");
-    scanf ( "%f", &cotacao_dolar );
+    scanf("%f", &cotacao_dolar);
     printf("Valor em Reais: ");
-    scanf ( "%f", &valor_reais );
+    scanf("%f", &valor_reais);
     printf("O valor em dólares é: U$ %.2f", ( valor_reais / cotacao_dolar ));
 }
 
@@ -44,12 +44,12 @@ void exercicio1( void )
     Fahrenheit a fórmula aplicada será Fahrenheit = Celcius × 1,8 + 32 e para conversão
     Celcius X Kelvin a fórmula aplicada será Kelvin = Celcius + 273,15
 */
-void exercicio2( void )
+void exercicio2(void)
 {
     float celsius = 0.0f;
 
     printf("Temperatura em Graus Celsius: ");
-    scanf ( "%f", &celsius );
+    scanf("%f", &celsius);
     printf(
 		"A temperatura em..."
         "\nGraus Farenheit..: %.2f"
@@ -64,17 +64,17 @@ void exercicio2( void )
     concedido um desconto de 15% sobre o valor da compra. O programa deverá exibir o valor
     bruto, o desconto concedido e o valor líquido.
 */
-void exercicio3( void )
+void exercicio3(void)
 {
     float valor_compra = 0.0f, desconto = 0.0f, valor_liquido = 0.0f;
     char sexo = '\0';
 
     printf("Valor da Compra: ");
-    scanf ( "%f", &valor_compra );
+    scanf("%f", &valor_compra);
     do {
         printf("Sexo: ");
-        scanf ( " %c", &sexo );
-        sexo = tolower( sexo );
+        scanf(" %c", &sexo);
+        sexo = tolower(sexo);
     } while ( sexo != 'm' and sexo != 'f' );
 
     if ( sexo == 'm' ) {
@@ -97,12 +97,12 @@ void exercicio3( void )
     de 7% sobre o valor. O programa deverá exibir o valor bruto, o desconto concedido e o
     valor líquido.
 */
-void exercicio4( void )
+void exercicio4(void)
 {
     float valor = 0.0f, valor_liquido = 0.0f;
 
     printf("Valor: ");
-    scanf ( "%f", &valor );
+    scanf("%f", &valor);
 
     if ( valor < 100.0f ) {
         float desconto = valor * 0.05f;
@@ -128,19 +128,19 @@ void exercicio4( void )
     e a 4 série, então o programa deverá escrever “Turno da manhã”, se o aluno estuda da 5 a
     8 série, então o programa deverá escrever “Turno da tarde”.
 */
-void exercicio5( void )
+void exercicio5(void)
 {
     Byte serie_informada = 0;
 
     printf("Informe a série: ");
-    scanf ( "%hhu", &serie_informada );
+    scanf("%hhu", &serie_informada);
 
     if ( serie_informada >= 1 and serie_informada <= 4 )
-        puts ("Turno da Manhã.");
+        puts("Turno da Manhã.");
     else if ( serie_informada >= 5 and serie_informada <= 8 )
-        puts ("Turno da Tarde.");
+        puts("Turno da Tarde.");
     else
-        puts ("Dígito inválido.");
+        puts("Dígito inválido.");
 }
 
 /*
@@ -149,19 +149,19 @@ void exercicio5( void )
     de 8%. O programa deverá exibir o valor bruto(soma dos 3 valores), o desconto concedido
     e o valor líquido.
 */
-void exercicio6( void )
+void exercicio6(void)
 {
     float primeiro_valor = 0.0f, segundo_valor  = 0.0f, terceiro_valor = 0.0f;
     float soma = 0.0f, desconto = 0.0f, valor_liquido = 0.0f;
 
     printf("Primeiro Valor: ");
-    scanf ( "%f", &primeiro_valor );
+    scanf("%f", &primeiro_valor);
 
     printf("Segundo Valor: ");
-    scanf ( "%f", &segundo_valor );
+    scanf("%f", &segundo_valor);
 
     printf("Terceiro Valor: ");
-    scanf ( "%f", &terceiro_valor );
+    scanf("%f", &terceiro_valor);
 
     soma = primeiro_valor + segundo_valor + terceiro_valor;
 
@@ -184,18 +184,18 @@ void exercicio6( void )
     últimos números, o valor bruto(soma dos 4 valores), o desconto ou acréscimo concedidos e
     o valor líquido.
 */
-void exercicio7( void )
+void exercicio7(void)
 {
     float valor1 = 0.0f, valor2 = 0.0f, valor3 = 0.0f, valor4 = 0.0f, valor_liquido = 0.0f;
 
     printf("Primeiro valor: ");
-    scanf ( "%f", &valor1 );
+    scanf("%f", &valor1);
     printf("Segundo valor: ");
-    scanf ( "%f", &valor2 );
+    scanf("%f", &valor2);
     printf("Terceiro valor: ");
-    scanf ( "%f", &valor3 );
+    scanf("%f", &valor3);
     printf("Quarto valor: ");
-    scanf ( "%f", &valor4 );
+    scanf("%f", &valor4);
 
     float soma1 = valor1 + valor2;
     float soma2 = valor3 + valor4;
@@ -230,14 +230,14 @@ void exercicio7( void )
     Faça um programa que leia 5 números, em seguida, demonstre qual o maior
     número digitado.
 */
-void exercicio8( void )
+void exercicio8(void)
 {
     Byte vetor[5] = {0, 0, 0, 0, 0}, maior_numero = 0;
 
     for ( Byte indice = 0; indice < 5; indice++ )
 	{
         printf("Valor: ");
-        scanf ("%hhu", &vetor[indice]);
+        scanf("%hhu", &vetor[indice]);
 
         if ( vetor[indice] > maior_numero )
             maior_numero = vetor[indice];
@@ -249,7 +249,7 @@ void exercicio8( void )
     Faça um programa que leia 5 números, em seguida, demonstre qual o maior e o
     menor número digitado.
 */
-void exercicio9( void )
+void exercicio9(void)
 {
     Byte vetor[5] = { 0, 0, 0, 0, 0 };
     Byte maior_numero = 0, menor_numero = 0;
@@ -257,7 +257,7 @@ void exercicio9( void )
     for ( Byte indice = 0; indice < 5; indice++ )
 	{
         printf("Valor número %hhu: ", ( indice + 1 ));
-        scanf ("%hhu", &vetor[indice]);
+        scanf("%hhu", &vetor[indice]);
 
         if ( vetor[indice] > maior_numero )
             maior_numero = vetor[indice];
@@ -274,7 +274,7 @@ void exercicio9( void )
     Faça um programa que leia 10 números, em seguida, mostre quantos dos
     números digitados é par e quantos números digitados é ímpar.
 */
-void exercicio10( void )
+void exercicio10(void)
 {
     Byte vetor[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     Byte contador_Pares = 0, contador_Impares = 0;
@@ -282,7 +282,7 @@ void exercicio10( void )
     for ( Byte indice = 0; indice < 10; indice++ )
 	{
         printf("Valor número %hhu: ", ( indice + 1 ));
-        scanf ("%hhu", &vetor[indice]);
+        scanf("%hhu", &vetor[indice]);
 
         ( vetor[indice] % 2 == 0 ) ? contador_Pares++ : contador_Impares++;
     }
@@ -293,14 +293,14 @@ void exercicio10( void )
 	);
 }
 
-int main( void )
+int main(void)
 {
-    setlocale( LC_ALL, "" );
+    setlocale(LC_ALL, "");
     Opcoes opcao;
 
     while ( true )
 	{
-        printf ("\nEscolha a opção:"
+        printf("\nEscolha a opção:"
                 "\n0. Sair"
                 "\n1. Exercício nº 01"
                 "\n2. Exercício nº 02"
@@ -313,9 +313,9 @@ int main( void )
                 "\n9. Exercício nº 09"
                 "\n10.Exercício nº 10"
                 "\nOpção? ");
-        scanf ( "%d", &opcao );
+        scanf("%d", &opcao);
         getchar();
-        system ( "clear" );
+        system("clear");
         switch ( opcao )
 		{
             case EXERCICIO1:
@@ -349,11 +349,11 @@ int main( void )
                 exercicio10();
                 break;
             case SAIR:
-                exit( EXIT_SUCCESS );
+                exit(EXIT_SUCCESS);
                 break;
             default:
-                puts ("Opção inválida!");
+                puts("Opção inválida!");
         }
     }
-    return ( EXIT_SUCCESS );
+    return (EXIT_SUCCESS);
 }
