@@ -43,6 +43,34 @@ void inicializar(void)
     }
 }
 
+void inserir(void)
+{
+    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
+	{
+        if ( frota[i].ano == 0 )
+        {
+            printf("Marca..............: ");
+            gets(frota[i].marca);
+
+            printf("Modelo.............: ");
+            gets(frota[i].modelo);
+
+            printf("Cor................: ");
+            gets(frota[i].cor);
+
+            printf("Placa..............: ");
+            gets(frota[i].placa);
+
+            printf("Ano de fabricação..: ");
+            scanf("%hu", &frota[i].ano);
+
+            puts("\nCarro incluído.");
+
+            break;
+        }
+    }
+}
+
 void exibir(void)
 {
     for ( byte i = 0; i < TAMANHO_FROTA; i++ )
@@ -85,34 +113,6 @@ void excluir(void)
             frota[i].ano = 0;
 
             puts("\nCarro excluído.");
-
-            break;
-        }
-    }
-}
-
-void inserir(void)
-{
-    for ( byte i = 0; i < TAMANHO_FROTA; i++ )
-	{
-        if ( frota[i].ano == 0 )
-        {
-            printf("Marca..............: ");
-            gets(frota[i].marca);
-
-            printf("Modelo.............: ");
-            gets(frota[i].modelo);
-
-            printf("Cor................: ");
-            gets(frota[i].cor);
-
-            printf("Placa..............: ");
-            gets(frota[i].placa);
-
-            printf("Ano de fabricação..: ");
-            scanf("%hu", &frota[i].ano);
-
-            puts("\nCarro incluído.");
 
             break;
         }
