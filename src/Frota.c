@@ -13,9 +13,9 @@ typedef unsigned char byte;
 typedef enum
 {
     SAIR,
-    INSERIR,
-    EXCLUIR,
-    EXIBIR
+    CREATE,
+    READ,
+    DELETE
 }
 Opcoes;
 
@@ -133,8 +133,8 @@ int main(int argc, const char* argv[])
     do {
 		printf(
             "\nEscolha uma das opções:"
-            "\n1. Inserir carro  | 2. Excluir carro"
-            "\n3. Exibir modelos | 0. Finalizar"
+            "\n1. Inserir carro | 2. Exibir modelos"
+            "\n3. Excluir carro | 0. Finalizar"
             "\nOpção\? "
         );
 		scanf("%d", &opcao);
@@ -143,13 +143,13 @@ int main(int argc, const char* argv[])
 
 		switch ( opcao )
 		{
-			case INSERIR:
+			case CREATE:
                 inserir();
 				break;
-			case EXIBIR:
+			case READ:
 				exibir();
 				break;
-			case EXCLUIR:
+			case DELETE:
 				excluir();
 				break;
 			case SAIR:
