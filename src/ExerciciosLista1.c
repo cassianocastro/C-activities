@@ -1,5 +1,79 @@
 #include "./includes/ExerciciosLista1.h"
 
+/**
+ *
+ */
+int main(void)
+{
+    setlocale(LC_ALL, "");
+
+    Opcoes opcao;
+
+    while ( true )
+	{
+        printf(
+            "\nEscolha a opção:"
+            "\n0. Sair"
+            "\n1. Exercício nº 01"
+            "\n2. Exercício nº 02"
+            "\n3. Exercício nº 03"
+            "\n4. Exercício nº 04"
+            "\n5. Exercício nº 05"
+            "\n6. Exercício nº 06"
+            "\n7. Exercício nº 07"
+            "\n8. Exercício nº 08"
+            "\n9. Exercício nº 09"
+            "\n10.Exercício nº 10"
+            "\nOpção? "
+        );
+        scanf("%d", &opcao);
+        getchar();
+
+        system("clear");
+
+        switch ( opcao )
+		{
+            case EXERCICIO1:
+                exercicio1();
+                break;
+            case EXERCICIO2:
+                exercicio2();
+                break;
+            case EXERCICIO3:
+                exercicio3();
+                break;
+            case EXERCICIO4:
+                exercicio4();
+                break;
+            case EXERCICIO5:
+                exercicio5();
+                break;
+            case EXERCICIO6:
+                exercicio6();
+                break;
+            case EXERCICIO7:
+                exercicio7();
+                break;
+            case EXERCICIO8:
+                exercicio8();
+                break;
+            case EXERCICIO9:
+                exercicio9();
+                break;
+            case EXERCICIO10:
+                exercicio10();
+                break;
+            case SAIR:
+                exit(EXIT_SUCCESS);
+                break;
+            default:
+                puts("Opção inválida!");
+        }
+    }
+
+    return EXIT_SUCCESS;
+}
+
 void exercicio1(void)
 {
     float cotacao_dolar = 0.0f, valor_reais = 0.0f;
@@ -270,78 +344,4 @@ void exercicio10(void)
         contador_Pares,
         contador_Impares
 	);
-}
-
-/**
- *
- */
-int main(void)
-{
-    setlocale(LC_ALL, "");
-
-    Opcoes opcao;
-
-    while ( true )
-	{
-        printf(
-            "\nEscolha a opção:"
-            "\n0. Sair"
-            "\n1. Exercício nº 01"
-            "\n2. Exercício nº 02"
-            "\n3. Exercício nº 03"
-            "\n4. Exercício nº 04"
-            "\n5. Exercício nº 05"
-            "\n6. Exercício nº 06"
-            "\n7. Exercício nº 07"
-            "\n8. Exercício nº 08"
-            "\n9. Exercício nº 09"
-            "\n10.Exercício nº 10"
-            "\nOpção? "
-        );
-        scanf("%d", &opcao);
-        getchar();
-
-        system("clear");
-
-        switch ( opcao )
-		{
-            case EXERCICIO1:
-                exercicio1();
-                break;
-            case EXERCICIO2:
-                exercicio2();
-                break;
-            case EXERCICIO3:
-                exercicio3();
-                break;
-            case EXERCICIO4:
-                exercicio4();
-                break;
-            case EXERCICIO5:
-                exercicio5();
-                break;
-            case EXERCICIO6:
-                exercicio6();
-                break;
-            case EXERCICIO7:
-                exercicio7();
-                break;
-            case EXERCICIO8:
-                exercicio8();
-                break;
-            case EXERCICIO9:
-                exercicio9();
-                break;
-            case EXERCICIO10:
-                exercicio10();
-                break;
-            case SAIR:
-                exit(EXIT_SUCCESS);
-                break;
-            default:
-                puts("Opção inválida!");
-        }
-    }
-
-    return EXIT_SUCCESS;
 }
