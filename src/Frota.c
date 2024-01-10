@@ -115,7 +115,8 @@ void deleteCar(void)
     char placa[TAM_STRING];
 
     printf("Informe a placa do veículo: ");
-    gets(placa);
+    scanf("%[^\n]s", placa);
+    getchar();
 
     for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
