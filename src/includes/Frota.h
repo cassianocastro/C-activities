@@ -39,9 +39,9 @@ typedef struct
 }
 Car;
 
-Car frota[10];
+extern Car frota[];
 
-const unsigned int ARRAY_SIZE = 10u;
+extern const unsigned int ARRAY_SIZE;
 
 /**
  *
