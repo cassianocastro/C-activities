@@ -5,9 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TAM_STRING 20
-
-const unsigned int TAMANHO_FROTA = 10u;
+#define STRING_SIZE 20
 
 typedef unsigned char byte;
 
@@ -22,16 +20,18 @@ Opcoes;
 
 typedef struct
 {
-	char model[TAM_STRING];
-	char mark[TAM_STRING];
-	char placa[TAM_STRING];
-	char color[TAM_STRING];
+	char model[STRING_SIZE];
+	char mark[STRING_SIZE];
+	char placa[STRING_SIZE];
+	char color[STRING_SIZE];
 
 	unsigned short release;
 }
 Car;
 
 Car frota[10];
+
+const unsigned int ARRAY_SIZE = 10u;
 
 void showCarForm(Car* const car)
 {
@@ -87,7 +87,7 @@ Car createCar(void)
 
 void addCar(void)
 {
-    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         if ( frota[i].release == 0 )
         {
@@ -102,7 +102,7 @@ void addCar(void)
 
 void showCars(void)
 {
-    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         if ( frota[i].release != 0 )
         {
@@ -113,13 +113,13 @@ void showCars(void)
 
 void deleteCar(void)
 {
-    char placa[TAM_STRING];
+    char placa[STRING_SIZE];
 
     printf("Informe a placa do veículo: ");
     scanf("%[^\n]s", placa);
     getchar();
 
-    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         if ( strcmp(placa, frota[i].placa) == 0 )
         {
@@ -157,7 +157,7 @@ int main(int argc, const char* argv[])
 
 	unsigned int option = 0u;
 
-    for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
+    for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         frota[i] = createCar();
     }
