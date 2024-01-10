@@ -32,6 +32,24 @@ Car;
 
 Car frota[TAMANHO_FROTA];
 
+void showCarForm(Car* const car)
+{
+    printf("Marca..............: ");
+    gets(car->marca);
+
+    printf("Modelo.............: ");
+    gets(car->modelo);
+
+    printf("Cor................: ");
+    gets(car->cor);
+
+    printf("Placa..............: ");
+    gets(car->placa);
+
+    printf("Ano de fabricação..: ");
+    scanf("%hu", &car->ano);
+}
+
 void printCarInfo(const Car* const car)
 {
     printf(
@@ -68,20 +86,7 @@ void addCar(void)
 	{
         if ( frota[i].ano == 0 )
         {
-            printf("Marca..............: ");
-            gets(frota[i].marca);
-
-            printf("Modelo.............: ");
-            gets(frota[i].modelo);
-
-            printf("Cor................: ");
-            gets(frota[i].cor);
-
-            printf("Placa..............: ");
-            gets(frota[i].placa);
-
-            printf("Ano de fabricação..: ");
-            scanf("%hu", &frota[i].ano);
+            showCarForm(&frota[i]);
 
             puts("\nCarro incluído.");
 
