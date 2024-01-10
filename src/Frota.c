@@ -21,12 +21,12 @@ Opcoes;
 
 typedef struct
 {
-	char modelo[TAM_STRING];
-	char marca[TAM_STRING];
+	char model[TAM_STRING];
+	char mark[TAM_STRING];
 	char placa[TAM_STRING];
-	char cor[TAM_STRING];
+	char color[TAM_STRING];
 
-	unsigned short ano;
+	unsigned short release;
 }
 Car;
 
@@ -35,15 +35,15 @@ Car frota[TAMANHO_FROTA];
 void showCarForm(Car* const car)
 {
     printf("Marca..............: ");
-    scanf("%[^\n]s", car->marca);
+    scanf("%[^\n]s", car->mark);
     getchar();
 
     printf("Modelo.............: ");
-    scanf("%[^\n]s", car->modelo);
+    scanf("%[^\n]s", car->model);
     getchar();
 
     printf("Cor................: ");
-    scanf("%[^\n]s", car->cor);
+    scanf("%[^\n]s", car->color);
     getchar();
 
     printf("Placa..............: ");
@@ -51,7 +51,7 @@ void showCarForm(Car* const car)
     getchar();
 
     printf("Ano de fabricação..: ");
-    scanf("%hu", &car->ano);
+    scanf("%hu", &car->release);
 }
 
 void printCarInfo(const Car* const car)
@@ -63,22 +63,22 @@ void printCarInfo(const Car* const car)
         "\nPlaca................: %s"
         "\nCor..................: %s"
         "\nAno de fabricação....: %d\n",
-        car->marca,
-        car->modelo,
+        car->mark,
+        car->model,
         car->placa,
-        car->cor,
-        car->ano
+        car->color,
+        car->release
     );
 }
 
 Car createCar(void)
 {
     Car car = {
-        .cor    = "",
-        .marca  = "",
-        .modelo = "",
-        .placa  = "",
-        .ano    = 0
+        .color   = "",
+        .mark    = "",
+        .model   = "",
+        .placa   = "",
+        .release = 0
     };
 
 	return car;
@@ -88,7 +88,7 @@ void addCar(void)
 {
     for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
-        if ( frota[i].ano == 0 )
+        if ( frota[i].release == 0 )
         {
             showCarForm(&frota[i]);
 
@@ -103,7 +103,7 @@ void showCars(void)
 {
     for ( register byte i = 0; i < TAMANHO_FROTA; ++i )
 	{
-        if ( frota[i].ano != 0 )
+        if ( frota[i].release != 0 )
         {
             printCarInfo(&frota[i]);
         }
