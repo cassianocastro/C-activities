@@ -19,7 +19,7 @@ typedef enum
 }
 Opcoes;
 
-struct carro
+typedef struct
 {
 	char modelo[TAM_STRING];
 	char marca[TAM_STRING];
@@ -28,9 +28,11 @@ struct carro
 
 	unsigned short ano;
 }
-frota[TAMANHO_FROTA];
+Car;
 
-void printCarInfo(const struct carro* const car)
+Car frota[TAMANHO_FROTA];
+
+void printCarInfo(const Car* const car)
 {
     printf(
         "\nDados do carro\n"
