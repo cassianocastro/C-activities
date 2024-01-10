@@ -133,9 +133,9 @@ int main(int argc, const char* argv[])
     do {
 		printf(
             "\nEscolha uma das opções:"
-            "\n1 - Inserir carro  | 2 - Excluir carro"
-            "\n3 - Exibir modelos | 0 - Finalizar"
-            "\nOpção? "
+            "\n1. Inserir carro  | 2. Excluir carro"
+            "\n3. Exibir modelos | 0. Finalizar"
+            "\nOpção\? "
         );
 		scanf("%d", &opcao);
 		system("clear");
