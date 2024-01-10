@@ -16,7 +16,7 @@ typedef enum
     READ,
     DELETE
 }
-Opcoes;
+Options;
 
 typedef struct
 {
