@@ -31,7 +31,7 @@ struct livro
 }
 biblioteca[10];
 
-struct livro init(void)
+struct livro createBook(void)
 {
     struct livro book = {
         .titulo  = "",
@@ -285,7 +285,7 @@ int main(int argc, const char** argv)
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
-        biblioteca[i] = init();
+        biblioteca[i] = createBook();
     }
 
 	do {
