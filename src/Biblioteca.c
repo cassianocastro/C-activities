@@ -231,15 +231,11 @@ void del(void)
 	);
 	scanf("%[^\n]s", str);
 
-	for ( byte i = 0, size = 10; i < size; i++ )
+	for ( register byte i = 0, size = 10; i < size; ++i )
 	{
 		if ( strcmp(str, library[i].title) == 0 )
         {
-			strcpy(library[i].title, "");
-	        strcpy(library[i].author, "");
-	        strcpy(library[i].publishing, "");
-	        strcpy(library[i].subject, "");
-	        library[i].release = 0;
+	        library[i] = createBook();
 
             found = true;
 
