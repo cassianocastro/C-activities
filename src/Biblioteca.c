@@ -33,13 +33,17 @@ biblioteca[10];
 
 void init(void)
 {
+    struct livro book = {
+        .titulo  = "",
+        .autor   = "",
+        .assunto = "",
+        .editora = "",
+        .ano     = 0
+    };
+
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        strcpy(biblioteca[i].titulo, "");
-        strcpy(biblioteca[i].autor, "");
-        strcpy(biblioteca[i].assunto, "");
-        strcpy(biblioteca[i].editora, "");
-        biblioteca[i].ano = 0;
+        biblioteca[i] = book;
     }
 }
 
