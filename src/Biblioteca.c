@@ -248,9 +248,9 @@ void del(void)
 
 void create(void)
 {
-	bool was_found = false;
+	bool found = false;
 
-	for ( byte i = 0, size = 10; i < size; i++ )
+	for ( register byte i = 0, size = 10; i < size; ++i )
 	{
 		if ( library[i].release == 0 )
         {
@@ -269,13 +269,13 @@ void create(void)
             printf("Ano de lançamento...: ");
             scanf("%hd", &library[i].release);
 
-            was_found = true;
+            found = true;
 
             break;
 		}
 	}
 
-	printf("%s \n", ( not was_found ) ? "Lista cheia." : "Livro incluído.");
+	printf("%s\n", not found ? "Lista cheia." : "Livro incluído.");
 }
 
 /**
