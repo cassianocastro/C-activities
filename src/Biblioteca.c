@@ -67,12 +67,18 @@ void printBookInfo(int i, const Book* const book)
 
 void read(void)
 {
-    byte count = 0;
-    byte size  = 10;
+    byte count = 0, size = 10;
 
-    for ( byte i = 0; i < size; i++ )
+    for ( register byte i = 0; i < size; ++i )
 	{
-        ( library[i].release != 0 ) ? printBookInfo(i + 1, &library[i]) : count++;
+        if ( library[i].release != 0 )
+        {
+            printBookInfo(i + 1, &library[i]);
+        }
+        else
+        {
+            ++count;
+        }
     }
 
     if ( count == size )
