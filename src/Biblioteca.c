@@ -300,13 +300,8 @@ const unsigned int showMainMenu(void)
     return choice;
 }
 
-/**
- *
- */
-int main(int argc, const char** argv)
+void start(void)
 {
-	setlocale(LC_ALL, "");
-
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
         library[i] = createBook();
@@ -340,6 +335,16 @@ int main(int argc, const char** argv)
                 puts("Opção inválida.");
 		}
 	} while ( option not_eq EXIT );
+}
+
+/**
+ *
+ */
+int main(int argc, const char** argv)
+{
+	setlocale(LC_ALL, "");
+
+    start();
 
 	return EXIT_SUCCESS;
 }
