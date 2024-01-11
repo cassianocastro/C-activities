@@ -95,7 +95,7 @@ bool findByTitle(void)
     printf("Informe o título do livro: ");
     gets(title);
 
-    for ( byte i = 0, size = 10; i < size; i++ )
+    for ( register byte i = 0, size = 10; i < size; ++i )
 	{
         if ( strcmp(title, library[i].title) == 0 )
         {
