@@ -93,7 +93,7 @@ bool findByTitle(void)
     bool found = false;
 
     printf("Informe o título do livro: ");
-    gets(title);
+    scanf("%[^\n]s", title);
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
