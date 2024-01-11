@@ -12,7 +12,11 @@ typedef unsigned char byte;
 
 typedef enum
 {
-    EXIT, CREATE, DELETE, READ, FIND
+    EXIT,
+    CREATE,
+    DELETE,
+    READ,
+    FIND
 }
 Options;
 
