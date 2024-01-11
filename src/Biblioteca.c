@@ -221,19 +221,19 @@ void find(void)
 
 void del(void)
 {
-	char title[TAMANHO];
-	bool was_found = false;
+	char str[TAMANHO];
+	bool found = false;
 
 	printf(
         "Informe o título do livro "
         "(se mais de um livro possuir o mesmo título, "
         "o primeiro a ser inserido será excluído): "
 	);
-	scanf("%[^\n]s", title);
+	scanf("%[^\n]s", str);
 
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
-		if ( strcmp(title, library[i].title) == 0 )
+		if ( strcmp(str, library[i].title) == 0 )
         {
 			strcpy(library[i].title, "");
 	        strcpy(library[i].author, "");
@@ -241,13 +241,13 @@ void del(void)
 	        strcpy(library[i].subject, "");
 	        library[i].release = 0;
 
-            was_found = true;
+            found = true;
 
             break;
 		}
 	}
 
-	printf("%s \n", ( not was_found ) ? "Livro não encontrado." : "Livro excluído.");
+	printf("Livro %s.\n", not found ? "não encontrado" : "excluído");
 }
 
 void create(void)
