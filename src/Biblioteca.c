@@ -31,7 +31,7 @@ struct livro
 }
 biblioteca[10];
 
-void init(void)
+struct livro init(void)
 {
     struct livro book = {
         .titulo  = "",
@@ -41,10 +41,7 @@ void init(void)
         .ano     = 0
     };
 
-	for ( byte i = 0, size = 10; i < size; i++ )
-	{
-        biblioteca[i] = book;
-    }
+    return book;
 }
 
 void getData(int i)
@@ -286,7 +283,10 @@ int main(int argc, const char** argv)
 
     unsigned int option = 0u;
 
-    init();
+    for ( register byte i = 0, size = 10; i < size; ++i )
+	{
+        biblioteca[i] = init();
+    }
 
 	do {
 		printf(
