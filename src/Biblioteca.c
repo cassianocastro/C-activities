@@ -156,6 +156,28 @@ char askUser(void)
     return response;
 }
 
+Book showBooksForm(void)
+{
+    Book book = {};
+
+    printf("Nome do autor.......: ");
+    scanf(" %[^\n]s", book.author);
+
+    printf("Título do livro.....: ");
+    scanf(" %[^\n]s", book.title);
+
+    printf("Assunto.............: ");
+    scanf(" %[^\n]s", book.subject);
+
+    printf("Editora.............: ");
+    scanf(" %[^\n]s", book.publishing);
+
+    printf("Ano de lançamento...: ");
+    scanf("%hd", &book.release);
+
+    return book;
+}
+
 void addBook(void)
 {
 	bool found = false;
@@ -164,20 +186,7 @@ void addBook(void)
 	{
 		if ( library[i].release == 0 )
         {
-            printf("Nome do autor.......: ");
-            scanf(" %[^\n]s", library[i].author);
-
-            printf("Título do livro.....: ");
-            scanf(" %[^\n]s", library[i].title);
-
-            printf("Assunto.............: ");
-            scanf(" %[^\n]s", library[i].subject);
-
-            printf("Editora.............: ");
-            scanf(" %[^\n]s", library[i].publishing);
-
-            printf("Ano de lançamento...: ");
-            scanf("%hd", &library[i].release);
+            library[i] = showBooksForm();
 
             found = true;
 
@@ -185,7 +194,7 @@ void addBook(void)
 		}
 	}
 
-	printf("%s\n", not found ? "Lista cheia." : "Livro incluído.");
+	printf("%s.\n", not found ? "Lista cheia" : "Livro incluído");
 }
 
 void showBooks(void)
