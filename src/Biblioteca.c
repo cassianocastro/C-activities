@@ -241,7 +241,6 @@ void searchBook(void)
 {
 	byte option = 0;
 	Book* book  = NULL;
-	char response = '\0';
 
 	do {
 		printf(
@@ -277,9 +276,7 @@ void searchBook(void)
         {
             puts("Livro não encontrado.");
         }
-
-        response = askUser();
-	} while ( response == 'n' );
+	} while ( askUser() == 'n' );
 }
 
 /**
