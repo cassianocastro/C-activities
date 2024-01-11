@@ -65,67 +65,58 @@ void printBookInfo(int i, const Book* const book)
     );
 }
 
-bool findBookByTitle(void)
+Book* findBookByTitle(void)
 {
     char str[TAMANHO];
-    bool found = false;
 
     printf("Informe o título do livro: ");
-    scanf("%[^\n]s", str);
+    scanf(" %[^\n]s", str);
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
         if ( strcmp(str, library[i].title) == 0 )
         {
-            printBookInfo(i + 1, &library[i]);
-
-            found = true;
+            return &library[i];
         }
     }
 
-    return found;
+    return NULL;
 }
 
-bool findBookByAuthor(void)
+Book* findBookByAuthor(void)
 {
     char str[TAMANHO];
-    bool found = false;
 
     printf("Informe o nome do autor: ");
-    scanf("%[^\n]s", str);
+    scanf(" %[^\n]s", str);
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
         if ( strcmp(str, library[i].author) == 0 )
         {
-            printBookInfo(i + 1, &library[i]);
-
-            found = true;
+            return &library[i];
         }
     }
 
-    return found;
+    return NULL;
 }
 
-bool findBookByPublishingCiA(void)
+Book* findBookByPublishingCiA(void)
 {
     char str[TAMANHO];
-    bool found = false;
 
     printf("Informe o nome da editora: ");
-    scanf("%[^\n]s", str);
+    scanf(" %[^\n]s", str);
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
         if ( strcmp(str, library[i].publishing) == 0 )
         {
-            printBookInfo(i + 1, &library[i]);
-
-            found = true;
+            return &library[i];
         }
     }
 
-    return found;
+    return NULL;
 }
 
 bool responseIsValid(char response)
@@ -249,7 +240,7 @@ void deleteBook(void)
 void searchBook(void)
 {
 	byte option = 0;
-	bool found  = false;
+	Book* book  = NULL;
 	char response = '\0';
 
 	do {
@@ -266,19 +257,23 @@ void searchBook(void)
 		switch ( option )
 		{
 			case 1:
-				found = findBookByTitle();
+				book = findBookByTitle();
 				break;
 			case 2:
-				found = findBookByAuthor();
+				book = findBookByAuthor();
 				break;
 			case 3:
-				found = findBookByPublishingCiA();
+				book = findBookByPublishingCiA();
 				break;
             default:
 				puts("Opção inválida!");
 		}
 
-		if ( not found )
+        if ( book != NULL )
+        {
+            printBookInfo(1, book);
+        }
+		else
         {
             puts("Livro não encontrado.");
         }
