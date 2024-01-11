@@ -14,9 +14,9 @@ typedef enum
 {
     EXIT,
     CREATE,
-    DELETE,
     READ,
-    FIND
+    DELETE,
+    SEARCH
 }
 Options;
 
@@ -302,14 +302,14 @@ int main(int argc, const char* argv[])
 			case CREATE:
                 create();
                 break;
-			case FIND:
-                find();
-                break;
 			case READ:
                 read();
                 break;
 			case DELETE:
                 del();
+                break;
+			case SEARCH:
+                find();
                 break;
 			case EXIT:
                 puts("Tchau...");
