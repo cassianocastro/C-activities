@@ -89,23 +89,23 @@ void read(void)
 
 bool findByTitle(void)
 {
-    char word[TAMANHO];
-    bool wasFound = false;
+    char title[TAMANHO];
+    bool found = false;
 
     printf("Informe o título do livro: ");
-    gets(word);
+    gets(title);
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp(word, library[i].title) == 0 )
+        if ( strcmp(title, library[i].title) == 0 )
         {
             printBookInfo(i + 1, &library[i]);
 
-            wasFound = true;
+            found = true;
         }
     }
 
-    return wasFound;
+    return found;
 }
 
 bool findByAuthor(void)
