@@ -123,12 +123,7 @@ bool responseIsValid(char response)
 {
     response = tolower(response);
 
-    if ( response == 's' or response == 'n' )
-    {
-        return true;
-    }
-
-    return false;
+    return response == 's' or response == 'n';
 }
 
 char askUser(void)
