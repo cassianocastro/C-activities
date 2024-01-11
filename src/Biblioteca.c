@@ -1,134 +1,52 @@
 #include "./includes/Library.h"
 
-Book createBook(void)
+/**
+ *
+ */
+int main(int argc, const char** argv)
 {
-    Book book = {
-        .title      = "",
-        .author     = "",
-        .subject    = "",
-        .publishing = "",
-        .release    = 0
-    };
+	setlocale(LC_ALL, "");
 
-    return book;
+    start();
+
+	return EXIT_SUCCESS;
 }
 
-void printBookInfo(int i, const Book* const book)
+void start(void)
 {
-    printf(
-        "\nLivro nº %d do acervo......:"
-        "\nTítulo....................: %s"
-        "\nAutor.....................: %s"
-        "\nEditora...................: %s"
-        "\nAssunto...................: %s"
-        "\nAno de lançamento.........: %d"
-        "\n----------\n",
-        i,
-        book->title,
-        book->author,
-        book->publishing,
-        book->subject,
-        book->release
-    );
-}
-
-Book* findBookByTitle(void)
-{
-    char str[TAMANHO];
-
-    printf("Informe o título do livro: ");
-    scanf(" %[^\n]s", str);
-
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
-        if ( strcmp(str, library[i].title) == 0 )
-        {
-            return &library[i];
-        }
+        library[i] = createBook();
     }
 
-    return NULL;
-}
+    unsigned int option = 0u;
 
-Book* findBookByAuthor(void)
-{
-    char str[TAMANHO];
+	do {
+		option = showMainMenu();
 
-    printf("Informe o nome do autor: ");
-    scanf(" %[^\n]s", str);
+		system("clear");
 
-    for ( register byte i = 0, size = 10; i < size; ++i )
-	{
-        if ( strcmp(str, library[i].author) == 0 )
-        {
-            return &library[i];
-        }
-    }
-
-    return NULL;
-}
-
-Book* findBookByPublishingCiA(void)
-{
-    char str[TAMANHO];
-
-    printf("Informe o nome da editora: ");
-    scanf(" %[^\n]s", str);
-
-    for ( register byte i = 0, size = 10; i < size; ++i )
-	{
-        if ( strcmp(str, library[i].publishing) == 0 )
-        {
-            return &library[i];
-        }
-    }
-
-    return NULL;
-}
-
-bool responseIsValid(char response)
-{
-    response = tolower(response);
-
-    return response == 's' or response == 'n';
-}
-
-char askUser(void)
-{
-    char response = '\0';
-
-    printf("\nDeseja voltar ao menu principal[s/n]\? ");
-    scanf(" %c", &response);
-
-    while ( not responseIsValid(response) )
-	{
-        printf("\nResposta inválida. Digite novamente: ");
-        scanf(" %c", &response);
-    }
-
-    return response;
-}
-
-Book showBooksForm(void)
-{
-    Book book = {};
-
-    printf("Nome do autor.......: ");
-    scanf(" %[^\n]s", book.author);
-
-    printf("Título do livro.....: ");
-    scanf(" %[^\n]s", book.title);
-
-    printf("Assunto.............: ");
-    scanf(" %[^\n]s", book.subject);
-
-    printf("Editora.............: ");
-    scanf(" %[^\n]s", book.publishing);
-
-    printf("Ano de lançamento...: ");
-    scanf("%hd", &book.release);
-
-    return book;
+		switch ( option )
+		{
+			case CREATE:
+                addBook();
+                break;
+			case READ:
+                showBooks();
+                break;
+			case DELETE:
+                deleteBook();
+                break;
+			case SEARCH:
+                searchBook();
+                break;
+			case EXIT:
+                puts("Tchau...");
+                break;
+			default:
+                puts("Opção inválida.");
+		}
+	} while ( option not_eq EXIT );
 }
 
 void addBook(void)
@@ -235,6 +153,137 @@ void searchBook(void)
 	} while ( askUser() == 'n' );
 }
 
+Book createBook(void)
+{
+    Book book = {
+        .title      = "",
+        .author     = "",
+        .subject    = "",
+        .publishing = "",
+        .release    = 0
+    };
+
+    return book;
+}
+
+Book* findBookByTitle(void)
+{
+    char str[TAMANHO];
+
+    printf("Informe o título do livro: ");
+    scanf(" %[^\n]s", str);
+
+    for ( register byte i = 0, size = 10; i < size; ++i )
+	{
+        if ( strcmp(str, library[i].title) == 0 )
+        {
+            return &library[i];
+        }
+    }
+
+    return NULL;
+}
+
+Book* findBookByAuthor(void)
+{
+    char str[TAMANHO];
+
+    printf("Informe o nome do autor: ");
+    scanf(" %[^\n]s", str);
+
+    for ( register byte i = 0, size = 10; i < size; ++i )
+	{
+        if ( strcmp(str, library[i].author) == 0 )
+        {
+            return &library[i];
+        }
+    }
+
+    return NULL;
+}
+
+Book* findBookByPublishingCiA(void)
+{
+    char str[TAMANHO];
+
+    printf("Informe o nome da editora: ");
+    scanf(" %[^\n]s", str);
+
+    for ( register byte i = 0, size = 10; i < size; ++i )
+	{
+        if ( strcmp(str, library[i].publishing) == 0 )
+        {
+            return &library[i];
+        }
+    }
+
+    return NULL;
+}
+
+bool responseIsValid(char response)
+{
+    response = tolower(response);
+
+    return response == 's' or response == 'n';
+}
+
+char askUser(void)
+{
+    char response = '\0';
+
+    printf("\nDeseja voltar ao menu principal[s/n]\? ");
+    scanf(" %c", &response);
+
+    while ( not responseIsValid(response) )
+	{
+        printf("\nResposta inválida. Digite novamente: ");
+        scanf(" %c", &response);
+    }
+
+    return response;
+}
+
+Book showBooksForm(void)
+{
+    Book book = {};
+
+    printf("Nome do autor.......: ");
+    scanf(" %[^\n]s", book.author);
+
+    printf("Título do livro.....: ");
+    scanf(" %[^\n]s", book.title);
+
+    printf("Assunto.............: ");
+    scanf(" %[^\n]s", book.subject);
+
+    printf("Editora.............: ");
+    scanf(" %[^\n]s", book.publishing);
+
+    printf("Ano de lançamento...: ");
+    scanf("%hd", &book.release);
+
+    return book;
+}
+
+void printBookInfo(int i, const Book* const book)
+{
+    printf(
+        "\nLivro nº %d do acervo......:"
+        "\nTítulo....................: %s"
+        "\nAutor.....................: %s"
+        "\nEditora...................: %s"
+        "\nAssunto...................: %s"
+        "\nAno de lançamento.........: %d"
+        "\n----------\n",
+        i,
+        book->title,
+        book->author,
+        book->publishing,
+        book->subject,
+        book->release
+    );
+}
+
 const unsigned int showSearchMenu(void)
 {
     byte choice = 0u;
@@ -265,53 +314,4 @@ const unsigned int showMainMenu(void)
     getchar();
 
     return choice;
-}
-
-void start(void)
-{
-    for ( register byte i = 0, size = 10; i < size; ++i )
-	{
-        library[i] = createBook();
-    }
-
-    unsigned int option = 0u;
-
-	do {
-		option = showMainMenu();
-
-		system("clear");
-
-		switch ( option )
-		{
-			case CREATE:
-                addBook();
-                break;
-			case READ:
-                showBooks();
-                break;
-			case DELETE:
-                deleteBook();
-                break;
-			case SEARCH:
-                searchBook();
-                break;
-			case EXIT:
-                puts("Tchau...");
-                break;
-			default:
-                puts("Opção inválida.");
-		}
-	} while ( option not_eq EXIT );
-}
-
-/**
- *
- */
-int main(int argc, const char** argv)
-{
-	setlocale(LC_ALL, "");
-
-    start();
-
-	return EXIT_SUCCESS;
 }
