@@ -65,7 +65,7 @@ void printBookInfo(int i, const Book* const book)
     );
 }
 
-bool findByTitle(void)
+bool findBookByTitle(void)
 {
     char str[TAMANHO];
     bool found = false;
@@ -86,7 +86,7 @@ bool findByTitle(void)
     return found;
 }
 
-bool findByAuthor(void)
+bool findBookByAuthor(void)
 {
     char str[TAMANHO];
     bool found = false;
@@ -107,7 +107,7 @@ bool findByAuthor(void)
     return found;
 }
 
-bool findByPublishingCiA(void)
+bool findBookByPublishingCiA(void)
 {
     char str[TAMANHO];
     bool found = false;
@@ -266,13 +266,13 @@ void searchBook(void)
 		switch ( option )
 		{
 			case 1:
-				found = findByTitle();
+				found = findBookByTitle();
 				break;
 			case 2:
-				found = findByAuthor();
+				found = findBookByAuthor();
 				break;
 			case 3:
-				found = findByPublishingCiA();
+				found = findBookByPublishingCiA();
 				break;
             default:
 				puts("Opção inválida!");
