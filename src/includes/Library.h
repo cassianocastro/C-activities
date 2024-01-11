@@ -35,7 +35,7 @@ typedef struct
 }
 Book;
 
-Book library[10];
+extern Book library[];
 
 /**
  *
