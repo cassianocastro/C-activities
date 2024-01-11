@@ -46,7 +46,7 @@ Book createBook(void)
     return book;
 }
 
-void printBookInfo(int i)
+void printBookInfo(int i, const Book* const book)
 {
     printf(
         "\nLivro nº %d do acervo......:"
@@ -56,12 +56,12 @@ void printBookInfo(int i)
         "\nAssunto...................: %s"
         "\nAno de lançamento.........: %d"
         "\n----------\n",
-        ( i + 1 ),
-        library[i].title,
-        library[i].author,
-        library[i].publishing,
-        library[i].subject,
-        library[i].release
+        i,
+        book->title,
+        book->author,
+        book->publishing,
+        book->subject,
+        book->release
     );
 }
 
@@ -72,7 +72,7 @@ void read(void)
 
     for ( byte i = 0; i < size; i++ )
 	{
-        ( library[i].release != 0 ) ? printBookInfo(i) : count++;
+        ( library[i].release != 0 ) ? printBookInfo(i + 1, &library[i]) : count++;
     }
 
     if ( count == size )
@@ -93,7 +93,7 @@ bool findByTitle(void)
 	{
         if ( strcmp(word, library[i].title) == 0 )
         {
-            printBookInfo(i);
+            printBookInfo(i + 1, &library[i]);
 
             wasFound = true;
         }
@@ -114,7 +114,7 @@ bool findByAuthor(void)
 	{
         if ( strcmp(word, library[i].author) == 0 )
         {
-            printBookInfo(i);
+            printBookInfo(i + 1, &library[i]);
 
             wasFound = true;
         }
@@ -135,7 +135,7 @@ bool findByPublishingCiA(void)
 	{
         if ( strcmp(word, library[i].publishing) == 0 )
         {
-            printBookInfo(i);
+            printBookInfo(i + 1, &library[i]);
 
             wasFound = true;
         }
