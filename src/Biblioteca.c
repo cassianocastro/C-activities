@@ -20,7 +20,7 @@ typedef enum
 }
 Options;
 
-struct livro
+typedef struct
 {
 	char titulo[TAMANHO];
 	char autor[TAMANHO];
@@ -29,11 +29,13 @@ struct livro
 
 	unsigned short ano;
 }
-biblioteca[10];
+Book;
 
-struct livro createBook(void)
+Book biblioteca[10];
+
+Book createBook(void)
 {
-    struct livro book = {
+    Book book = {
         .titulo  = "",
         .autor   = "",
         .assunto = "",
