@@ -65,28 +65,6 @@ void printBookInfo(int i, const Book* const book)
     );
 }
 
-void showBooks(void)
-{
-    byte count = 0, size = 10;
-
-    for ( register byte i = 0; i < size; ++i )
-	{
-        if ( library[i].release != 0 )
-        {
-            printBookInfo(i + 1, &library[i]);
-        }
-        else
-        {
-            ++count;
-        }
-    }
-
-    if ( count == size )
-    {
-        puts("Sem livros cadastrados.");
-    }
-}
-
 bool findByTitle(void)
 {
     char str[TAMANHO];
@@ -178,6 +156,87 @@ char askUser(void)
     return response;
 }
 
+void addBook(void)
+{
+	bool found = false;
+
+	for ( register byte i = 0, size = 10; i < size; ++i )
+	{
+		if ( library[i].release == 0 )
+        {
+            printf("Nome do autor.......: ");
+            scanf(" %[^\n]s", library[i].author);
+
+            printf("Título do livro.....: ");
+            scanf(" %[^\n]s", library[i].title);
+
+            printf("Assunto.............: ");
+            scanf(" %[^\n]s", library[i].subject);
+
+            printf("Editora.............: ");
+            scanf(" %[^\n]s", library[i].publishing);
+
+            printf("Ano de lançamento...: ");
+            scanf("%hd", &library[i].release);
+
+            found = true;
+
+            break;
+		}
+	}
+
+	printf("%s\n", not found ? "Lista cheia." : "Livro incluído.");
+}
+
+void showBooks(void)
+{
+    byte count = 0, size = 10;
+
+    for ( register byte i = 0; i < size; ++i )
+	{
+        if ( library[i].release != 0 )
+        {
+            printBookInfo(i + 1, &library[i]);
+        }
+        else
+        {
+            ++count;
+        }
+    }
+
+    if ( count == size )
+    {
+        puts("Sem livros cadastrados.");
+    }
+}
+
+void deleteBook(void)
+{
+	char str[TAMANHO];
+	bool found = false;
+
+	printf(
+        "Informe o título do livro "
+        "(se mais de um livro possuir o mesmo título, "
+        "o primeiro a ser inserido será excluído): "
+	);
+	scanf("%[^\n]s", str);
+
+	for ( register byte i = 0, size = 10; i < size; ++i )
+	{
+		if ( strcmp(str, library[i].title) == 0 )
+        {
+	        library[i] = createBook();
+
+            found = true;
+
+            break;
+		}
+	}
+
+	printf("Livro %s.\n", not found ? "não encontrado" : "excluído");
+}
+
 void searchBook(void)
 {
 	byte opcao     = 0;
@@ -217,65 +276,6 @@ void searchBook(void)
 
         response = askUser();
 	} while ( response == 'n' );
-}
-
-void deleteBook(void)
-{
-	char str[TAMANHO];
-	bool found = false;
-
-	printf(
-        "Informe o título do livro "
-        "(se mais de um livro possuir o mesmo título, "
-        "o primeiro a ser inserido será excluído): "
-	);
-	scanf("%[^\n]s", str);
-
-	for ( register byte i = 0, size = 10; i < size; ++i )
-	{
-		if ( strcmp(str, library[i].title) == 0 )
-        {
-	        library[i] = createBook();
-
-            found = true;
-
-            break;
-		}
-	}
-
-	printf("Livro %s.\n", not found ? "não encontrado" : "excluído");
-}
-
-void addBook(void)
-{
-	bool found = false;
-
-	for ( register byte i = 0, size = 10; i < size; ++i )
-	{
-		if ( library[i].release == 0 )
-        {
-            printf("Nome do autor.......: ");
-            scanf(" %[^\n]s", library[i].author);
-
-            printf("Título do livro.....: ");
-            scanf(" %[^\n]s", library[i].title);
-
-            printf("Assunto.............: ");
-            scanf(" %[^\n]s", library[i].subject);
-
-            printf("Editora.............: ");
-            scanf(" %[^\n]s", library[i].publishing);
-
-            printf("Ano de lançamento...: ");
-            scanf("%hd", &library[i].release);
-
-            found = true;
-
-            break;
-		}
-	}
-
-	printf("%s\n", not found ? "Lista cheia." : "Livro incluído.");
 }
 
 /**
