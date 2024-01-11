@@ -229,7 +229,7 @@ void del(void)
         "(se mais de um livro possuir o mesmo título, "
         "o primeiro a ser inserido será excluído): "
 	);
-	gets(title);
+	scanf("%[^\n]s", title);
 
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
