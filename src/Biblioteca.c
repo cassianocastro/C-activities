@@ -234,17 +234,11 @@ void deleteBook(void)
 
 void searchBook(void)
 {
-	byte option = 0;
 	Book* book  = NULL;
+	byte option = 0;
 
 	do {
-		printf(
-            "\nSelecione o tipo de busca:"
-            "\n1. Por título | 2. Por Autor | 3. Por Editora"
-            "\nOpção\? "
-        );
-		scanf("%hhd", &option);
-		getchar();
+		option = showSearchMenu();
 
 		system("clear");
 
@@ -274,6 +268,38 @@ void searchBook(void)
 	} while ( askUser() == 'n' );
 }
 
+const unsigned int showSearchMenu(void)
+{
+    byte choice = 0u;
+
+    printf(
+        "\nSelecione o tipo de busca:"
+        "\n1. Por título | 2. Por Autor | 3. Por Editora"
+        "\nOpção\? "
+    );
+    scanf("%hhd", &choice);
+    getchar();
+
+    return choice;
+}
+
+const unsigned int showMainMenu(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha uma das opções:"
+        "\n1. Inserir livro | 2. Exibir acervo"
+        "\n3. Excluir livro | 4. Pesquisar"
+        "\n0. Sair"
+        "\nOpção\? "
+    );
+    scanf("%d", &choice);
+    getchar();
+
+    return choice;
+}
+
 /**
  *
  */
@@ -281,23 +307,15 @@ int main(int argc, const char** argv)
 {
 	setlocale(LC_ALL, "");
 
-    unsigned int option = 0u;
-
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
         library[i] = createBook();
     }
 
+    unsigned int option = 0u;
+
 	do {
-		printf(
-            "\nEscolha uma das opções:"
-            "\n1. Inserir livro | 2. Exibir acervo"
-            "\n3. Excluir livro | 4. Pesquisar"
-            "\n0. Sair"
-            "\nOpção\? "
-        );
-		scanf("%d", &option);
-		getchar();
+		option = showMainMenu();
 
 		system("clear");
 
