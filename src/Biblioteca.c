@@ -287,11 +287,11 @@ int main(int argc, const char* argv[])
 	do
 	{
 		printf(
-            "\nEscolha uma das opções:\
-            \n1 - Inserir livro | 2 - Excluir livro\
-            \n3 - Exibir acervo | 4 - Pesquisar\
-            \n0 - Sair\
-            \nOpção\? "
+            "\nEscolha uma das opções:"
+            "\n1. Inserir livro | 2. Exibir acervo"
+            "\n3. Excluir livro | 4. Pesquisar"
+            "\n0. Sair"
+            "\nOpção\? "
         );
 		scanf("%d", &option);
 		system("clear");
