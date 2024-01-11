@@ -46,7 +46,7 @@ Book createBook(void)
     return book;
 }
 
-void getData(int i)
+void printBookInfo(int i)
 {
     printf(
         "\nLivro nº %d do acervo......:"
@@ -72,7 +72,7 @@ void read(void)
 
     for ( byte i = 0; i < size; i++ )
 	{
-        ( library[i].release != 0 ) ? getData(i) : count++;
+        ( library[i].release != 0 ) ? printBookInfo(i) : count++;
     }
 
     if ( count == size )
@@ -93,7 +93,7 @@ bool findByTitle(void)
 	{
         if ( strcmp(word, library[i].title) == 0 )
         {
-            getData(i);
+            printBookInfo(i);
 
             wasFound = true;
         }
@@ -114,7 +114,7 @@ bool findByAuthor(void)
 	{
         if ( strcmp(word, library[i].author) == 0 )
         {
-            getData(i);
+            printBookInfo(i);
 
             wasFound = true;
         }
@@ -135,7 +135,7 @@ bool findByPublishingCiA(void)
 	{
         if ( strcmp(word, library[i].publishing) == 0 )
         {
-            getData(i);
+            printBookInfo(i);
 
             wasFound = true;
         }
