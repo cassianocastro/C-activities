@@ -295,7 +295,7 @@ const unsigned int showSearchMenu(void)
         "\n1. Por título | 2. Por Autor | 3. Por Editora"
         "\nOpção\? "
     );
-    scanf("%hhd", &choice);
+    scanf("%1hhd", &choice);
     getchar();
 
     return choice;
@@ -312,7 +312,7 @@ const unsigned int showMainMenu(void)
         "\n0. Sair"
         "\nOpção\? "
     );
-    scanf("%d", &choice);
+    scanf("%1d", &choice);
     getchar();
 
     return choice;
