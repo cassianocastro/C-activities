@@ -89,15 +89,15 @@ void read(void)
 
 bool findByTitle(void)
 {
-    char title[TAMANHO];
+    char str[TAMANHO];
     bool found = false;
 
     printf("Informe o título do livro: ");
-    scanf("%[^\n]s", title);
+    scanf("%[^\n]s", str);
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
-        if ( strcmp(title, library[i].title) == 0 )
+        if ( strcmp(str, library[i].title) == 0 )
         {
             printBookInfo(i + 1, &library[i]);
 
@@ -110,44 +110,44 @@ bool findByTitle(void)
 
 bool findByAuthor(void)
 {
-    char word[TAMANHO];
-    bool wasFound = false;
+    char str[TAMANHO];
+    bool found = false;
 
     printf("Informe o nome do autor: ");
-    gets(word);
+    scanf("%[^\n]s", str);
 
-    for ( byte i = 0, size = 10; i < size; i++ )
+    for ( register byte i = 0, size = 10; i < size; ++i )
 	{
-        if ( strcmp(word, library[i].author) == 0 )
+        if ( strcmp(str, library[i].author) == 0 )
         {
             printBookInfo(i + 1, &library[i]);
 
-            wasFound = true;
+            found = true;
         }
     }
 
-    return wasFound;
+    return found;
 }
 
 bool findByPublishingCiA(void)
 {
-    char word[TAMANHO];
-    bool wasFound = false;
+    char str[TAMANHO];
+    bool found = false;
 
     printf("Informe o nome da editora: ");
-    gets(word);
+    scanf("%[^\n]s", str);
 
-    for ( byte i = 0, size = 10; i < size; i++ )
+    for ( register byte i = 0, size = 10; i < size; ++i )
 	{
-        if ( strcmp(word, library[i].publishing) == 0 )
+        if ( strcmp(str, library[i].publishing) == 0 )
         {
             printBookInfo(i + 1, &library[i]);
 
-            wasFound = true;
+            found = true;
         }
     }
 
-    return wasFound;
+    return found;
 }
 
 bool responseIsValid(char response)
