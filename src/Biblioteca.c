@@ -255,16 +255,16 @@ void create(void)
 		if ( library[i].release == 0 )
         {
             printf("Nome do autor.......: ");
-            gets(library[i].author);
+            scanf(" %[^\n]s", library[i].author);
 
             printf("Título do livro.....: ");
-            gets(library[i].title);
+            scanf(" %[^\n]s", library[i].title);
 
             printf("Assunto.............: ");
-            gets(library[i].subject);
+            scanf(" %[^\n]s", library[i].subject);
 
             printf("Editora.............: ");
-            gets(library[i].publishing);
+            scanf(" %[^\n]s", library[i].publishing);
 
             printf("Ano de lançamento...: ");
             scanf("%hd", &library[i].release);
