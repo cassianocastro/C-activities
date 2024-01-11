@@ -276,16 +276,15 @@ void create(void)
 /**
  *
  */
-int main(int argc, const char* argv[])
+int main(int argc, const char** argv)
 {
 	setlocale(LC_ALL, "");
 
-    unsigned int option = 0;
+    unsigned int option = 0u;
 
     init();
 
-	do
-	{
+	do {
 		printf(
             "\nEscolha uma das opções:"
             "\n1. Inserir livro | 2. Exibir acervo"
@@ -294,8 +293,9 @@ int main(int argc, const char* argv[])
             "\nOpção\? "
         );
 		scanf("%d", &option);
-		system("clear");
 		getchar();
+
+		system("clear");
 
 		switch ( option )
 		{
