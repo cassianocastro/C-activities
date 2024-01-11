@@ -31,7 +31,7 @@ typedef struct
 }
 Book;
 
-Book biblioteca[10];
+Book library[10];
 
 Book createBook(void)
 {
@@ -57,11 +57,11 @@ void getData(int i)
         "\nAno de lançamento.........: %d"
         "\n----------\n",
         ( i + 1 ),
-        biblioteca[i].titulo,
-        biblioteca[i].autor,
-        biblioteca[i].editora,
-        biblioteca[i].assunto,
-        biblioteca[i].ano
+        library[i].titulo,
+        library[i].autor,
+        library[i].editora,
+        library[i].assunto,
+        library[i].ano
     );
 }
 
@@ -72,7 +72,7 @@ void read(void)
 
     for ( byte i = 0; i < size; i++ )
 	{
-        ( biblioteca[i].ano != 0 ) ? getData(i) : count++;
+        ( library[i].ano != 0 ) ? getData(i) : count++;
     }
 
     if ( count == size )
@@ -91,7 +91,7 @@ bool findByTitle(void)
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp(word, biblioteca[i].titulo) == 0 )
+        if ( strcmp(word, library[i].titulo) == 0 )
         {
             getData(i);
 
@@ -112,7 +112,7 @@ bool findByAuthor(void)
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp(word, biblioteca[i].autor) == 0 )
+        if ( strcmp(word, library[i].autor) == 0 )
         {
             getData(i);
 
@@ -133,7 +133,7 @@ bool findByPublishingCiA(void)
 
     for ( byte i = 0, size = 10; i < size; i++ )
 	{
-        if ( strcmp(word, biblioteca[i].editora) == 0 )
+        if ( strcmp(word, library[i].editora) == 0 )
         {
             getData(i);
 
@@ -227,13 +227,13 @@ void del(void)
 
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
-		if ( strcmp(title, biblioteca[i].titulo) == 0 )
+		if ( strcmp(title, library[i].titulo) == 0 )
         {
-			strcpy(biblioteca[i].titulo, "");
-	        strcpy(biblioteca[i].autor, "");
-	        strcpy(biblioteca[i].editora, "");
-	        strcpy(biblioteca[i].assunto, "");
-	        biblioteca[i].ano = 0;
+			strcpy(library[i].titulo, "");
+	        strcpy(library[i].autor, "");
+	        strcpy(library[i].editora, "");
+	        strcpy(library[i].assunto, "");
+	        library[i].ano = 0;
 
             was_found = true;
 
@@ -250,22 +250,22 @@ void create(void)
 
 	for ( byte i = 0, size = 10; i < size; i++ )
 	{
-		if ( biblioteca[i].ano == 0 )
+		if ( library[i].ano == 0 )
         {
             printf("Nome do autor.......: ");
-            gets(biblioteca[i].autor);
+            gets(library[i].autor);
 
             printf("Título do livro.....: ");
-            gets(biblioteca[i].titulo);
+            gets(library[i].titulo);
 
             printf("Assunto.............: ");
-            gets(biblioteca[i].assunto);
+            gets(library[i].assunto);
 
             printf("Editora.............: ");
-            gets(biblioteca[i].editora);
+            gets(library[i].editora);
 
             printf("Ano de lançamento...: ");
-            scanf("%hd", &biblioteca[i].ano);
+            scanf("%hd", &library[i].ano);
 
             was_found = true;
 
@@ -287,7 +287,7 @@ int main(int argc, const char** argv)
 
     for ( register byte i = 0, size = 10; i < size; ++i )
 	{
-        biblioteca[i] = createBook();
+        library[i] = createBook();
     }
 
 	do {
