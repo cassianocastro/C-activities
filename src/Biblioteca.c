@@ -65,7 +65,7 @@ void printBookInfo(int i, const Book* const book)
     );
 }
 
-void read(void)
+void showBooks(void)
 {
     byte count = 0, size = 10;
 
@@ -178,7 +178,7 @@ char askUser(void)
     return response;
 }
 
-void find(void)
+void searchBook(void)
 {
 	byte opcao     = 0;
 	bool was_found = false;
@@ -219,7 +219,7 @@ void find(void)
 	} while ( response == 'n' );
 }
 
-void del(void)
+void deleteBook(void)
 {
 	char str[TAMANHO];
 	bool found = false;
@@ -246,7 +246,7 @@ void del(void)
 	printf("Livro %s.\n", not found ? "não encontrado" : "excluído");
 }
 
-void create(void)
+void addBook(void)
 {
 	bool found = false;
 
@@ -308,16 +308,16 @@ int main(int argc, const char** argv)
 		switch ( option )
 		{
 			case CREATE:
-                create();
+                addBook();
                 break;
 			case READ:
-                read();
+                showBooks();
                 break;
 			case DELETE:
-                del();
+                deleteBook();
                 break;
 			case SEARCH:
-                find();
+                searchBook();
                 break;
 			case EXIT:
                 puts("Tchau...");
