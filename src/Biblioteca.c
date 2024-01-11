@@ -252,16 +252,16 @@ void searchBook(void)
 	bool found  = false;
 	char response = '\0';
 
-	do
-	{
+	do {
 		printf(
-            "\nSelecione o tipo de busca:\
-            \n1 - Por título | 2 - Por Autor | 3 - Por Editora\
-            \nOpção\? "
+            "\nSelecione o tipo de busca:"
+            "\n1. Por título | 2. Por Autor | 3. Por Editora"
+            "\nOpção\? "
         );
 		scanf("%hhd", &option);
-		system("clear");
 		getchar();
+
+		system("clear");
 
 		switch ( option )
 		{
