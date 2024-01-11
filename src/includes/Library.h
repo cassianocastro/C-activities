@@ -37,4 +37,79 @@ Book;
 
 Book library[10];
 
+/**
+ *
+ */
+void addBook(void);
+
+/**
+ *
+ */
+void showBooks(void);
+
+/**
+ *
+ */
+void deleteBook(void);
+
+/**
+ *
+ */
+void searchBook(void);
+
+/**
+ *
+ */
+Book* findBookByTitle(void);
+
+/**
+ *
+ */
+Book* findBookByAuthor(void);
+
+/**
+ *
+ */
+Book* findBookByPublishingCiA(void);
+
+/**
+ *
+ */
+Book createBook(void);
+
+/**
+ *
+ */
+void printBookInfo(int, const Book* const);
+
+/**
+ *
+ */
+bool responseIsValid(char);
+
+/**
+ *
+ */
+char askUser(void);
+
+/**
+ *
+ */
+Book showBooksForm(void);
+
+/**
+ *
+ */
+const unsigned int showSearchMenu(void);
+
+/**
+ *
+ */
+const unsigned int showMainMenu(void);
+
+/**
+ *
+ */
+void start(void);
+
 #endif
