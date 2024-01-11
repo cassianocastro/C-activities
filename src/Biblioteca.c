@@ -248,9 +248,9 @@ void deleteBook(void)
 
 void searchBook(void)
 {
-	byte opcao     = 0;
-	bool was_found = false;
-	char response  = '\0';
+	byte option = 0;
+	bool found  = false;
+	char response = '\0';
 
 	do
 	{
@@ -259,26 +259,26 @@ void searchBook(void)
             \n1 - Por título | 2 - Por Autor | 3 - Por Editora\
             \nOpção\? "
         );
-		scanf("%hhd", &opcao);
+		scanf("%hhd", &option);
 		system("clear");
 		getchar();
 
-		switch ( opcao )
+		switch ( option )
 		{
 			case 1:
-				was_found = findByTitle();
+				found = findByTitle();
 				break;
 			case 2:
-				was_found = findByAuthor();
+				found = findByAuthor();
 				break;
 			case 3:
-				was_found = findByPublishingCiA();
+				found = findByPublishingCiA();
 				break;
             default:
 				puts("Opção inválida!");
 		}
 
-		if ( not was_found )
+		if ( not found )
         {
             puts("Livro não encontrado.");
         }
