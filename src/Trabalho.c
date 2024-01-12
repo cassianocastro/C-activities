@@ -25,11 +25,11 @@ void printVector(int* vector)
     }
 }
 
-void crescente(int* vector)
+void ascendingOrder(int* vector)
 {
 	char auxiliar = 0, assistente = 0;
 
-	for ( register unsigned char i = 1; i < TAMANHO_VETOR; ++i )
+	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
     {
 		if ( vector[i] < vector[i - 1] )
         {
@@ -43,7 +43,7 @@ void crescente(int* vector)
 	}
 }
 
-void decrescente(int* vector)
+void descendingOrder(int* vector)
 {
 	char auxiliar = 0, assistente = 0;
 
@@ -106,11 +106,11 @@ int main(int argc, const char** argv)
         switch ( option )
         {
 			case CRESCENTE:
-				crescente(vector);
+				ascendingOrder(vector);
                 printVector(vector);
 				break;
 			case DECRESCENTE:
-				decrescente(vector);
+				descendingOrder(vector);
                 printVector(vector);
 				break;
 			default:
