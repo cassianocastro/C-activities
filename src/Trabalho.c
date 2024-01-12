@@ -56,17 +56,15 @@ void decrescente(int* vetor)
 	for ( pos = 0; pos < TAMANHO_VETOR; printf("[%.2d]\t%d\n", pos, vetor[pos++]) );
 }
 
-void gerarVetor(int* vetor)
+void gerarVetor(int* vector)
 {
-	char pos = 0;
-
 	puts("Vetor gerado:");
 
-    for ( ; pos < TAMANHO_VETOR; pos++ )
+    for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
     {
-		vetor[pos] = rand() % LIMITE_RANDOMICO;
+		vector[i] = rand() % LIMITE_RANDOMICO;
 
-		printf("[%.2d]\t%d\n", pos, vetor[pos]);
+		printf("[%.2d]\t%d\n", i, vector[i]);
 	}
 }
 
