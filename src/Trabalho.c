@@ -86,8 +86,8 @@ int main(int argc, const char* argv[])
 	while ( true )
     {
 		printf(
-            "\nEscolha o tipo de ordenação:\n"
-			"0 - Ordem crescente | 1 - Ordem decrescente | Outra tecla - Sair"
+            "\nEscolha o tipo de ordenação:"
+			"\n1. Ordem crescente | 2. Ordem decrescente | 0. Sair"
 			"\nOpção\? "
         );
 		scanf(" %d", &opcao);
