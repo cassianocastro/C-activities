@@ -19,21 +19,22 @@ void crescente(int* vetor)
 {
 	char auxiliar = 0, assistente = 0;
 
-	for ( char pos = 1; pos < TAMANHO_VETOR; pos++ )
+	for ( char i = 1; i < TAMANHO_VETOR; i++ )
     {
-		if ( vetor[pos] < vetor[pos - 1] )
+		if ( vetor[i] < vetor[i - 1] )
         {
-			auxiliar   	   = vetor[pos];
-			assistente 	   = vetor[pos - 1];
-			vetor[pos - 1] = auxiliar;
-			vetor[pos]     = assistente;
-			pos 	       = 0;
+			auxiliar   	 = vetor[i];
+			assistente 	 = vetor[i - 1];
+			vetor[i - 1] = auxiliar;
+			vetor[i]     = assistente;
+
+            i = 0;
 		}
 	}
 
 	puts("\nVetor em ordem crescente:\nIndice\tValor");
 
-	for ( char pos = 0; pos < TAMANHO_VETOR; printf("[%.2d]\t%d\n", pos, vetor[pos++]) );
+	for ( char i = 0; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vetor[i++]) );
 }
 
 void decrescente(int* vetor)
