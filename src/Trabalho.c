@@ -65,6 +65,16 @@ void decrescente(int* vector)
     }
 }
 
+void printVector(int* vector)
+{
+    puts("\nVetor:\nIndice\tValor");
+
+    for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
+    {
+        printf("[%.2d]\t%d\n", i, vector[i]);
+    }
+}
+
 void generateVector(int* vector)
 {
 	puts("Vetor gerado:");
