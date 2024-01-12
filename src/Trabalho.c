@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
