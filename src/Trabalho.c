@@ -27,16 +27,16 @@ void printVector(int* vector)
 
 void ascendingOrder(int* vector)
 {
-	char auxiliar = 0, assistente = 0;
+	char helper = 0, assistant = 0;
 
 	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
     {
 		if ( vector[i] < vector[i - 1] )
         {
-			auxiliar      = vector[i];
-			assistente    = vector[i - 1];
-			vector[i - 1] = auxiliar;
-			vector[i]     = assistente;
+			helper        = vector[i];
+			assistant     = vector[i - 1];
+			vector[i - 1] = helper;
+			vector[i]     = assistant;
 
             i = 0;
 		}
@@ -45,16 +45,16 @@ void ascendingOrder(int* vector)
 
 void descendingOrder(int* vector)
 {
-	char auxiliar = 0, assistente = 0;
+	char helper = 0, assistant = 0;
 
 	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
     {
 		if ( vector[i] > vector[i - 1] )
         {
-			auxiliar      = vector[i];
-			assistente    = vector[i - 1];
-			vector[i - 1] = auxiliar;
-			vector[i]     = assistente;
+			helper        = vector[i];
+			assistant     = vector[i - 1];
+			vector[i - 1] = helper;
+			vector[i]     = assistant;
 
             i = 0;
 		}
