@@ -65,7 +65,7 @@ void decrescente(int* vector)
 	printVector(vector);
 }
 
-void generateVector(int* vector)
+void fillVectorWithRandomNumbers(int* vector)
 {
     srand(time(NULL));
 
@@ -100,7 +100,7 @@ int main(int argc, const char** argv)
 
     int vector[TAMANHO_VETOR];
 
-	generateVector(vector);
+	fillVectorWithRandomNumbers(vector);
 
 	unsigned int option = 0u;
 
