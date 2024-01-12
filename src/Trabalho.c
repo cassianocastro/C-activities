@@ -41,8 +41,6 @@ void crescente(int* vector)
             i = 0;
 		}
 	}
-
-	printVector(vector);
 }
 
 void decrescente(int* vector)
@@ -61,8 +59,6 @@ void decrescente(int* vector)
             i = 0;
 		}
 	}
-
-	printVector(vector);
 }
 
 void fillVectorWithRandomNumbers(int* vector)
@@ -73,8 +69,6 @@ void fillVectorWithRandomNumbers(int* vector)
     {
 		vector[i] = rand() % LIMITE_RANDOMICO;
 	}
-
-    printVector(vector);
 }
 
 const unsigned int getMainMenuChoice(void)
@@ -101,6 +95,7 @@ int main(int argc, const char** argv)
     int vector[TAMANHO_VETOR];
 
 	fillVectorWithRandomNumbers(vector);
+    printVector(vector);
 
 	unsigned int option = 0u;
 
@@ -112,9 +107,11 @@ int main(int argc, const char** argv)
         {
 			case CRESCENTE:
 				crescente(vector);
+                printVector(vector);
 				break;
 			case DECRESCENTE:
 				decrescente(vector);
+                printVector(vector);
 				break;
 			default:
 				exit(EXIT_SUCCESS);
