@@ -9,6 +9,7 @@ const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
 typedef enum
 {
+    EXIT,
 	CRESCENTE,
     DECRESCENTE
 }
