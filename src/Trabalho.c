@@ -5,6 +5,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+/**
+ *
+ */
 typedef enum
 {
     EXIT,
@@ -14,6 +17,31 @@ typedef enum
 Options;
 
 const unsigned char VECTOR_SIZE = 10u, RANDOM_LIMIT = 101u;
+
+/**
+ *
+ */
+void printVector(int*);
+
+/**
+ *
+ */
+void ascendingOrder(int*);
+
+/**
+ *
+ */
+void descendingOrder(int*);
+
+/**
+ *
+ */
+void fillVectorWithRandomNumbers(int*);
+
+/**
+ *
+ */
+const unsigned int getMainMenuChoice(void);
 
 void printVector(int* vector)
 {
