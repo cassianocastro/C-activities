@@ -19,7 +19,7 @@ void crescente(int* vetor)
 {
 	char auxiliar = 0, assistente = 0;
 
-	for ( char i = 1; i < TAMANHO_VETOR; i++ )
+	for ( register unsigned char i = 1; i < TAMANHO_VETOR; ++i )
     {
 		if ( vetor[i] < vetor[i - 1] )
         {
@@ -34,7 +34,7 @@ void crescente(int* vetor)
 
 	puts("\nVetor em ordem crescente:\nIndice\tValor");
 
-	for ( char i = 0; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vetor[i++]) );
+	for ( register unsigned char i = 0; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vetor[i++]) );
 }
 
 void decrescente(int* vetor)
