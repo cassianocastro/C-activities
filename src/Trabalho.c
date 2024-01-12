@@ -13,13 +13,13 @@ typedef enum
 }
 Options;
 
-const unsigned char TAMANHO_VETOR = 10u, LIMITE_RANDOMICO = 101u;
+const unsigned char VECTOR_SIZE = 10u, RANDOM_LIMIT = 101u;
 
 void printVector(int* vector)
 {
     puts("\nVetor:\nIndice\tValor");
 
-    for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
+    for ( register unsigned char i = 0u; i < VECTOR_SIZE; ++i )
     {
         printf("[%.2d]\t%d\n", i, vector[i]);
     }
@@ -29,7 +29,7 @@ void ascendingOrder(int* vector)
 {
 	unsigned char helper = 0u, assistant = 0u;
 
-	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
+	for ( register unsigned char i = 1u; i < VECTOR_SIZE; ++i )
     {
 		if ( vector[i] < vector[i - 1] )
         {
@@ -47,7 +47,7 @@ void descendingOrder(int* vector)
 {
 	unsigned char helper = 0u, assistant = 0u;
 
-	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
+	for ( register unsigned char i = 1u; i < VECTOR_SIZE; ++i )
     {
 		if ( vector[i] > vector[i - 1] )
         {
@@ -65,9 +65,9 @@ void fillVectorWithRandomNumbers(int* vector)
 {
     srand(time(NULL));
 
-    for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
+    for ( register unsigned char i = 0u; i < VECTOR_SIZE; ++i )
     {
-		vector[i] = rand() % LIMITE_RANDOMICO;
+		vector[i] = rand() % RANDOM_LIMIT;
 	}
 }
 
@@ -80,7 +80,7 @@ const unsigned int getMainMenuChoice(void)
         "\n1. Crescente | 2. Decrescente | 0. Sair"
         "\nOpção\? "
     );
-    scanf(" %d", &choice);
+    scanf(" %1d", &choice);
 
     return choice;
 }
@@ -92,7 +92,7 @@ int main(int argc, const char** argv)
 {
 	setlocale(LC_ALL, "");
 
-    int vector[TAMANHO_VETOR];
+    int vector[VECTOR_SIZE];
 
 	fillVectorWithRandomNumbers(vector);
     printVector(vector);
