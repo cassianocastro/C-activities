@@ -78,10 +78,11 @@ int main(int argc, const char* argv[])
 
 	srand(time(NULL));
 
-	Opcoes option;
     int vector[TAMANHO_VETOR];
 
 	gerarVetor(vector);
+
+	unsigned int option = 0u;
 
 	while ( true )
     {
