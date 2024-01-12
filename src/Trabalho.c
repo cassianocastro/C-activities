@@ -15,18 +15,18 @@ Options;
 
 const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
-void crescente(int* vetor)
+void crescente(int* vector)
 {
 	char auxiliar = 0, assistente = 0;
 
 	for ( register unsigned char i = 1; i < TAMANHO_VETOR; ++i )
     {
-		if ( vetor[i] < vetor[i - 1] )
+		if ( vector[i] < vector[i - 1] )
         {
-			auxiliar   	 = vetor[i];
-			assistente 	 = vetor[i - 1];
-			vetor[i - 1] = auxiliar;
-			vetor[i]     = assistente;
+			auxiliar      = vector[i];
+			assistente    = vector[i - 1];
+			vector[i - 1] = auxiliar;
+			vector[i]     = assistente;
 
             i = 0;
 		}
@@ -36,7 +36,7 @@ void crescente(int* vetor)
 
 	for ( register unsigned char i = 0; i < TAMANHO_VETOR; ++i )
     {
-        printf("[%.2d]\t%d\n", i, vetor[i]);
+        printf("[%.2d]\t%d\n", i, vector[i]);
     }
 }
 
