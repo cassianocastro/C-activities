@@ -5,15 +5,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
-
 typedef enum
 {
     EXIT,
 	CRESCENTE,
     DECRESCENTE
 }
-Opcoes;
+Options;
+
+const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
 void crescente(int* vetor)
 {
