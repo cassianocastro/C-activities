@@ -1,52 +1,6 @@
-#include <iso646.h>
-#include <locale.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-/**
- *
- */
-typedef enum
-{
-    EXIT,
-	ASCENDING,
-    DESCENDING
-}
-Options;
+#include "./includes/Task.h"
 
 const unsigned char VECTOR_SIZE = 10u, RANDOM_LIMIT = 101u;
-
-/**
- *
- */
-void printVector(int*);
-
-/**
- *
- */
-void ascendingOrder(int*);
-
-/**
- *
- */
-void descendingOrder(int*);
-
-/**
- *
- */
-void fillVectorWithRandomNumbers(int*);
-
-/**
- *
- */
-const unsigned int getMainMenuChoice(void);
-
-/**
- *
- */
-void start(void);
 
 /**
  *
