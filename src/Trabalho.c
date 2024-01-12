@@ -69,6 +69,8 @@ void gerarVetor(int* vector)
 {
 	puts("Vetor gerado:");
 
+    srand(time(NULL));
+
     for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
     {
 		vector[i] = rand() % LIMITE_RANDOMICO;
@@ -97,8 +99,6 @@ const unsigned int getMainMenuChoice(void)
 int main(int argc, const char** argv)
 {
 	setlocale(LC_ALL, "");
-
-	srand(time(NULL));
 
     int vector[TAMANHO_VETOR];
 
