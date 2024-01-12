@@ -59,7 +59,10 @@ void decrescente(int* vector)
 
 	puts("\nVetor em ordem decrescente:\nIndice\tValor");
 
-	for ( register unsigned char i = 0u; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vector[i++]) );
+	for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
+    {
+        printf("[%.2d]\t%d\n", i, vector[i]);
+    }
 }
 
 void gerarVetor(int* vector)
