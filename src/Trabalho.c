@@ -43,14 +43,14 @@ void fillVectorWithRandomNumbers(int*);
  */
 const unsigned int getMainMenuChoice(void);
 
-void printVector(int* vector)
+void fillVectorWithRandomNumbers(int* vector)
 {
-    puts("\nVetor:\nIndice\tValor");
+    srand(time(NULL));
 
     for ( register unsigned char i = 0u; i < VECTOR_SIZE; ++i )
     {
-        printf("[%.2d]\t%d\n", i, vector[i]);
-    }
+		vector[i] = rand() % RANDOM_LIMIT;
+	}
 }
 
 void ascendingOrder(int* vector)
@@ -89,14 +89,14 @@ void descendingOrder(int* vector)
 	}
 }
 
-void fillVectorWithRandomNumbers(int* vector)
+void printVector(int* vector)
 {
-    srand(time(NULL));
+    puts("\nVetor:\nIndice\tValor");
 
     for ( register unsigned char i = 0u; i < VECTOR_SIZE; ++i )
     {
-		vector[i] = rand() % RANDOM_LIMIT;
-	}
+        printf("[%.2d]\t%d\n", i, vector[i]);
+    }
 }
 
 const unsigned int getMainMenuChoice(void)
