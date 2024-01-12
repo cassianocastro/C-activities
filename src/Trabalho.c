@@ -34,7 +34,10 @@ void crescente(int* vetor)
 
 	puts("\nVetor em ordem crescente:\nIndice\tValor");
 
-	for ( register unsigned char i = 0; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vetor[i++]) );
+	for ( register unsigned char i = 0; i < TAMANHO_VETOR; ++i )
+    {
+        printf("[%.2d]\t%d\n", i, vetor[i]);
+    }
 }
 
 void decrescente(int* vetor)
