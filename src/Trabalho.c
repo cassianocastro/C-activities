@@ -40,18 +40,18 @@ void crescente(int* vector)
     }
 }
 
-void decrescente(int* vetor)
+void decrescente(int* vector)
 {
 	char auxiliar = 0, assistente = 0;
 
 	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
     {
-		if ( vetor[i] > vetor[i - 1] )
+		if ( vector[i] > vector[i - 1] )
         {
-			auxiliar     = vetor[i];
-			assistente   = vetor[i - 1];
-			vetor[i - 1] = auxiliar;
-			vetor[i]     = assistente;
+			auxiliar      = vector[i];
+			assistente    = vector[i - 1];
+			vector[i - 1] = auxiliar;
+			vector[i]     = assistente;
 
             i = 0;
 		}
@@ -59,7 +59,7 @@ void decrescente(int* vetor)
 
 	puts("\nVetor em ordem decrescente:\nIndice\tValor");
 
-	for ( register unsigned char i = 0u; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vetor[i++]) );
+	for ( register unsigned char i = 0u; i < TAMANHO_VETOR; printf("[%.2d]\t%d\n", i, vector[i++]) );
 }
 
 void gerarVetor(int* vector)
