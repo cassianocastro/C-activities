@@ -65,7 +65,7 @@ void decrescente(int* vector)
     }
 }
 
-void gerarVetor(int* vector)
+void generateVector(int* vector)
 {
 	puts("Vetor gerado:");
 
@@ -102,7 +102,7 @@ int main(int argc, const char** argv)
 
     int vector[TAMANHO_VETOR];
 
-	gerarVetor(vector);
+	generateVector(vector);
 
 	unsigned int option = 0u;
 
