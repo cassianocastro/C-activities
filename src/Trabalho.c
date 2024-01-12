@@ -78,10 +78,10 @@ int main(int argc, const char* argv[])
 
 	srand(time(NULL));
 
-	Opcoes opcao;
-    int vetor[TAMANHO_VETOR];
+	Opcoes option;
+    int vector[TAMANHO_VETOR];
 
-	gerarVetor(vetor);
+	gerarVetor(vector);
 
 	while ( true )
     {
@@ -90,15 +90,15 @@ int main(int argc, const char* argv[])
 			"\n1. Ordem crescente | 2. Ordem decrescente | 0. Sair"
 			"\nOpção\? "
         );
-		scanf(" %d", &opcao);
+		scanf(" %d", &option);
 
-        switch ( opcao )
+        switch ( option )
         {
 			case CRESCENTE:
-				crescente(vetor);
+				crescente(vector);
 				break;
 			case DECRESCENTE:
-				decrescente(vetor);
+				decrescente(vector);
 				break;
 			default:
 				exit(EXIT_SUCCESS);
