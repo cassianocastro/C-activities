@@ -13,7 +13,7 @@ typedef enum
 }
 Options;
 
-const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
+const unsigned char TAMANHO_VETOR = 10u, LIMITE_RANDOMICO = 101u;
 
 void printVector(int* vector)
 {
@@ -27,7 +27,7 @@ void printVector(int* vector)
 
 void ascendingOrder(int* vector)
 {
-	char helper = 0, assistant = 0;
+	unsigned char helper = 0u, assistant = 0u;
 
 	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
     {
@@ -38,14 +38,14 @@ void ascendingOrder(int* vector)
 			vector[i - 1] = helper;
 			vector[i]     = assistant;
 
-            i = 0;
+            i = 0u;
 		}
 	}
 }
 
 void descendingOrder(int* vector)
 {
-	char helper = 0, assistant = 0;
+	unsigned char helper = 0u, assistant = 0u;
 
 	for ( register unsigned char i = 1u; i < TAMANHO_VETOR; ++i )
     {
@@ -56,7 +56,7 @@ void descendingOrder(int* vector)
 			vector[i - 1] = helper;
 			vector[i]     = assistant;
 
-            i = 0;
+            i = 0u;
 		}
 	}
 }
