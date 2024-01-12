@@ -43,6 +43,52 @@ void fillVectorWithRandomNumbers(int*);
  */
 const unsigned int getMainMenuChoice(void);
 
+/**
+ *
+ */
+void start(void);
+
+/**
+ *
+ */
+int main(int argc, const char** argv)
+{
+	setlocale(LC_ALL, "");
+
+    start();
+
+	return EXIT_SUCCESS;
+}
+
+void start(void)
+{
+    int vector[VECTOR_SIZE];
+
+	fillVectorWithRandomNumbers(vector);
+    printVector(vector);
+
+	unsigned int option = 0u;
+
+	while ( true )
+    {
+		option = getMainMenuChoice();
+
+        switch ( option )
+        {
+			case ASCENDING:
+				ascendingOrder(vector);
+                printVector(vector);
+				break;
+			case DESCENDING:
+				descendingOrder(vector);
+                printVector(vector);
+				break;
+			default:
+				exit(EXIT_SUCCESS);
+		}
+	}
+}
+
 void fillVectorWithRandomNumbers(int* vector)
 {
     srand(time(NULL));
@@ -111,40 +157,4 @@ const unsigned int getMainMenuChoice(void)
     scanf(" %1d", &choice);
 
     return choice;
-}
-
-/**
- *
- */
-int main(int argc, const char** argv)
-{
-	setlocale(LC_ALL, "");
-
-    int vector[VECTOR_SIZE];
-
-	fillVectorWithRandomNumbers(vector);
-    printVector(vector);
-
-	unsigned int option = 0u;
-
-	while ( true )
-    {
-		option = getMainMenuChoice();
-
-        switch ( option )
-        {
-			case ASCENDING:
-				ascendingOrder(vector);
-                printVector(vector);
-				break;
-			case DESCENDING:
-				descendingOrder(vector);
-                printVector(vector);
-				break;
-			default:
-				exit(EXIT_SUCCESS);
-		}
-	}
-
-	return EXIT_SUCCESS;
 }
