@@ -17,9 +17,9 @@ const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
 void crescente(int* vetor)
 {
-	char pos = 0, auxiliar = 0, assistente = 0;
+	char auxiliar = 0, assistente = 0;
 
-	for ( pos = 1; pos < TAMANHO_VETOR; pos++ )
+	for ( char pos = 1; pos < TAMANHO_VETOR; pos++ )
     {
 		if ( vetor[pos] < vetor[pos - 1] )
         {
@@ -33,7 +33,7 @@ void crescente(int* vetor)
 
 	puts("\nVetor em ordem crescente:\nIndice\tValor");
 
-	for ( pos = 0; pos < TAMANHO_VETOR; printf("[%.2d]\t%d\n", pos, vetor[pos++]) );
+	for ( char pos = 0; pos < TAMANHO_VETOR; printf("[%.2d]\t%d\n", pos, vetor[pos++]) );
 }
 
 void decrescente(int* vetor)
