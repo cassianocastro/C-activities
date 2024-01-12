@@ -69,6 +69,20 @@ void gerarVetor(int* vetor)
 	}
 }
 
+const unsigned int getMainMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nEscolha o tipo de ordenação:"
+        "\n1. Crescente | 2. Decrescente | 0. Sair"
+        "\nOpção\? "
+    );
+    scanf(" %d", &choice);
+
+    return choice;
+}
+
 /**
  *
  */
@@ -86,12 +100,7 @@ int main(int argc, const char* argv[])
 
 	while ( true )
     {
-		printf(
-            "\nEscolha o tipo de ordenação:"
-			"\n1. Ordem crescente | 2. Ordem decrescente | 0. Sair"
-			"\nOpção\? "
-        );
-		scanf(" %d", &option);
+		option = getMainMenuChoice();
 
         switch ( option )
         {
