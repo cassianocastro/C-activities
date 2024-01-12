@@ -15,6 +15,16 @@ Options;
 
 const unsigned char TAMANHO_VETOR = 10, LIMITE_RANDOMICO = 101;
 
+void printVector(int* vector)
+{
+    puts("\nVetor:\nIndice\tValor");
+
+    for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
+    {
+        printf("[%.2d]\t%d\n", i, vector[i]);
+    }
+}
+
 void crescente(int* vector)
 {
 	char auxiliar = 0, assistente = 0;
@@ -32,12 +42,7 @@ void crescente(int* vector)
 		}
 	}
 
-	puts("\nVetor em ordem crescente:\nIndice\tValor");
-
-	for ( register unsigned char i = 0; i < TAMANHO_VETOR; ++i )
-    {
-        printf("[%.2d]\t%d\n", i, vector[i]);
-    }
+	printVector(vector);
 }
 
 void decrescente(int* vector)
@@ -57,36 +62,19 @@ void decrescente(int* vector)
 		}
 	}
 
-	puts("\nVetor em ordem decrescente:\nIndice\tValor");
-
-	for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
-    {
-        printf("[%.2d]\t%d\n", i, vector[i]);
-    }
-}
-
-void printVector(int* vector)
-{
-    puts("\nVetor:\nIndice\tValor");
-
-    for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
-    {
-        printf("[%.2d]\t%d\n", i, vector[i]);
-    }
+	printVector(vector);
 }
 
 void generateVector(int* vector)
 {
-	puts("Vetor gerado:");
-
     srand(time(NULL));
 
     for ( register unsigned char i = 0u; i < TAMANHO_VETOR; ++i )
     {
 		vector[i] = rand() % LIMITE_RANDOMICO;
-
-		printf("[%.2d]\t%d\n", i, vector[i]);
 	}
+
+    printVector(vector);
 }
 
 const unsigned int getMainMenuChoice(void)
