@@ -8,8 +8,8 @@
 typedef enum
 {
     EXIT,
-	CRESCENTE,
-    DECRESCENTE
+	ASCENDING,
+    DESCENDING
 }
 Options;
 
@@ -105,11 +105,11 @@ int main(int argc, const char** argv)
 
         switch ( option )
         {
-			case CRESCENTE:
+			case ASCENDING:
 				ascendingOrder(vector);
                 printVector(vector);
 				break;
-			case DECRESCENTE:
+			case DESCENDING:
 				descendingOrder(vector);
                 printVector(vector);
 				break;
