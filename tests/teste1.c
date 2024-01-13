@@ -17,7 +17,9 @@ int getBits(int numero)
         resto[i]   = quociente % 2;
         quociente /= 2;
     }
+
     printf("%i\n", i);
+
     resto[i] = quociente;
 
     for( int j = 9; j >= 0; j-- )
@@ -28,11 +30,13 @@ int getBits(int numero)
     /*
 	for ( int i = 0; i < 8; i++ )
 	{
-        if ( resto[i] == 1 ) {
+        if ( resto[i] == 1 )
+        {
             qtdeBits++;
         }
     }
 	*/
+
     return qtdeBits;
 }
 
@@ -45,7 +49,7 @@ int main(int argc, char const *argv[])
     printf("Digite um numero: ");
     scanf("%i", &numero);
 
-    bits = getBits(numero);
-    //printf("%i", bits);
+    // printf("%i", getBits(numero));
+
     return 0;
 }
