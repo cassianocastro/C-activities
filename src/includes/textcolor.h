@@ -1,6 +1,9 @@
+#ifdef WIN32
 #include <conio.h>
-#include <stdio.h>
 #include <windows.h>
+#endif
+
+#include <stdio.h>
 
 /**
  * Cores do DOS
@@ -19,6 +22,7 @@ enum DOS_COLORS
  */
 void textcolor(enum DOS_COLORS iColor)
 {
+#ifdef WIN32
     HANDLE hl = GetStdHandle(STD_OUTPUT_HANDLE);
 
     CONSOLE_SCREEN_BUFFER_INFO bufferInfo;
@@ -28,6 +32,7 @@ void textcolor(enum DOS_COLORS iColor)
     bufferInfo.wAttributes &= 0x00F0;
 
     SetConsoleTextAttribute(hl, bufferInfo.wAttributes |= iColor);
+#endif
 }
 
 /**
