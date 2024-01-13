@@ -12,6 +12,8 @@
 
 #define TAM_STRING 30
 
+typedef unsigned char byte;
+
 /**
  *
  */
@@ -55,11 +57,9 @@ typedef enum
 }
 Dados;
 
-typedef unsigned char byte;
+extern Computer* inventary;
 
-Computer* inventary;
-
-unsigned short numero;
+extern unsigned short numero;
 
 /**
  *

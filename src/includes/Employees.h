@@ -58,7 +58,7 @@ typedef struct
 }
 Employee;
 
-Employee employees[ARRAY_SIZE];
+extern Employee employees[];
 
 /**
  *

@@ -57,7 +57,7 @@ Computer;
 
 extern FILE* arquivo;
 
-extern char nome_arquivo[TAM];
+extern char nome_arquivo[];
 
 extern Computer computer;
 

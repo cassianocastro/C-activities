@@ -69,11 +69,11 @@ typedef enum
 }
 Data;
 
-const unsigned short int CURRENT_YEAR = 2024;
+extern const unsigned short int CURRENT_YEAR;
 
-Contact* contacts;
+extern Contact* contacts;
 
-unsigned short int num;
+extern unsigned short int num;
 
 /**
  *
