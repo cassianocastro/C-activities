@@ -1,5 +1,9 @@
 #include "./includes/pcs.h"
 
+unsigned short int num;
+
+Computer* inventary;
+
 /**
  *
  */

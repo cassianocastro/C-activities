@@ -1,5 +1,7 @@
 #include "./includes/Employees.h"
 
+Employee employees[ARRAY_SIZE];
+
 /**
  *
  */

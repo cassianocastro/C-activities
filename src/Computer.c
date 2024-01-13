@@ -1,5 +1,9 @@
 #include "./includes/Computer.h"
 
+Computer* inventary;
+
+unsigned short numero;
+
 /**
  *
  */
