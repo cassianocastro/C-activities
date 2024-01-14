@@ -28,7 +28,7 @@ int iterative(int number)
  */
 int main(int argc, const char* argv[])
 {
-    unsigned int number = 0, option = 0;
+    unsigned int number = 0u, option = 0u;
 
     printf("Insira um número para o qual deseja calcular seu fatorial: ");
     scanf("%i", &number);
