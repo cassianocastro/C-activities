@@ -22,6 +22,16 @@ typedef enum
 }
 Options;
 
+/**
+ *
+ */
+void criptografar(char*);
+
+/**
+ *
+ */
+void descriptografar(char*);
+
 #elif CRIPTOGRAPHER_V2
 
 #include <iso646.h>
@@ -42,6 +52,16 @@ typedef enum
 }
 Options;
 
+/**
+ *
+ */
+void criptografar(char*);
+
+/**
+ *
+ */
+void descriptografar(char*);
+
 #elif CRIPTOGRAPHER_ZANINI
 
 #include <iso646.h>
@@ -49,6 +69,16 @@ Options;
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/**
+ *
+ */
+void cripto(char*);
+
+/**
+ *
+ */
+void decripto(char*);
 
 #endif
 
