@@ -2,13 +2,13 @@
 
 #define CRIPTOGRAPHER_H
 
-#ifdef CRIPTOGRAPHER_V1
-
 #include <iso646.h>
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifdef CRIPTOGRAPHER_V1
 
 #define TAMANHO_FRASE 100
 
@@ -34,12 +34,6 @@ void descriptografar(char*);
 
 #elif CRIPTOGRAPHER_V2
 
-#include <iso646.h>
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #define TAMANHO_FRASE 100
 
 typedef unsigned int byte;
@@ -63,12 +57,6 @@ void criptografar(char*);
 void descriptografar(char*);
 
 #elif CRIPTOGRAPHER_ZANINI
-
-#include <iso646.h>
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /**
  *
