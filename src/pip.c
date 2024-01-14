@@ -1,28 +1,4 @@
-#include <ctype.h>
-#include <iso646.h>
-#include <locale.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-typedef unsigned char byte;
-
-enum Meses
-{
-    JANEIRO = 1,
-    FEVEREIRO,
-    MARCO,
-    ABRIL,
-    MAIO,
-    JUNHO,
-    JULHO,
-    AGOSTO,
-    SETEMBRO,
-    OUTUBRO,
-    NOVEMBRO,
-    DEZEMBRO
-};
+#include "./includes/pip.h"
 
 int geraPar(int limite)
 {
