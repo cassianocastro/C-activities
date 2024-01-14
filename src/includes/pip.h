@@ -53,7 +53,7 @@ int geraprimo(int limite)
     int num, x, cd;
 
     do {
-        cd = 0;
+        cd  = 0;
         num = rand() % limite;
 
         for ( x = 1; x <= num; x++ )
@@ -86,9 +86,14 @@ bool isValid(int dia, int mes, int ano)
     {
 		case FEVEREIRO:
 			if ( ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0 )
+            {
 				return dia > 0 and dia <= 29;
+            }
 			else if ( dia <= 28 and dia > 0 )
+            {
                 return true;
+            }
+
 			return false;
 		case JANEIRO:
 		case MARCO:

@@ -57,14 +57,14 @@ int geraprimo(int limite)
         num = rand() % limite;
 
         for ( x = 1; x <= num; x++ )
-		{
+        {
             if ( num % x == 0 ) cd++;
 
             if ( cd > 2 ) break;
         }
     } while ( cd != 2 );
 
-	return num;
+    return num;
 }
 
 char verifyResponse(char response)
@@ -72,7 +72,7 @@ char verifyResponse(char response)
     response = tolower(response);
 
 	while ( response != 's' and response != 'n' )
-	{
+    {
 		printf("\nOpção inválida. Digite novamente: ");
 		scanf(" %c", &response);
 	}
@@ -83,7 +83,7 @@ char verifyResponse(char response)
 bool isValid(int dia, int mes, int ano)
 {
 	switch ( mes )
-	{
+    {
 		case FEVEREIRO:
 			if ( ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0 )
             {
