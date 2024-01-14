@@ -1,3 +1,7 @@
+#ifdef CRIPTOGRAPHER_V1
+
+#elif CRIPTOGRAPHER_V2
+
 #include <iso646.h>
 #include <locale.h>
 #include <stdio.h>
@@ -86,3 +90,7 @@ int main(int argc, const char* argv[])
 
     return EXIT_SUCCESS;
 }
+
+#elif CRIPTOGRAPHER_ZANINI
+
+#endif
