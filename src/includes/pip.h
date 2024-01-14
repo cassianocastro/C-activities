@@ -1,3 +1,7 @@
+#ifndef PIP_H
+
+#define PIP_H
+
 #include <ctype.h>
 #include <iso646.h>
 #include <locale.h>
@@ -53,3 +57,5 @@ bool isValid(int, int, int);
  *
  */
 char* nameOfThis(byte);
+
+#endif
