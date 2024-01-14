@@ -31,14 +31,14 @@ int main(int argc, const char** argv)
     unsigned int number = 0u, option = 0u;
 
     printf("Insira um número para o qual deseja calcular seu fatorial: ");
-    scanf("%i", &number);
+    scanf("%1d", &number);
 
     printf(
         "Selecione a forma de calcular:\n"
         "1. Iterativa | 2. Recursiva\n"
         "Opção\? "
     );
-    scanf("%i", &option);
+    scanf("%1d", &option);
 
     printf(
         "\nFatorial calculado: %d\n",
