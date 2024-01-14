@@ -26,7 +26,7 @@ int iterative(int number)
 /**
  *
  */
-int main(int argc, const char* argv[])
+int main(int argc, const char** argv)
 {
     unsigned int number = 0u, option = 0u;
 
