@@ -19,11 +19,9 @@ const ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
 
 void escrever(ushort* vetor)
 {
-	ushort indice = 0, indice2 = 0;
-
 	puts("\nÍndice\tValor");
 
-	for ( ; indice2 < TAMANHO; printf("[%hu]\t%.2hu\n", indice2++, vetor[indice2]));
+	for ( ushort i = 0u; i < TAMANHO; printf("[%hu]\t%.2hu\n", i++, vetor[i]));
 
     printf("\n");
 }
