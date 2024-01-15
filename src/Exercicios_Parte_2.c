@@ -10,8 +10,8 @@ typedef unsigned short int ushort;
 typedef enum
 {
 	INVERSAO = 1,
-    MAIOR,
-    ORDENACAO
+    ORDENACAO,
+    MAIOR
 }
 Opcao;
 
@@ -173,11 +173,11 @@ int main(void)
 		case INVERSAO:
 			inverter(vetor);
 			break;
+        case ORDENACAO:
+			ordenar(vetor);
+			break;
 		case MAIOR:
 			maiornovetor(vetor);
-			break;
-		case ORDENACAO:
-			ordenar(vetor);
 			break;
 		default:
 			puts("\nOpção inválida!");
