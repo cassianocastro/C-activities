@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <time.h>
 
-typedef unsigned short int Ushort;
+typedef unsigned short int ushort;
 
 typedef enum
 {
@@ -15,11 +15,11 @@ typedef enum
 }
 Opcao;
 
-const Ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
+const ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
 
-void escrever(Ushort* vetor)
+void escrever(ushort* vetor)
 {
-	Ushort indice = 0, indice2 = 0;
+	ushort indice = 0, indice2 = 0;
 
 	puts("\nÍndice\tValor");
 
@@ -28,11 +28,11 @@ void escrever(Ushort* vetor)
     printf("\n");
 }
 
-void maiornovetor(Ushort* vetor)
+void maiornovetor(ushort* vetor)
 {
-	Ushort maior = 0;
+	ushort maior = 0;
 
-	for ( register Ushort i = 0; i < TAMANHO; ++i )
+	for ( register ushort i = 0; i < TAMANHO; ++i )
     {
 		if ( vetor[i] > maior ) maior = vetor[i];
 	}
@@ -40,9 +40,9 @@ void maiornovetor(Ushort* vetor)
 	printf("\nO maior valor presente no vetor é: %.2hu", maior);
 }
 
-void inverter(Ushort* vetor)
+void inverter(ushort* vetor)
 {
-	Ushort indice = 0, auxiliar = 0, contador = 0;
+	ushort indice = 0, auxiliar = 0, contador = 0;
 
 	puts("\nVetor invertido:");
 
@@ -56,9 +56,9 @@ void inverter(Ushort* vetor)
 	escrever(vetor);
 }
 
-void ordenar(Ushort* vetor)
+void ordenar(ushort* vetor)
 {
-	Ushort indice = 0, auxiliar = 0, assistente = 0, tipo = 0;
+	ushort indice = 0, auxiliar = 0, assistente = 0, tipo = 0;
 
 	printf(
         "\nSelecione o tipo de ordenamento:\n"
@@ -145,13 +145,13 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-    Ushort vetor[TAMANHO];
+    ushort vetor[TAMANHO];
 
     srand(time(NULL));
 
 	puts("Vetor gerado:");
 
-	for ( register Ushort i = 0; i < TAMANHO; ++i )
+	for ( register ushort i = 0; i < TAMANHO; ++i )
     {
 		vetor[i] = rand() % LIMITE_RANDOMICO;
 	}
