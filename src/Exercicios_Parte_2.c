@@ -9,9 +9,9 @@ typedef unsigned short int ushort;
 
 typedef enum
 {
-	INVERSAO = 1,
-    ORDENACAO,
-    MAIOR
+	REVERSE = 1,
+    ORDER,
+    MAX_VAL
 }
 Opcao;
 
@@ -159,16 +159,16 @@ int main(void)
 
 	switch ( option )
     {
-		case INVERSAO:
+		case REVERSE:
             puts("\nVetor invertido:");
 
 			reverseVector(vetor);
             printVector(vetor);
 			break;
-        case ORDENACAO:
+        case ORDER:
 			orderVector(vetor);
 			break;
-		case MAIOR:
+		case MAX_VAL:
             printf("\nMaior valor no vetor: %.2hu", getMaxValueFromVector(vetor));
 			break;
 		default:
