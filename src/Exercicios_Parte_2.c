@@ -177,7 +177,7 @@ int main(void)
 		"\n1. Invertê-lo | 2. Ordená-lo | 3. Descobrir seu maior número"
 		"\nOpção\? "
     );
-	scanf("%d", &option);
+	scanf("%1d", &option);
 
 	switch ( option )
     {
@@ -193,8 +193,6 @@ int main(void)
 		default:
 			puts("\nOpção inválida!");
 	}
-
-	// converterTemperatura();
 
 	return EXIT_SUCCESS;
 }
