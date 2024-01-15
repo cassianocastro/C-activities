@@ -1,6 +1,22 @@
+#include <inttypes.h>
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
+
+/**
+ * @test
+ */
+void canAlignOutput(void)
+{
+	int value = 1;
+
+    printf("Justificado a direita  => %5d\n", value);
+    printf("Justificado a esquerda => %-5d\n", value);
+
+	uint_fast8_t fast = 190;
+
+	printf("Poder: %hhu\nSizeof: %hhu", fast, sizeof(uint_fast8_t));
+}
 
 /**
  * @test
