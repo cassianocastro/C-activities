@@ -152,7 +152,7 @@ int main(void)
 
 	printf(
         "\nEscolha uma opção referente ao vetor:"
-		"\n1. Invertê-lo | 2. Ordená-lo | 3. Descobrir seu maior número"
+		"\n1. Invertê-lo | 2. Ordená-lo | 3. Obter seu maior valor"
 		"\nOpção\? "
     );
 	scanf("%1d", &option);
