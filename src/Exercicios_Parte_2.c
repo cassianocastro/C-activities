@@ -76,7 +76,7 @@ void ordenar(ushort* vetor)
     {
 		puts("\nVetor em ordem crescente:");
 
-		for ( ushort i = 1; i < VECTOR_SIZE; i++ )
+		for ( register ushort i = 1u; i < VECTOR_SIZE; ++i )
         {
 			if ( vetor[i] < vetor[i - 1] )
             {
@@ -85,7 +85,7 @@ void ordenar(ushort* vetor)
 				vetor[i - 1] = auxiliar;
 				vetor[i]     = assistente;
 
-                i = 0;
+                i = 0u;
 			}
 		}
 	}
@@ -93,7 +93,7 @@ void ordenar(ushort* vetor)
     {
 		puts("\nVetor em ordem decrescente:");
 
-		for ( ushort i = 1; i < VECTOR_SIZE; i++ )
+		for ( register ushort i = 1u; i < VECTOR_SIZE; ++i )
         {
 			if ( vetor[i] > vetor[i - 1] )
             {
@@ -102,7 +102,7 @@ void ordenar(ushort* vetor)
 				vetor[i - 1] = auxiliar;
 				vetor[i]     = assistente;
 
-                i = 0;
+                i = 0u;
 			}
 		}
 	}
