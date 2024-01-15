@@ -61,9 +61,45 @@ void inverter(ushort* vector)
 	printVector(vector);
 }
 
+void ascendingOrder(ushort* vector)
+{
+    ushort helper = 0u, assistant = 0u;
+
+    for ( register ushort i = 1u; i < VECTOR_SIZE; ++i )
+    {
+        if ( vector[i] < vector[i - 1] )
+        {
+            helper        = vector[i];
+            assistant     = vector[i - 1];
+            vector[i - 1] = helper;
+            vector[i]     = assistant;
+
+            i = 0u;
+        }
+    }
+}
+
+void descendingOrder(ushort* vector)
+{
+    ushort helper = 0u, assistant = 0u;
+
+    for ( register ushort i = 1u; i < VECTOR_SIZE; ++i )
+    {
+        if ( vector[i] > vector[i - 1] )
+        {
+            helper        = vector[i];
+            assistant     = vector[i - 1];
+            vector[i - 1] = helper;
+            vector[i]     = assistant;
+
+            i = 0u;
+        }
+    }
+}
+
 void ordenar(ushort* vector)
 {
-	ushort helper = 0u, assistant = 0u, order = 0u;
+	ushort order = 0u;
 
 	printf(
         "\nSelecione o tipo de ordenamento:"
@@ -76,35 +112,13 @@ void ordenar(ushort* vector)
     {
 		puts("\nVetor em ordem crescente:");
 
-		for ( register ushort i = 1u; i < VECTOR_SIZE; ++i )
-        {
-			if ( vector[i] < vector[i - 1] )
-            {
-				helper        = vector[i];
-				assistant     = vector[i - 1];
-				vector[i - 1] = helper;
-				vector[i]     = assistant;
-
-                i = 0u;
-			}
-		}
+        ascendingOrder(vector);
 	}
     else if ( order == 2 )
     {
 		puts("\nVetor em ordem decrescente:");
 
-		for ( register ushort i = 1u; i < VECTOR_SIZE; ++i )
-        {
-			if ( vector[i] > vector[i - 1] )
-            {
-				helper        = vector[i];
-				assistant     = vector[i - 1];
-				vector[i - 1] = helper;
-				vector[i]     = assistant;
-
-                i = 0u;
-			}
-		}
+        descendingOrder(vector);
 	}
     else
     {
