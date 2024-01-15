@@ -21,7 +21,10 @@ void printVector(ushort* vector)
 {
 	puts("\nÍndice\tValor");
 
-	for ( ushort i = 0u; i < TAMANHO; printf("[%hu]\t%.2hu\n", i++, vector[i]));
+	for ( register ushort i = 0u; i < TAMANHO; ++i )
+    {
+        printf("[%hu]\t%.2hu\n", i, vector[i]);
+    }
 
     printf("\n");
 }
@@ -51,7 +54,7 @@ void inverter(ushort* vetor)
 		vetor[TAMANHO - contador] = auxiliar;
 	}
 
-	escrever(vetor);
+	printVector(vetor);
 }
 
 void ordenar(ushort* vetor)
@@ -102,7 +105,7 @@ void ordenar(ushort* vetor)
         puts("\nOpção inválida!");
     }
 
-	escrever(vetor);
+	printVector(vetor);
 }
 
 void converterMoeda(void)
