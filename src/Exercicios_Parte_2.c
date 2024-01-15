@@ -145,6 +145,18 @@ void converterTemperatura(void)
     );
 }
 
+void fillVectorWithRandomNumbers(ushort* vector)
+{
+    srand(time(NULL));
+
+	puts("Vetor gerado:");
+
+	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
+    {
+		vector[i] = rand() % RANDOM_LIMIT;
+	}
+}
+
 /**
  *
  */
@@ -154,14 +166,7 @@ int main(void)
 
     ushort vetor[VECTOR_SIZE];
 
-    srand(time(NULL));
-
-	puts("Vetor gerado:");
-
-	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
-    {
-		vetor[i] = rand() % RANDOM_LIMIT;
-	}
+    fillVectorWithRandomNumbers(vetor);
 
 	printVector(vetor);
 
