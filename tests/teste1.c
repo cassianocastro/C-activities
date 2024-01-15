@@ -63,7 +63,7 @@ int main(int argc, char const *argv[])
 {
     setlocale(LC_ALL, "");
 
-    int numero = 0, bits = 0;
+    int numero = 0;
 
     printf("Digite um numero: ");
     scanf("%i", &numero);
