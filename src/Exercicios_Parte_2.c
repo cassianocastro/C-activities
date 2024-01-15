@@ -44,20 +44,21 @@ void maiornovetor(ushort* vector)
 	printf("\nO maior valor presente no vetor é: %.2hu", maior);
 }
 
-void inverter(ushort* vetor)
+void inverter(ushort* vector)
 {
-	ushort indice = 0, auxiliar = 0, contador = 0;
+	ushort helper = 0u;
 
 	puts("\nVetor invertido:");
 
-	for ( indice = 0, contador = 1; indice < (TAMANHO / 2); indice++, contador++ )
+	for ( register ushort i = 0u, j = 1u; i < (TAMANHO / 2); ++i, ++j )
     {
-		auxiliar 			  	  = vetor[indice];
-		vetor[indice] 			  = vetor[TAMANHO - contador];
-		vetor[TAMANHO - contador] = auxiliar;
+		helper = vector[i];
+		vector[i] = vector[TAMANHO - j];
+
+		vector[TAMANHO - j] = helper;
 	}
 
-	printVector(vetor);
+	printVector(vector);
 }
 
 void ordenar(ushort* vetor)
