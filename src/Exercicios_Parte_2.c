@@ -13,7 +13,7 @@ typedef enum
     ORDER,
     MAX_VAL
 }
-Opcao;
+Options;
 
 const ushort VECTOR_SIZE = 10, RANDOM_LIMIT = 101;
 
