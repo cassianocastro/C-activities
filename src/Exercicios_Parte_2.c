@@ -54,8 +54,6 @@ void reverseVector(ushort* vector)
 
 		vector[VECTOR_SIZE - j] = helper;
 	}
-
-	printVector(vector);
 }
 
 void ascendingOrder(ushort* vector)
@@ -166,6 +164,7 @@ int main(void)
     {
 		case INVERSAO:
 			reverseVector(vetor);
+            printVector(vetor);
 			break;
         case ORDENACAO:
 			orderVector(vetor);
