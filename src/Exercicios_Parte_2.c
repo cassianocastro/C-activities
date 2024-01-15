@@ -29,13 +29,16 @@ void printVector(ushort* vector)
     printf("\n");
 }
 
-void maiornovetor(ushort* vetor)
+void maiornovetor(ushort* vector)
 {
-	ushort maior = 0;
+	ushort maior = 0u;
 
 	for ( register ushort i = 0; i < TAMANHO; ++i )
     {
-		if ( vetor[i] > maior ) maior = vetor[i];
+		if ( vector[i] > maior )
+        {
+            maior = vector[i];
+        }
 	}
 
 	printf("\nO maior valor presente no vetor é: %.2hu", maior);
