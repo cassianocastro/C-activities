@@ -123,7 +123,7 @@ void orderVector(ushort* vector)
 	printVector(vector);
 }
 
-void getMaxValueFromVector(ushort* vector)
+const ushort getMaxValueFromVector(ushort* vector)
 {
 	ushort maior = 0u;
 
@@ -135,7 +135,7 @@ void getMaxValueFromVector(ushort* vector)
         }
 	}
 
-	printf("\nO maior valor presente no vetor é: %.2hu", maior);
+	return maior;
 }
 
 /**
@@ -170,7 +170,7 @@ int main(void)
 			orderVector(vetor);
 			break;
 		case MAIOR:
-			getMaxValueFromVector(vetor);
+            printf("\nMaior valor no vetor: %.2hu", getMaxValueFromVector(vetor));
 			break;
 		default:
 			puts("\nOpção inválida!");
