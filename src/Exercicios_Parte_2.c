@@ -17,11 +17,11 @@ Opcao;
 
 const ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
 
-void escrever(ushort* vetor)
+void printVector(ushort* vector)
 {
 	puts("\nÍndice\tValor");
 
-	for ( ushort i = 0u; i < TAMANHO; printf("[%hu]\t%.2hu\n", i++, vetor[i]));
+	for ( ushort i = 0u; i < TAMANHO; printf("[%hu]\t%.2hu\n", i++, vector[i]));
 
     printf("\n");
 }
@@ -154,7 +154,7 @@ int main(void)
 		vetor[i] = rand() % LIMITE_RANDOMICO;
 	}
 
-	escrever(vetor);
+	printVector(vetor);
 
     unsigned int option = 0u;
 
