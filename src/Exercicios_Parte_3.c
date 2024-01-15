@@ -1,4 +1,3 @@
-#include <inttypes.h>
 #include <iso646.h>
 #include <locale.h>
 #include <stdio.h>
@@ -7,21 +6,6 @@
 #include <time.h>
 
 typedef unsigned short ushort;
-
-/**
- * @test
- */
-void canAlignOutput(void)
-{
-	int value = 1;
-
-    printf("Justificado a direita  => %5d\n", value);
-    printf("Justificado a esquerda => %-5d\n", value);
-
-	uint_fast8_t fast = 190;
-
-	printf("Poder: %hhu\nSizeof: %hhu", fast, sizeof(uint_fast8_t));
-}
 
 /**
  *
