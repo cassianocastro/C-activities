@@ -21,9 +21,12 @@ void canInputUser(void)
     printf("Your name: %s %s\n", name, surname);
 }
 
-int getBits(int numero)
+/**
+ * @test
+ */
+int canGetBits(int numero)
 {
-    int resto[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    int resto[10] = { 0 };
     int quociente, qtdeBits = 0;
 
     quociente = numero / 2;
@@ -41,7 +44,7 @@ int getBits(int numero)
 
     resto[i] = quociente;
 
-    for( int j = 9; j >= 0; j-- )
+    for ( int j = 9; j >= 0; j-- )
 	{
         printf("%i - ", resto[j]);
     }
@@ -71,7 +74,7 @@ int main(int argc, const char** argv)
     printf("Digite um numero: ");
     scanf("%i", &numero);
 
-    // printf("%i", getBits(numero));
+    printf("%i", canGetBits(numero));
 
     return 0;
 }
