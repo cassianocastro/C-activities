@@ -2,6 +2,25 @@
 #include <string.h>
 #include <locale.h>
 
+/**
+ * @test
+ */
+void canInputUser(void)
+{
+    #define STR_SIZE 10
+
+    char name[STR_SIZE], surname[STR_SIZE], format[50];
+
+    sprintf(format, " %%%d[A-Za-z] %%%d[A-Za-z]", STR_SIZE - 1, STR_SIZE - 1);
+
+    // printf("%s\n", format);
+
+    printf("Name: ");
+    scanf(format, name, surname);
+
+    printf("Your name: %s %s\n", name, surname);
+}
+
 int getBits(int numero)
 {
     int resto[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
