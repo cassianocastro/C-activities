@@ -17,6 +17,18 @@ Opcao;
 
 const ushort VECTOR_SIZE = 10, RANDOM_LIMIT = 101;
 
+void fillVectorWithRandomNumbers(ushort* vector)
+{
+    srand(time(NULL));
+
+	puts("Vetor gerado:");
+
+	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
+    {
+		vector[i] = rand() % RANDOM_LIMIT;
+	}
+}
+
 void printVector(ushort* vector)
 {
 	puts("\nÍndice\tValor");
@@ -27,21 +39,6 @@ void printVector(ushort* vector)
     }
 
     printf("\n");
-}
-
-void maiornovetor(ushort* vector)
-{
-	ushort maior = 0u;
-
-	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
-    {
-		if ( vector[i] > maior )
-        {
-            maior = vector[i];
-        }
-	}
-
-	printf("\nO maior valor presente no vetor é: %.2hu", maior);
 }
 
 void inverter(ushort* vector)
@@ -128,6 +125,21 @@ void ordenar(ushort* vector)
 	printVector(vector);
 }
 
+void maiornovetor(ushort* vector)
+{
+	ushort maior = 0u;
+
+	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
+    {
+		if ( vector[i] > maior )
+        {
+            maior = vector[i];
+        }
+	}
+
+	printf("\nO maior valor presente no vetor é: %.2hu", maior);
+}
+
 void converterMoeda(void)
 {
 	float real = 0.0f, dolar = 0.0f;
@@ -157,18 +169,6 @@ void converterTemperatura(void)
         "A temperatura em graus Kelvin é: %.1f\n",
         ( opcao not_eq 1 ) ? (celsius + 273.15) : ((celsius * 9 / 5) + 32)
     );
-}
-
-void fillVectorWithRandomNumbers(ushort* vector)
-{
-    srand(time(NULL));
-
-	puts("Vetor gerado:");
-
-	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
-    {
-		vector[i] = rand() % RANDOM_LIMIT;
-	}
 }
 
 /**
