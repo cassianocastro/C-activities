@@ -15,13 +15,13 @@ typedef enum
 }
 Opcao;
 
-const ushort TAMANHO = 10, LIMITE_RANDOMICO = 101;
+const ushort VECTOR_SIZE = 10, RANDOM_LIMIT = 101;
 
 void printVector(ushort* vector)
 {
 	puts("\nÍndice\tValor");
 
-	for ( register ushort i = 0u; i < TAMANHO; ++i )
+	for ( register ushort i = 0u; i < VECTOR_SIZE; ++i )
     {
         printf("[%hu]\t%.2hu\n", i, vector[i]);
     }
@@ -33,7 +33,7 @@ void maiornovetor(ushort* vector)
 {
 	ushort maior = 0u;
 
-	for ( register ushort i = 0; i < TAMANHO; ++i )
+	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
     {
 		if ( vector[i] > maior )
         {
@@ -50,12 +50,12 @@ void inverter(ushort* vector)
 
 	puts("\nVetor invertido:");
 
-	for ( register ushort i = 0u, j = 1u; i < (TAMANHO / 2); ++i, ++j )
+	for ( register ushort i = 0u, j = 1u; i < (VECTOR_SIZE / 2); ++i, ++j )
     {
-		helper = vector[i];
-		vector[i] = vector[TAMANHO - j];
+		helper    = vector[i];
+		vector[i] = vector[VECTOR_SIZE - j];
 
-		vector[TAMANHO - j] = helper;
+		vector[VECTOR_SIZE - j] = helper;
 	}
 
 	printVector(vector);
@@ -76,7 +76,7 @@ void ordenar(ushort* vetor)
     {
 		puts("\nVetor em ordem crescente:");
 
-		for ( indice = 1; indice < TAMANHO; indice++ )
+		for ( indice = 1; indice < VECTOR_SIZE; indice++ )
         {
 			if ( vetor[indice] < vetor[indice - 1] )
             {
@@ -92,7 +92,7 @@ void ordenar(ushort* vetor)
     {
 		puts("\nVetor em ordem decrescente:");
 
-		for ( indice = 1; indice < TAMANHO; indice++ )
+		for ( indice = 1; indice < VECTOR_SIZE; indice++ )
         {
 			if ( vetor[indice] > vetor[indice - 1] )
             {
@@ -150,15 +150,15 @@ int main(void)
 {
 	setlocale(LC_ALL, "");
 
-    ushort vetor[TAMANHO];
+    ushort vetor[VECTOR_SIZE];
 
     srand(time(NULL));
 
 	puts("Vetor gerado:");
 
-	for ( register ushort i = 0; i < TAMANHO; ++i )
+	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
     {
-		vetor[i] = rand() % LIMITE_RANDOMICO;
+		vetor[i] = rand() % RANDOM_LIMIT;
 	}
 
 	printVector(vetor);
