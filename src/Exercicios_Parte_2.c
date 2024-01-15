@@ -133,7 +133,7 @@ void converterTemperatura(void)
 	scanf("%hhu", &opcao);
 
 	printf(
-        "A temperatura em graus Kelvin é: %.1f",
+        "A temperatura em graus Kelvin é: %.1f\n",
         ( opcao not_eq 1 ) ? (celsius + 273.15) : ((celsius * 9 / 5) + 32)
     );
 }
@@ -161,8 +161,8 @@ int main(void)
     unsigned int option = 0u;
 
 	printf(
-        "\nEscolha uma opção referente ao vetor:\n"
-		"1. Invertê-lo | 2. Ordená-lo | 3. Descobrir seu maior número"
+        "\nEscolha uma opção referente ao vetor:"
+		"\n1. Invertê-lo | 2. Ordená-lo | 3. Descobrir seu maior número"
 		"\nOpção\? "
     );
 	scanf("%d", &option);
@@ -182,7 +182,7 @@ int main(void)
 			puts("\nOpção inválida!");
 	}
 
-	converterTemperatura();
+	// converterTemperatura();
 
 	return EXIT_SUCCESS;
 }
