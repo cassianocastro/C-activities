@@ -63,11 +63,11 @@ void inverter(ushort* vector)
 
 void ordenar(ushort* vetor)
 {
-	ushort indice = 0, auxiliar = 0, assistente = 0, tipo = 0;
+	ushort auxiliar = 0, assistente = 0, tipo = 0;
 
 	printf(
-        "\nSelecione o tipo de ordenamento:\n"
-		"1. Crescente | 2. Decrescente"
+        "\nSelecione o tipo de ordenamento:"
+		"\n1. Crescente | 2. Decrescente"
 		"\nOpção\? "
     );
 	scanf("%hu", &tipo);
@@ -76,7 +76,7 @@ void ordenar(ushort* vetor)
     {
 		puts("\nVetor em ordem crescente:");
 
-		for ( indice = 1; indice < VECTOR_SIZE; indice++ )
+		for ( ushort indice = 1; indice < VECTOR_SIZE; indice++ )
         {
 			if ( vetor[indice] < vetor[indice - 1] )
             {
@@ -92,7 +92,7 @@ void ordenar(ushort* vetor)
     {
 		puts("\nVetor em ordem decrescente:");
 
-		for ( indice = 1; indice < VECTOR_SIZE; indice++ )
+		for ( ushort indice = 1; indice < VECTOR_SIZE; indice++ )
         {
 			if ( vetor[indice] > vetor[indice - 1] )
             {
