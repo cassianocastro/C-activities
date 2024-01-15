@@ -41,7 +41,7 @@ void printVector(ushort* vector)
     printf("\n");
 }
 
-void inverter(ushort* vector)
+void reverseVector(ushort* vector)
 {
 	ushort helper = 0u;
 
@@ -94,7 +94,7 @@ void descendingOrder(ushort* vector)
     }
 }
 
-void ordenar(ushort* vector)
+void orderVector(ushort* vector)
 {
 	ushort order = 0u;
 
@@ -125,7 +125,7 @@ void ordenar(ushort* vector)
 	printVector(vector);
 }
 
-void maiornovetor(ushort* vector)
+void getMaxValueFromVector(ushort* vector)
 {
 	ushort maior = 0u;
 
@@ -165,13 +165,13 @@ int main(void)
 	switch ( option )
     {
 		case INVERSAO:
-			inverter(vetor);
+			reverseVector(vetor);
 			break;
         case ORDENACAO:
-			ordenar(vetor);
+			orderVector(vetor);
 			break;
 		case MAIOR:
-			maiornovetor(vetor);
+			getMaxValueFromVector(vetor);
 			break;
 		default:
 			puts("\nOpção inválida!");
