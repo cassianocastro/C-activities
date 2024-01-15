@@ -59,7 +59,10 @@ int getBits(int numero)
     return qtdeBits;
 }
 
-int main(int argc, char const *argv[])
+/**
+ *
+ */
+int main(int argc, const char** argv)
 {
     setlocale(LC_ALL, "");
 
