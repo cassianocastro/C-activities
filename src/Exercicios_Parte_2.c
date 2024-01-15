@@ -21,8 +21,6 @@ void fillVectorWithRandomNumbers(ushort* vector)
 {
     srand(time(NULL));
 
-	puts("Vetor gerado:");
-
 	for ( register ushort i = 0; i < VECTOR_SIZE; ++i )
     {
 		vector[i] = rand() % RANDOM_LIMIT;
@@ -44,8 +42,6 @@ void printVector(ushort* vector)
 void reverseVector(ushort* vector)
 {
 	ushort helper = 0u;
-
-	puts("\nVetor invertido:");
 
 	for ( register ushort i = 0u, j = 1u; i < (VECTOR_SIZE / 2); ++i, ++j )
     {
@@ -149,6 +145,7 @@ int main(void)
 
     fillVectorWithRandomNumbers(vetor);
 
+    puts("Vetor gerado:");
 	printVector(vetor);
 
     unsigned int option = 0u;
@@ -163,6 +160,8 @@ int main(void)
 	switch ( option )
     {
 		case INVERSAO:
+            puts("\nVetor invertido:");
+
 			reverseVector(vetor);
             printVector(vetor);
 			break;
