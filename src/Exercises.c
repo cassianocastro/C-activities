@@ -1,14 +1,6 @@
+#include "./includes/Exercises.h"
+
 #ifdef EX_P1
-
-#include <inttypes.h>
-#include <iso646.h>
-#include <locale.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-typedef unsigned char byte;
 
 void maior(int x, int y, int* response)
 {
