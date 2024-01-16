@@ -14,6 +14,26 @@
 
 typedef unsigned char byte;
 
+/**
+ *
+ */
+void maior(int, int, int*);
+
+/**
+ *
+ */
+void brincarComNumeros(void);
+
+/**
+ *
+ */
+byte maiorNoVetor(byte*, byte);
+
+/**
+ *
+ */
+void generateVector(void);
+
 #elif EX_P2
 
 #include <iso646.h>
@@ -35,6 +55,41 @@ Options;
 
 extern const ushort VECTOR_SIZE, RANDOM_LIMIT;
 
+/**
+ *
+ */
+void fillVectorWithRandomNumbers(ushort*);
+
+/**
+ *
+ */
+void printVector(ushort*);
+
+/**
+ *
+ */
+void reverseVector(ushort*);
+
+/**
+ *
+ */
+void ascendingOrder(ushort*);
+
+/**
+ *
+ */
+void descendingOrder(ushort*);
+
+/**
+ *
+ */
+void orderVector(ushort*);
+
+/**
+ *
+ */
+const ushort getMaxValueFromVector(ushort*);
+
 #elif EX_P3
 
 #include <iso646.h>
@@ -45,6 +100,16 @@ extern const ushort VECTOR_SIZE, RANDOM_LIMIT;
 #include <time.h>
 
 typedef unsigned short ushort;
+
+/**
+ *
+ */
+void generateMatrix(void);
+
+/**
+ *
+ */
+char* verifyOption(char*);
 
 #endif
 
