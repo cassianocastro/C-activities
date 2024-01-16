@@ -93,23 +93,6 @@ int main(void)
 
 #elif EX_P2
 
-#include <iso646.h>
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <time.h>
-
-typedef unsigned short int ushort;
-
-typedef enum
-{
-	REVERSE = 1,
-    ORDER,
-    MAX_VAL
-}
-Options;
-
 const ushort VECTOR_SIZE = 10, RANDOM_LIMIT = 101;
 
 void fillVectorWithRandomNumbers(ushort* vector)
@@ -274,15 +257,6 @@ int main(void)
 }
 
 #elif EX_P3
-
-#include <iso646.h>
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
-
-typedef unsigned short ushort;
 
 void generateMatrix(void)
 {
