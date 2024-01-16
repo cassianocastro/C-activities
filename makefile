@@ -6,8 +6,8 @@ evaluation.exe: bin/main.o bin/evaluation.o
 ./bin/main.o: main.c src/includes/Evaluation.h
 	gcc -c main.c -o bin/main.o
 
-./bin/evaluation.o: src/Evaluation.c src/includes/Evaluation.h
-	gcc -c src/Evaluation.c -o bin/evaluation.o
+./bin/evaluation.o: src/app/Evaluation.c src/includes/Evaluation.h
+	gcc -c src/app/Evaluation.c -o bin/evaluation.o
 
 clean:
 	rm -rf bin/*.o bin/evaluation.exe
