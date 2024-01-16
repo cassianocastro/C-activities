@@ -32,7 +32,7 @@ void criptografar(char*);
  */
 void descriptografar(char*);
 
-#elif CRIPTOGRAPHER_V2
+#elif defined CRIPTOGRAPHER_V2
 
 #define TAMANHO_FRASE 100
 
@@ -56,7 +56,7 @@ void criptografar(char*);
  */
 void descriptografar(char*);
 
-#elif CRIPTOGRAPHER_ZANINI
+#elif defined CRIPTOGRAPHER_ZANINI
 
 /**
  *

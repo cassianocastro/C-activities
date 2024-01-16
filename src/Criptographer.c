@@ -73,7 +73,7 @@ int main(int argc, const char* argv[])
     return EXIT_SUCCESS;
 }
 
-#elif CRIPTOGRAPHER_V2
+#elif defined CRIPTOGRAPHER_V2
 
 void criptografar(char* frase)
 {
@@ -146,7 +146,7 @@ int main(int argc, const char* argv[])
     return EXIT_SUCCESS;
 }
 
-#elif CRIPTOGRAPHER_ZANINI
+#elif defined CRIPTOGRAPHER_ZANINI
 
 void cripto(char* texto)
 {
