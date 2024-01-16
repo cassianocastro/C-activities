@@ -1,4 +1,4 @@
-#include "./includes/Agenda.h"
+#include "../includes/Agenda.h"
 
 const unsigned short int CURRENT_YEAR = 2024;
 

@@ -1,4 +1,4 @@
-#include "./includes/Exercises.h"
+#include "../includes/Exercises.h"
 
 #ifdef EX_P1
 

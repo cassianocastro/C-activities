@@ -1,4 +1,4 @@
-#include "./includes/Evaluation.h"
+#include "../includes/Evaluation.h"
 
 FILE* arquivo;
 

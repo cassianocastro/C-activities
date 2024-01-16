@@ -1,4 +1,4 @@
-#include "./includes/pcs.h"
+#include "../includes/pcs.h"
 
 unsigned short int num;
 

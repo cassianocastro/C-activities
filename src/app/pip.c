@@ -1,4 +1,4 @@
-#include "./includes/pip.h"
+#include "../includes/pip.h"
 
 int geraPar(int limite)
 {

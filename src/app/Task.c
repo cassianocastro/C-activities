@@ -1,4 +1,4 @@
-#include "./includes/Task.h"
+#include "../includes/Task.h"
 
 const unsigned char VECTOR_SIZE = 10u, RANDOM_LIMIT = 101u;
 

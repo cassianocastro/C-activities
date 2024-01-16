@@ -1,4 +1,4 @@
-#include "./includes/Criptographer.h"
+#include "../includes/Criptographer.h"
 
 #ifdef CRIPTOGRAPHER_V1
 
