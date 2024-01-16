@@ -34,45 +34,6 @@ void descriptografar(char* frase)
     }
 }
 
-/**
- *
- */
-int main(int argc, const char* argv[])
-{
-    Options opcao;
-
-    char frase[TAMANHO_FRASE];
-
-    do {
-        printf("1 - Criptografar | 2 - Descriptografar | 0 - Sair\nOpção\? ");
-        scanf("%d", &opcao);
-        getchar();
-
-        switch ( opcao )
-        {
-            case CRIPTOGRAFAR:
-                printf("Digite a frase: ");
-                gets(frase);
-                criptografar(frase);
-                printf("Texto criptografado: %s\n", frase);
-                break;
-            case DESCRIPTOGRAFAR:
-                printf("Digite a frase: ");
-                gets(frase);
-                descriptografar(frase);
-                printf("Texto descriptografado: %s\n", frase);
-                break;
-            case SAIR:
-                puts("Saindo...");
-                break;
-            default:
-                puts("Opção Inválida!");
-        }
-    } while ( opcao not_eq SAIR );
-
-    return EXIT_SUCCESS;
-}
-
 #elif defined CRIPTOGRAPHER_V2
 
 void criptografar(char* frase)
@@ -105,45 +66,6 @@ void descriptografar(char* frase)
             }
         }
     }
-}
-
-/**
- *
- */
-int main(int argc, const char* argv[])
-{
-    Options opcao;
-
-    char frase[TAMANHO_FRASE];
-
-    do {
-        printf("1 - Criptografar | 2 - Descriptografar | 0 - Sair\nOpção\? ");
-        scanf("%d", &opcao);
-        getchar();
-
-        switch ( opcao )
-		{
-            case CRIPTOGRAFAR:
-                printf("Digite a frase: ");
-                gets(frase);
-                criptografar(frase);
-                printf("Texto criptografado: %s\n", frase);
-                break;
-            case DESCRIPTOGRAFAR:
-                printf("Digite a frase: ");
-                gets(frase);
-                descriptografar(frase);
-                printf("Texto descriptografado: %s\n", frase);
-                break;
-            case SAIR:
-                puts("Saindo...");
-                break;
-            default:
-                puts("Opção Inválida!");
-        }
-    } while ( opcao not_eq SAIR );
-
-    return EXIT_SUCCESS;
 }
 
 #elif defined CRIPTOGRAPHER_ZANINI
@@ -184,12 +106,82 @@ void decripto(char* texto)
 	}
 }
 
+#endif
+
 /**
  *
  */
 int main(int argc, const char* argv[])
 {
     setlocale(LC_ALL, "");
+
+#ifdef CRIPTOGRAPHER_V1
+
+    Options opcao;
+
+    char frase[TAMANHO_FRASE];
+
+    do {
+        printf("1 - Criptografar | 2 - Descriptografar | 0 - Sair\nOpção\? ");
+        scanf("%d", &opcao);
+        getchar();
+
+        switch ( opcao )
+        {
+            case CRIPTOGRAFAR:
+                printf("Digite a frase: ");
+                gets(frase);
+                criptografar(frase);
+                printf("Texto criptografado: %s\n", frase);
+                break;
+            case DESCRIPTOGRAFAR:
+                printf("Digite a frase: ");
+                gets(frase);
+                descriptografar(frase);
+                printf("Texto descriptografado: %s\n", frase);
+                break;
+            case SAIR:
+                puts("Saindo...");
+                break;
+            default:
+                puts("Opção Inválida!");
+        }
+    } while ( opcao not_eq SAIR );
+
+#elif defined CRIPTOGRAPHER_V2
+
+    Options opcao;
+
+    char frase[TAMANHO_FRASE];
+
+    do {
+        printf("1 - Criptografar | 2 - Descriptografar | 0 - Sair\nOpção\? ");
+        scanf("%d", &opcao);
+        getchar();
+
+        switch ( opcao )
+		{
+            case CRIPTOGRAFAR:
+                printf("Digite a frase: ");
+                gets(frase);
+                criptografar(frase);
+                printf("Texto criptografado: %s\n", frase);
+                break;
+            case DESCRIPTOGRAFAR:
+                printf("Digite a frase: ");
+                gets(frase);
+                descriptografar(frase);
+                printf("Texto descriptografado: %s\n", frase);
+                break;
+            case SAIR:
+                puts("Saindo...");
+                break;
+            default:
+                puts("Opção Inválida!");
+        }
+    } while ( opcao not_eq SAIR );
+
+#elif defined CRIPTOGRAPHER_ZANINI
 
     char opcao = '0', frase[50];
 
@@ -224,7 +216,7 @@ int main(int argc, const char* argv[])
         }
     }
 
+#endif
+
     return EXIT_SUCCESS;
 }
-
-#endif
