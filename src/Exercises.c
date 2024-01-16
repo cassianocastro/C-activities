@@ -65,7 +65,7 @@ void generateVector(void)
 	printf("\nO maior valor presente no vetor é: %.2d\n", maiorNoVetor(vetor, SIZE));
 }
 
-#elif EX_P2
+#elif defined EX_P2
 
 const ushort VECTOR_SIZE = 10, RANDOM_LIMIT = 101;
 
@@ -186,7 +186,7 @@ const ushort getMaxValueFromVector(ushort* vector)
 	return maior;
 }
 
-#elif EX_P3
+#elif defined EX_P3
 
 void generateMatrix(void)
 {
@@ -251,7 +251,7 @@ int main(void)
 	else
 		puts("Opção inválida!");
 
-#elif EX_P2
+#elif defined EX_P2
 
     ushort vetor[VECTOR_SIZE];
 
@@ -287,7 +287,7 @@ int main(void)
 			puts("\nOpção inválida!");
 	}
 
-#elif EX_P3
+#elif defined EX_P3
 
     generateMatrix();
 

@@ -35,7 +35,7 @@ byte maiorNoVetor(byte*, byte);
  */
 void generateVector(void);
 
-#elif EX_P2
+#elif defined EX_P2
 
 #include <stdbool.h>
 
@@ -86,7 +86,7 @@ void orderVector(ushort*);
  */
 const ushort getMaxValueFromVector(ushort*);
 
-#elif EX_P3
+#elif defined EX_P3
 
 #include <string.h>
 
