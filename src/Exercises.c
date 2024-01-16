@@ -284,9 +284,6 @@ int main(void)
 
 typedef unsigned short ushort;
 
-/**
- *
- */
 void generateMatrix(void)
 {
     const ushort MATRIX_SIZE = 6, RANDOM_LIMIT = 100;
@@ -310,9 +307,6 @@ void generateMatrix(void)
 	}
 }
 
-/**
- *
- */
 char* verifyOption(char* option)
 {
 	while ( strcmp(option, "sim") != 0 and strcmp(option, "nao") != 0 )
