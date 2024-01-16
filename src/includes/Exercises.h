@@ -2,15 +2,16 @@
 
 #define EXERCISES_H
 
-#ifdef EX_P1
-
-#include <inttypes.h>
 #include <iso646.h>
 #include <locale.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#ifdef EX_P1
+
+#include <inttypes.h>
+#include <stdbool.h>
 
 typedef unsigned char byte;
 
@@ -36,12 +37,7 @@ void generateVector(void);
 
 #elif EX_P2
 
-#include <iso646.h>
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdbool.h>
-#include <time.h>
 
 typedef unsigned short int ushort;
 
@@ -92,12 +88,7 @@ const ushort getMaxValueFromVector(ushort*);
 
 #elif EX_P3
 
-#include <iso646.h>
-#include <locale.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <time.h>
 
 typedef unsigned short ushort;
 
