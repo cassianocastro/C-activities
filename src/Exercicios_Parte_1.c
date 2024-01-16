@@ -1,3 +1,5 @@
+#ifdef EX_P1
+
 #include <inttypes.h>
 #include <iso646.h>
 #include <locale.h>
@@ -96,3 +98,9 @@ int main(void)
 
 	return EXIT_SUCCESS;
 }
+
+#elif EX_P2
+
+#elif EX_P3
+
+#endif
