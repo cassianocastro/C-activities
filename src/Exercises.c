@@ -65,32 +65,6 @@ void generateVector(void)
 	printf("\nO maior valor presente no vetor é: %.2d\n", maiorNoVetor(vetor, SIZE));
 }
 
-/**
- *
- */
-int main(void)
-{
-	setlocale(LC_ALL, "");
-
-	byte option = 0;
-
-	printf(
-        "Escolha uma opção:"
-		"\n1. Brincar com Números | 2. Gerar um Vetor"
-		"\nOpção\? "
-    );
-	scanf("%hhu", &option);
-
-	if ( option == 1 )
-		brincarComNumeros();
-	else if ( option == 2 )
-		generateVector();
-	else
-		puts("Opção inválida!");
-
-	return EXIT_SUCCESS;
-}
-
 #elif EX_P2
 
 const ushort VECTOR_SIZE = 10, RANDOM_LIMIT = 101;
@@ -212,50 +186,6 @@ const ushort getMaxValueFromVector(ushort* vector)
 	return maior;
 }
 
-/**
- *
- */
-int main(void)
-{
-	setlocale(LC_ALL, "");
-
-    ushort vetor[VECTOR_SIZE];
-
-    fillVectorWithRandomNumbers(vetor);
-
-    puts("Vetor gerado:");
-	printVector(vetor);
-
-    unsigned int option = 0u;
-
-	printf(
-        "\nEscolha uma opção referente ao vetor:"
-		"\n1. Invertê-lo | 2. Ordená-lo | 3. Obter seu maior valor"
-		"\nOpção\? "
-    );
-	scanf("%1d", &option);
-
-	switch ( option )
-    {
-		case REVERSE:
-            puts("\nVetor invertido:");
-
-			reverseVector(vetor);
-            printVector(vetor);
-			break;
-        case ORDER:
-			orderVector(vetor);
-			break;
-		case MAX_VAL:
-            printf("\nMaior valor no vetor: %.2hu", getMaxValueFromVector(vetor));
-			break;
-		default:
-			puts("\nOpção inválida!");
-	}
-
-	return EXIT_SUCCESS;
-}
-
 #elif EX_P3
 
 void generateMatrix(void)
@@ -292,12 +222,72 @@ char* verifyOption(char* option)
 	return option;
 }
 
+#endif
+
+
+
 /**
  *
  */
 int main(void)
 {
 	setlocale(LC_ALL, "");
+
+#ifdef EX_P1
+
+	byte option = 0;
+
+	printf(
+        "Escolha uma opção:"
+		"\n1. Brincar com Números | 2. Gerar um Vetor"
+		"\nOpção\? "
+    );
+	scanf("%hhu", &option);
+
+	if ( option == 1 )
+		brincarComNumeros();
+	else if ( option == 2 )
+		generateVector();
+	else
+		puts("Opção inválida!");
+
+#elif EX_P2
+
+    ushort vetor[VECTOR_SIZE];
+
+    fillVectorWithRandomNumbers(vetor);
+
+    puts("Vetor gerado:");
+	printVector(vetor);
+
+    unsigned int option = 0u;
+
+	printf(
+        "\nEscolha uma opção referente ao vetor:"
+		"\n1. Invertê-lo | 2. Ordená-lo | 3. Obter seu maior valor"
+		"\nOpção\? "
+    );
+	scanf("%1d", &option);
+
+	switch ( option )
+    {
+		case REVERSE:
+            puts("\nVetor invertido:");
+
+			reverseVector(vetor);
+            printVector(vetor);
+			break;
+        case ORDER:
+			orderVector(vetor);
+			break;
+		case MAX_VAL:
+            printf("\nMaior valor no vetor: %.2hu", getMaxValueFromVector(vetor));
+			break;
+		default:
+			puts("\nOpção inválida!");
+	}
+
+#elif EX_P3
 
     generateMatrix();
 
@@ -308,7 +298,7 @@ int main(void)
 
 	printf("\nOpção escolhida: %s\n", verifyOption(option));
 
+#endif
+
 	return EXIT_SUCCESS;
 }
-
-#endif
