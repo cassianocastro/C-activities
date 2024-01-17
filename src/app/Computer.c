@@ -11,7 +11,14 @@ int main(int argc, const char* argv[])
 {
 	setlocale(LC_ALL, "");
 
-	unsigned int option = 0u;
+	start();
+
+	return EXIT_SUCCESS;
+}
+
+void start(void)
+{
+    unsigned int option = 0u;
 
     do {
 	    option = getMainMenuChoice();
@@ -44,8 +51,6 @@ int main(int argc, const char* argv[])
 	} while ( option not_eq EXIT );
 
     free(inventary);
-
-	return EXIT_SUCCESS;
 }
 
 void addComputer(void)
