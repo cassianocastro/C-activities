@@ -5,6 +5,10 @@
 
 #include "./src/includes/Evaluation.h"
 
+#elif defined COMPUTER
+
+#include "./src/includes/Computer.h"
+
 #elif defined AGENDA
 
 #include "./src/includes/Agenda.h"
