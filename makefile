@@ -1,7 +1,7 @@
-all: evaluation.exe agenda.exe
+all: agenda.exe evaluation.exe
 
 evaluation.exe: bin/main.o bin/evaluation.o
-	gcc bin/main.o bin/evaluation.o -o bin/evaluation.exe
+	gcc -D=EVALUATION bin/main.o bin/evaluation.o -o bin/evaluation.exe
 
 ./bin/main.o: main.c src/includes/Evaluation.h
 	gcc -c main.c -o bin/main.o
@@ -10,7 +10,10 @@ evaluation.exe: bin/main.o bin/evaluation.o
 	gcc -c src/app/Evaluation.c -o bin/evaluation.o
 
 agenda.exe: bin/Agenda.o bin/Validation.o
-	gcc bin/Agenda.o bin/Validation.o -o bin/agenda.exe
+	gcc -D=AGENDA bin/main.o bin/Agenda.o bin/Validation.o -o bin/agenda.exe
+
+./bin/main.o: main.c src/includes/Agenda.h
+	gcc -c main.c -o bin/main.o
 
 ./bin/Agenda.o: src/app/Agenda.c src/includes/Agenda.h
 	gcc -c src/app/Agenda.c -o bin/Agenda.o
