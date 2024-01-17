@@ -5,7 +5,7 @@ Employee employees[ARRAY_SIZE];
 /**
  *
  */
-int main(int argc, const char* argv[])
+int main(int argc, const char** argv)
 {
 	setlocale(LC_ALL, "");
 
