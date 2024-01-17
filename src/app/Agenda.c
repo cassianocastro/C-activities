@@ -13,6 +13,13 @@ int main(int argc, const char** argv)
 {
 	setlocale(LC_ALL, "");
 
+    start();
+
+    return EXIT_SUCCESS;
+}
+
+void start(void)
+{
     unsigned int option = 0u;
 
     do {
@@ -44,8 +51,6 @@ int main(int argc, const char** argv)
 	} while ( option not_eq EXIT );
 
     free(contacts);
-
-    return EXIT_SUCCESS;
 }
 
 void addContact(void)
