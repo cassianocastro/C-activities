@@ -64,6 +64,11 @@ extern unsigned short numero;
 /**
  *
  */
+void start(void);
+
+/**
+ *
+ */
 void addComputer(void);
 
 /**
