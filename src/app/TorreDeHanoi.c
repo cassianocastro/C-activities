@@ -10,11 +10,11 @@ void hanoi(int n, char x, char y, char z)
         printf("mova disco %d de %c para %c\n", n, x, y);
     else
     {
-        hanoi( n - 1, x, z, y ); // H1
+        hanoi(n - 1, x, z, y); // H1
 
         printf("mova disco %d de %c para %c\n", n, x, y);
 
-        hanoi( n - 1, z, y, x ); // H2
+        hanoi(n - 1, z, y, x); // H2
     }
 }
 
