@@ -1,3 +1,7 @@
+#ifndef VALIDATION_H
+
+#define VALIDATION_H
+
 #include <inttypes.h>
 #include <iso646.h>
 #include <stdbool.h>
@@ -53,3 +57,5 @@ bool validadata(uint8_t dia, uint8_t mes, uint16_t ano)
             return false;
     }
 }
+
+#endif
