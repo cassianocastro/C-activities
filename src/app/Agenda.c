@@ -6,18 +6,6 @@ Contact* contacts;
 
 unsigned short int num;
 
-/**
- *
- */
-int main(int argc, const char** argv)
-{
-	setlocale(LC_ALL, "");
-
-    start();
-
-    return EXIT_SUCCESS;
-}
-
 void start(void)
 {
     unsigned int option = 0u;
