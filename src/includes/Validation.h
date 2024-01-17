@@ -10,7 +10,7 @@
 /**
  *
  */
-enum Meses
+typedef enum
 {
 	JANUARY = 1,
     FEBRUARY,
@@ -24,7 +24,8 @@ enum Meses
     OCTOBER,
     NOVEMBER,
     DECEMBER
-};
+}
+Months;
 
 /**
  *
