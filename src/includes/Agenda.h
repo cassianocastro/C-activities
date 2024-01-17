@@ -78,6 +78,11 @@ extern unsigned short int num;
 /**
  *
  */
+void start(void);
+
+/**
+ *
+ */
 void addContact(void);
 
 /**
