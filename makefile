@@ -1,4 +1,4 @@
-all: agenda.exe evaluation.exe
+all: computer.exe #agenda.exe evaluation.exe
 
 evaluation.exe: bin/main.o bin/evaluation.o
 	gcc -D=EVALUATION bin/main.o bin/evaluation.o -o bin/evaluation.exe
@@ -20,6 +20,15 @@ agenda.exe: bin/Agenda.o bin/Validation.o
 
 ./bin/Validation.o: src/app/Validation.c src/includes/Validation.h
 	gcc -c src/app/Validation.c -o bin/Validation.o
+
+computer.exe: bin/main.o bin/Computer.o
+	gcc -D=COMPUTER bin/main.o bin/Computer.o -o bin/computer.exe
+
+./bin/main.o: main.c src/includes/Computer.h
+	gcc -c main.c -o bin/main.o
+
+./bin/Computer.o: src/app/Computer.c src/includes/Computer.h
+	gcc -c src/app/Computer.c -o bin/Computer.o
 
 clean:
 	rm -rf bin/*.o bin/evaluation.exe bin/agenda.exe
