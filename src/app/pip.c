@@ -89,7 +89,7 @@ bool isValid(int dia, int mes, int ano)
 	}
 }
 
-char* nameOfThis(byte month)
+const char* nameOfThis(byte month)
 {
 	switch ( month )
     {

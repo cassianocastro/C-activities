@@ -56,6 +56,6 @@ bool isValid(int, int, int);
 /**
  *
  */
-char* nameOfThis(byte);
+const char* nameOfThis(byte);
 
 #endif
