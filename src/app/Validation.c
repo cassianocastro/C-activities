@@ -1,8 +1,8 @@
 #include "../includes/Validation.h"
 
-bool validadata(uint8_t dia, uint8_t mes, uint16_t ano)
+bool validadata(uint8_t day, uint8_t month, uint16_t year)
 {
-    switch ( mes )
+    switch ( month )
     {
         case JANUARY:
         case MARCH:
@@ -11,13 +11,13 @@ bool validadata(uint8_t dia, uint8_t mes, uint16_t ano)
         case AUGUST:
         case OCTOBER:
         case DECEMBER:
-            return dia <= 31 and dia > 0;
+            return day <= 31 and day > 0;
         case FEBRUARY:
-            if( ((ano % 4 == 0) and (ano % 100 not_eq 0)) or (ano % 400 == 0) )
+            if( ((year % 4 == 0) and (year % 100 not_eq 0)) or (year % 400 == 0) )
             {
-                return dia <= 29 and dia > 0;
+                return day <= 29 and day > 0;
             }
-            else if ( dia <= 28 and dia > 0 )
+            else if ( day <= 28 and day > 0 )
             {
                 return true;
             }
@@ -29,7 +29,7 @@ bool validadata(uint8_t dia, uint8_t mes, uint16_t ano)
         case JUNE:
         case SEPTEMBER:
         case NOVEMBER:
-            return dia <= 30 and dia > 0;
+            return day <= 30 and day > 0;
         default:
             return false;
     }
