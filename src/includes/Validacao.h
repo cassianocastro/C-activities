@@ -12,18 +12,18 @@
  */
 enum Meses
 {
-	JANEIRO = 1,
-    FEVEREIRO,
-    MARCO,
-    ABRIL,
-    MAIO,
-    JUNHO,
-    JULHO,
-    AGOSTO,
-    SETEMBRO,
-    OUTUBRO,
-    NOVEMBRO,
-    DEZEMBRO
+	JANUARY = 1,
+    FEBRUARY,
+    MARCH,
+    APRIL,
+    MAY,
+    JUNE,
+    JULY,
+    AUGUST,
+    SEPTEMBER,
+    OCTOBER,
+    NOVEMBER,
+    DECEMBER
 };
 
 /**
