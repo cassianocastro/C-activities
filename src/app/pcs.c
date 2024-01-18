@@ -4,14 +4,9 @@ unsigned short int num;
 
 Computer* inventary;
 
-/**
- *
- */
-int main(int argc, const char* argv[])
+void start(void)
 {
-	setlocale(LC_ALL, "");
-
-	unsigned int option = 0u;
+    unsigned int option = 0u;
 
     while ( true )
     {
@@ -41,8 +36,6 @@ int main(int argc, const char* argv[])
 				exit(EXIT_SUCCESS);
 		}
 	}
-
-	return EXIT_SUCCESS;
 }
 
 void addComputer(void)
