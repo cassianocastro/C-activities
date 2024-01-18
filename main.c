@@ -1,17 +1,21 @@
 #include <locale.h>
 #include <stdlib.h>
 
-#ifdef EVALUATION
+#ifdef AGENDA
 
-#include "./src/includes/Evaluation.h"
+#include "./src/includes/Agenda.h"
 
 #elif defined COMPUTER
 
 #include "./src/includes/Computer.h"
 
-#elif defined AGENDA
+#elif defined EVALUATION
 
-#include "./src/includes/Agenda.h"
+#include "./src/includes/Evaluation.h"
+
+#elif defined FROTA
+
+#include "./src/includes/Frota.h"
 
 #endif
 
