@@ -55,6 +55,11 @@ extern Computer* inventary;
 /**
  *
  */
+void start(void);
+
+/**
+ *
+ */
 void addComputer(void);
 
 /**
