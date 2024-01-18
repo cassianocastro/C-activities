@@ -4,6 +4,18 @@
 
 Driven menu programs written in C.
 
+## Dependencies
+
+- GNU GCC
+- Make
+
+### For Linux
+
+`sudo apt install build-essential make`
+
+### For Windows
+
+
 ## How to compile
 
 ### Single file:
