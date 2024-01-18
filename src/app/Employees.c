@@ -2,13 +2,8 @@
 
 Employee employees[ARRAY_SIZE];
 
-/**
- *
- */
-int main(int argc, const char** argv)
+void start(void)
 {
-	setlocale(LC_ALL, "");
-
     for ( register byte i = 0; i < ARRAY_SIZE; ++i )
 	{
         employees[i] = createEmployee();
@@ -42,8 +37,6 @@ int main(int argc, const char** argv)
 				puts("Opção inválida!");
 		}
 	} while ( option not_eq EXIT );
-
-	return EXIT_SUCCESS;
 }
 
 void addEmployee(void)
