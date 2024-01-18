@@ -63,6 +63,11 @@ extern Employee employees[];
 /**
  *
  */
+void start(void);
+
+/**
+ *
+ */
 void addEmployee(void);
 
 /**
