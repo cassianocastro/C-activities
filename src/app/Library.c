@@ -2,18 +2,6 @@
 
 Book library[10];
 
-/**
- *
- */
-int main(int argc, const char** argv)
-{
-	setlocale(LC_ALL, "");
-
-    start();
-
-	return EXIT_SUCCESS;
-}
-
 void start(void)
 {
     for ( register byte i = 0, size = 10; i < size; ++i )
