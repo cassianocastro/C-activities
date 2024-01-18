@@ -2,18 +2,6 @@
 
 const unsigned char VECTOR_SIZE = 10u, RANDOM_LIMIT = 101u;
 
-/**
- *
- */
-int main(int argc, const char** argv)
-{
-	setlocale(LC_ALL, "");
-
-    start();
-
-	return EXIT_SUCCESS;
-}
-
 void start(void)
 {
     int vector[VECTOR_SIZE];
