@@ -4,18 +4,6 @@ Car frota[10];
 
 const unsigned int ARRAY_SIZE = 10u;
 
-/**
- *
- */
-int main(int argc, const char** argv)
-{
-    setlocale(LC_ALL, "");
-
-    start();
-
-	return EXIT_SUCCESS;
-}
-
 void start(void)
 {
     for ( register byte i = 0; i < ARRAY_SIZE; ++i )
