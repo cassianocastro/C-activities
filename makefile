@@ -1,16 +1,16 @@
-all: task.exe
+all: agenda.exe
 
-agenda.exe: bin/Agenda.o bin/Validation.o
-	gcc -D=AGENDA bin/main.o bin/Agenda.o bin/Validation.o -o bin/agenda.exe
+agenda.exe: bin/main.o bin/agenda.o bin/pip.o
+	gcc -D=AGENDA bin/main.o bin/agenda.o bin/pip.o -o bin/agenda.exe
 
 ./bin/main.o: main.c src/includes/Agenda.h
 	gcc -c main.c -o bin/main.o
 
-./bin/Agenda.o: src/app/Agenda.c src/includes/Agenda.h
-	gcc -c src/app/Agenda.c -o bin/Agenda.o
+./bin/agenda.o: src/app/Agenda.c src/includes/Agenda.h
+	gcc -c src/app/Agenda.c -o bin/agenda.o
 
-./bin/Validation.o: src/app/Validation.c src/includes/Validation.h
-	gcc -c src/app/Validation.c -o bin/Validation.o
+./bin/pip.o: src/app/pip.c src/includes/pip.h
+	gcc -c src/app/pip.c -o bin/pip.o
 
 
 computer.exe: bin/main.o bin/Computer.o
