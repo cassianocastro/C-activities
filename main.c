@@ -13,6 +13,10 @@
 
 #include "./src/includes/Evaluation.h"
 
+#elif defined EMPLOYEES
+
+#include "./src/includes/Employees.h"
+
 #elif defined FROTA
 
 #include "./src/includes/Frota.h"
@@ -20,6 +24,14 @@
 #elif defined LIBRARY
 
 #include "./src/includes/Library.h"
+
+#elif defined PC
+
+#include "./src/includes/pcs.h"
+
+#elif defined TASK
+
+#include "./src/includes/Task.h"
 
 #endif
 
