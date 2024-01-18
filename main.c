@@ -17,6 +17,10 @@
 
 #include "./src/includes/Frota.h"
 
+#elif defined LIBRARY
+
+#include "./src/includes/Library.h"
+
 #endif
 
 /**
