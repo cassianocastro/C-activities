@@ -118,7 +118,7 @@ void updateContact(void)
                 printf("Ano: ");
 				scanf("%hu", &contacts[id].dn.year);
 
-				ok = validadata(
+				ok = isValid(
                     contacts[id].dn.day,
 					contacts[id].dn.month,
 					contacts[id].dn.year
@@ -256,7 +256,7 @@ void showContactForm(byte i)
         printf("Ano: ");
     	scanf("%hu",  &contacts[i].dn.year);
 
-    	ok = validadata(
+    	ok = isValid(
             contacts[i].dn.day,
 			contacts[i].dn.month,
 			contacts[i].dn.year
@@ -297,7 +297,7 @@ const unsigned int showMainMenu(void)
 {
     unsigned int option = 0u;
 
-    printf (
+    printf(
         "\nEscolha uma das opções abaixo:"
         "\n1. Insercão;"
         "\n2. Listagem;"
