@@ -1,6 +1,6 @@
 #include "../includes/pip.h"
 
-int geraPar(int limite)
+int generateEvenNumber(int limite)
 {
     int n = rand() % limite;
 
@@ -12,7 +12,7 @@ int geraPar(int limite)
     return (n + 1);
 }
 
-int geraImpar(int limite)
+int generateOddNumber(int limite)
 {
     int n = rand() % limite;
 
@@ -24,7 +24,7 @@ int geraImpar(int limite)
     return (n - 1);
 }
 
-int geraprimo(int limite)
+int generatePrimeNumber(int limite)
 {
     int num, x, cd;
 
