@@ -59,6 +59,6 @@ bool isValid(int, int, int);
 /**
  *
  */
-const char* nameOfThis(byte);
+const char* getMonthName(byte);
 
 #endif
