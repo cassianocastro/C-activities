@@ -22,7 +22,7 @@ const unsigned int showUpdateMenu(void);
 /**
  *
  */
-void showContactForm(byte);
+void showContactForm(Contact* const);
 
 /**
  *
