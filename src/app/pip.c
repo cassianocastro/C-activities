@@ -60,7 +60,7 @@ bool isValid(int dia, int mes, int ano)
 {
 	switch ( mes )
     {
-		case FEVEREIRO:
+		case FEBRUARY:
 			if ( ano % 4 == 0 and ano % 100 != 0 or ano % 400 == 0 )
             {
 				return dia > 0 and dia <= 29;
@@ -71,18 +71,18 @@ bool isValid(int dia, int mes, int ano)
             }
 
 			return false;
-		case JANEIRO:
-		case MARCO:
-		case MAIO:
-		case JULHO:
-		case AGOSTO:
-		case OUTUBRO:
-		case DEZEMBRO:
+		case JANUARY:
+		case MARCH:
+		case MAY:
+		case JULY:
+		case AUGUST:
+		case OCTOBER:
+		case DECEMBER:
 			return dia >= 1 and dia <= 31;
-		case ABRIL:
-		case JUNHO:
-		case SETEMBRO:
-		case NOVEMBRO:
+		case APRIL:
+		case JUNE:
+		case SEPTEMBER:
+		case NOVEMBER:
 			return dia >= 1 and dia <= 30;
 		default:
 			return false;
@@ -93,18 +93,18 @@ const char* nameOfThis(byte month)
 {
 	switch ( month )
     {
-		case JANEIRO:    return "Janeiro..";
-		case FEVEREIRO:  return "Fevereiro";
-		case MARCO:      return "Março....";
-		case ABRIL:      return "Abril....";
-		case MAIO:       return "Maio.....";
-		case JUNHO:      return "Junho....";
-		case JULHO:      return "Julho....";
-		case AGOSTO:	 return "Agosto...";
-		case SETEMBRO:	 return "Setembro.";
-		case OUTUBRO:	 return "Outubro..";
-		case NOVEMBRO:   return "Novembro.";
-		case DEZEMBRO:   return "Dezembro.";
+		case JANUARY   : return "Janeiro..";
+		case FEBRUARY  : return "Fevereiro";
+		case MARCH     : return "Março....";
+		case APRIL     : return "Abril....";
+		case MAY       : return "Maio.....";
+		case JUNE      : return "Junho....";
+		case JULY      : return "Julho....";
+		case AUGUST    : return "Agosto...";
+		case SEPTEMBER : return "Setembro.";
+		case OCTOBER   : return "Outubro..";
+		case NOVEMBER  : return "Novembro.";
+		case DECEMBER  : return "Dezembro.";
 	}
 
 	return NULL;
