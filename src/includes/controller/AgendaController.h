@@ -9,37 +9,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "./pip.h"
-
-typedef unsigned char byte;
-
-/**
- *
- */
-typedef struct
-{
-	byte day;
-    byte month;
-
-    unsigned short int year;
-}
-BirthDate;
-
-/**
- *
- */
-typedef struct
-{
-	BirthDate dn;
-
-    byte age;
-
-    char name[51];
-    char city[21];
-    char phone[17];
-    char sex;
-}
-Contact;
+#include "../model/AgendaModel.h"
+#include "../view/AgendaView.h"
 
 /**
  *
@@ -103,30 +76,5 @@ void deleteContact(void);
  *
  */
 void searchContact(void);
-
-/**
- *
- */
-void showContactForm(byte);
-
-/**
- *
- */
-void printContact(const Contact* const);
-
-/**
- *
- */
-const unsigned int showMainMenu(void);
-
-/**
- *
- */
-const unsigned int showUpdateMenu(void);
-
-/**
- *
- */
-byte getContactID(void);
 
 #endif
