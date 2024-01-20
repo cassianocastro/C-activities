@@ -1,8 +1,8 @@
 #include "../includes/pip.h"
 
-int generateEvenNumber(int limite)
+int generateEvenNumber(const int limit)
 {
-    int n = rand() % limite;
+    int n = rand() % limit;
 
     if ( n % 2 == 0 )
     {
@@ -12,9 +12,9 @@ int generateEvenNumber(int limite)
     return (n + 1);
 }
 
-int generateOddNumber(int limite)
+int generateOddNumber(const int limit)
 {
-    int n = rand() % limite;
+    int n = rand() % limit;
 
     if ( n % 2 != 0 )
     {
@@ -24,15 +24,15 @@ int generateOddNumber(int limite)
     return (n - 1);
 }
 
-int generatePrimeNumber(int limite)
+int generatePrimeNumber(const int limit)
 {
-    int num, x, cd;
+    int num = 0, cd = 0;
 
     do {
         cd  = 0;
-        num = rand() % limite;
+        num = rand() % limit;
 
-        for ( x = 1; x <= num; x++ )
+        for ( int x = 1; x <= num; ++x )
         {
             if ( num % x == 0 ) cd++;
 
