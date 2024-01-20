@@ -166,7 +166,7 @@ void insertAllWages(int i)
 
     for ( byte month = 0; month < MONTHS; month++ )
 	{
-        printf("Salário/%s: R$ ", nameOfThis(month + 1));
+        printf("Salário/%s: R$ ", getMonthName(month + 1));
         scanf("%f", &employees[i].wage[month]);
 
         employees[i].sum += employees[i].wage[month];
@@ -259,7 +259,7 @@ void printEmployeeInfo(const Employee* const employee)
 
     for ( register byte i = 0; i < MONTHS; ++i )
     {
-        printf("\nSalário/%s......: R$ %.2f", nameOfThis(i + 1), employee->wage[i]);
+        printf("\nSalário/%s......: R$ %.2f", getMonthName(i + 1), employee->wage[i]);
     }
 }
 
