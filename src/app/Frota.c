@@ -126,15 +126,13 @@ void printCarInfo(const Car* const car)
 
 Car createCar(void)
 {
-    Car car = {
+    return (Car) {
         .color   = "",
         .mark    = "",
         .model   = "",
         .placa   = "",
         .release = 0
     };
-
-	return car;
 }
 
 const unsigned int showMainMenu(void)
