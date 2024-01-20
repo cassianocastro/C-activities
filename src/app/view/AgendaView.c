@@ -1,30 +1,30 @@
 #include "../includes/view/AgendaView.h"
 
-void showContactForm(byte i)
+void showContactForm(Contact* const contact)
 {
-	bool ok = false;
+    static int i = 0;
+	bool ok  = false;
 
-    printf("\nContato nº %hhu\n\n", (i + 1));
+    printf("\nContato nº %hhu\n\n", ++i);
 	getchar();
 
     printf("Nome......: ");
-	fgets(contacts[i].name, 50, stdin);
+	fgets(contact->name, 50, stdin);
 
     printf("Cidade....: ");
-	fgets(contacts[i].city, 20, stdin);
+	fgets(contact->city, 20, stdin);
 
     printf("Telefone..: ");
-	fgets(contacts[i].phone, 16, stdin);
+	fgets(contact->phone, 16, stdin);
 
-    do
-    {
+    do {
 		printf("Sexo [M/F]\? ");
-		scanf(" %c", &contacts[i].sex);
+		scanf(" %c", &contact->sex);
 
-		contacts[i].sex = tolower(contacts[i].sex);
+		contact->sex = tolower(contact->sex);
 	} while (
-        contacts[i].sex not_eq 'f' and
-        contacts[i].sex not_eq 'm'
+        contact->sex not_eq 'f' and
+        contact->sex not_eq 'm'
     );
 
 	while ( true )
@@ -32,18 +32,18 @@ void showContactForm(byte i)
         puts("Data de nascimento...");
 
 		printf("Dia: ");
-    	scanf("%hhu", &contacts[i].dn.day);
+    	scanf("%hhu", &contact->dn.day);
 
         printf("Mês: ");
-    	scanf("%hhu", &contacts[i].dn.month);
+    	scanf("%hhu", &contact->dn.month);
 
         printf("Ano: ");
-    	scanf("%hu",  &contacts[i].dn.year);
+    	scanf("%hu",  &contact->dn.year);
 
     	ok = isValid(
-            contacts[i].dn.day,
-			contacts[i].dn.month,
-			contacts[i].dn.year
+            contact->dn.day,
+			contact->dn.month,
+			contact->dn.year
         );
 
 		if ( not ok )
@@ -52,7 +52,8 @@ void showContactForm(byte i)
 			break;
 	}
 
-	contacts[i].age = (uint8_t) CURRENT_YEAR - contacts[i].dn.year;
+    // TODO: Replace int literal by CURRENT_YEAR constant
+	contact->age = (uint8_t) 2024 - contact->dn.year;
 }
 
 void printContact(const Contact* const contact)
