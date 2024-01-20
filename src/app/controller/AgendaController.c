@@ -57,7 +57,7 @@ void addContact(void)
 
 		for ( register byte i = 0; i < num; ++i )
         {
-            showContactForm(i);
+            showContactForm(&contacts[i]);
         }
 	}
     else
@@ -66,7 +66,7 @@ void addContact(void)
 
 	    contacts = (Contact*) realloc(contacts, ++num * sizeof(Contact));
 
-        showContactForm(num - 1);
+        showContactForm(&contacts[num - 1]);
 	}
 
 	puts("\nInserção realizada.");
