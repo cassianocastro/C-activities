@@ -2,6 +2,11 @@
 
 #define AGENDA_VIEW_H
 
+#include <inttypes.h>
+#include <iso646.h>
+#include <stdbool.h>
+#include <stdio.h>
+
 #include "../model/AgendaModel.h"
 
 /**
