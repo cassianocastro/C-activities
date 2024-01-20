@@ -3,7 +3,7 @@
 
 #ifdef AGENDA
 
-#include "./src/includes/Agenda.h"
+#include "./src/includes/controller/AgendaController.h"
 
 #elif defined COMPUTER
 
