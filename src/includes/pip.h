@@ -34,17 +34,17 @@ Months;
 /**
  *
  */
-int geraPar(int);
+int generateEvenNumber(int);
 
 /**
  *
  */
-int geraImpar(int);
+int generateOddNumber(int);
 
 /**
  *
  */
-int geraprimo(int);
+int generatePrimeNumber(int);
 
 /**
  *
