@@ -1,90 +1,135 @@
-all: agenda.exe
+STD=c99
+CC=gcc
+LD=gcc
+CCFLAGS=-Wall -Wextra -w --ansi --pedantic -std=$(STD)
 
-agenda.exe: bin/main.o bin/agenda.o bin/pip.o
-	gcc -D=AGENDA bin/main.o bin/agenda.o bin/pip.o -o bin/agenda.exe
+
+TARGET=bin/agenda.exe
+OBJS=bin/main.o bin/agenda.o bin/pip.o
+LDFLAGS=-D=AGENDA
+
+all: $(OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
 ./bin/main.o: main.c src/includes/Agenda.h
-	gcc -c main.c -o bin/main.o
+	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
 ./bin/agenda.o: src/app/Agenda.c src/includes/Agenda.h
-	gcc -c src/app/Agenda.c -o bin/agenda.o
+	$(CC) $(CCFLAGS) -c src/app/Agenda.c -o bin/agenda.o
 
 ./bin/pip.o: src/app/pip.c src/includes/pip.h
-	gcc -c src/app/pip.c -o bin/pip.o
+	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
 
 
-computer.exe: bin/main.o bin/Computer.o
-	gcc -D=COMPUTER bin/main.o bin/Computer.o -o bin/computer.exe
 
-./bin/main.o: main.c src/includes/Computer.h
-	gcc -c main.c -o bin/main.o
+# TARGET=bin/computer.exe
+# OBJS=bin/main.o bin/computer.o
+# LDFLAGS=-D=COMPUTER
 
-./bin/Computer.o: src/app/Computer.c src/includes/Computer.h
-	gcc -c src/app/Computer.c -o bin/Computer.o
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
+# ./bin/main.o: main.c src/includes/Computer.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-employees.exe: bin/main.o bin/employees.o bin/pip.o
-	gcc -D=EMPLOYEES bin/main.o bin/employees.o bin/pip.o -o bin/employees.exe
-
-./bin/main.o: main.c src/includes/Employees.h
-	gcc -c main.c -o bin/main.o
-
-./bin/employees.o: src/app/Employees.c src/includes/Employees.h
-	gcc -c src/app/Employees.c -o bin/employees.o
-
-./bin/pip.o: src/app/pip.c src/includes/pip.h
-	gcc -c src/app/pip.c -o bin/pip.o
+# ./bin/computer.o: src/app/Computer.c src/includes/Computer.h
+# 	$(CC) $(CCFLAGS) -c src/app/Computer.c -o bin/computer.o
 
 
-evaluation.exe: bin/main.o bin/evaluation.o
-	gcc -D=EVALUATION bin/main.o bin/evaluation.o -o bin/evaluation.exe
 
-./bin/main.o: main.c src/includes/Evaluation.h
-	gcc -c main.c -o bin/main.o
+# TARGET=bin/employees.exe
+# OBJS=bin/main.o bin/employees.o bin/pip.o
+# LDFLAGS=-D=EMPLOYEES
 
-./bin/evaluation.o: src/app/Evaluation.c src/includes/Evaluation.h
-	gcc -c src/app/Evaluation.c -o bin/evaluation.o
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
+# ./bin/main.o: main.c src/includes/Employees.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-frota.exe: bin/main.o bin/Frota.o
-	gcc -D=FROTA bin/main.o bin/Frota.o -o bin/frota.exe
+# ./bin/employees.o: src/app/Employees.c src/includes/Employees.h
+# 	$(CC) $(CCFLAGS) -c src/app/Employees.c -o bin/employees.o
 
-./bin/main.o: main.c src/includes/Frota.h
-	gcc -c main.c -o bin/main.o
-
-./bin/Frota.o: src/app/Frota.c src/includes/Frota.h
-	gcc -c src/app/Frota.c -o bin/Frota.o
+# ./bin/pip.o: src/app/pip.c src/includes/pip.h
+# 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
 
 
-library.exe: bin/main.o bin/Library.o
-	gcc -D=LIBRARY bin/main.o bin/Library.o -o bin/library.exe
 
-./bin/main.o: main.c src/includes/Library.h
-	gcc -c main.c -o bin/main.o
+# TARGET=bin/evaluation.exe
+# OBJS=bin/main.o bin/evaluation.o
+# LDFLAGS=-D=EVALUATION
 
-./bin/Library.o: src/app/Library.c src/includes/Library.h
-	gcc -c src/app/Library.c -o bin/Library.o
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
+# ./bin/main.o: main.c src/includes/Evaluation.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-pcs.exe: bin/main.o bin/pcs.o
-	gcc -D=PC bin/main.o bin/pcs.o -o bin/pcs.exe
-
-./bin/main.o: main.c src/includes/pcs.h
-	gcc -c main.c -o bin/main.o
-
-./bin/pcs.o: src/app/pcs.c src/includes/pcs.h
-	gcc -c src/app/pcs.c -o bin/pcs.o
+# ./bin/evaluation.o: src/app/Evaluation.c src/includes/Evaluation.h
+# 	$(CC) $(CCFLAGS) -c src/app/Evaluation.c -o bin/evaluation.o
 
 
-task.exe: bin/main.o bin/task.o
-	gcc -D=TASK bin/main.o bin/task.o -o bin/task.exe
 
-./bin/main.o: main.c src/includes/Task.h
-	gcc -c main.c -o bin/main.o
+# TARGET=bin/frota.exe
+# OBJS=bin/main.o bin/Frota.o
+# LDFLAGS=-D=FROTA
 
-./bin/task.o: src/app/Task.c src/includes/Task.h
-	gcc -c src/app/Task.c -o bin/task.o
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
+# ./bin/main.o: main.c src/includes/Frota.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+
+# ./bin/Frota.o: src/app/Frota.c src/includes/Frota.h
+# 	$(CC) $(CCFLAGS) -c src/app/Frota.c -o bin/Frota.o
+
+
+
+# TARGET=bin/library.exe
+# OBJS=bin/main.o bin/library.o
+# LDFLAGS=-D=LIBRARY
+
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+
+# ./bin/main.o: main.c src/includes/Library.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+
+# ./bin/library.o: src/app/Library.c src/includes/Library.h
+# 	$(CC) $(CCFLAGS) -c src/app/Library.c -o bin/library.o
+
+
+
+# TARGET=bin/pcs.exe
+# OBJS=bin/main.o bin/pcs.o
+# LDFLAGS=-D=PC
+
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+
+# ./bin/main.o: main.c src/includes/pcs.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+
+# ./bin/pcs.o: src/app/pcs.c src/includes/pcs.h
+# 	$(CC) $(CCFLAGS) -c src/app/pcs.c -o bin/pcs.o
+
+
+
+# TARGET=bin/task.exe
+# OBJS=bin/main.o bin/task.o
+# LDFLAGS=-D=TASK
+
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+
+# ./bin/main.o: main.c src/includes/Task.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+
+# ./bin/task.o: src/app/Task.c src/includes/Task.h
+# 	$(CC) $(CCFLAGS) -c src/app/Task.c -o bin/task.o
+
+#install:
+#	@install x /usr/local/bin/x
 
 clean:
-	rm -rf bin/*.o bin/evaluation.exe bin/agenda.exe
+	rm -rf bin/*.o
