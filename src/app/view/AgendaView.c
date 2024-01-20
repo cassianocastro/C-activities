@@ -1,4 +1,4 @@
-#include "../includes/view/AgendaView.h"
+#include "../../includes/view/AgendaView.h"
 
 void showContactForm(Contact* const contact)
 {

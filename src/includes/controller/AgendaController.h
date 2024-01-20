@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "./pip.h"
+#include "../pip.h"
 #include "../model/AgendaModel.h"
 #include "../view/AgendaView.h"
 
