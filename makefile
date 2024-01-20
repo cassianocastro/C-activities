@@ -5,17 +5,23 @@ CCFLAGS=-Wall -Wextra -w --ansi --pedantic -std=$(STD)
 
 
 TARGET=bin/agenda.exe
-OBJS=bin/main.o bin/agenda.o bin/pip.o
+OBJS=bin/main.o bin/agendaModel.o bin/agendaController.o bin/agendaView.o bin/pip.o
 LDFLAGS=-D=AGENDA
 
 all: $(OBJS)
 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-./bin/main.o: main.c src/includes/Agenda.h
+./bin/main.o: main.c src/includes/controller/AgendaController.h
 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-./bin/agenda.o: src/app/Agenda.c src/includes/Agenda.h
-	$(CC) $(CCFLAGS) -c src/app/Agenda.c -o bin/agenda.o
+./bin/agendaModel.o: src/app/model/AgendaModel.c src/includes/model/AgendaModel.h
+	$(CC) $(CCFLAGS) -c src/app/model/AgendaModel.c -o bin/agendaModel.o
+
+./bin/agendaController.o: src/app/controller/AgendaController.c src/includes/controller/AgendaController.h
+	$(CC) $(CCFLAGS) -c src/app/controller/AgendaController.c -o bin/agendaController.o
+
+./bin/agendaView.o: src/app/view/AgendaView.c src/includes/view/AgendaView.h
+	$(CC) $(CCFLAGS) -c src/app/view/AgendaView.c -o bin/agendaView.o
 
 ./bin/pip.o: src/app/pip.c src/includes/pip.h
 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
