@@ -2,6 +2,8 @@
 
 #define COMPUTER_VIEW_H
 
+#include <stdbool.h>
+
 #include "../model/ComputerModel.h"
 
 /**
