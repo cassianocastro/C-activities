@@ -1,6 +1,6 @@
-#ifndef AGENDA_H
+#ifndef AGENDA_CONTROLLER_H
 
-#define AGENDA_H
+#define AGENDA_CONTROLLER_H
 
 #include <ctype.h>
 #include <inttypes.h>
