@@ -3,6 +3,7 @@
 #define COMPUTER_VIEW_H
 
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "../model/ComputerModel.h"
 
