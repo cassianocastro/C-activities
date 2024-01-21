@@ -1,4 +1,4 @@
-#include "../includes/Employees.h"
+#include "../../includes/controller/EmployeesController.h"
 
 Employee employees[ARRAY_SIZE];
 
@@ -171,23 +171,6 @@ void insertAllWages(int i)
 
         employees[i].sum += employees[i].wage[month];
     }
-}
-
-Employee createEmployee(void)
-{
-    Employee employee = {
-        .name     = "",
-        .address  = "",
-        .cpf      = "",
-        .bd.day   = 0,
-        .bd.month = 0,
-        .bd.year  = 0,
-        .code     = 0,
-        .sum      = 0.0f,
-        .wage     = { 0.0f }
-    };
-
-    return employee;
 }
 
 Employee showEmployeeForm(void)
