@@ -4,60 +4,72 @@ LD=gcc
 CCFLAGS=-Wall -Wextra -w --ansi --pedantic -std=$(STD)
 
 
-TARGET=bin/agenda.exe
-OBJS=bin/main.o bin/agendaModel.o bin/agendaController.o bin/agendaView.o bin/pip.o
-LDFLAGS=-D=AGENDA
+# TARGET=bin/agenda.exe
+# OBJS=bin/main.o bin/agendaModel.o bin/agendaController.o bin/agendaView.o bin/pip.o
+# LDFLAGS=-D=AGENDA
 
-all: $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-./bin/main.o: main.c src/includes/controller/AgendaController.h
-	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# ./bin/main.o: main.c src/includes/controller/AgendaController.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-./bin/agendaModel.o: src/app/model/AgendaModel.c src/includes/model/AgendaModel.h
-	$(CC) $(CCFLAGS) -c src/app/model/AgendaModel.c -o bin/agendaModel.o
+# ./bin/agendaModel.o: src/app/model/AgendaModel.c src/includes/model/AgendaModel.h
+# 	$(CC) $(CCFLAGS) -c src/app/model/AgendaModel.c -o bin/agendaModel.o
 
-./bin/agendaController.o: src/app/controller/AgendaController.c src/includes/controller/AgendaController.h
-	$(CC) $(CCFLAGS) -c src/app/controller/AgendaController.c -o bin/agendaController.o
+# ./bin/agendaController.o: src/app/controller/AgendaController.c src/includes/controller/AgendaController.h
+# 	$(CC) $(CCFLAGS) -c src/app/controller/AgendaController.c -o bin/agendaController.o
 
-./bin/agendaView.o: src/app/view/AgendaView.c src/includes/view/AgendaView.h
-	$(CC) $(CCFLAGS) -c src/app/view/AgendaView.c -o bin/agendaView.o
+# ./bin/agendaView.o: src/app/view/AgendaView.c src/includes/view/AgendaView.h
+# 	$(CC) $(CCFLAGS) -c src/app/view/AgendaView.c -o bin/agendaView.o
 
-./bin/pip.o: src/app/pip.c src/includes/pip.h
-	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
+# ./bin/pip.o: src/app/pip.c src/includes/pip.h
+# 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
 
 
 
 # TARGET=bin/computer.exe
-# OBJS=bin/main.o bin/computer.o
+# OBJS=bin/main.o bin/computerModel.o bin/computerController.o bin/computerView.o
 # LDFLAGS=-D=COMPUTER
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/Computer.h
+# ./bin/main.o: main.c src/includes/controller/ComputerController.h
 # 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-# ./bin/computer.o: src/app/Computer.c src/includes/Computer.h
-# 	$(CC) $(CCFLAGS) -c src/app/Computer.c -o bin/computer.o
+# ./bin/computerModel.o: src/app/model/ComputerModel.c src/includes/model/ComputerModel.h
+# 	$(CC) $(CCFLAGS) -c src/app/model/ComputerModel.c -o bin/computerModel.o
+
+# ./bin/computerController.o: src/app/controller/ComputersController.c src/includes/controller/ComputerController.h
+# 	$(CC) $(CCFLAGS) -c src/app/controller/ComputersController.c -o bin/computerController.o
+
+# ./bin/computerView.o: src/app/view/ComputersView.c src/includes/view/ComputerView.h
+# 	$(CC) $(CCFLAGS) -c src/app/view/ComputersView.c -o bin/computerView.o
 
 
 
-# TARGET=bin/employees.exe
-# OBJS=bin/main.o bin/employees.o bin/pip.o
-# LDFLAGS=-D=EMPLOYEES
+TARGET=bin/employees.exe
+OBJS=bin/main.o bin/employeeModel.o bin/employeesController.o bin/employeesView.o bin/pip.o
+LDFLAGS=-D=EMPLOYEES
 
-# all: $(OBJS)
-# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+all: $(OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/Employees.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+./bin/main.o: main.c src/includes/controller/EmployeesController.h
+	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-# ./bin/employees.o: src/app/Employees.c src/includes/Employees.h
-# 	$(CC) $(CCFLAGS) -c src/app/Employees.c -o bin/employees.o
+./bin/employeeModel.o: src/app/model/EmployeeModel.c src/includes/model/EmployeeModel.h
+	$(CC) $(CCFLAGS) -c src/app/model/EmployeeModel.c -o bin/employeeModel.o
 
-# ./bin/pip.o: src/app/pip.c src/includes/pip.h
-# 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
+./bin/employeesController.o: src/app/controller/EmployeesController.c src/includes/controller/EmployeesController.h
+	$(CC) $(CCFLAGS) -c src/app/controller/EmployeesController.c -o bin/employeesController.o
+
+./bin/employeesView.o: src/app/view/EmployeesView.c src/includes/view/EmployeesView.h
+	$(CC) $(CCFLAGS) -c src/app/view/EmployeesView.c -o bin/employeesView.o
+
+./bin/pip.o: src/app/pip.c src/includes/pip.h
+	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
 
 
 
