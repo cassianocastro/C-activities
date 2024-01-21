@@ -2,6 +2,9 @@
 
 #define EMPLOYEES_VIEW_H
 
+#include <stdbool.h>
+#include <iso646.h>
+
 #include "../model/EmployeeModel.h"
 
 /**
