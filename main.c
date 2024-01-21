@@ -7,7 +7,7 @@
 
 #elif defined COMPUTER
 
-#include "./src/includes/Computer.h"
+#include "./src/includes/controller/ComputerController.h"
 
 #elif defined EVALUATION
 
