@@ -2,6 +2,8 @@
 
 #define EVALUATION_VIEW_H
 
+#include "../model/EvaluationModel.h"
+
 /**
  *
  */
