@@ -2,6 +2,8 @@
 
 #define EVALUATION_MODEL_H
 
+#include <stdio.h>
+
 #define TAM 50
 #define TAM_PROCESS 20
 #define TAM_COR 20
@@ -24,5 +26,11 @@ typedef struct
 	char color[TAM_COR];
 }
 Computer;
+
+extern FILE* arquivo;
+
+extern char nome_arquivo[];
+
+extern Computer computer;
 
 #endif
