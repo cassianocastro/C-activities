@@ -27,7 +27,7 @@
 
 #elif defined PC
 
-#include "./src/includes/pcs.h"
+#include "./src/includes/controller/PcsController.h"
 
 #elif defined TASK
 
