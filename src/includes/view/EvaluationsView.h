@@ -2,6 +2,10 @@
 
 #define EVALUATION_VIEW_H
 
+#include <iso646.h>
+#include <stdbool.h>
+#include <stdio.h>
+
 #include "../model/EvaluationModel.h"
 
 /**
