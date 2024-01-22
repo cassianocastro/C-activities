@@ -9,10 +9,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TAMANHO 50
+#include "../model/Book.h"
+#include "../view/BooksView.h"
 
-typedef unsigned char byte;
-
+/**
+ *
+ */
 typedef enum
 {
     EXIT,
@@ -23,18 +25,12 @@ typedef enum
 }
 Options;
 
-typedef struct
-{
-	char title[TAMANHO];
-	char author[TAMANHO];
-	char publishing[TAMANHO];
-	char subject[TAMANHO];
-
-	unsigned short release;
-}
-Book;
-
 extern Book library[];
+
+/**
+ *
+ */
+void start(void);
 
 /**
  *
@@ -70,45 +66,5 @@ Book* findBookByAuthor(void);
  *
  */
 Book* findBookByPublishingCiA(void);
-
-/**
- *
- */
-Book createBook(void);
-
-/**
- *
- */
-void printBookInfo(int, const Book* const);
-
-/**
- *
- */
-bool responseIsValid(char);
-
-/**
- *
- */
-char askUser(void);
-
-/**
- *
- */
-Book showBooksForm(void);
-
-/**
- *
- */
-const unsigned int showSearchMenu(void);
-
-/**
- *
- */
-const unsigned int showMainMenu(void);
-
-/**
- *
- */
-void start(void);
 
 #endif
