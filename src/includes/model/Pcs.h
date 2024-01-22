@@ -21,4 +21,8 @@ typedef struct
 }
 Computer;
 
+extern unsigned short int num;
+
+extern Computer* inventary;
+
 #endif
