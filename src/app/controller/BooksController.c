@@ -143,19 +143,6 @@ void searchBook(void)
 	} while ( askUser() == 'n' );
 }
 
-Book createBook(void)
-{
-    Book book = {
-        .title      = "",
-        .author     = "",
-        .subject    = "",
-        .publishing = "",
-        .release    = 0
-    };
-
-    return book;
-}
-
 Book* findBookByTitle(void)
 {
     char str[TAMANHO];
