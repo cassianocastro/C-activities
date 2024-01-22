@@ -306,7 +306,7 @@ void alterado(Computer* pc)
 void chooseFile(void)
 {
 	printf("\nNome do arquivo: ");
-	fgets(nome_arquivo, sizeof(nome_arquivo), stdin);
+	fgets(nome_arquivo, TAM, stdin);
 
 	arquivo = fopen(nome_arquivo, "ab+");
 
