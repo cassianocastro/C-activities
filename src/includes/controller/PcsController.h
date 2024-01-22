@@ -40,10 +40,6 @@ typedef enum
 }
 Data;
 
-extern unsigned short int num;
-
-extern Computer* inventary;
-
 /**
  *
  */
