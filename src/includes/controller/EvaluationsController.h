@@ -89,11 +89,6 @@ void searchComputer(void);
 /**
  *
  */
-void printComputer(const Computer* const);
-
-/**
- *
- */
 bool ok(int);
 
 /**
@@ -105,26 +100,6 @@ void alterado(Computer*);
  *
  */
 void chooseFile(void);
-
-/**
- *
- */
-unsigned int getComputerID(void);
-
-/**
- *
- */
-void showComputerForm(unsigned short int);
-
-/**
- *
- */
-const unsigned int getMainMenuChoice(void);
-
-/**
- *
- */
-const unsigned int getUpdateMenuChoice(void);
 
 /**
  *
