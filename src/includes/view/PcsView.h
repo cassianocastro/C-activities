@@ -2,6 +2,9 @@
 
 #define PCS_VIEW_H
 
+#include <iso646.h>
+#include <stdio.h>
+
 #include "../model/Pcs.h"
 
 /**
