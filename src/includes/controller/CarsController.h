@@ -8,9 +8,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define STRING_SIZE 20
-
-typedef unsigned char byte;
+#include "../model/CarModel.h"
+#include "../view/CarsView.h"
 
 /**
  *
@@ -24,20 +23,6 @@ typedef enum
 }
 Options;
 
-/**
- *
- */
-typedef struct
-{
-	char model[STRING_SIZE];
-	char mark[STRING_SIZE];
-	char placa[STRING_SIZE];
-	char color[STRING_SIZE];
-
-	unsigned short release;
-}
-Car;
-
 extern Car frota[];
 
 extern const unsigned int ARRAY_SIZE;
@@ -45,7 +30,7 @@ extern const unsigned int ARRAY_SIZE;
 /**
  *
  */
-Car createCar(void);
+void start(void);
 
 /**
  *
@@ -61,25 +46,5 @@ void showCars(void);
  *
  */
 void deleteCar(void);
-
-/**
- *
- */
-void showCarForm(Car* const);
-
-/**
- *
- */
-void printCarInfo(const Car* const);
-
-/**
- *
- */
-const unsigned int showMainMenu(void);
-
-/**
- *
- */
-void start(void);
 
 #endif
