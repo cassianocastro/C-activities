@@ -1,6 +1,6 @@
-#ifndef PCS_H
+#ifndef PCS_CONTROLLER_H
 
-#define PCS_H
+#define PCS_CONTROLLER_H
 
 #include <ctype.h>
 #include <iso646.h>
