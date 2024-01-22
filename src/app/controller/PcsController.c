@@ -1,9 +1,5 @@
 #include "../../includes/controller/PcsController.h"
 
-unsigned short int num;
-
-Computer* inventary;
-
 void start(void)
 {
     unsigned int option = 0u;
