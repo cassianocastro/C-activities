@@ -49,58 +49,69 @@ CCFLAGS=-Wall -Wextra -w --ansi --pedantic -std=$(STD)
 
 
 
-TARGET=bin/employees.exe
-OBJS=bin/main.o bin/employeeModel.o bin/employeesController.o bin/employeesView.o bin/pip.o
-LDFLAGS=-D=EMPLOYEES
+# TARGET=bin/employees.exe
+# OBJS=bin/main.o bin/employeeModel.o bin/employeesController.o bin/employeesView.o bin/pip.o
+# LDFLAGS=-D=EMPLOYEES
 
-all: $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-./bin/main.o: main.c src/includes/controller/EmployeesController.h
-	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# ./bin/main.o: main.c src/includes/controller/EmployeesController.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-./bin/employeeModel.o: src/app/model/EmployeeModel.c src/includes/model/EmployeeModel.h
-	$(CC) $(CCFLAGS) -c src/app/model/EmployeeModel.c -o bin/employeeModel.o
+# ./bin/employeeModel.o: src/app/model/EmployeeModel.c src/includes/model/EmployeeModel.h
+# 	$(CC) $(CCFLAGS) -c src/app/model/EmployeeModel.c -o bin/employeeModel.o
 
-./bin/employeesController.o: src/app/controller/EmployeesController.c src/includes/controller/EmployeesController.h
-	$(CC) $(CCFLAGS) -c src/app/controller/EmployeesController.c -o bin/employeesController.o
+# ./bin/employeesController.o: src/app/controller/EmployeesController.c src/includes/controller/EmployeesController.h
+# 	$(CC) $(CCFLAGS) -c src/app/controller/EmployeesController.c -o bin/employeesController.o
 
-./bin/employeesView.o: src/app/view/EmployeesView.c src/includes/view/EmployeesView.h
-	$(CC) $(CCFLAGS) -c src/app/view/EmployeesView.c -o bin/employeesView.o
+# ./bin/employeesView.o: src/app/view/EmployeesView.c src/includes/view/EmployeesView.h
+# 	$(CC) $(CCFLAGS) -c src/app/view/EmployeesView.c -o bin/employeesView.o
 
-./bin/pip.o: src/app/pip.c src/includes/pip.h
-	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
+# ./bin/pip.o: src/app/pip.c src/includes/pip.h
+# 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
 
 
 
 # TARGET=bin/evaluation.exe
-# OBJS=bin/main.o bin/evaluation.o
+# OBJS=bin/main.o bin/evaluationModel.o bin/evaluationController.o bin/evaluationView.o
 # LDFLAGS=-D=EVALUATION
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/Evaluation.h
+# ./bin/main.o: main.c src/includes/controller/EvaluationsController.h
 # 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-# ./bin/evaluation.o: src/app/Evaluation.c src/includes/Evaluation.h
-# 	$(CC) $(CCFLAGS) -c src/app/Evaluation.c -o bin/evaluation.o
+# ./bin/evaluationModel.o: src/app/model/EvaluationModel.c src/includes/model/EvaluationModel.h
+# 	$(CC) $(CCFLAGS) -c src/app/model/EvaluationModel.c -o bin/evaluationModel.o
+
+# ./bin/evaluationController.o: src/app/controller/EvaluationsController.c src/includes/controller/EvaluationsController.h
+# 	$(CC) $(CCFLAGS) -c src/app/controller/EvaluationsController.c -o bin/evaluationController.o
+
+# ./bin/evaluationView.o: src/app/view/EvaluationsView.c src/includes/view/EvaluationsView.h
+# 	$(CC) $(CCFLAGS) -c src/app/view/EvaluationsView.c -o bin/evaluationView.o
 
 
 
-# TARGET=bin/frota.exe
-# OBJS=bin/main.o bin/Frota.o
-# LDFLAGS=-D=FROTA
+TARGET=bin/cars.exe
+OBJS=bin/main.o bin/car.o bin/carsController.o bin/carsView.o
+LDFLAGS=-D=FROTA
 
-# all: $(OBJS)
-# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+all: $(OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/Frota.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+./bin/main.o: main.c src/includes/controller/CarsController.h
+	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-# ./bin/Frota.o: src/app/Frota.c src/includes/Frota.h
-# 	$(CC) $(CCFLAGS) -c src/app/Frota.c -o bin/Frota.o
+./bin/car.o: src/app/model/CarModel.c src/includes/model/CarModel.h
+	$(CC) $(CCFLAGS) -c src/app/model/CarModel.c -o bin/car.o
 
+./bin/carsController.o: src/app/controller/CarsController.c src/includes/controller/CarsController.h
+	$(CC) $(CCFLAGS) -c src/app/controller/CarsController.c -o bin/carsController.o
+
+./bin/carsView.o: src/app/view/CarsView.c src/includes/view/CarsView.h
+	$(CC) $(CCFLAGS) -c src/app/view/CarsView.c -o bin/carsView.o
 
 
 # TARGET=bin/library.exe
