@@ -9,13 +9,13 @@
 
 #include "./src/includes/controller/ComputerController.h"
 
-#elif defined EVALUATION
-
-#include "./src/includes/Evaluation.h"
-
 #elif defined EMPLOYEES
 
 #include "./src/includes/controller/EmployeesController.h"
+
+#elif defined EVALUATION
+
+#include "./src/includes/controller/EvaluationsController.h"
 
 #elif defined FROTA
 
