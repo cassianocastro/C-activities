@@ -94,53 +94,65 @@ CCFLAGS=-Wall -Wextra -w --ansi --pedantic -std=$(STD)
 
 
 
-TARGET=bin/cars.exe
-OBJS=bin/main.o bin/car.o bin/carsController.o bin/carsView.o
-LDFLAGS=-D=FROTA
+# TARGET=bin/cars.exe
+# OBJS=bin/main.o bin/car.o bin/carsController.o bin/carsView.o
+# LDFLAGS=-D=CARS
 
-all: $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-./bin/main.o: main.c src/includes/controller/CarsController.h
-	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# ./bin/main.o: main.c src/includes/controller/CarsController.h
+# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-./bin/car.o: src/app/model/CarModel.c src/includes/model/CarModel.h
-	$(CC) $(CCFLAGS) -c src/app/model/CarModel.c -o bin/car.o
+# ./bin/car.o: src/app/model/CarModel.c src/includes/model/CarModel.h
+# 	$(CC) $(CCFLAGS) -c src/app/model/CarModel.c -o bin/car.o
 
-./bin/carsController.o: src/app/controller/CarsController.c src/includes/controller/CarsController.h
-	$(CC) $(CCFLAGS) -c src/app/controller/CarsController.c -o bin/carsController.o
+# ./bin/carsController.o: src/app/controller/CarsController.c src/includes/controller/CarsController.h
+# 	$(CC) $(CCFLAGS) -c src/app/controller/CarsController.c -o bin/carsController.o
 
-./bin/carsView.o: src/app/view/CarsView.c src/includes/view/CarsView.h
-	$(CC) $(CCFLAGS) -c src/app/view/CarsView.c -o bin/carsView.o
+# ./bin/carsView.o: src/app/view/CarsView.c src/includes/view/CarsView.h
+# 	$(CC) $(CCFLAGS) -c src/app/view/CarsView.c -o bin/carsView.o
 
 
 # TARGET=bin/library.exe
-# OBJS=bin/main.o bin/library.o
+# OBJS=bin/main.o bin/book.o bin/booksController.o bin/booksView.o
 # LDFLAGS=-D=LIBRARY
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/Library.h
+# ./bin/main.o: main.c src/includes/controller/BooksController.h
 # 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-# ./bin/library.o: src/app/Library.c src/includes/Library.h
-# 	$(CC) $(CCFLAGS) -c src/app/Library.c -o bin/library.o
+# ./bin/book.o: src/app/model/Book.c src/includes/model/Book.h
+# 	$(CC) $(CCFLAGS) -c src/app/model/Book.c -o bin/book.o
+
+# ./bin/booksController.o: src/app/controller/BooksController.c src/includes/controller/BooksController.h
+# 	$(CC) $(CCFLAGS) -c src/app/controller/BooksController.c -o bin/booksController.o
+
+# ./bin/booksView.o: src/app/view/BooksView.c src/includes/view/BooksView.h
+# 	$(CC) $(CCFLAGS) -c src/app/view/BooksView.c -o bin/booksView.o
 
 
 
-# TARGET=bin/pcs.exe
-# OBJS=bin/main.o bin/pcs.o
-# LDFLAGS=-D=PC
+TARGET=bin/pcs.exe
+OBJS=bin/main.o bin/pcs.o bin/pcsController.o bin/pcsView.o
+LDFLAGS=-D=PC
 
-# all: $(OBJS)
-# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+all: $(OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/pcs.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+./bin/main.o: main.c src/includes/controller/PcsController.h
+	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
 
-# ./bin/pcs.o: src/app/pcs.c src/includes/pcs.h
-# 	$(CC) $(CCFLAGS) -c src/app/pcs.c -o bin/pcs.o
+./bin/pcs.o: src/app/model/Pcs.c src/includes/model/Pcs.h
+	$(CC) $(CCFLAGS) -c src/app/model/Pcs.c -o bin/pcs.o
+
+./bin/pcsController.o: src/app/controller/PcsController.c src/includes/controller/PcsController.h
+	$(CC) $(CCFLAGS) -c src/app/controller/PcsController.c -o bin/pcsController.o
+
+./bin/pcsView.o: src/app/view/PcsView.c src/includes/view/PcsView.h
+	$(CC) $(CCFLAGS) -c src/app/view/PcsView.c -o bin/pcsView.o
 
 
 
