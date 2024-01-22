@@ -1,6 +1,6 @@
-#ifndef EVALUATION_H
+#ifndef EVALUATION_CONTROLLER_H
 
-#define EVALUATION_H
+#define EVALUATION_CONTROLLER_H
 
 #include <errno.h>
 #include <inttypes.h>
@@ -11,6 +11,7 @@
 #include <string.h>
 
 #include "../model/EvaluationModel.h"
+#include "../view/EvaluationsView.h"
 
 typedef enum
 {
