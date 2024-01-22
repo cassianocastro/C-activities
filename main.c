@@ -5,6 +5,14 @@
 
 #include "./src/includes/controller/AgendaController.h"
 
+#elif defined BOOKS
+
+#include "./src/includes/controller/BooksController.h"
+
+#elif defined CARS
+
+#include "./src/includes/controller/CarsController.h"
+
 #elif defined COMPUTER
 
 #include "./src/includes/controller/ComputerController.h"
@@ -16,14 +24,6 @@
 #elif defined EVALUATION
 
 #include "./src/includes/controller/EvaluationsController.h"
-
-#elif defined FROTA
-
-#include "./src/includes/Frota.h"
-
-#elif defined LIBRARY
-
-#include "./src/includes/Library.h"
 
 #elif defined PC
 
