@@ -11,6 +11,7 @@
 #include <string.h>
 
 #include "../model/Pcs.h"
+#include "../view/PcsView.h"
 
 /**
  *
@@ -72,30 +73,5 @@ void deleteComputer(void);
  *
  */
 void searchComputer(void);
-
-/**
- *
- */
-void showComputerForm(byte);
-
-/**
- *
- */
-void printComputerInfo(byte, const Computer* const);
-
-/**
- *
- */
-const unsigned int getMainMenuChoice(void);
-
-/**
- *
- */
-const unsigned int getUpdateMenuChoice(void);
-
-/**
- *
- */
-const byte getComputerID(void);
 
 #endif
