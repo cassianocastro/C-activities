@@ -1,11 +1,5 @@
 #include "../../includes/controller/EvaluationsController.h"
 
-FILE* arquivo;
-
-char nome_arquivo[TAM];
-
-Computer computer;
-
 void start(void)
 {
     unsigned int option = 0u;
