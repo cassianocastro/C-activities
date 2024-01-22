@@ -10,9 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define TAM 50
-#define TAM_PROCESS 20
-#define TAM_COR 20
+#include "../model/EvaluationModel.h"
 
 typedef enum
 {
@@ -39,27 +37,16 @@ typedef enum
 }
 Data;
 
-typedef struct
-{
-	int ID;
-    int memory;
-    int storage;
-
-    float screen;
-
-    char type;
-	char mark[TAM];
-	char model[TAM];
-	char processor[TAM_PROCESS];
-	char color[TAM_COR];
-}
-Computer;
-
 extern FILE* arquivo;
 
 extern char nome_arquivo[];
 
 extern Computer computer;
+
+/**
+ *
+ */
+void start(void);
 
 /**
  *
@@ -100,10 +87,5 @@ void alterado(Computer*);
  *
  */
 void chooseFile(void);
-
-/**
- *
- */
-void start(void);
 
 #endif
