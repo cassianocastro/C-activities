@@ -2,6 +2,7 @@
 
 #define BOOKS_VIEW_H
 
+#include <iso646.h>
 #include <stdbool.h>
 
 #include "../model/Book.h"
