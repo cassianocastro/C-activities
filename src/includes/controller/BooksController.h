@@ -1,6 +1,6 @@
-#ifndef LIBRARY_H
+#ifndef BOOKS_CONTROLLER_H
 
-#define LIBRARY_H
+#define BOOKS_CONTROLLER_H
 
 #include <ctype.h>
 #include <iso646.h>
