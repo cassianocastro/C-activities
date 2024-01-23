@@ -10,7 +10,7 @@
 #include <string.h>
 
 #include "../model/Computer.h"
-#include "../view/ComputerView.h"
+#include "../view/ComputersView.h"
 
 /**
  *
