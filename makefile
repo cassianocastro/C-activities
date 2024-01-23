@@ -16,8 +16,8 @@ LIB=../src/includes
 # main.o: ../main.c $(LIB)/controller/AgendaController.h
 # 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# model.o: $(APP)/model/AgendaModel.c $(LIB)/model/AgendaModel.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/model/AgendaModel.c -o model.o
+# model.o: $(APP)/model/Agenda.c $(LIB)/model/Agenda.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Agenda.c -o model.o
 
 # controller.o: $(APP)/controller/AgendaController.c $(LIB)/controller/AgendaController.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/AgendaController.c -o controller.o
@@ -37,16 +37,16 @@ LIB=../src/includes
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# main.o: ../main.c $(LIB)/controller/ComputerController.h
+# main.o: ../main.c $(LIB)/controller/ComputersController.h
 # 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# model.o: $(APP)/model/ComputerModel.c $(LIB)/model/ComputerModel.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/model/ComputerModel.c -o model.o
+# model.o: $(APP)/model/Computer.c $(LIB)/model/Computer.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Computer.c -o model.o
 
-# controller.o: $(APP)/controller/ComputersController.c $(LIB)/controller/ComputerController.h
+# controller.o: $(APP)/controller/ComputersController.c $(LIB)/controller/ComputersController.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/ComputersController.c -o controller.o
 
-# view.o: $(APP)/view/ComputersView.c $(LIB)/view/ComputerView.h
+# view.o: $(APP)/view/ComputersView.c $(LIB)/view/ComputersView.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/view/ComputersView.c -o view.o
 
 
@@ -61,8 +61,8 @@ LIB=../src/includes
 # main.o: ../main.c $(LIB)/controller/EmployeesController.h
 # 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# model.o: $(APP)/model/EmployeeModel.c $(LIB)/model/EmployeeModel.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/model/EmployeeModel.c -o model.o
+# model.o: $(APP)/model/Employee.c $(LIB)/model/Employee.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Employee.c -o model.o
 
 # controller.o: $(APP)/controller/EmployeesController.c $(LIB)/controller/EmployeesController.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/EmployeesController.c -o controller.o
@@ -85,8 +85,8 @@ LIB=../src/includes
 # main.o: ../main.c $(LIB)/controller/EvaluationsController.h
 # 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# model.o: $(APP)/model/EvaluationModel.c $(LIB)/model/EvaluationModel.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/model/EvaluationModel.c -o model.o
+# model.o: $(APP)/model/Evaluation.c $(LIB)/model/Evaluation.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Evaluation.c -o model.o
 
 # controller.o: $(APP)/controller/EvaluationsController.c $(LIB)/controller/EvaluationsController.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/EvaluationsController.c -o controller.o
@@ -106,8 +106,8 @@ LIB=../src/includes
 # main.o: ../main.c $(LIB)/controller/CarsController.h
 # 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# model.o: $(APP)/model/CarModel.c $(LIB)/model/CarModel.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/model/CarModel.c -o model.o
+# model.o: $(APP)/model/Car.c $(LIB)/model/Car.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Car.c -o model.o
 
 # controller.o: $(APP)/controller/CarsController.c $(LIB)/controller/CarsController.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/CarsController.c -o controller.o
@@ -147,8 +147,8 @@ LIB=../src/includes
 # main.o: ../main.c $(LIB)/controller/PcsController.h
 # 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# model.o: $(APP)/model/Pcs.c $(LIB)/model/Pcs.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/model/Pcs.c -o model.o
+# model.o: $(APP)/model/Pc.c $(LIB)/model/Pc.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Pc.c -o model.o
 
 # controller.o: $(APP)/controller/PcsController.c $(LIB)/controller/PcsController.h
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/PcsController.c -o controller.o
