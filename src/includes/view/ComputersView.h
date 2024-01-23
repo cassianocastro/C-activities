@@ -1,6 +1,6 @@
-#ifndef COMPUTER_VIEW_H
+#ifndef COMPUTERS_VIEW_H
 
-#define COMPUTER_VIEW_H
+#define COMPUTERS_VIEW_H
 
 #include <iso646.h>
 #include <stdio.h>
