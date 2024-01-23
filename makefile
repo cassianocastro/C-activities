@@ -1,7 +1,7 @@
 STD=c99
 CC=gcc
 LD=gcc
-CCFLAGS=-Wall -Wextra -w --ansi --pedantic -std=$(STD)
+CCFLAGS=-Wall -Wextra -w --ansi -pedantic -std=$(STD)
 
 
 # TARGET=bin/agenda.exe
