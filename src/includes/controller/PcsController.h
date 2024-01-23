@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../model/Pcs.h"
+#include "../model/Pc.h"
 #include "../view/PcsView.h"
 
 /**

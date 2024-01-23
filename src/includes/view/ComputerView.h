@@ -5,7 +5,7 @@
 #include <iso646.h>
 #include <stdio.h>
 
-#include "../model/ComputerModel.h"
+#include "../model/Computer.h"
 
 /**
  *

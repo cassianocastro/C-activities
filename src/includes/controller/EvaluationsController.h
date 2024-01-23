@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../model/EvaluationModel.h"
+#include "../model/Evaluation.h"
 #include "../view/EvaluationsView.h"
 
 typedef enum

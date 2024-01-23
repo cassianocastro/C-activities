@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include "../model/EvaluationModel.h"
+#include "../model/Evaluation.h"
 
 /**
  *

@@ -2,7 +2,7 @@
 
 #define CARS_VIEW_H
 
-#include "../model/CarModel.h"
+#include "../model/Car.h"
 
 /**
  *

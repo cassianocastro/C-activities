@@ -7,7 +7,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include "../model/AgendaModel.h"
+#include "../model/Agenda.h"
 
 /**
  *

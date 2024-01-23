@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../model/ComputerModel.h"
+#include "../model/Computer.h"
 #include "../view/ComputerView.h"
 
 /**

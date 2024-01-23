@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../model/CarModel.h"
+#include "../model/Car.h"
 #include "../view/CarsView.h"
 
 /**

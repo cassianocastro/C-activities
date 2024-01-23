@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../model/EmployeeModel.h"
+#include "../model/Employee.h"
 #include "../view/EmployeesView.h"
 
 #define ARRAY_SIZE 10

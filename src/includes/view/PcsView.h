@@ -5,7 +5,7 @@
 #include <iso646.h>
 #include <stdio.h>
 
-#include "../model/Pcs.h"
+#include "../model/Pc.h"
 
 /**
  *
