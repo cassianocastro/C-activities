@@ -1,6 +1,6 @@
-#ifndef COMPUTER_CONTROLLER_H
+#ifndef COMPUTERS_CONTROLLER_H
 
-#define COMPUTER_CONTROLLER_H
+#define COMPUTERS_CONTROLLER_H
 
 #include <ctype.h>
 #include <iso646.h>
