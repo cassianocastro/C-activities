@@ -1,4 +1,4 @@
-#include "../../includes/controller/ComputerController.h"
+#include "../../includes/controller/ComputersController.h"
 
 Computer* inventary;
 
