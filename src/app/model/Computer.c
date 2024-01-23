@@ -1,1 +1,1 @@
-#include "../../includes/model/ComputerModel.h"
+#include "../../includes/model/Computer.h"
