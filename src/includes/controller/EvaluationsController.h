@@ -1,6 +1,6 @@
-#ifndef EVALUATION_CONTROLLER_H
+#ifndef EVALUATIONS_CONTROLLER_H
 
-#define EVALUATION_CONTROLLER_H
+#define EVALUATIONS_CONTROLLER_H
 
 #include <errno.h>
 #include <inttypes.h>
