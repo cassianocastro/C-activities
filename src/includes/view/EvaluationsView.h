@@ -1,6 +1,6 @@
-#ifndef EVALUATION_VIEW_H
+#ifndef EVALUATIONS_VIEW_H
 
-#define EVALUATION_VIEW_H
+#define EVALUATIONS_VIEW_H
 
 #include <iso646.h>
 #include <stdbool.h>
