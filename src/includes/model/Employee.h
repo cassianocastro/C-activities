@@ -1,6 +1,6 @@
-#ifndef EMPLOYEES_MODEL_H
+#ifndef EMPLOYEE_MODEL_H
 
-#define EMPLOYEES_MODEL_H
+#define EMPLOYEE_MODEL_H
 
 #define SIZE 50
 #define MONTHS 12

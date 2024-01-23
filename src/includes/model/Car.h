@@ -1,6 +1,6 @@
-#ifndef CARS_MODEL_H
+#ifndef CAR_MODEL_H
 
-#define CARS_MODEL_H
+#define CAR_MODEL_H
 
 #define STRING_SIZE 20
 

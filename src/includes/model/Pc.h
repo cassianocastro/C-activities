@@ -1,6 +1,6 @@
-#ifndef PCS_MODEL_H
+#ifndef PC_MODEL_H
 
-#define PCS_MODEL_H
+#define PC_MODEL_H
 
 #define MAX_SIZE_STR 30
 
