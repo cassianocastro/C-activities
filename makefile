@@ -3,174 +3,176 @@ CC=gcc
 LD=gcc
 CCFLAGS=-Wall -Wextra -w --ansi -pedantic -std=$(STD)
 
+APP=../src/app
+LIB=../src/includes
 
-# TARGET=bin/agenda.exe
-# OBJS=bin/main.o bin/agendaModel.o bin/agendaController.o bin/agendaView.o bin/pip.o
+# TARGET=agenda.exe
+# OBJS=main.o model.o controller.o view.o pip.o
 # LDFLAGS=-D=AGENDA
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/controller/AgendaController.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/controller/AgendaController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/agendaModel.o: src/app/model/AgendaModel.c src/includes/model/AgendaModel.h
-# 	$(CC) $(CCFLAGS) -c src/app/model/AgendaModel.c -o bin/agendaModel.o
+# model.o: $(APP)/model/AgendaModel.c $(LIB)/model/AgendaModel.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/AgendaModel.c -o model.o
 
-# ./bin/agendaController.o: src/app/controller/AgendaController.c src/includes/controller/AgendaController.h
-# 	$(CC) $(CCFLAGS) -c src/app/controller/AgendaController.c -o bin/agendaController.o
+# controller.o: $(APP)/controller/AgendaController.c $(LIB)/controller/AgendaController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/AgendaController.c -o controller.o
 
-# ./bin/agendaView.o: src/app/view/AgendaView.c src/includes/view/AgendaView.h
-# 	$(CC) $(CCFLAGS) -c src/app/view/AgendaView.c -o bin/agendaView.o
+# view.o: $(APP)/view/AgendaView.c $(LIB)/view/AgendaView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/AgendaView.c -o view.o
 
-# ./bin/pip.o: src/app/pip.c src/includes/pip.h
-# 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
+# pip.o: $(APP)/pip.c $(LIB)/pip.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/pip.c -o pip.o
 
 
 
-# TARGET=bin/computer.exe
-# OBJS=bin/main.o bin/computerModel.o bin/computerController.o bin/computerView.o
+# TARGET=computer.exe
+# OBJS=main.o model.o controller.o view.o
 # LDFLAGS=-D=COMPUTER
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/controller/ComputerController.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/controller/ComputerController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/computerModel.o: src/app/model/ComputerModel.c src/includes/model/ComputerModel.h
-# 	$(CC) $(CCFLAGS) -c src/app/model/ComputerModel.c -o bin/computerModel.o
+# model.o: $(APP)/model/ComputerModel.c $(LIB)/model/ComputerModel.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/ComputerModel.c -o model.o
 
-# ./bin/computerController.o: src/app/controller/ComputersController.c src/includes/controller/ComputerController.h
-# 	$(CC) $(CCFLAGS) -c src/app/controller/ComputersController.c -o bin/computerController.o
+# controller.o: $(APP)/controller/ComputersController.c $(LIB)/controller/ComputerController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/ComputersController.c -o controller.o
 
-# ./bin/computerView.o: src/app/view/ComputersView.c src/includes/view/ComputerView.h
-# 	$(CC) $(CCFLAGS) -c src/app/view/ComputersView.c -o bin/computerView.o
+# view.o: $(APP)/view/ComputersView.c $(LIB)/view/ComputerView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/ComputersView.c -o view.o
 
 
 
-# TARGET=bin/employees.exe
-# OBJS=bin/main.o bin/employeeModel.o bin/employeesController.o bin/employeesView.o bin/pip.o
+# TARGET=employees.exe
+# OBJS=main.o model.o controller.o view.o pip.o
 # LDFLAGS=-D=EMPLOYEES
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/controller/EmployeesController.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/controller/EmployeesController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/employeeModel.o: src/app/model/EmployeeModel.c src/includes/model/EmployeeModel.h
-# 	$(CC) $(CCFLAGS) -c src/app/model/EmployeeModel.c -o bin/employeeModel.o
+# model.o: $(APP)/model/EmployeeModel.c $(LIB)/model/EmployeeModel.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/EmployeeModel.c -o model.o
 
-# ./bin/employeesController.o: src/app/controller/EmployeesController.c src/includes/controller/EmployeesController.h
-# 	$(CC) $(CCFLAGS) -c src/app/controller/EmployeesController.c -o bin/employeesController.o
+# controller.o: $(APP)/controller/EmployeesController.c $(LIB)/controller/EmployeesController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/EmployeesController.c -o controller.o
 
-# ./bin/employeesView.o: src/app/view/EmployeesView.c src/includes/view/EmployeesView.h
-# 	$(CC) $(CCFLAGS) -c src/app/view/EmployeesView.c -o bin/employeesView.o
+# view.o: $(APP)/view/EmployeesView.c $(LIB)/view/EmployeesView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/EmployeesView.c -o view.o
 
-# ./bin/pip.o: src/app/pip.c src/includes/pip.h
-# 	$(CC) $(CCFLAGS) -c src/app/pip.c -o bin/pip.o
+# pip.o: $(APP)/pip.c $(LIB)/pip.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/pip.c -o pip.o
 
 
 
-# TARGET=bin/evaluation.exe
-# OBJS=bin/main.o bin/evaluationModel.o bin/evaluationController.o bin/evaluationView.o
+# TARGET=evaluation.exe
+# OBJS=main.o model.o controller.o view.o
 # LDFLAGS=-D=EVALUATION
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/controller/EvaluationsController.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/controller/EvaluationsController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/evaluationModel.o: src/app/model/EvaluationModel.c src/includes/model/EvaluationModel.h
-# 	$(CC) $(CCFLAGS) -c src/app/model/EvaluationModel.c -o bin/evaluationModel.o
+# model.o: $(APP)/model/EvaluationModel.c $(LIB)/model/EvaluationModel.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/EvaluationModel.c -o model.o
 
-# ./bin/evaluationController.o: src/app/controller/EvaluationsController.c src/includes/controller/EvaluationsController.h
-# 	$(CC) $(CCFLAGS) -c src/app/controller/EvaluationsController.c -o bin/evaluationController.o
+# controller.o: $(APP)/controller/EvaluationsController.c $(LIB)/controller/EvaluationsController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/EvaluationsController.c -o controller.o
 
-# ./bin/evaluationView.o: src/app/view/EvaluationsView.c src/includes/view/EvaluationsView.h
-# 	$(CC) $(CCFLAGS) -c src/app/view/EvaluationsView.c -o bin/evaluationView.o
+# view.o: $(APP)/view/EvaluationsView.c $(LIB)/view/EvaluationsView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/EvaluationsView.c -o view.o
 
 
 
-# TARGET=bin/cars.exe
-# OBJS=bin/main.o bin/car.o bin/carsController.o bin/carsView.o
+# TARGET=cars.exe
+# OBJS=main.o model.o controller.o view.o
 # LDFLAGS=-D=CARS
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/controller/CarsController.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/controller/CarsController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/car.o: src/app/model/CarModel.c src/includes/model/CarModel.h
-# 	$(CC) $(CCFLAGS) -c src/app/model/CarModel.c -o bin/car.o
+# model.o: $(APP)/model/CarModel.c $(LIB)/model/CarModel.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/CarModel.c -o model.o
 
-# ./bin/carsController.o: src/app/controller/CarsController.c src/includes/controller/CarsController.h
-# 	$(CC) $(CCFLAGS) -c src/app/controller/CarsController.c -o bin/carsController.o
+# controller.o: $(APP)/controller/CarsController.c $(LIB)/controller/CarsController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/CarsController.c -o controller.o
 
-# ./bin/carsView.o: src/app/view/CarsView.c src/includes/view/CarsView.h
-# 	$(CC) $(CCFLAGS) -c src/app/view/CarsView.c -o bin/carsView.o
+# view.o: $(APP)/view/CarsView.c $(LIB)/view/CarsView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/CarsView.c -o view.o
 
 
-# TARGET=bin/library.exe
-# OBJS=bin/main.o bin/book.o bin/booksController.o bin/booksView.o
+# TARGET=library.exe
+# OBJS=main.o model.o controller.o view.o
 # LDFLAGS=-D=LIBRARY
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/controller/BooksController.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/controller/BooksController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/book.o: src/app/model/Book.c src/includes/model/Book.h
-# 	$(CC) $(CCFLAGS) -c src/app/model/Book.c -o bin/book.o
+# model.o: $(APP)/model/Book.c $(LIB)/model/Book.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Book.c -o model.o
 
-# ./bin/booksController.o: src/app/controller/BooksController.c src/includes/controller/BooksController.h
-# 	$(CC) $(CCFLAGS) -c src/app/controller/BooksController.c -o bin/booksController.o
+# controller.o: $(APP)/controller/BooksController.c $(LIB)/controller/BooksController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/BooksController.c -o controller.o
 
-# ./bin/booksView.o: src/app/view/BooksView.c src/includes/view/BooksView.h
-# 	$(CC) $(CCFLAGS) -c src/app/view/BooksView.c -o bin/booksView.o
-
-
-
-TARGET=bin/pcs.exe
-OBJS=bin/main.o bin/pcs.o bin/pcsController.o bin/pcsView.o
-LDFLAGS=-D=PC
-
-all: $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
-
-./bin/main.o: main.c src/includes/controller/PcsController.h
-	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
-
-./bin/pcs.o: src/app/model/Pcs.c src/includes/model/Pcs.h
-	$(CC) $(CCFLAGS) -c src/app/model/Pcs.c -o bin/pcs.o
-
-./bin/pcsController.o: src/app/controller/PcsController.c src/includes/controller/PcsController.h
-	$(CC) $(CCFLAGS) -c src/app/controller/PcsController.c -o bin/pcsController.o
-
-./bin/pcsView.o: src/app/view/PcsView.c src/includes/view/PcsView.h
-	$(CC) $(CCFLAGS) -c src/app/view/PcsView.c -o bin/pcsView.o
+# view.o: $(APP)/view/BooksView.c $(LIB)/view/BooksView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/BooksView.c -o view.o
 
 
 
-# TARGET=bin/task.exe
-# OBJS=bin/main.o bin/task.o
+# TARGET=pcs.exe
+# OBJS=main.o model.o controller.o view.o
+# LDFLAGS=-D=PC
+
+# all: $(OBJS)
+# 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
+
+# main.o: ../main.c $(LIB)/controller/PcsController.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
+
+# model.o: $(APP)/model/Pcs.c $(LIB)/model/Pcs.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/model/Pcs.c -o model.o
+
+# controller.o: $(APP)/controller/PcsController.c $(LIB)/controller/PcsController.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/controller/PcsController.c -o controller.o
+
+# view.o: $(APP)/view/PcsView.c $(LIB)/view/PcsView.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/PcsView.c -o view.o
+
+
+
+# TARGET=task.exe
+# OBJS=main.o task.o
 # LDFLAGS=-D=TASK
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
 
-# ./bin/main.o: main.c src/includes/Task.h
-# 	$(CC) $(CCFLAGS) -c main.c -o bin/main.o
+# main.o: ../main.c $(LIB)/Task.h
+# 	$(CC) $(CCFLAGS) -c ../main.c -o main.o
 
-# ./bin/task.o: src/app/Task.c src/includes/Task.h
-# 	$(CC) $(CCFLAGS) -c src/app/Task.c -o bin/task.o
+# task.o: $(APP)/Task.c $(LIB)/Task.h
+# 	$(CC) $(CCFLAGS) -c $(APP)/Task.c -o task.o
 
 #install:
 #	@install x /usr/local/bin/x
 
 clean:
-	rm -rf bin/*.o
+	rm -rf *.o
