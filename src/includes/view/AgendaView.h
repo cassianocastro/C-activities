@@ -34,4 +34,14 @@ void printContact(const Contact* const);
  */
 byte getContactID(void);
 
+/**
+ *
+ */
+char getContactSex(void);
+
+/**
+ *
+ */
+BirthDate getContactBirthDate(void);
+
 #endif
