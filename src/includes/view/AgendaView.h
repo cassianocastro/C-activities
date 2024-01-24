@@ -37,16 +37,6 @@ byte getContactID(void);
 /**
  *
  */
-char getContactSex(void);
-
-/**
- *
- */
-BirthDate getContactBirthDate(void);
-
-/**
- *
- */
 void getContactName(char* const);
 
 /**
@@ -58,5 +48,15 @@ void getContactCity(char* const);
  *
  */
 void getContactPhone(char* const);
+
+/**
+ *
+ */
+char getContactSex(void);
+
+/**
+ *
+ */
+BirthDate getContactBirthDate(void);
 
 #endif
