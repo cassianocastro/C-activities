@@ -1,47 +1,5 @@
 #include "../../includes/view/AgendaView.h"
 
-void showContactForm(Contact* const contact)
-{
-    static int i = 0;
-
-    printf("\nContato nº %hhu\n\n", ++i);
-	getchar();
-
-    getContactName(contact->name);
-
-    getContactCity(contact->city);
-
-    getContactPhone(contact->phone);
-
-    contact->sex = getContactSex();
-
-    contact->dn  = getContactBirthDate();
-
-	contact->age = CURRENT_YEAR - contact->dn.year;
-}
-
-void printContact(const Contact* const contact)
-{
-    printf(
-        // "\n\tContato nº %hhu:"
-        "\nNome................: %s"
-        "\nIdade...............: %hhu anos"
-        "\nSexo................: %c"
-        "\nCidade..............: %s"
-        "\nTelefone............: %s"
-        "\nData de Nascimento..: %hhu/%hhu/%hu",
-        // (i + 1),
-        contact->name,
-        contact->age,
-        contact->sex,
-        contact->city,
-        contact->phone,
-        contact->dn.day,
-        contact->dn.month,
-        contact->dn.year
-    );
-}
-
 const unsigned int showMainMenu(void)
 {
     unsigned int option = 0u;
@@ -78,6 +36,26 @@ const unsigned int showUpdateMenu(void)
 	getchar();
 
     return option;
+}
+
+void showContactForm(Contact* const contact)
+{
+    static int i = 0;
+
+    printf("\nContato nº %hhu\n\n", ++i);
+	getchar();
+
+    getContactName(contact->name);
+
+    getContactCity(contact->city);
+
+    getContactPhone(contact->phone);
+
+    contact->sex = getContactSex();
+
+    contact->dn  = getContactBirthDate();
+
+	contact->age = CURRENT_YEAR - contact->dn.year;
 }
 
 byte getContactID(void)
@@ -147,4 +125,26 @@ BirthDate getContactBirthDate(void)
     }
 
     return date;
+}
+
+void printContact(const Contact* const contact)
+{
+    printf(
+        // "\n\tContato nº %hhu:"
+        "\nNome................: %s"
+        "\nIdade...............: %hhu anos"
+        "\nSexo................: %c"
+        "\nCidade..............: %s"
+        "\nTelefone............: %s"
+        "\nData de Nascimento..: %hhu/%hhu/%hu",
+        // (i + 1),
+        contact->name,
+        contact->age,
+        contact->sex,
+        contact->city,
+        contact->phone,
+        contact->dn.day,
+        contact->dn.month,
+        contact->dn.year
+    );
 }
