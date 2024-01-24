@@ -145,7 +145,7 @@ void searchContact(void)
     byte month = 0;
 
     do {
-    	printf("\nDigite o nº do mês de nascimento (Ex.: Abril = 4): ");
+    	printf("\nEnter the number of the month of birth (Ex.: April = 4): ");
 	    scanf("%hhu", &month);
 
         found = false;
@@ -164,8 +164,8 @@ void searchContact(void)
             puts("\n\aRegister not found!");
         }
 
-        printf("\n\nDo again [S/n]\? ");
+        printf("\n\nDo again [y/n]\? ");
 		scanf(" %c", &response);
 
-	} while ( tolower(response) == 's' );
+	} while ( tolower(response) == 'y' );
 }
