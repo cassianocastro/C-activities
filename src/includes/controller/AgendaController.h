@@ -41,12 +41,6 @@ typedef enum
 }
 Data;
 
-extern const unsigned short int CURRENT_YEAR;
-
-extern Contact* contacts;
-
-extern unsigned short int num;
-
 /**
  *
  */
