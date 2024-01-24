@@ -25,10 +25,10 @@ void start(void)
 	    		searchContact();
 	    		break;
 			case EXIT:
-				puts("\nFIM...");
+				puts("\nExiting...");
 				break;
 	    	default:
-	    		puts("\aOpção inválida!");
+	    		puts("\aInvalid option!");
 		}
 	} while ( option not_eq EXIT );
 
@@ -37,15 +37,14 @@ void start(void)
 
 void addContact(void)
 {
-	char response = '\0';
+	byte response = 0u;
 
-	printf("Olá, é a sua primeira vez com esta tela[s/n]\? ");
-    scanf(" %c", &response);
+	printf("How many contacts do you want register\? ");
+    scanf(" %hhu", &response);
 
-	if ( tolower(response) == 's' )
+	if ( response > 1 )
     {
-		printf("Informe o nº de pessoas a serem cadastradas: ");
-    	scanf("%hu", &num);
+		num = response;
 
 	    contacts = (Contact*) calloc(num, sizeof(Contact));
 
@@ -54,16 +53,20 @@ void addContact(void)
             showContactForm(&contacts[i]);
         }
 	}
-    else
+    else if ( response == 1 )
     {
-        puts("Inserindo novo contato...");
+        puts("New contact...");
 
 	    contacts = (Contact*) realloc(contacts, ++num * sizeof(Contact));
 
         showContactForm(&contacts[num - 1]);
 	}
+    else
+    {
+        return;
+    }
 
-	puts("\nInserção realizada.");
+	puts("\nAdded contact(s).");
 }
 
 void showContacts(void)
@@ -99,10 +102,10 @@ void updateContact(void)
             contacts[id].dn = getContactBirthDate();
 			break;
 		default:
-			puts("\n\aOpção inválida!");
+			puts("\n\aInvalid option!");
 	}
 
-	puts("\nAlteração realizada.");
+	puts("\nUpdated register.");
 }
 
 void deleteContact(void)
@@ -112,7 +115,7 @@ void deleteContact(void)
 
     if ( not found )
     {
-        puts("\aCadastro não encontrado!");
+        puts("\aRegister not found!");
 
         return;
     }
@@ -158,10 +161,10 @@ void searchContact(void)
 
 		if ( not found )
         {
-            puts("\n\aCadastro não encontrado!!");
+            puts("\n\aRegister not found!");
         }
 
-        printf("\n\nDeseja realizar novamente [S/n]\? ");
+        printf("\n\nDo again [S/n]\? ");
 		scanf(" %c", &response);
 
 	} while ( tolower(response) == 's' );
