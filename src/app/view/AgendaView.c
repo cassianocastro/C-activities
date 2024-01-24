@@ -4,57 +4,20 @@ void showContactForm(Contact* const contact)
 {
     static int i = 0;
 
-	bool ok = false;
-
     printf("\nContato nº %hhu\n\n", ++i);
 	getchar();
 
-    printf("Nome......: ");
-    scanf(" %50[A-Za-z]s", contact->name);
+    getContactName(contact->name);
 
-    printf("Cidade....: ");
-    scanf(" %20[A-Za-z]s", contact->city);
+    getContactCity(contact->city);
 
-    printf("Telefone..: ");
-    scanf(" %16[0-9]s", contact->phone);
+    getContactPhone(contact->phone);
 
-    do {
-		printf("Sexo [M/F]\? ");
-		scanf(" %[^\n]c", &contact->sex);
+    contact->sex = getContactSex();
 
-		contact->sex = tolower(contact->sex);
-	} while (
-        contact->sex not_eq 'f' and
-        contact->sex not_eq 'm'
-    );
+    contact->dn  = getContactBirthDate();
 
-	while ( true )
-    {
-        puts("Data de nascimento...");
-
-		printf("Dia: ");
-    	scanf("%hhu", &contact->dn.day);
-
-        printf("Mês: ");
-    	scanf("%hhu", &contact->dn.month);
-
-        printf("Ano: ");
-    	scanf("%4hu", &contact->dn.year);
-
-    	ok = isValid(
-            contact->dn.day,
-			contact->dn.month,
-			contact->dn.year
-        );
-
-		if ( not ok )
-			puts("Data inválida!!");
-		else
-			break;
-	}
-
-    // TODO: Replace int literal by CURRENT_YEAR constant
-	contact->age = (uint8_t) 2024 - contact->dn.year;
+	contact->age = CURRENT_YEAR - contact->dn.year;
 }
 
 void printContact(const Contact* const contact)
