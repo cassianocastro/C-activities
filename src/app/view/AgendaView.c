@@ -93,7 +93,7 @@ const unsigned int showMainMenu(void)
         "\n0. Sair;"
         "\nOpção\? "
     );
-    scanf("%d", &option);
+    scanf("%1d", &option);
 
     return option;
 }
@@ -111,7 +111,7 @@ const unsigned int showUpdateMenu(void)
 		"\n5. Telefone;"
 		"\nOpção\? "
     );
-	scanf("%d", &option);
+	scanf("%1d", &option);
 	getchar();
 
     return option;
@@ -119,7 +119,7 @@ const unsigned int showUpdateMenu(void)
 
 byte getContactID(void)
 {
-    byte id = 0;
+    byte id = 0u;
 
 	printf("\nID do contato: ");
 	scanf("%hhu", &id);
