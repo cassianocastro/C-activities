@@ -5,14 +5,14 @@ const unsigned int showMainMenu(void)
     unsigned int option = 0u;
 
     printf(
-        "\nEscolha uma das opções abaixo:"
-        "\n1. Insercão;"
-        "\n2. Listagem;"
-        "\n3. Alteração;"
-        "\n4. Remoção;"
-        "\n5. Busca;"
-        "\n0. Sair;"
-        "\nOpção\? "
+        "\nChoose one of the options below:"
+        "\n1. Add"
+        "\n2. Show"
+        "\n3. Update"
+        "\n4. Delete"
+        "\n5. Search"
+        "\n0. Exit"
+        "\nOption\? "
     );
     scanf("%1d", &option);
 
@@ -24,13 +24,13 @@ const unsigned int showUpdateMenu(void)
     unsigned int option = 0u;
 
     printf(
-        "\nSelecione o tipo de dado:"
-		"\n1. Nome;"
-		"\n2. Sexo;"
-		"\n3. Data de Nascimento;"
-		"\n4. Cidade;"
-		"\n5. Telefone;"
-		"\nOpção\? "
+        "\nSelect the data type:"
+		"\n1. Name"
+		"\n2. Sex"
+		"\n3. Birthdate"
+		"\n4. City"
+		"\n5. Phone"
+		"\nOption\? "
     );
 	scanf("%1d", &option);
 	getchar();
@@ -42,7 +42,7 @@ void showContactForm(Contact* const contact)
 {
     static int i = 0;
 
-    printf("\nContato nº %hhu\n\n", ++i);
+    printf("\nContact nº %hhu\n\n", ++i);
 	getchar();
 
     getContactName(contact->name);
@@ -62,7 +62,7 @@ byte getContactID(void)
 {
     byte id = 0u;
 
-	printf("\nID do contato: ");
+	printf("\nContact ID: ");
 	scanf("%hhu", &id);
 
     return --id;
@@ -70,19 +70,19 @@ byte getContactID(void)
 
 void getContactName(char* const str)
 {
-    printf("Novo nome: ");
+    printf("Name: ");
     scanf(" %50[A-Za-z]s", str);
 }
 
 void getContactPhone(char* const str)
 {
-    printf("Novo telefone: ");
+    printf("Phone: ");
     scanf(" %16[0-9]s", str);
 }
 
 void getContactCity(char* const str)
 {
-    printf("Nova cidade: ");
+    printf("City: ");
     scanf(" %20[A-Za-z]s", str);
 }
 
@@ -91,7 +91,7 @@ char getContactSex(void)
     char sex = '\0';
 
     do {
-        printf("Novo sexo [M/F]: ");
+        printf("Sex [m/f]: ");
         scanf(" %[^\n]c", &sex);
 
         sex = tolower(sex);
@@ -104,22 +104,22 @@ BirthDate getContactBirthDate(void)
 {
     BirthDate date = { .day = 0, .month = 0, .year = 0 };
 
-    puts("Nova data de nascimento...");
+    puts("Birthdate...");
 
     begin:
 
-    printf("Dia: ");
+    printf("Day: ");
     scanf("%hhu", &date.day);
 
-    printf("Mês: ");
+    printf("Month: ");
     scanf("%hhu", &date.month);
 
-    printf("Ano: ");
+    printf("Year: ");
     scanf("%hu", &date.year);
 
     if ( not isValid(date.day, date.month, date.year) )
     {
-        puts("Data inválida!");
+        puts("Invalid date!");
 
         goto begin;
     }
@@ -130,13 +130,13 @@ BirthDate getContactBirthDate(void)
 void printContact(const Contact* const contact)
 {
     printf(
-        // "\n\tContato nº %hhu:"
-        "\nNome................: %s"
-        "\nIdade...............: %hhu anos"
-        "\nSexo................: %c"
-        "\nCidade..............: %s"
-        "\nTelefone............: %s"
-        "\nData de Nascimento..: %hhu/%hhu/%hu",
+        // "\n\tContact nº %hhu:"
+        "\nName..........: %s"
+        "\nAge...........: %hhu years old"
+        "\nSex...........: %c"
+        "\nCity..........: %s"
+        "\nPhone.........: %s"
+        "\nBirthdate.....: %hhu/%hhu/%hu",
         // (i + 1),
         contact->name,
         contact->age,
