@@ -1,10 +1,10 @@
 #include "../../includes/model/Agenda.h"
 
-const unsigned short int CURRENT_YEAR = 2024;
+const unsigned short int CURRENT_YEAR = 2024u;
+
+byte num = 0u;
 
 Contact* contacts;
-
-unsigned short int num;
 
 bool searchID(const byte id)
 {
