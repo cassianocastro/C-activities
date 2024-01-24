@@ -145,35 +145,47 @@ void updateContact(void)
 	puts("\nAlteração realizada.");
 }
 
+bool searchID(const byte id)
+{
+    for ( register byte i = 0, j = 0; i < num; ++i )
+    {
+		if ( i == id )
+        {
+            return true;
+		}
+	}
+
+    return false;
+}
+
 void deleteContact(void)
 {
-    bool found = false;
 	byte index = getContactID();
+    bool found = searchID(index);
 
-	Contact* tmp = (Contact*) calloc((num - 1), sizeof(Contact));
-
-	for ( register byte i = 0, j = 0; i < num; ++i )
+    if ( not found )
     {
-		if ( i == index )
+        puts("\aCadastro não encontrado!");
+
+        return;
+    }
+
+    Contact* tmp = (Contact*) calloc((num - 1), sizeof(Contact));
+
+    for ( register byte i = 0u, j = 0u; i < num; ++i )
+    {
+        if ( i != index )
         {
-            found = true;
+            tmp[j++] = contacts[i];
+        }
+    }
 
-            continue;
-		}
+    free(contacts);
 
-        tmp[j++] = contacts[i];
-	}
+    contacts = tmp;
+    --num;
 
-	if ( found )
-    {
-		free(contacts);
-		contacts = tmp;
-		num--;
-
-		puts("\nRemoção realizada.");
-	}
-    else
-		puts("\aCadastro não encontrado!!");
+    puts("\nRemoção realizada.");
 }
 
 void searchContact(void)
