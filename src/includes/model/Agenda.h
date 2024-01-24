@@ -36,9 +36,9 @@ Contact;
 
 extern const unsigned short int CURRENT_YEAR;
 
-extern Contact* contacts;
+extern byte num;
 
-extern unsigned short int num;
+extern Contact* contacts;
 
 /**
  *
