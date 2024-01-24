@@ -154,22 +154,14 @@ void deleteContact(void)
 
 	for ( register byte i = 0, j = 0; i < num; ++i )
     {
-		if ( i not_eq index )
+		if ( i == index )
         {
-			strcpy(tmp[j].name,  contacts[i].name);
-			strcpy(tmp[j].city,  contacts[i].city);
-			strcpy(tmp[j].phone, contacts[i].phone);
-
-			tmp[j].sex      = contacts[i].sex;
-			tmp[j].dn.day   = contacts[i].dn.day;
-			tmp[j].dn.month = contacts[i].dn.month;
-			tmp[j].dn.year  = contacts[i].dn.year;
-			tmp[j].age      = contacts[i].age;
-
-            ++j;
-		}
-        else
             found = true;
+
+            continue;
+		}
+
+        tmp[j++] = contacts[i];
 	}
 
 	if ( found )
