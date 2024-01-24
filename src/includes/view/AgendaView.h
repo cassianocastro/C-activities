@@ -44,4 +44,19 @@ char getContactSex(void);
  */
 BirthDate getContactBirthDate(void);
 
+/**
+ *
+ */
+void getContactName(char* const);
+
+/**
+ *
+ */
+void getContactCity(char* const);
+
+/**
+ *
+ */
+void getContactPhone(char* const);
+
 #endif
