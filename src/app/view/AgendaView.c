@@ -3,19 +3,20 @@
 void showContactForm(Contact* const contact)
 {
     static int i = 0;
-	bool ok  = false;
+
+	bool ok = false;
 
     printf("\nContato nº %hhu\n\n", ++i);
 	getchar();
 
     printf("Nome......: ");
-	fgets(contact->name, 50, stdin);
+    scanf(" %50[A-Za-z]s", contact->name);
 
     printf("Cidade....: ");
-	fgets(contact->city, 20, stdin);
+    scanf(" %20[A-Za-z]s", contact->city);
 
     printf("Telefone..: ");
-	fgets(contact->phone, 16, stdin);
+    scanf(" %16[0-9]s", contact->phone);
 
     do {
 		printf("Sexo [M/F]\? ");
@@ -60,12 +61,12 @@ void printContact(const Contact* const contact)
 {
     printf(
         // "\n\tContato nº %hhu:"
-        "\nNome..............: %s"
-        "Idade...............: %hhu anos\n"
-        "Sexo................: %c\n"
-        "Cidade..............: %s"
-        "Telefone............: %s"
-        "Data de Nascimento..: %hhu/%hhu/%hu",
+        "\nNome................: %s"
+        "\nIdade...............: %hhu anos"
+        "\nSexo................: %c"
+        "\nCidade..............: %s"
+        "\nTelefone............: %s"
+        "\nData de Nascimento..: %hhu/%hhu/%hu",
         // (i + 1),
         contact->name,
         contact->age,
