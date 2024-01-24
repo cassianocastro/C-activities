@@ -86,17 +86,17 @@ void updateContact(void)
 		case NAME:
             getContactName(contacts[id].name);
 			break;
+		case PHONE:
+            getContactPhone(contacts[id].phone);
+			break;
+		case CITY:
+            getContactCity(contacts[id].city);
+			break;
 		case SEX:
             contacts[id].sex = getContactSex();
 			break;
 		case BIRTHDATE:
             contacts[id].dn = getContactBirthDate();
-			break;
-		case CITY:
-            getContactCity(contacts[id].city);
-			break;
-		case PHONE:
-            getContactPhone(contacts[id].phone);
 			break;
 		default:
 			puts("\n\aOpção inválida!");
