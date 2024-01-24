@@ -20,7 +20,7 @@ void showContactForm(Contact* const contact)
 
     do {
 		printf("Sexo [M/F]\? ");
-		scanf(" %c", &contact->sex);
+		scanf(" %[^\n]c", &contact->sex);
 
 		contact->sex = tolower(contact->sex);
 	} while (
@@ -39,7 +39,7 @@ void showContactForm(Contact* const contact)
     	scanf("%hhu", &contact->dn.month);
 
         printf("Ano: ");
-    	scanf("%hu",  &contact->dn.year);
+    	scanf("%4hu", &contact->dn.year);
 
     	ok = isValid(
             contact->dn.day,
