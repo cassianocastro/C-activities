@@ -126,3 +126,44 @@ byte getContactID(void)
 
     return --id;
 }
+
+char getContactSex(void)
+{
+    char sex = '\0';
+
+    do {
+        printf("Novo sexo [M/F]: ");
+        scanf(" %[^\n]c", &sex);
+
+        sex = tolower(sex);
+    } while ( sex not_eq 'f' and sex not_eq 'm' );
+
+    return sex;
+}
+
+BirthDate getContactBirthDate(void)
+{
+    BirthDate date = { .day = 0, .month = 0, .year = 0 };
+
+    puts("Nova data de nascimento...");
+
+    begin:
+
+    printf("Dia: ");
+    scanf("%hhu", &date.day);
+
+    printf("Mês: ");
+    scanf("%hhu", &date.month);
+
+    printf("Ano: ");
+    scanf("%hu", &date.year);
+
+    if ( not isValid(date.day, date.month, date.year) )
+    {
+        puts("Data inválida!");
+
+        goto begin;
+    }
+
+    return date;
+}
