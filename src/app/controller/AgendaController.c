@@ -1,11 +1,5 @@
 #include "../../includes/controller/AgendaController.h"
 
-const unsigned short int CURRENT_YEAR = 2024;
-
-Contact* contacts;
-
-unsigned short int num;
-
 void start(void)
 {
     unsigned int option = 0u;
