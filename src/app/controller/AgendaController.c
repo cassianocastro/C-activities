@@ -139,19 +139,6 @@ void updateContact(void)
 	puts("\nAlteração realizada.");
 }
 
-bool searchID(const byte id)
-{
-    for ( register byte i = 0, j = 0; i < num; ++i )
-    {
-		if ( i == id )
-        {
-            return true;
-		}
-	}
-
-    return false;
-}
-
 void deleteContact(void)
 {
 	byte index = getContactID();
