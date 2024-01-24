@@ -167,3 +167,21 @@ BirthDate getContactBirthDate(void)
 
     return date;
 }
+
+void getContactName(char* const str)
+{
+    printf("Novo nome: ");
+    scanf(" %50[A-Za-z]s", str);
+}
+
+void getContactPhone(char* const str)
+{
+    printf("Novo telefone: ");
+    scanf(" %16[0-9]s", str);
+}
+
+void getContactCity(char* const str)
+{
+    printf("Nova cidade: ");
+    scanf(" %20[A-Za-z]s", str);
+}
