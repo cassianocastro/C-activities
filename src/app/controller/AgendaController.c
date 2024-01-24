@@ -84,53 +84,19 @@ void updateContact(void)
 	switch ( tipo )
     {
 		case NAME:
-			printf("Novo nome: ");
-			fgets(contacts[id].name, 50, stdin);
+            getContactName(contacts[id].name);
 			break;
 		case SEX:
-			do {
-				printf("Novo sexo [M/F]: ");
-				scanf(" %c", &contacts[id].sex);
-
-				contacts[id].sex = tolower(contacts[id].sex);
-			} while (
-                contacts[id].sex not_eq 'f' and
-                contacts[id].sex not_eq 'm'
-            );
+            contacts[id].sex = getContactSex();
 			break;
 		case BIRTHDATE:
-			while ( true )
-            {
-                puts("Nova data de nascimento...");
-
-				printf("Dia: ");
-				scanf("%hhu", &contacts[id].dn.day);
-
-                printf("Mês: ");
-				scanf("%hhu", &contacts[id].dn.month);
-
-                printf("Ano: ");
-				scanf("%hu", &contacts[id].dn.year);
-
-				ok = isValid(
-                    contacts[id].dn.day,
-					contacts[id].dn.month,
-					contacts[id].dn.year
-                );
-
-				if ( not ok )
-                    puts("Data inválida!");
-				else
-                    break;
-			}
+            contacts[id].dn = getContactBirthDate();
 			break;
 		case CITY:
-			printf("Nova cidade: ");
-			fgets(contacts[id].city, 20, stdin);
+            getContactCity(contacts[id].city);
 			break;
 		case PHONE:
-			printf("Novo telefone: ");
-			fgets(contacts[id].phone, 16, stdin);
+            getContactPhone(contacts[id].phone);
 			break;
 		default:
 			puts("\n\aOpção inválida!");
