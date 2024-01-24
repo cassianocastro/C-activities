@@ -2,6 +2,8 @@
 
 #define AGENDA_MODEL_H
 
+#include <stdbool.h>
+
 typedef unsigned char byte;
 
 /**
@@ -37,5 +39,10 @@ extern const unsigned short int CURRENT_YEAR;
 extern Contact* contacts;
 
 extern unsigned short int num;
+
+/**
+ *
+ */
+bool searchID(const byte);
 
 #endif
