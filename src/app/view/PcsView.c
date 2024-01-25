@@ -14,7 +14,7 @@ void showComputerForm(Computer* const computer)
 {
     static unsigned int i = 0u;
 
-    printf("\nComputador nº %hhu\n\n", (i + 1));
+    printf("\nComputador nº %hhu\n\n", ++i);
 	getchar();
 
     printf("Marca........: ");
@@ -28,8 +28,9 @@ void showComputerForm(Computer* const computer)
 
     do {
 		printf(
-            "\nTipo de Disco Rígido..."
-			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
+            "Tipo de Disco Rígido... "
+            "Digite \"s\" para SSD ou \"c\" para convencional"
+			"\nOpção\? "
         );
 		scanf(" %c", &computer->storageType);
 	} while (
