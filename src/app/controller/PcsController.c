@@ -43,8 +43,7 @@ void addComputer(void)
 
 	if ( response > 1 )
     {
-        printf("Informe o nº de computadores a serem cadastrados: ");
-    	scanf("%hu", &num);
+        num = response;
 
 	    inventary = (Computer*) calloc(num, sizeof(Computer));
 
@@ -53,7 +52,7 @@ void addComputer(void)
             showComputerForm(&inventary[i]);
         }
     }
-    else
+    else if ( response == 1 )
     {
 		puts("\nInserindo novo computador...");
 
@@ -61,6 +60,10 @@ void addComputer(void)
 
         showComputerForm(&inventary[num - 1]);
 	}
+    else
+    {
+        return;
+    }
 
 	puts("\nInserção realizada.");
 }
