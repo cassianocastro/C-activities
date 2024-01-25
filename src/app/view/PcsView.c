@@ -18,13 +18,13 @@ void showComputerForm(Computer* const computer)
 	getchar();
 
     printf("Marca........: ");
-	fgets(computer->mark, MAX_SIZE_STR, stdin);
+	scanf(" %[^\n]s", computer->mark);
 
 	printf("Modelo.......: ");
-	fgets(computer->model, MAX_SIZE_STR, stdin);
+    scanf(" %[^\n]s", computer->model);
 
 	printf("Processador..: ");
-	fgets(computer->processor, MAX_SIZE_STR, stdin);
+    scanf(" %[^\n]s", computer->processor);
 
     do {
 		printf(
