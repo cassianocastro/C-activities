@@ -1,5 +1,14 @@
 #include "../../includes/view/PcsView.h"
 
+void clearScreen(void)
+{
+#ifdef WIN32
+    system("cls");
+#elif defined LINUX
+	system("clear");
+#endif
+}
+
 const unsigned int getMainMenuChoice(void)
 {
     unsigned int choice = 0u;
