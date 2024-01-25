@@ -1,13 +1,34 @@
 #include "../../includes/view/PcsView.h"
 
-const byte getComputerID(void)
+const unsigned int getMainMenuChoice(void)
 {
-    byte index = 0;
+    unsigned int choice = 0u;
 
-	printf("ID do computador: ");
-	scanf("%hhu", &index);
+    printf(
+        "\nEscolha uma das opções abaixo:"
+        "\n1. Insercão | 2. Listagem | 3. Alteração"
+        "\n4. Remoção  | 5. Busca    | 6. Sair"
+        "\nOpção\? "
+    );
+    scanf("%d", &choice);
 
-	return --index;
+    return choice;
+}
+
+const unsigned int getUpdateMenuChoice(void)
+{
+    unsigned int choice = 0u;
+
+    printf(
+        "\nSelecione o tipo de dado:\n"
+		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
+		"\n4. Memória | 5. Modelo 	  | 6. Processador"
+		"\nOpção\? "
+    );
+    scanf("%d", &choice);
+    getchar();
+
+    return choice;
 }
 
 void showComputerForm(Computer* const computer)
@@ -28,6 +49,16 @@ void showComputerForm(Computer* const computer)
     computer->storage     = getComputerStorage();
 
     computer->memory      = getComputerMemory();
+}
+
+const byte getComputerID(void)
+{
+    byte index = 0;
+
+	printf("ID do computador: ");
+	scanf("%hhu", &index);
+
+	return --index;
 }
 
 void getComputerMark(char* const str)
@@ -107,35 +138,4 @@ void printComputerInfo(byte i, const Computer* const computer)
         computer->memory,
         computer->processor
     );
-}
-
-const unsigned int getMainMenuChoice(void)
-{
-    unsigned int choice = 0u;
-
-    printf(
-        "\nEscolha uma das opções abaixo:"
-        "\n1. Insercão | 2. Listagem | 3. Alteração"
-        "\n4. Remoção  | 5. Busca    | 6. Sair"
-        "\nOpção\? "
-    );
-    scanf("%d", &choice);
-
-    return choice;
-}
-
-const unsigned int getUpdateMenuChoice(void)
-{
-    unsigned int choice = 0u;
-
-    printf(
-        "\nSelecione o tipo de dado:\n"
-		"\n1. Marca   | 2. Tipo de HD | 3. Capac. de Armazenamento"
-		"\n4. Memória | 5. Modelo 	  | 6. Processador"
-		"\nOpção\? "
-    );
-    scanf("%d", &choice);
-    getchar();
-
-    return choice;
 }
