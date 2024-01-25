@@ -38,7 +38,7 @@ void addComputer(void)
 {
 	byte response = 0;
 
-	printf("Quantos computadores deseja cadastrar\? ");
+	printf("How many computers do you want register\? ");
     scanf("%hhu", &response);
 
 	if ( response > 1 )
@@ -54,7 +54,7 @@ void addComputer(void)
     }
     else if ( response == 1 )
     {
-		puts("\nInserindo novo computador...");
+		puts("\nNew computer...");
 
 	    inventary = (Computer*) realloc(inventary, ++num * sizeof(Computer));
 
@@ -65,7 +65,7 @@ void addComputer(void)
         return;
     }
 
-	puts("\nInserção realizada.");
+	puts("\nAdded register.");
 }
 
 void showComputers(void)
@@ -103,10 +103,10 @@ void updateComputer(void)
             inventary[id].memory = getComputerMemory();
 			break;
 		default:
-			puts("\nOpção inválida!");
+			puts("\nInvalid option!");
 	}
 
-	puts("\nAlteração realizada.");
+	puts("\nUpdated register.");
 }
 
 void deleteComputer(void)
@@ -136,10 +136,10 @@ void deleteComputer(void)
 		inventary = tmp;
 		num--;
 
-		puts("\nRemoção realizada.");
+		puts("\nDeleted register.");
 	}
     else
-		puts("\nCadastro não encontrado!");
+		puts("\nRegister not found!");
 }
 
 void searchComputer(void)
@@ -150,7 +150,7 @@ void searchComputer(void)
 	getchar();
 
     do {
-    	printf("\nInforme o modelo do computador: ");
+    	printf("\nEnter the computer model: ");
 	    fgets(model, MAX_SIZE_STR, stdin);
 
 	    found = false;
@@ -166,11 +166,11 @@ void searchComputer(void)
 
 		if ( not found )
         {
-            puts("\nCadastro não encontrado!");
+            puts("\nRegister not found!");
         }
 
-        printf("\nDeseja realizar novamente [s/n]\? ");
+        printf("\nDo again [y/n]\? ");
 		scanf(" %c", &response);
 
-	} while ( tolower(response) == 's' );
+	} while ( tolower(response) == 'y' );
 }
