@@ -8,7 +8,7 @@ void start(void)
     {
 	    option = getMainMenuChoice();
 
-		system("clear");
+        clearScreen();
 
     	switch ( option )
         {
