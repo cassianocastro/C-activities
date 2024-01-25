@@ -112,6 +112,8 @@ char getComputerStorageType(void)
     );
     scanf(" %c", &type);
 
+    type = tolower(type);
+
 	if ( type not_eq 's' and type not_eq 'c' )
     {
         goto begin;
