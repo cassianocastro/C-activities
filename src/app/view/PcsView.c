@@ -10,36 +10,38 @@ const byte getComputerID(void)
 	return --index;
 }
 
-void showComputerForm(byte i)
+void showComputerForm(Computer* const computer)
 {
+    static unsigned int i = 0u;
+
     printf("\nComputador nº %hhu\n\n", (i + 1));
 	getchar();
 
     printf("Marca........: ");
-	fgets(inventary[i].mark, MAX_SIZE_STR, stdin);
+	fgets(computer->mark, MAX_SIZE_STR, stdin);
 
 	printf("Modelo.......: ");
-	fgets(inventary[i].model, MAX_SIZE_STR, stdin);
+	fgets(computer->model, MAX_SIZE_STR, stdin);
 
 	printf("Processador..: ");
-	fgets(inventary[i].processor, MAX_SIZE_STR, stdin);
+	fgets(computer->processor, MAX_SIZE_STR, stdin);
 
     do {
 		printf(
             "\nTipo de Disco Rígido..."
 			"\nDigite \"s\" para SSD ou \"c\" para convencional: "
         );
-		scanf(" %c", &inventary[i].storageType);
+		scanf(" %c", &computer->storageType);
 	} while (
-        inventary[i].storageType not_eq 's' and
-        inventary[i].storageType not_eq 'c'
+        computer->storageType not_eq 's' and
+        computer->storageType not_eq 'c'
     );
 
     printf("\nCapacidade de Armazenamento (em GB): ");
-	scanf("%d", &inventary[i].storage);
+	scanf("%d", &computer->storage);
 
 	printf("Tamanho da Memória (em GB).........: ");
-	scanf("%d", &inventary[i].memory);
+	scanf("%d", &computer->memory);
 }
 
 void printComputerInfo(byte i, const Computer* const computer)
