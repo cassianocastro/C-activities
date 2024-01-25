@@ -17,32 +17,76 @@ void showComputerForm(Computer* const computer)
     printf("\nComputador nº %hhu\n\n", ++i);
 	getchar();
 
-    printf("Marca........: ");
-	scanf(" %[^\n]s", computer->mark);
+    getComputerMark(computer->mark);
 
-	printf("Modelo.......: ");
-    scanf(" %[^\n]s", computer->model);
+    getComputerModel(computer->model);
 
-	printf("Processador..: ");
-    scanf(" %[^\n]s", computer->processor);
+    getComputerProcessor(computer->processor);
 
-    do {
-		printf(
-            "Tipo de Disco Rígido... "
-            "Digite \"s\" para SSD ou \"c\" para convencional"
-			"\nOpção\? "
-        );
-		scanf(" %c", &computer->storageType);
-	} while (
-        computer->storageType not_eq 's' and
-        computer->storageType not_eq 'c'
+    computer->storageType = getComputerStorageType();
+
+    computer->storage     = getComputerStorage();
+
+    computer->memory      = getComputerMemory();
+}
+
+void getComputerMark(char* const str)
+{
+    printf("Mark.....................................: ");
+	scanf(" %[^\n]s", str);
+}
+
+void getComputerModel(char* const str)
+{
+    printf("Model....................................: ");
+	scanf(" %[^\n]s", str);
+}
+
+void getComputerProcessor(char* const str)
+{
+    printf("Processor................................: ");
+	scanf(" %[^\n]s", str);
+}
+
+unsigned int getComputerMemory(void)
+{
+    unsigned int memory = 0u;
+
+    printf("Memória (em GB)..........................: ");
+	scanf("%d", &memory);
+
+    return memory;
+}
+
+unsigned int getComputerStorage(void)
+{
+    unsigned int storage = 0u;
+
+    printf("Capacidade de armazenamento (em GB)......: ");
+	scanf("%d", &storage);
+
+    return storage;
+}
+
+char getComputerStorageType(void)
+{
+    char type = '\0';
+
+    begin:
+
+    printf(
+        "Tipo de Disco Rígido... "
+        "Digite \"s\" para SSD ou \"c\" para convencional"
+        "\nOpção\? "
     );
+    scanf(" %c", &type);
 
-    printf("\nCapacidade de Armazenamento (em GB): ");
-	scanf("%d", &computer->storage);
+	if ( type not_eq 's' and type not_eq 'c' )
+    {
+        goto begin;
+    }
 
-	printf("Tamanho da Memória (em GB).........: ");
-	scanf("%d", &computer->memory);
+    return type;
 }
 
 void printComputerInfo(byte i, const Computer* const computer)
