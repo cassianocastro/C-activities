@@ -139,7 +139,7 @@ LIB=../src/includes
 
 # TARGET=pcs.exe
 # OBJS=main.o model.o controller.o view.o
-# LDFLAGS=-D=PC
+# LDFLAGS=-D PC
 
 # all: $(OBJS)
 # 	$(LD) $(LDFLAGS) $(OBJS) -o $(TARGET)
@@ -154,7 +154,7 @@ LIB=../src/includes
 # 	$(CC) $(CCFLAGS) -c $(APP)/controller/PcsController.c -o controller.o
 
 # view.o: $(APP)/view/PcsView.c $(LIB)/view/PcsView.h
-# 	$(CC) $(CCFLAGS) -c $(APP)/view/PcsView.c -o view.o
+# 	$(CC) $(CCFLAGS) -c $(APP)/view/PcsView.c -o view.o -D LINUX
 
 
 
