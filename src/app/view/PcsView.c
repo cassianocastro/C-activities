@@ -48,12 +48,12 @@ void printComputerInfo(byte i, const Computer* const computer)
 {
     printf(
         "\nComputador nº %hhu:\n"
-        "Marca....................: %s"
-        "Modelo...................: %s"
-        "Tipo de HD...............: %c\n"
-        "Capac. de Armazenamento..: %d GB\n"
-        "Memória..................: %d GB\n"
-        "Processador..............: %s",
+        "\nMarca....................: %s"
+        "\nModelo...................: %s"
+        "\nTipo de HD...............: %c"
+        "\nCapac. de Armazenamento..: %d GB"
+        "\nMemória..................: %d GB"
+        "\nProcessador..............: %s",
         (i + 1),
         computer->mark,
         computer->model,
