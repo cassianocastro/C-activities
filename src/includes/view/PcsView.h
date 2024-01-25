@@ -10,12 +10,7 @@
 /**
  *
  */
-void showComputerForm(Computer* const);
-
-/**
- *
- */
-void printComputerInfo(byte, const Computer* const);
+void clearScreen(void);
 
 /**
  *
@@ -26,6 +21,11 @@ const unsigned int getMainMenuChoice(void);
  *
  */
 const unsigned int getUpdateMenuChoice(void);
+
+/**
+ *
+ */
+void showComputerForm(Computer* const);
 
 /**
  *
@@ -61,5 +61,10 @@ unsigned int getComputerStorage(void);
  *
  */
 char getComputerStorageType(void);
+
+/**
+ *
+ */
+void printComputerInfo(byte, const Computer* const);
 
 #endif
