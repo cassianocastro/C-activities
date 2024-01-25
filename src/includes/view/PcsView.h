@@ -32,4 +32,34 @@ const unsigned int getUpdateMenuChoice(void);
  */
 const byte getComputerID(void);
 
+/**
+ *
+ */
+void getComputerMark(char* const);
+
+/**
+ *
+ */
+void getComputerModel(char* const);
+
+/**
+ *
+ */
+void getComputerProcessor(char* const);
+
+/**
+ *
+ */
+unsigned int getComputerMemory(void);
+
+/**
+ *
+ */
+unsigned int getComputerStorage(void);
+
+/**
+ *
+ */
+char getComputerStorageType(void);
+
 #endif
