@@ -85,38 +85,22 @@ void updateComputer(void)
 	switch ( tipo )
     {
 		case MARK:
-			printf("Marca: ");
-			fgets(inventary[id].mark, MAX_SIZE_STR, stdin);
-			break;
-		case STORAGE_TYPE:
-			do {
-				printf(
-                    "Tipo de Disco Rígido..."
-					"\nDigite \"s\" para SSD ou \"c\" para convencional: "
-                );
-				scanf(" %c", &inventary[id].storageType);
-
-                inventary[id].storageType = tolower(inventary[id].storageType);
-			} while (
-                inventary[id].storageType not_eq 's' and
-                inventary[id].storageType not_eq 'c'
-            );
-			break;
-		case STORAGE:
-			printf("Capacidade de armazenamento: ");
-			scanf("%d", &inventary[id].storage);
-			break;
-		case MEMORY:
-			printf("Memória: ");
-			scanf("%d", &inventary[id].memory);
+            getComputerMark(inventary[id].mark);
 			break;
 		case MODEL:
-			printf("Modelo: ");
-			fgets(inventary[id].model, MAX_SIZE_STR, stdin);
+            getComputerModel(inventary[id].model);
 			break;
 		case PROCESSOR:
-			printf("Processador: ");
-			fgets(inventary[id].processor, MAX_SIZE_STR, stdin);
+            getComputerProcessor(inventary[id].processor);
+			break;
+		case STORAGE_TYPE:
+            inventary[id].storageType = getComputerStorageType();
+			break;
+		case STORAGE:
+            inventary[id].storage = getComputerStorage();
+			break;
+		case MEMORY:
+            inventary[id].memory = getComputerMemory();
 			break;
 		default:
 			puts("\nOpção inválida!");
