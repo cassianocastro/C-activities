@@ -10,7 +10,7 @@
 /**
  *
  */
-void showComputerForm(byte);
+void showComputerForm(Computer* const);
 
 /**
  *
