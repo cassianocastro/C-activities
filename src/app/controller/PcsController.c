@@ -50,7 +50,7 @@ void addComputer(void)
 
     	for ( register byte i = 0; i < num; ++i )
         {
-            showComputerForm(i);
+            showComputerForm(&inventary[i]);
         }
     }
     else
@@ -59,7 +59,7 @@ void addComputer(void)
 
 	    inventary = (Computer*) realloc(inventary, ++num * sizeof(Computer));
 
-        showComputerForm(num - 1);
+        showComputerForm(&inventary[num - 1]);
 	}
 
 	puts("\nInserção realizada.");
