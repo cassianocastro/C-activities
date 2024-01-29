@@ -41,7 +41,8 @@ int main(int argc, char const *argv[])
 {
 	setlocale(LC_ALL, "");
 
-    char nome[100] = "", foo[100] = "";
+    char nome[100], foo[100];
+
     int size = 0;
 
     printf("Digite uma palavra: ");
