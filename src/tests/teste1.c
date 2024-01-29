@@ -97,7 +97,7 @@ int main(int argc, const char** argv)
 
     int number = 0, vector[8] = { 0 };
 
-    printf("Digite um numero: ");
+    printf("Número: ");
     scanf("%d", &number);
 
     getBits(number, vector);
