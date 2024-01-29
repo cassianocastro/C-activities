@@ -17,26 +17,32 @@ void foo(void)
 		x    = 0;
 
 		// do {
-		// 	if ( vetor[i - cont] == x ) {
+		// 	if ( vetor[i - cont] == x )
+        //  {
 		// 		x = rand() % 10;
 		// 		cont = 0;
 		// 	} else
 		// 		cont++;
-		// } while( cont <= i );
+		// } while ( cont <= i );
 
         for ( int j = 0; j <= i; j++ )
 		{
-            if ( vetor[i - j] == x ) {
+            if ( vetor[i - j] == x )
+            {
                 x = rand() % 10;
                 j = 0;
             }
         }
-		vetor[i] = x;
-		printf("%d - ", vetor[i]);
 
+		vetor[i] = x;
+
+		printf("%d - ", vetor[i]);
 	}
 }
 
+/**
+ *
+ */
 int main(int argc, char const *argv[])
 {
 	setlocale(LC_ALL, "");
@@ -55,12 +61,13 @@ int main(int argc, char const *argv[])
 
     printf("\n%i\n", size);
 
-    for( int i = 0, j = size; i <= size / 2; i++, j-- )
+    for ( int i = 0, j = size; i <= size / 2; i++, j-- )
 	{
         foo[i] = nome[j];
     }
 
     printf("%s", foo);
     //printf("%i", strlen(nome));
+
     return 0;
 }
