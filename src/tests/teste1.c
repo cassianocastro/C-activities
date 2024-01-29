@@ -15,7 +15,7 @@ void canAlignOutput(void)
 
 	uint_fast8_t fast = 190;
 
-	printf("Poder: %hhu\nSizeof: %hhu", fast, sizeof(uint_fast8_t));
+	// printf("Poder: %hhu\nSizeof: %hhu", fast, sizeof(uint_fast8_t));
 }
 
 /**
@@ -42,8 +42,7 @@ void canInputUser(void)
  */
 int canGetBits(int numero)
 {
-    int resto[10] = { 0 };
-    int quociente, qtdeBits = 0;
+    int quociente = 0, bits = 0, resto[10] = { 0 };
 
     quociente = numero / 2;
     resto[0]  = numero % 2;
@@ -52,11 +51,10 @@ int canGetBits(int numero)
 
     for ( i = 1; quociente >= 2; i++ )
 	{
-        resto[i]   = quociente % 2;
+        resto[i] = quociente % 2;
+
         quociente /= 2;
     }
-
-    printf("%i\n", i);
 
     resto[i] = quociente;
 
@@ -65,17 +63,17 @@ int canGetBits(int numero)
         printf("%i - ", resto[j]);
     }
 
-    /*
-	for ( int i = 0; i < 8; i++ )
+    printf("\n");
+
+	for ( register int i = 0; i < 8; ++i )
 	{
         if ( resto[i] == 1 )
         {
-            qtdeBits++;
+            ++bits;
         }
     }
-	*/
 
-    return qtdeBits;
+    return bits;
 }
 
 /**
@@ -85,12 +83,12 @@ int main(int argc, const char** argv)
 {
     setlocale(LC_ALL, "");
 
-    int numero = 0;
+    int number = 0;
 
     printf("Digite um numero: ");
-    scanf("%i", &numero);
+    scanf("%d", &number);
 
-    printf("%i", canGetBits(numero));
+    printf("%d", canGetBits(number));
 
     return 0;
 }
