@@ -40,34 +40,45 @@ void foo(void)
 	}
 }
 
+unsigned int getStringSize(char* const str)
+{
+    unsigned int size = 0u;
+
+    while ( str[size] != '\0' )
+    {
+        ++size;
+    }
+
+    return size;
+}
+
+void reverseString(char* str)
+{
+    char buffer[100];
+
+    unsigned int size = getStringSize(str);
+
+    for ( register int i = 0, j = size - 1; i <= size; ++i, --j )
+    {
+        buffer[i] = str[j];
+    }
+
+    strcpy(str, buffer);
+}
+
 /**
  *
  */
 int main(int argc, const char** argv)
 {
-	setlocale(LC_ALL, "");
+    char str[100];
 
-    char nome[100], foo[100];
+    printf("Your string: ");
+    scanf(" %[A-Za-z0-9]s", str);
 
-    int size = 0;
+    reverseString(str);
 
-    printf("Digite uma palavra: ");
-    scanf(" %[A-Za-z]s", nome);
+    printf("Reversed string: %s\n", str);
 
-    while ( nome[size] != '\0' )
-    {
-        size++;
-    }
-
-    printf("\n%i\n", size);
-
-    for ( register int i = 0, j = size; i <= (size / 2); ++i, --j )
-	{
-        foo[i] = nome[j];
-    }
-
-    printf("%s", foo);
-    //printf("%i", strlen(nome));
-
-    return 0;
+    return EXIT_SUCCESS;
 }
