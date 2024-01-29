@@ -1,5 +1,6 @@
 #include <inttypes.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <locale.h>
 
@@ -42,25 +43,24 @@ void canInputUser(void)
  */
 int canGetBits(int numero)
 {
-    int quociente = 0, bits = 0, resto[10] = { 0 };
-
-    quociente = numero / 2;
-    resto[0]  = numero % 2;
+    int bits = 0, resto[8] = {0};
 
     int i = 0;
 
-    for ( i = 1; quociente >= 2; i++ )
-	{
-        resto[i] = quociente % 2;
+	while ( numero >= 2 )
+    {
+        resto[i] = numero % 2;
 
-        quociente /= 2;
+        numero /= 2;
+
+        ++i;
     }
 
-    resto[i] = quociente;
+    resto[i] = numero;
 
-    for ( int j = 9; j >= 0; j-- )
+    for ( int j = 7; j >= 0; j-- )
 	{
-        printf("%i - ", resto[j]);
+        printf("%i ", resto[j]);
     }
 
     printf("\n");
@@ -88,7 +88,7 @@ int main(int argc, const char** argv)
     printf("Digite um numero: ");
     scanf("%d", &number);
 
-    printf("%d", canGetBits(number));
+    printf("Número de bits 1: %d\n", canGetBits(number));
 
     return 0;
 }
