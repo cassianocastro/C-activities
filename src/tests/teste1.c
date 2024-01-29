@@ -41,39 +41,39 @@ void canInputUser(void)
 /**
  * @test
  */
-int canGetBits(int numero)
+int canGetBits(int number, int* vector)
 {
-    int bits = 0, resto[8] = {0};
-
     int i = 0;
 
-	while ( numero >= 2 )
+	while ( number >= 2 )
     {
-        resto[i] = numero % 2;
+        vector[i] = number % 2;
 
-        numero /= 2;
+        number /= 2;
 
         ++i;
     }
 
-    resto[i] = numero;
+    vector[i] = number;
 
     for ( int j = 7; j >= 0; j-- )
 	{
-        printf("%i ", resto[j]);
+        printf("%i ", vector[j]);
     }
 
     printf("\n");
 
+    int count = 0;
+
 	for ( register int i = 0; i < 8; ++i )
 	{
-        if ( resto[i] == 1 )
+        if ( vector[i] == 1 )
         {
-            ++bits;
+            ++count;
         }
     }
 
-    return bits;
+    return count;
 }
 
 /**
@@ -83,12 +83,12 @@ int main(int argc, const char** argv)
 {
     setlocale(LC_ALL, "");
 
-    int number = 0;
+    int number = 0, bits[8] = { 0 };
 
     printf("Digite um numero: ");
     scanf("%d", &number);
 
-    printf("Número de bits 1: %d\n", canGetBits(number));
+    printf("Número de bits 1: %d\n", canGetBits(number, bits));
 
     return 0;
 }
