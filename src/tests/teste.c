@@ -61,7 +61,7 @@ int main(int argc, const char** argv)
 
     printf("\n%i\n", size);
 
-    for ( int i = 0, j = size; i <= size / 2; i++, j-- )
+    for ( register int i = 0, j = size; i <= (size / 2); ++i, --j )
 	{
         foo[i] = nome[j];
     }
