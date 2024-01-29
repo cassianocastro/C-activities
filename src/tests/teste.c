@@ -47,7 +47,10 @@ int main(int argc, char const *argv[])
     printf("Digite uma palavra: ");
     gets(nome);
 
-    while ( nome[size] != '\0' ) size++;
+    while ( nome[size] != '\0' )
+    {
+        size++;
+    }
 
     printf("\n%i\n", size);
 
