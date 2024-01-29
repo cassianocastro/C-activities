@@ -5,41 +5,35 @@
 #include <string.h>
 #include <time.h>
 
-void foo(void)
+/**
+ * Fills a vector with non-repeating numbers
+ */
+void fillVectorWithNonRepeatingNumbers(int* vector, const int size)
 {
 	srand(time(NULL));
 
-    int vetor[10], x = 0, cont = 0;
+    int x = 0;
 
-    for ( int i = 0; i < 10; i++ )
+    for ( register int i = 0; i < size; ++i )
 	{
-		cont = 0;
-		x    = 0;
+		x = 0;
 
-		// do {
-		// 	if ( vetor[i - cont] == x )
-        //  {
-		// 		x = rand() % 10;
-		// 		cont = 0;
-		// 	} else
-		// 		cont++;
-		// } while ( cont <= i );
-
-        for ( int j = 0; j <= i; j++ )
+        for ( register int j = 0; j <= i; ++j )
 		{
-            if ( vetor[i - j] == x )
+            if ( vector[i - j] == x )
             {
-                x = rand() % 10;
+                x = rand() % size;
                 j = 0;
             }
         }
 
-		vetor[i] = x;
-
-		printf("%d - ", vetor[i]);
+		vector[i] = x;
 	}
 }
 
+/**
+ *
+ */
 unsigned int getStringSize(char* const str)
 {
     unsigned int size = 0u;
@@ -52,6 +46,9 @@ unsigned int getStringSize(char* const str)
     return size;
 }
 
+/**
+ *
+ */
 void reverseString(char* str)
 {
     char buffer[100];
@@ -71,14 +68,29 @@ void reverseString(char* str)
  */
 int main(int argc, const char** argv)
 {
-    char str[100];
+    {
+        char str[100];
 
-    printf("Your string: ");
-    scanf(" %[A-Za-z0-9]s", str);
+        printf("Your string: ");
+        scanf(" %[A-Za-z0-9]s", str);
 
-    reverseString(str);
+        reverseString(str);
 
-    printf("Reversed string: %s\n", str);
+        printf("Reversed string: %s\n", str);
+    }
+
+    {
+        int size = 10, vector[size];
+
+        fillVectorWithNonRepeatingNumbers(vector, size);
+
+        for ( register int i = 0; i < 10; ++i )
+        {
+            printf("%d ", vector[i]);
+        }
+
+        puts("\n");
+    }
 
     return EXIT_SUCCESS;
 }
