@@ -42,12 +42,12 @@ void canInputUser(void)
 
 void printArray(int* vector)
 {
-    for ( int j = 7; j >= 0; j-- )
+    for ( register int i = 7; i >= 0; --i )
 	{
-        printf("%i ", vector[j]);
+        printf("%d ", vector[i]);
     }
 
-    printf("\n");
+    puts("");
 }
 
 int countBits(int* vector)
