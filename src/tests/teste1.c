@@ -38,8 +38,9 @@ void canInputUser(void)
     printf("Your name: %s %s\n", name, surname);
 }
 
-
-
+/**
+ *
+ */
 void printArray(int* vector)
 {
     for ( register int i = 7; i >= 0; --i )
@@ -50,6 +51,9 @@ void printArray(int* vector)
     puts("");
 }
 
+/**
+ *
+ */
 int countBits(int* vector)
 {
     int count = 0;
@@ -66,9 +70,9 @@ int countBits(int* vector)
 }
 
 /**
- * @test
+ *
  */
-void canGetBits(int number, int* vector)
+void getBits(int number, int* vector)
 {
     int i = 0;
 
@@ -96,7 +100,7 @@ int main(int argc, const char** argv)
     printf("Digite um numero: ");
     scanf("%d", &number);
 
-    canGetBits(number, vector);
+    getBits(number, vector);
 
     printf("Número de bits 1: %d\n", countBits(vector));
 
