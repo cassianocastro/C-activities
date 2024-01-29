@@ -52,7 +52,7 @@ int main(int argc, const char** argv)
     int size = 0;
 
     printf("Digite uma palavra: ");
-    gets(nome);
+    scanf(" %[A-Za-z]s", nome);
 
     while ( nome[size] != '\0' )
     {
